@@ -32,7 +32,7 @@
 				<div class="carousel-item">
 					<img class="w-100" src="../../public/images/首页页头背景.jpg" />
 				</div>
-		</div>
+			</div>
 			<!-- 2.左右箭头-->
 			<a data-slide="prev" href="#demo" class="carousel-control-prev">
 				<span class="carousel-control-prev-icon"></span>
