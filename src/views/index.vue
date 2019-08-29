@@ -11,8 +11,8 @@
 			</div>
 			<!-- 首页页头右部分 -->
 			<div class="index-header-right">
-				<input class="index-header-input" type="text" placeholder="蓝沢   请输入关键词" />
-				<img src="../../public/images/搜索.png" alt />
+				<input class="index-header-input" v-model="SearchContent" type="text" placeholder="蓝沢   请输入关键词" />
+				<img @click="Search()" src="../../public/images/搜索.png" alt />
 			</div>
 		</div>
 		<!-- 这是轮播 -->
@@ -125,7 +125,7 @@
 							<p>李肖某</p>
 						</div>
 						<div class="g-l-right">
-							<a href="javascript:;" class="btn">+ 关注</a>
+							<a class="btn" @click="concern()">+ 关注</a>
 						</div>
 						<p>化妆品拍摄美妆静物拍摄高端廉价出售</p>
 						<div class="g-l-product">
@@ -173,6 +173,7 @@
 				data: [],
 				recommendation: [],
 				category: [],
+				SearchContent:"手机",
 				nav1: [{
 						name: "服装服饰",
 						englishname: "",
@@ -219,6 +220,9 @@
 			};
 		},
 		methods: {
+			concern(){
+				
+			},
 			checklog() { //验证用户是否登录
 			console.log("正在测试")
 				var search = "name=";
@@ -310,12 +314,14 @@
 				var SearchContent = this.SearchContent;
 				var url = "/Search";
 				var params = {
-					content: SearchContent
+					type:"category",
+					kw: SearchContent
 				};
-
 				this.axios.get(url, {
 					params
-				}).then(result => {});
+				}).then(result => {
+					console.log(result)
+				});
 			}
 		},
 		created() {
