@@ -15,42 +15,10 @@
 				<img src="../../public/images/搜索.png" alt />
 			</div>
 		</div>
-		<!-- 轮播图 -->
-		<div class="lunbotu"></div>
-		<div id="demo" class="carousel lbt-1" data-ride="carousel">
-			<!-- 1.轮播图片carousel-inner-->
-			<div class="carousel-inner">
-				<div class="carousel-item active">
-					<img class="w-100" src="../../public/images/首页页头背景.jpg" />
-				</div>
-				<div class="carousel-item">
-					<img class="w-100" src="../../public/images/首页页头背景.jpg" />
-				</div>
-				<div class="carousel-item">
-					<img class="w-100" src="../../public/images/首页页头背景.jpg" />
-				</div>
-				<div class="carousel-item">
-					<img class="w-100" src="../../public/images/首页页头背景.jpg" />
-				</div>
-			</div>
-			<!-- 2.左右箭头-->
-			<a data-slide="prev" href="#demo" class="carousel-control-prev">
-				<span class="carousel-control-prev-icon"></span>
-			</a>
-			<a data-slide="next" href="#demo" class="carousel-control-next">
-				<span class="carousel-control-next-icon"></span>
-			</a>
-			<!-- 3.轮播指示器-->
-			<ul class="carousel-indicators">
-				<li data-target="#demo" data-slide-to="0" class="active"></li>
-				<li data-target="#demo" data-slide-to="1"></li>
-				<li data-target="#demo" data-slide-to="2"></li>
-				<li data-target="#demo" data-slide-to="3"></li>
-			</ul>
-		</div>
-
+		<!-- 这是轮播 -->
+		<Carousel />
 		<!-- 频道广场 -->
-		<div class="pd">
+		<div class="pd" first="1">
 			<img class="pd-left" src="../../public/images/左边装饰红.png" alt />
 			<div class="pd-a">
 				<a href="javascript:;" class="pd_a">频道广场</a>
@@ -198,6 +166,7 @@
 <script>
 	// @ is an alias to /src
 	import RegLogin from "../components/RegLogin";
+	import Carousel from "../components/Carousel.vue"
 	export default {
 		data() {
 			return {
@@ -250,6 +219,23 @@
 			};
 		},
 		methods: {
+			checklog() { //验证用户是否登录
+			console.log("正在测试")
+				var search = "name=";
+				var begin = document.cookie.indexOf(search);
+				if (begin != -1) {
+					begin += search.length;
+					end = document.cookie.indexOf(";", begin);
+					if (end == -1) {
+						end = document.cookie.length;
+					}
+					document.getElementById("pageNameD").innerHTML = "<h1>对不起，" + document.cookie.substring(begin, end) +
+						".您已经登录。</h1>"
+					document.all.pageName.style.display = 'none'
+				} else {
+					alert("未登录");
+				}
+			},
 			isActive() {
 				//获取tab主要按键
 				var selectactive = document.getElementsByClassName("nav-link");
@@ -336,10 +322,12 @@
 
 		},
 		mounted() {
-			this.isActive()
+			this.isActive(),
+			this.checklog()
 		},
 		components: {
-			RegLogin
+			RegLogin,
+			Carousel
 		}
 
 	};
