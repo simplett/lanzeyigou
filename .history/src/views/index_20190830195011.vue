@@ -170,43 +170,43 @@
 				nav1: [{
 						name: "服装服饰",
 						englishname: "CLOTHING AND APPAREL",
-						image_url: require("../../public/images/details/素材/0_1.png")
+						image_url: require("../../public/images/素材/0_1.png")
 					},
 					{
 						name: "饰品首饰",
 						englishname: "JEWELRY AND ORNAMENTS",
-						image_url: require("../../public/images/details/素材/0_1.png")
+						image_url: require("../../public/images/素材/0_1.png")
 					},
 					{
 						name: "家用电器",
 						englishname: "ELECTIC APPLIANCE",
-						image_url: require("../../public/images/details/素材/0_1.png")
+						image_url: require("../../public/images/素材/0_1.png")
 					},
 					{
 						name: "宠物用品",
 						englishname: "PET SUPPLIES",
-						image_url: require("../../public/images/details/素材/0_1.png")
+						image_url: require("../../public/images/素材/0_1.png")
 					}
 				],
 				nav2: [{
 						name: "日用百货",
 						englishname: "ARTICLES OF DAILY USE",
-						image_url: require("../../public/images/details/素材/0_1.png")
+						image_url: require("../../public/images/素材/0_1.png")
 					},
 					{
 						name: "左图右史",
 						englishname: "BOOL COMPLETE",
-						image_url: require("../../public/images/details/素材/0_1.png")
+						image_url: require("../../public/images/素材/0_1.png")
 					},
 					{
 						name: "美容护肤",
 						englishname: "COSMETIC SKIN CARE",
-						image_url: require("../../public/images/details/素材/0_1.png")
+						image_url: require("../../public/images/素材/0_1.png")
 					},
 					{
 						name: "健康养生",
 						englishname: "HEALTH PRESERVATION",
-						image_url: require("../../public/images/details/素材/0_1.png")
+						image_url: require("../../public/images/素材/0_1.png")
 					}
 				]
 

@@ -9,14 +9,14 @@
 		<Carousel/>
 		<!-- 频道广场 -->
 		<div class="pd" first="1">
-			<img class="pd-left" src="../../public/images/左边装饰红.png" alt />
+			<img class="pd-left" src="../../public/details/images/左边装饰红.png" alt />
 			<div class="pd-a">
 				<a href="javascript:;" class="pd_a">频道广场</a>
 				<div class="pd-p-div">
 					<p>Classification of commodities</p>
 				</div>
 			</div>
-			<img class="pd-right" src="../../public/images/右边装饰红.png" alt />
+			<img class="pd-right" src="../../public/details/images/右边装饰红.png" alt />
 		</div>
 		<!-- 频道广场商品展示 -->
 		<div class="pd-products">
@@ -25,7 +25,7 @@
 					<div class="pd-1-title">
 						<a class="p-left-title" href="javascript:;">数码产品</a>
 						<p>DIGTAL PRODUCTS</p>
-						<img src="../../public/images/details/素材/1_0.png" alt />
+						<img src="../../public/details/images/素材/1_0.png" alt />
 					</div>
 				</div>
 				<div class="pd-p-1 p-right-1">
@@ -33,7 +33,7 @@
 						<a class="p-right-title" href="javascript:;">运动体育</a>
 						<p id="p-right-p">MOTION SPORTS</p>
                     <div class="p-right-img">
-                        <img src="../../public/images/details/素材/4_3.png" alt="">
+                        <img src="../../public/details/images/素材/4_3.png" alt="">
                     </div>
 					</div>
 				</div>
@@ -60,14 +60,14 @@
 
 		<!-- 猜你喜欢 -->
 		<div class="pd">
-			<img class="pd-left" src="../../public/images/左边装饰蓝.png" alt />
+			<img class="pd-left" src="../../public/details/images/左边装饰蓝.png" alt />
 			<div class="pd-a">
 				<a href="javascript:;" class="cn_a">猜你喜欢</a>
 				<div class="pd-p_div">
 					<p>Guess you like it</p>
 				</div>
 			</div>
-			<img class="pd-right" src="../../public/images/右边装饰蓝.png" alt />
+			<img class="pd-right" src="../../public/details/images/右边装饰蓝.png" alt />
 		</div>
 		<!-- 猜你喜欢商品展示 -->
 		<div class="guess-like">
@@ -76,21 +76,21 @@
 			</div>
 			<div class="guess-like-products">
 				<div class="g-l-p-img" v-for="(item,i) of 12" :key="i">
-					<img :data-id="item.pid" src="../../public/images/details/素材/4_5.png" />
+					<img :data-id="item.pid" src="../../public/details/images/素材/4_5.png" />
 				</div>
 			</div>
 		</div>
 
 		<!-- 为你推荐 -->
 		<div class="pd">
-			<img class="pd-left" src="../../public/images/左边装饰红.png" alt />
+			<img class="pd-left" src="../../public/details/images/左边装饰红.png" alt />
 			<div class="pd-a">
 				<a href="javascript:;" class="pd_a">为你推荐</a>
 				<div class="pd-p-d">
 					<p>Recommendation for you</p>
 				</div>
 			</div>
-			<img class="pd-right" src="../../public/images/右边装饰红.png" alt />
+			<img class="pd-right" src="../../public/details/images/右边装饰红.png" alt />
 		</div>
 
 		<!-- 为你推荐胶囊导航 -->
@@ -113,7 +113,7 @@
 				<div class="g-l-p">
 					<div class="g-l-p-title">
 						<div class="g-l-hp">
-							<img src="../../public/images/details/素材/1_5.png" alt />
+							<img src="../../public/details/images/素材/1_5.png" alt />
 							<p>李肖某</p>
 						</div>
 						<div class="g-l-right">
@@ -121,14 +121,14 @@
 						</div>
 						<p>化妆品拍摄美妆静物拍摄高端廉价出售</p>
 						<div class="g-l-product">
-							<img src="../../public/images/details/素材/8-4.png" alt />
+							<img src="../../public/details/images/素材/8-4.png" alt />
 						</div>
 						<div class="g-l-table">
 							<table>
 								<tbody>
 									<tr>
 										<td>
-											<img class="td-right" src="../../public/images/浏览眼睛.png" />
+											<img class="td-right" src="../../public/details/images/浏览眼睛.png" />
 											<p class="td-right">135人浏览</p>
 										</td>
 										<td>
@@ -170,43 +170,43 @@
 				nav1: [{
 						name: "服装服饰",
 						englishname: "CLOTHING AND APPAREL",
-						image_url: require("../../public/images/details/素材/0_1.png")
+						image_url: require("../../public/details/images/素材/0_1.png")
 					},
 					{
 						name: "饰品首饰",
 						englishname: "JEWELRY AND ORNAMENTS",
-						image_url: require("../../public/images/details/素材/0_1.png")
+						image_url: require("../../public/details/images/素材/0_1.png")
 					},
 					{
 						name: "家用电器",
 						englishname: "ELECTIC APPLIANCE",
-						image_url: require("../../public/images/details/素材/0_1.png")
+						image_url: require("../../public/details/images/素材/0_1.png")
 					},
 					{
 						name: "宠物用品",
 						englishname: "PET SUPPLIES",
-						image_url: require("../../public/images/details/素材/0_1.png")
+						image_url: require("../../public/details/images/素材/0_1.png")
 					}
 				],
 				nav2: [{
 						name: "日用百货",
 						englishname: "ARTICLES OF DAILY USE",
-						image_url: require("../../public/images/details/素材/0_1.png")
+						image_url: require("../../public/details/images/素材/0_1.png")
 					},
 					{
 						name: "左图右史",
 						englishname: "BOOL COMPLETE",
-						image_url: require("../../public/images/details/素材/0_1.png")
+						image_url: require("../../public/images/素材/0_1.png")
 					},
 					{
 						name: "美容护肤",
 						englishname: "COSMETIC SKIN CARE",
-						image_url: require("../../public/images/details/素材/0_1.png")
+						image_url: require("../../public/images/素材/0_1.png")
 					},
 					{
 						name: "健康养生",
 						englishname: "HEALTH PRESERVATION",
-						image_url: require("../../public/images/details/素材/0_1.png")
+						image_url: require("../../public/images/素材/0_1.png")
 					}
 				]
 

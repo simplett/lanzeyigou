@@ -23,7 +23,7 @@
             <div class="p-7-right">
                 <div class="p-7-right-2">
                     <div class="p-7-right-img">
-                        <img src="../../public/images/素材/1_0.png" alt="">
+                        <img src="../../public/images/details/素材/1_0.png" alt="">
                     </div>
                 </div>
                  <div class="p-7-right-2">
@@ -116,15 +116,15 @@
                         intro:"华为【Nova4】",
                         price:"2000.00",
                         customer:"12",
-                        Hphoto_url:"",
-                        Pphoto_url:require("../../public/images/素材/0_0.png")
+                        Hphoto_url:require("../../public/images/details/素材/0_0.png"),
+                        Pphoto_url:require("../../public/images/details/素材/0_0.png")
                     },
                     {
                         intro:"智能数码相机",
                         price:"2500.00",
                         customer:"12",
-                        Hphoto_url:"",
-                        Pphoto_url:require("../../public/images/素材/0_1.png")
+                        Hphoto_url:require("../../public/images/details/素材/0_0.png"),
+                        Pphoto_url:require("../../public/images/details/素材/0_1.png")
                     },
                 ]
             };
