@@ -66,7 +66,7 @@
                             </tr>
                             <tr>
                                 <td class="td-left"><p>￥{{item.price}}</p></td>
-                                <td class="td-right"><p><a>{{item.customer}}</a>人想要</p></td>
+                                <td class="td-p-right"><p><a>{{item.customer}}</a>人想要</p></td>
                             </tr>
                         </tbody>
                     </table>
@@ -236,7 +236,7 @@ table{
 .td-left{
     float:left;
 }
-.td-right{
+.td-p-right{
     float:right;
     // width:50px;
 }
@@ -244,7 +244,7 @@ table{
     color:red;
     font-size:16px;
 }
-.td-right>p{
+.td-p-right>p{
     color:#999999;
     font-size:12px;
 }

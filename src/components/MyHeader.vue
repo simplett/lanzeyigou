@@ -28,7 +28,7 @@
   }
 </script>
 <style scoped>
-.header{
+   .header{
     height: 36px;
     width:100%;
     margin: 0 auto;
