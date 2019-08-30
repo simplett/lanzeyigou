@@ -43,7 +43,7 @@
 					<div class="pd-p-s">
 						<a class="pd-p-a" href="javascript:;">{{item.name}}</a>
 						<p class="pd-p-p">{{item.englishname}}</p>
-						<img class="pd-p-img" :src="item.image_url" alt />
+						<img class="pd-p-img" src="../../public/images/素材/0_1.png" alt />
 					</div>
 				</div>
 			</div>
@@ -52,7 +52,7 @@
 					<div class="pd-p-s">
 						<a class="pd-p-a" href="javascript:;">{{item.name}}</a>
 						<p class="pd-p-p">{{item.englishname}}</p>
-						<img class="pd-p-img" :src="item.image_url" alt />
+						<img class="pd-p-img" src="../../public/images/素材/1_0.png" alt />
 					</div>
 				</div>
 			</div>
@@ -140,7 +140,7 @@
 											<p class="td-right td-red">￥1.00</p>
 										</td>
 										<td>
-											<a href="javascript:;" class="btn">我想要</a>
+											<a href="javascript:;" class="btn btn-danger">我想要</a>
 										</td>
 									</tr>
 								</tbody>
@@ -169,44 +169,44 @@
 				SearchContent:"手机",
 				nav1: [{
 						name: "服装服饰",
-						englishname: "CLOTHING AND APPAREL",
-						image_url: require("../../public/images/素材/0_1.png")
+						englishname: "",
+						image_url: "../../public/images/素材/0_1.png"
 					},
 					{
 						name: "饰品首饰",
-						englishname: "JEWELRY AND ORNAMENTS",
-						image_url: require("../../public/images/素材/0_1.png")
+						englishname: "MOTION SPORTS",
+						image_url: ""
 					},
 					{
 						name: "家用电器",
-						englishname: "ELECTIC APPLIANCE",
-						image_url: require("../../public/images/素材/0_1.png")
+						englishname: "MOTION SPORTS",
+						image_url: ""
 					},
 					{
 						name: "宠物用品",
-						englishname: "PET SUPPLIES",
-						image_url: require("../../public/images/素材/0_1.png")
+						englishname: "",
+						image_url: ""
 					}
 				],
 				nav2: [{
 						name: "日用百货",
-						englishname: "ARTICLES OF DAILY USE",
-						image_url: require("../../public/images/素材/0_1.png")
+						englishname: "MOTION SPORTS",
+						image_url: ""
 					},
 					{
 						name: "左图右史",
-						englishname: "BOOL COMPLETE",
-						image_url: require("../../public/images/素材/0_1.png")
+						englishname: "MOTION SPORTS",
+						image_url: ""
 					},
 					{
 						name: "美容护肤",
-						englishname: "COSMETIC SKIN CARE",
-						image_url: require("../../public/images/素材/0_1.png")
+						englishname: "",
+						image_url: ""
 					},
 					{
 						name: "健康养生",
-						englishname: "HEALTH PRESERVATION",
-						image_url: require("../../public/images/素材/0_1.png")
+						englishname: "",
+						image_url: ""
 					}
 				]
 

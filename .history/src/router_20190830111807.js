@@ -1,4 +1,3 @@
-
 import Vue from 'vue'
 import Router from 'vue-router'
 import index from './views/index.vue'
@@ -29,6 +28,7 @@ export default new Router({
 	  path: '/login',
 	  name: 'login',
 	  component: login
+>>>>>>> 0bd9e5132af27ac7cdad58c8cf0e5fa846e23af6
 	}
   ]
 })

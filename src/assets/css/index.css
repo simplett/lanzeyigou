@@ -123,7 +123,7 @@
 }
 .pd-p-s{
     margin: 0 auto;
-    width: 90%;
+    width: 92%;
     height: 100%;
     padding-top: 20px;
     margin: 0px;
@@ -264,14 +264,14 @@
 }
 .g-l-right{
     float: right;
-    margin-top: -50px;
-    margin-right:20px;
-    border: 1px solid red;
+    margin-top: -38px;
+    /* margin-right:20px; */
+    /* border: 1px solid red; */
     width:50px;
     height:20px;
 }
 .g-l-right>a{
-    color:red;
+    /* color:red; */
     font-weight: bold;
     margin-top: -10px;
     font-size: 14px;
@@ -328,13 +328,18 @@ td>span{
     font-weight: bold;
     font-size:11px;
 }
-td>a.btn-danger{
+td>a.btn{
     width:90px;
     height:25px;
     font-size:11px;
     line-height:10px;
     margin-top: 10px;
     margin-left: 10%;
+}
+td>a.btn:hover{
+    color:#FFFFFF;
+    border:0;
+    background: #e31c1c;
 }
 .footer-div{
     float: bottom;

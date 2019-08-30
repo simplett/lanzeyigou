@@ -41,53 +41,63 @@
                 </div>
             </div>
         </div>
-        <!-- 分类 -->
-        <div v-for="(item,i) of module" :key="i">
-            <!-- 标题 -->
-            <div class="title">
-                <div class="title-div">
-                    <a>{{item.title}}</a>
+        <!-- 酷炫电脑 -->
+        <!-- 标题 -->
+        <div class="title">
+            <div class="title-div">
+                <a>酷炫电脑</a>
+            </div>
+        </div>
+        <!-- 酷炫电脑-商品列表 -->
+        <div class="p-list">
+            <div class="products">
+                <!-- 商品图片 -->
+                <div class="products-img">
+                    <img src="../../public/images/素材/1_0.png" alt="">
+                </div>
+                <!-- 商品介绍 -->
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="td-top" colspan="2">
+                                <a href="javascript:;">华为【Nova4】手机</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td-left"><p>￥2000.00</p></td>
+                            <td class="td-right"><p><a>12</a>人想要</p></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- 商家信息与关注 -->
+                <div class="p-msg">
+                    <div class="p-msg-left">
+                        <div class="p-msg-left-img">
+                            <img src="" alt="">
+                        </div>
+                        <p>丁晓瑞</p>
+                    </div>
+                    <div>
+                        <div class="p-msg-right">
+                            <a href="javascript:;" class="btn">+ 关注</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!-- 商品列表 -->
-            <div class="p-list">
-                <div class="products" v-for="(item,i) of list" :key="i">
-                    <!-- 商品图片 -->
-                    <div class="products-img">
-                        <img :src="item.Pphoto_url" alt="">
-                    </div>
-                    <!-- 商品介绍 -->
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td class="td-top" colspan="2">
-                                    <a href="javascript:;">{{item.intro}}</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="td-left"><p>￥{{item.price}}</p></td>
-                                <td class="td-right"><p><a>{{item.customer}}</a>人想要</p></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <!-- 商家信息与关注 -->
-                    <div class="p-msg">
-                        <div class="p-msg-left">
-                            <div class="p-msg-left-img">
-                                <img :src="Hphoto_url" alt="">
-                            </div>
-                            <p>丁晓瑞</p>
-                        </div>
-                        <div>
-                            <div class="p-msg-right">
-                                <a href="javascript:;" class="btn">+ 关注</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> 
+            <div class="products">
+
+            </div>
+            <div class="products">
+
+            </div>
+            <div class="products">
+
+            </div>
+            <div class="products">
+
+            </div>
+
         </div>
-        
     </div>
 </template>
 
@@ -96,32 +106,7 @@
 	import search from "../components/search.vue"
     export default{
         data(){
-            return {
-                module:[
-                    {
-                        title:"酷炫电脑",
-                    },
-                    {
-                        title:"手机一族",
-                    },
-                ],
-                list:[
-                    {
-                        intro:"华为【Nova4】",
-                        price:"2000.00",
-                        customer:"12",
-                        Hphoto_url:"",
-                        Pphoto_url:require("../../public/images/素材/0_0.png")
-                    },
-                    {
-                        intro:"智能数码相机",
-                        price:"2500.00",
-                        customer:"12",
-                        Hphoto_url:"",
-                        Pphoto_url:require("../../public/images/素材/0_1.png")
-                    },
-                ]
-            };
+            return {};
         },
 		components: {
             Carousel,
@@ -267,7 +252,7 @@ table{
     margin-top:12px;
     float:left;
     border:1px solid black;
-    border-radius:50%;
+    
 }
 .p-msg-left>p{
     width:112px;
