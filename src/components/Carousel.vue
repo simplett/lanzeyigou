@@ -37,22 +37,20 @@
 						<img class="w-100" src="../../public/images/首页页头背景.jpg" />
 					</div>
 				</div>
+				
 				<!-- 2.左右箭头-->
-				<a data-slide="prev" href="#demo" class="carousel-control-prev">
-					<span class="carousel-control-prev-icon"></span>
-				</a>
-				<a data-slide="next" href="#demo" class="carousel-control-next">
-					<span class="carousel-control-next-icon"></span>
-				</a>
+				<!-- 
+				 -->
 				<!-- 3.轮播指示器-->
-				<ul class="carousel-indicators">
+				<!-- <ul class="carousel-indicators">
 					<li data-target="#demo" data-slide-to="0" class="active"></li>
 					<li data-target="#demo" data-slide-to="1"></li>
 					<li data-target="#demo" data-slide-to="2"></li>
 					<li data-target="#demo" data-slide-to="3"></li>
-				</ul>
+				</ul> -->
 			</div>
 		</div>
+		<div class="lunbotu-out-2"></div>
 	</div>
 </div>
 </template>
@@ -71,6 +69,7 @@
 	    width:100%;
 		opacity: 0.6;
 	    height: 600px;
+		background: #545B62;
 		position: absolute;
 	    background-color: transparent;
 	    background-repeat:  no-repeat;
@@ -81,6 +80,12 @@
 	    -ms-filter: blur(10px);
 	    filter: blur(10px);
 	}
+	.lunbotu-out-2{
+	    width:100%;
+	    height: 600px;
+		position: absolute;
+	    background-color: transparent;
+	}
 	.lunbotu{
 	    width:100%;
 		position: absolute;
@@ -90,7 +95,7 @@
 	    width: 1180px;
 	    height: 600px;
 		left: 50%;
-		margin-left: -560px;
+		margin-left: -590px;
 	    position: absolute;
 	}
 	.lbt-out-1{
