@@ -5,7 +5,7 @@ import index from './views/index.vue'
 import productList from './views/productList.vue'
 import lunbo from "./components/Carousel.vue"
 import login from "./components/RegLogin.vue"
-import aliyun from "./components/aliyun.vue"
+import aliyun from "./views/element.vue"
 
 Vue.use(Router)
 

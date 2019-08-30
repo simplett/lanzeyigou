@@ -7,9 +7,6 @@ import VueAxios from 'vue-axios'
 import jQuery from "jquery"
 import myfoot from "./components/MyFoot.vue"
 import myheader from "./components/MyHeader.vue"
-import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
-Vue.use(ElementUI)
 
 
 axios.defaults.baseURL = "http://10.1.180.146:8080"

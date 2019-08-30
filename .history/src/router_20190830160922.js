@@ -5,7 +5,6 @@ import index from './views/index.vue'
 import productList from './views/productList.vue'
 import lunbo from "./components/Carousel.vue"
 import login from "./components/RegLogin.vue"
-import aliyun from "./components/aliyun.vue"
 
 Vue.use(Router)
 
@@ -30,11 +29,6 @@ export default new Router({
 	  path: '/login',
 	  name: 'login',
 	  component: login
-	},
-	{
-		path: '/aliyun',
-		name: 'aliyun',
-		component: aliyun
-	  }
+	}
   ]
 })
