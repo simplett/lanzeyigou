@@ -1,36 +1,4 @@
-<<<<<<< HEAD
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import store from './store'
-import axios from 'axios'
-import VueAxios from 'vue-axios'
-import jQuery from "jquery"
-import myfoot from "./components/MyFoot.vue"
-import myheader from "./components/MyHeader.vue"
-import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
-Vue.use(ElementUI)
 
-
-axios.defaults.baseURL = "http://120.79.19.253:8080"
-axios.defaults.withCredentials = true
-Vue.prototype.axios = axios
-Vue.prototype.$=jQuery;
-Vue.component(
-	"my-header",myheader,
-)
-Vue.component(
-	"my-foot",myfoot
-)
-
-Vue.config.productionTip = false
-new Vue({
-	router,
-	store,
-	render: h => h(App)
-}).$mount('#app')
-=======
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
@@ -62,4 +30,3 @@ new Vue({
 	store,
 	render: h => h(App)
 }).$mount('#app')
->>>>>>> 6b6af35bceabcb10dbcb0bd785875a606e4aa34b
