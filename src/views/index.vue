@@ -1,3 +1,4 @@
+
 <template>
 	<div>
 		<!-- 主页 -->
@@ -25,7 +26,7 @@
 					<div class="pd-1-title">
 						<a class="p-left-title" href="javascript:;">数码产品</a>
 						<p>DIGTAL PRODUCTS</p>
-						<img src="../../public/images/素材/1_0.png" alt />
+						<img src="../../public/images/details/素材/1_0.png" alt />
 					</div>
 				</div>
 				<div class="pd-p-1 p-right-1">
@@ -33,7 +34,7 @@
 						<a class="p-right-title" href="javascript:;">运动体育</a>
 						<p id="p-right-p">MOTION SPORTS</p>
                     <div class="p-right-img">
-                        <img src="../../public/images/素材/4_3.png" alt="">
+                        <img src="../../public/images/details/素材/4_3.png" alt="">
                     </div>
 					</div>
 				</div>
@@ -76,7 +77,7 @@
 			</div>
 			<div class="guess-like-products">
 				<div class="g-l-p-img" v-for="(item,i) of 12" :key="i">
-					<img :data-id="item.pid" src="../../public/images/素材/4_5.png" />
+					<img :data-id="item.pid" src="../../public/images/details/素材/4_5.png" />
 				</div>
 			</div>
 		</div>
@@ -96,32 +97,34 @@
 		<!-- 为你推荐胶囊导航 -->
 		<div class="g-l">
 			<ul class="nav nav-pills text-center">
-				<li class="nav-item">
-					<a class="nav-link active">最新发布</a>
+				<li class="nav-item" @click="DiscoverLike(1)">
+					<a class="nav-link active" >最新发布</a>
 				</li>
-				<li class="nav-item">
+				<li class="nav-item" @click="DiscoverLike(2)">
 					<a class="nav-link">发现好货</a>
 				</li>
-				<li class="nav-item">
+				<li class="nav-item" @click="DiscoverLike(3)">
 					<a class="nav-link">特色优选</a>
 				</li>
 			</ul>
 		</div>
-		<div style="display: none;" class="tab-content" v-for="(item,i) of 3" :key="i">
-			<div style="display: block;" class="tab-pane" v-for="(item,i) of 8" :key="i">
+		<div style="display: none;" class="tab-content" v-for="(items,i) of 3" :key="i">
+			<div style="display: block;" class="tab-pane" v-for="(item,i) of data" :key="i">
 				<!-- 猜你喜欢商品 -->
 				<div class="g-l-p">
 					<div class="g-l-p-title">
+						<!-- 头像 -->
 						<div class="g-l-hp">
-							<img src="../../public/images/素材/1_5.png" alt />
-							<p>李肖某</p>
+							<img :src="item.image" :data-uid="item.uid" />
+						<!-- 用户名 -->
+							<p>{{item.nickname}}</p>
 						</div>
 						<div class="g-l-right">
-							<a class="btn" @click="concern()">+ 关注</a>
+							<a class="btn g-l-right-btn-focus" @click="concern(item.uid)" :data-uid="item.uid">+ 关注</a>
 						</div>
-						<p>化妆品拍摄美妆静物拍摄高端廉价出售</p>
+						<p class="p-introduce">{{item.pname}}</p>
 						<div class="g-l-product">
-							<img src="../../public/images/素材/8-4.png" alt />
+							<img :src="item.pimages" :data-pid="item.pid" alt />
 						</div>
 						<div class="g-l-table">
 							<table>
@@ -129,7 +132,7 @@
 									<tr>
 										<td>
 											<img class="td-right" src="../../public/images/浏览眼睛.png" />
-											<p class="td-right">135人浏览</p>
+											<p class="td-right">{{item.watched}}人浏览</p>
 										</td>
 										<td>
 											<span>12人想要</span>
@@ -137,10 +140,10 @@
 									</tr>
 									<tr>
 										<td>
-											<p class="td-right td-red">￥1.00</p>
+											<p class="td-right td-red">￥{{item.price}}</p>
 										</td>
 										<td>
-											<a href="javascript:;" class="btn">我想要</a>
+											<a :data-pid="item.uid" class="btn td-btn-focus">我想要</a>
 										</td>
 									</tr>
 								</tbody>
@@ -170,53 +173,56 @@
 				nav1: [{
 						name: "服装服饰",
 						englishname: "CLOTHING AND APPAREL",
-						image_url: require("../../public/images/素材/0_1.png")
+						image_url: require("../../public/images/details/素材/0_1.png")
 					},
 					{
 						name: "饰品首饰",
 						englishname: "JEWELRY AND ORNAMENTS",
-						image_url: require("../../public/images/素材/0_1.png")
+						image_url: require("../../public/images/details/素材/0_1.png")
 					},
 					{
 						name: "家用电器",
 						englishname: "ELECTIC APPLIANCE",
-						image_url: require("../../public/images/素材/0_1.png")
+						image_url: require("../../public/images/details/素材/0_1.png")
 					},
 					{
 						name: "宠物用品",
 						englishname: "PET SUPPLIES",
-						image_url: require("../../public/images/素材/0_1.png")
+						image_url: require("../../public/images/details/素材/0_1.png")
 					}
 				],
 				nav2: [{
 						name: "日用百货",
 						englishname: "ARTICLES OF DAILY USE",
-						image_url: require("../../public/images/素材/0_1.png")
+						image_url: require("../../public/images/details/素材/0_1.png")
 					},
 					{
 						name: "左图右史",
 						englishname: "BOOL COMPLETE",
-						image_url: require("../../public/images/素材/0_1.png")
+						image_url: require("../../public/images/details/素材/0_1.png")
 					},
 					{
 						name: "美容护肤",
 						englishname: "COSMETIC SKIN CARE",
-						image_url: require("../../public/images/素材/0_1.png")
+						image_url: require("../../public/images/details/素材/0_1.png")
 					},
 					{
 						name: "健康养生",
 						englishname: "HEALTH PRESERVATION",
-						image_url: require("../../public/images/素材/0_1.png")
+						image_url: require("../../public/images/details/素材/0_1.png")
 					}
 				]
 
 			};
 		},
 		methods: {
-			concern(){
-				
+			//关注此用户
+			concern(uid){
+				console.log(uid);
+				var url="/"
 			},
-			checklog() { //验证用户是否登录
+			//验证用户是否登录
+			checklog() { 
 			console.log("正在测试")
 				var search = "name=";
 				var begin = document.cookie.indexOf(search);
@@ -279,21 +285,22 @@
 			//这是为你推荐的Ajax请求
 			//（category的可取值为new,superior,characteristic）
 			DiscoverLike(category) {
-				var url = "/Find";
+				var url = "/Index";
 				var params = {};
-				if (category == "new") {
-					params.type = category;
-				} else if (category == "superior") {
-					params.type = category;
-				} else {
-					params.type = category;
+				if (category == 1) {
+					params.type = "new";
+				} else if (category == 2) {
+					params.type = "superior";
+				} else if(category == 3){
+					params.type = "characteristic";
 				}
 				this.axios
 					.get(url, {
 						params
 					})
 					.then(result => {
-						this.data = result;
+						this.data = result.data.data;
+						console.log(result);
 						//数据保存在data中，分类别的请求会覆盖同一个data，实现数据的共享
 						//在页面加载的时候，会预先发送一个请求，函数名称为DiscoverLike（”new“）
 					});
@@ -322,7 +329,8 @@
 		},
 		mounted() {
 			this.isActive(),
-			this.checklog()
+			this.checklog(),
+			this.DiscoverLike(1)
 		},
 		components: {
 			RegLogin,

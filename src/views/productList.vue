@@ -23,7 +23,7 @@
             <div class="p-7-right">
                 <div class="p-7-right-2">
                     <div class="p-7-right-img">
-                        <img src="../../public/images/素材/1_0.png" alt="">
+                        <img src="../../public/images/details/素材/1_0.png" alt="">
                     </div>
                 </div>
                  <div class="p-7-right-2">
@@ -67,7 +67,7 @@
                         <tbody>
                             <tr>
                                 <td class="td-top" colspan="2">
-                                    <a href="javascript:;">{{item.intro}}</a>
+                                    <a class="td-top-p-intro" href="javascript:;">{{item.intro}}</a>
                                 </td>
                             </tr>
                             <tr>
@@ -86,7 +86,7 @@
                         </div>
                         <div>
                             <div class="p-msg-right">
-                                <a href="javascript:;" class="btn">+ 关注</a>
+                                <a href="javascript:;" class="btn btn-focus">+ 关注</a>
                             </div>
                         </div>
                     </div>
@@ -113,18 +113,18 @@
                 ],
                 list:[
                     {
-                        intro:"华为【Nova4】",
+                        intro:"华为【Nova4】1111111111111111111111111111111111111111111111111111111111111111",
                         price:"2000.00",
                         customer:"12",
-                        Hphoto_url:"",
-                        Pphoto_url:require("../../public/images/素材/0_0.png")
+                        Hphoto_url:require("../../public/images/details/素材/0_0.png"),
+                        Pphoto_url:require("../../public/images/details/素材/0_0.png")
                     },
                     {
                         intro:"智能数码相机",
                         price:"2500.00",
                         customer:"12",
-                        Hphoto_url:"",
-                        Pphoto_url:require("../../public/images/素材/0_1.png")
+                        Hphoto_url:require("../../public/images/details/素材/0_0.png"),
+                        Pphoto_url:require("../../public/images/details/素材/0_1.png")
                     },
                 ]
             };
@@ -231,14 +231,7 @@ table{
     height:30px;
     padding-bottom:37px;
 }
-.td-top>a{
-    padding:0;
-    color:#999999;
-    font-size:12px;
-    overflow:hidden; //超出的文本隐藏
-    text-overflow:ellipsis; //溢出用省略号显示
-    // white-space:nowrap; //溢出不换行
-}
+
 .td-left{
     float:left;
 }
@@ -283,7 +276,7 @@ table{
     float:right;
     padding-top:16px;
 }
-.btn{
+.btn-focus{
     width:70px;
     height:25px;
     color:#333333;
@@ -293,8 +286,21 @@ table{
     float:right;
     margin-right:11px;
 }
-.btn:hover{
+.btn-focus:hover{
     color:red;
     border:1px solid red;
+}
+.td-top-p-intro{
+    width:180px;
+    height:35px;
+    overflow: hidden;  /*溢出隐藏*/
+    text-overflow: ellipsis; /*以省略号...显示*/
+    -webkit-line-clamp: 2;
+    word-break:break-all;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    padding:0;
+    color:#999999;
+    font-size:12px;
 }
 </style>

@@ -8,14 +8,34 @@
 			</div>
 			<!-- 首页页头右部分 -->
 			<div class="index-header-right">
-				<input class="index-header-input" type="text" placeholder="蓝沢   请输入关键词" />
-				<img src="../../public/images/搜索.png" alt />
+				<input class="index-header-input" type="text" v-model="SearchContent" placeholder="蓝沢   请输入关键词" />
+				<img src="../../public/images/搜索.png" @click="Search()" />
 			</div>
 		</div>
   </header>
 </template>
 <script>
   export default {
+      data(){
+          return {
+SearchContent:"手机"
+          }
+      },
+      methods:{
+          Search() {
+				var SearchContent = this.SearchContent;
+				var url = "/Search";
+				var params = {
+					type:"category",
+					kw: SearchContent
+				};
+				this.axios.get(url, {
+					params
+				}).then(result => {
+					console.log(result)
+				});
+			}
+      }
   }
 </script>
 <style scoped>

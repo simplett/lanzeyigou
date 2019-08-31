@@ -54,7 +54,10 @@
             </div>
             <div class="content">
                 <div class="content-title">
-
+                    <div>
+                        <img src="../../public/images/usercenter/shoucang.png" alt="">
+                        <p>收藏与关注</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -198,6 +201,26 @@
 .content-title{
     width:100%;
     height:60px;
-    background:#999999;
+    background:#c0c0c0;
+
+}
+.content-title>div{
+    width:250px;
+    height:100%;
+    // border:1px solid red;
+    float:left;
+    // padding-left:0;
+}
+.content-title>div>img{
+    margin:20px;
+    float:left;
+    margin-left:30px; 
+}
+.content-title>div>p{
+    font-size:26px;
+    font-weight:bold;
+    float:left;
+    padding:0;
+    line-height:60px;
 }
 </style>
