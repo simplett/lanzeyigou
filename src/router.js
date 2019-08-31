@@ -5,6 +5,7 @@ import productList from './views/productList.vue'
 import usercenter from './views/userCenter.vue'
 import lunbo from "./components/Carousel.vue"
 import login from "./components/RegLogin.vue"
+import details from "./views/Details.vue"
 
 Vue.use(Router)
 
@@ -34,6 +35,11 @@ export default new Router({
 		path: '/usercenter',
 		name: 'usercenter',
 		component: usercenter
+	},
+	{
+		path: '/details',
+		name: 'details',
+		component: details
 	}
   ]
 })
