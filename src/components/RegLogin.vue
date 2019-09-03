@@ -242,7 +242,7 @@ export default {
       var url = "/Regist";
       var params = {
         name,
-        pwd,
+        pwd:this.$md5(pwd),
         email,
         checking
       }; //ES6标准，可以简写

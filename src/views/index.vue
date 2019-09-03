@@ -7,7 +7,7 @@
         <!-- 搜索 -->
         <search/>
 		<!-- 这是轮播 -->
-		<Carousel/>
+		<Carousel :lunbo="lunbo"/>
 		<!-- 频道广场 -->
 		<div class="pd" first="1">
 			<img class="pd-left" src="../../public/images/左边装饰红.png" alt />
@@ -165,6 +165,10 @@
 	export default {
 		data() {
 			return {
+				lunbo:[{lunbo_url:"https://simplett-img.oss-cn-beijing.aliyuncs.com/lunbo/banner2.png"},
+				{lunbo_url:"https://simplett-img.oss-cn-beijing.aliyuncs.com/lunbo/banner1.png"},
+				{lunbo_url:"https://simplett-img.oss-cn-beijing.aliyuncs.com/lunbo/%E9%A5%B0%E5%93%81%E9%A6%96%E9%A5%B0.png"}
+				],
 				data: [],
 				recommendation: [],
 				category: [],

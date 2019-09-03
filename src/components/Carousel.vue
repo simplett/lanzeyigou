@@ -5,19 +5,17 @@
 		<div id="demo1" class="carousel lbt-out-1" data-ride="carousel">
 			<!-- 1.轮播图片carousel-inner-->
 			<div class="carousel-inner">
-				<div class="carousel-item active">
-					<img class="w-100" src="../../public/images/首页页头背景.jpg" />
+					<div class="carousel-item active">
+						<img class="w-100" :src="lunbo[0].lunbo_url" />
+					</div>
+					<div class="carousel-item">
+						<img class="w-100" :src="lunbo[1].lunbo_url" />
+					</div>
+					<div class="carousel-item">
+						<img class="w-100" :src="lunbo[2].lunbo_url" />
+					</div>
+					 
 				</div>
-				<div class="carousel-item">
-					<img class="w-100" src="../../public/images/banner1.png" />
-				</div>
-				<div class="carousel-item">
-					<img class="w-100" src="../../public/images/首页页头背景.jpg" />
-				</div>
-				<div class="carousel-item">
-					<img class="w-100" src="../../public/images/首页页头背景.jpg" />
-				</div>
-			</div>
 		</div>
 		<div class="lunbotu-out"></div>
 		<div class="lunbotu">
@@ -25,16 +23,13 @@
 				<!-- 1.轮播图片carousel-inner-->
 				<div class="carousel-inner">
 					<div class="carousel-item active">
-						<img class="w-100" src="../../public/images/首页页头背景.jpg" />
+						<img class="w-100" :src="lunbo[0].lunbo_url" />
 					</div>
 					<div class="carousel-item">
-						<img class="w-100" src="../../public/images/banner1.png" />
+						<img class="w-100" :src="lunbo[1].lunbo_url" />
 					</div>
 					<div class="carousel-item">
-						<img class="w-100" src="../../public/images/首页页头背景.jpg" />
-					</div>
-					<div class="carousel-item">
-						<img class="w-100" src="../../public/images/首页页头背景.jpg" />
+						<img class="w-100" :src="lunbo[2].lunbo_url" />
 					</div>
 				</div>
 				
@@ -57,7 +52,8 @@
 <script>
 	export default
 	{
-		
+		// name:"Carousel",
+		props:["lunbo"]
 	}
 </script>
 
@@ -74,11 +70,11 @@
 	    background-color: transparent;
 	    background-repeat:  no-repeat;
 	    background-size: 100% 100%;
-	    -webkit-filter: blur(10px);
-	    -moz-filter: blur(10px);
-	    -o-filter: blur(10px);
-	    -ms-filter: blur(10px);
-	    filter: blur(10px);
+	    -webkit-filter: blur(15px);
+	    -moz-filter: blur(15px);
+	    -o-filter: blur(15px);
+	    -ms-filter: blur(15px);
+	    filter: blur(15px);
 	}
 	.lunbotu-out-2{
 	    width:100%;
@@ -90,6 +86,7 @@
 	    width:100%;
 		position: absolute;
 	    height: 600px;
+		
 	}
 	.lbt-1{
 	    width: 1180px;
@@ -97,6 +94,8 @@
 		left: 50%;
 		margin-left: -590px;
 	    position: absolute;
+		border-radius: 20px;
+		overflow: hidden;
 	}
 	.lbt-out-1{
 	    margin: 0 auto;
@@ -104,6 +103,10 @@
 	    height: 600px;
 	    margin-top: 0px;
 	    position: absolute;
+		-moz-filter: blur(10px);
+	    -o-filter: blur(10px);
+	    -ms-filter: blur(10px);
+	    filter: blur(10px);
 	}
 	.carousel-control-prev,
 	.carousel-control-next{

@@ -9,6 +9,7 @@ import details from "./views/Details.vue"
 import aliyun from "./components/aliyun.vue"
 import header from "./components/Head.vue"
 import aliyun1 from "./components/aliyun copy.vue"
+import fdj from "./components/fadajing.vue"
 
 Vue.use(Router)
 
@@ -64,6 +65,11 @@ export default new Router({
 		path: '/header',
 		name: 'header',
 		component: header
+	},
+	{
+		path: '/fdj',
+		name: 'fdj',
+		component: fdj
 	}
   ]
 })

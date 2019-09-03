@@ -5,7 +5,7 @@
         <!-- 搜索 -->
         <search/>
         <!-- 这是轮播 -->
-		<Carousel/>
+		<Carousel :lunbo="lunbo"/>
         <!--  -->
         <!-- 7个图片 -->
         <div class="p-7-img">
@@ -87,11 +87,13 @@
 </template>
 
 <script>
-	import Carousel from "../components/Carousel.vue"
-	import search from "../components/search.vue"
     export default{
         data(){
             return {
+                lunbo:[{lunbo_url:"https://simplett-img.oss-cn-beijing.aliyuncs.com/lunbo/banner2.png"},
+				{lunbo_url:"https://simplett-img.oss-cn-beijing.aliyuncs.com/lunbo/banner1.png"},
+				{lunbo_url:"https://simplett-img.oss-cn-beijing.aliyuncs.com/lunbo/%E9%A5%B0%E5%93%81%E9%A6%96%E9%A5%B0.png"}
+				],
                module:[
                     {
                         title:"酷炫电脑",
