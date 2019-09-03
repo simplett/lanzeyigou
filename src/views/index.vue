@@ -223,7 +223,7 @@
 			},
 			//验证用户是否登录
 			checklog() { 
-			console.log("正在测试")
+				console.log("正在测试")
 				var search = "name=";
 				var begin = document.cookie.indexOf(search);
 				if (begin != -1) {

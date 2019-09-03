@@ -21,29 +21,24 @@
             </div>
             <!-- 右边3个div -->
             <div class="p-7-right">
-                <div class="p-7-right-2">
+                <div class="p-7-right-2" v-for="(item,i) of p71" :key="i">
                     <div class="p-7-right-img">
-                        <img src="../../public/images/details/素材/1_0.png" alt="">
+                        <img :src="item.p2img_url" alt="">
                     </div>
                 </div>
-                 <div class="p-7-right-2">
-
+            </div>
+            <div class="p-7-right">
+                <div class="p-7-right-2" v-for="(item,i) of p72" :key="i">
+                    <div class="p-7-right-img">
+                        <img :src="item.p2img_url" alt="">
+                    </div>
                 </div>
             </div>
-             <div class="p-7-right">
-                <div class="p-7-right-2">
-
-                </div>
-                 <div class="p-7-right-2">
-
-                </div>
-            </div>
-             <div class="p-7-right">
-                <div class="p-7-right-2">
-
-                </div>
-                 <div class="p-7-right-2">
-
+            <div class="p-7-right">
+                <div class="p-7-right-2" v-for="(item,i) of p73" :key="i">
+                    <div class="p-7-right-img">
+                        <img :src="item.p2img_url" alt="">
+                    </div>
                 </div>
             </div>
         </div>
@@ -103,7 +98,7 @@
     export default{
         data(){
             return {
-                module:[
+               module:[
                     {
                         title:"酷炫电脑",
                     },
@@ -111,8 +106,22 @@
                         title:"手机一族",
                     },
                 ],
+                p71:[
+                    {p2img_url:require("../../public/images/details/素材/1_0.png")},
+                    {p2img_url:require("../../public/images/details/素材/1_3.png")},
+                    
+                ],
+                p72:[
+                    {p2img_url:require("../../public/images/details/素材/1_1.png")},
+                    {p2img_url:require("../../public/images/details/素材/1_4.png")},
+                ],
+                p73:[
+                    {p2img_url:require("../../public/images/details/素材/1_2.png")},
+                    {p2img_url:require("../../public/images/details/素材/1_5.png")},
+                ],
                 list:[
-                    {
+                    { 
+                        
                         intro:"华为【Nova4】1111111111111111111111111111111111111111111111111111111111111111",
                         price:"2000.00",
                         customer:"12",
@@ -204,7 +213,7 @@
 }
 .products{
     width:228px;
-    height:324px;
+    height:330px;
     background:#ffffff;
     margin-right:10px;
     float:left;
@@ -292,7 +301,7 @@ table{
 }
 .td-top-p-intro{
     width:180px;
-    height:35px;
+    height:45px;
     overflow: hidden;  /*溢出隐藏*/
     text-overflow: ellipsis; /*以省略号...显示*/
     -webkit-line-clamp: 2;
@@ -302,5 +311,8 @@ table{
     padding:0;
     color:#999999;
     font-size:12px;
+}
+.td-top-p-intro:hover{
+    color:#999999;
 }
 </style>
