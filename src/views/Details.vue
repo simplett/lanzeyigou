@@ -2,7 +2,7 @@
 <template>
     <div class="details">
         <!-- 页头 -->
-        <div class="logo-icon">
+        <!-- <div class="logo-icon">
             <div class="logo">
                 <img src="../../public/images/details/logo.png" alt="蓝沢logo">
             </div>
@@ -10,7 +10,11 @@
                 <input type="text" placeholder="蓝沢搜索：请输入关键字">
                 <img src="../../public/images/details/search.png" alt="">
             </div>
-        </div>
+        </div> -->
+        <my-header/>
+        <!-- 搜索 -->
+        <search/>
+
         <!-- 广告图片 -->
         <div class="det-img">
             <img src="../../public/images/details/1-1.png">

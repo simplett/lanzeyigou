@@ -162,7 +162,6 @@
 	// @ is an alias to /src
 	import RegLogin from "../components/RegLogin";
 	import Carousel from "../components/Carousel.vue"
-	import search from "../components/search.vue"
 	export default {
 		data() {
 			return {
@@ -221,24 +220,7 @@
 				console.log(uid);
 				var url="/"
 			},
-			//验证用户是否登录
-			checklog() { 
-				console.log("正在测试")
-				var search = "name=";
-				var begin = document.cookie.indexOf(search);
-				if (begin != -1) {
-					begin += search.length;
-					end = document.cookie.indexOf(";", begin);
-					if (end == -1) {
-						end = document.cookie.length;
-					}
-					document.getElementById("pageNameD").innerHTML = "<h1>对不起，" + document.cookie.substring(begin, end) +
-						".您已经登录。</h1>"
-					document.all.pageName.style.display = 'none'
-				} else {
-					alert("未登录");
-				}
-			},
+			
 			isActive() {
 				//获取tab主要按键
 				var selectactive = document.getElementsByClassName("nav-link");
@@ -329,13 +311,11 @@
 		},
 		mounted() {
 			this.isActive(),
-			this.checklog(),
 			this.DiscoverLike(1)
 		},
 		components: {
 			RegLogin,
-			Carousel,
-            search
+			Carousel
 		}
 
 	};

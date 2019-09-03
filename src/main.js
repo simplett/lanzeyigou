@@ -10,6 +10,7 @@ import myfoot from "./components/MyFoot.vue"
 import myheader from "./components/MyHeader.vue"
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+import search from "./components/search.vue"
 Vue.use(ElementUI)
 
 
@@ -22,6 +23,9 @@ Vue.component(
 )
 Vue.component(
 	"my-foot",myfoot
+)
+Vue.component(
+	"search",search
 )
 
 Vue.config.productionTip = false

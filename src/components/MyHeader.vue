@@ -1,63 +1,126 @@
 <template>
-  <header>
-         <!-- 页头 -->
-    <div class="header">
-        <div class="header-div">
-            <!-- 页头左部分 -->
-            <div class="header-left">
-                    <a href="javascript:;"><img src="../../public/images/首页-选中.png" alt="" class="header-left-img">客户服务</a>
-                    <a href="javascript:;">先登录</a>
-                    <a href="javascript:;">免费注册</a>
-                    <a href="javascript:;">消息</a>
-                </div>
-                <!-- 页头右部分 -->
-                <div class="header-right">
-                    <a href="javascript:;">我的蓝沢</a>
-                    <a class="header-right-red" href="javascript:;">联系客服</a>
-                    <a href="javascript:;">蓝沢会员</a>
-                    <a class="header-right-red" href="javascript:;">收藏夹 0</a>
-                    <a href="javascript:;">帮助</a>
-                    <a href="javascript:;">手机蓝沢</a>
-                </div>
-        </div>
+   <div class="nav-top">
+    <el-row>
+        <el-col :span="12">
+      <!-- 左部分导航栏 -->
+      <!-- mode属性将导航栏水平模式显示 -->
+        <el-menu class="el-menu-demo" mode="horizontal" background-color="#e5e5e5"
+         text-color="#000" active-text-color="#00f">
+            <el-menu-item index="5" style="margin-left:100px;">
+                <a href="http://10.1.180.109:8080/#/">首页</a>
+            </el-menu-item>
+            <el-menu-item index="2">
+                <a href="#">请登录...</a>
+            </el-menu-item>
+            <el-menu-item index="3">
+                <a href="#">免费注册</a>
+            </el-menu-item>
+            <el-dropdown>
+                <span class="el-dropdown-link">
+                    <!-- 点击之后显示消息的上下箭头图标交换 -->
+                    消息中心<i class="el-icon-arrow-down el-icon--right"></i>
+                </span>
+                <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item>平台消息通知</el-dropdown-item>
+                    <el-dropdown-item>买家联系</el-dropdown-item>
+                    <el-dropdown-item>卖家联系</el-dropdown-item>
+                </el-dropdown-menu>
+            </el-dropdown>
+        </el-menu>
+        </el-col>
+        <el-col :span="12">
+          <!-- 右部分导航栏 -->
+        <el-menu class="el-menu-demo1" mode="horizontal"
+            @select="handleSelect" background-color="#e5e5e5" text-color="#000"
+                active-text-color="#00f">
+            <el-dropdown>
+                <span class="el-dropdown-link">
+                    我的蓝沢<i class="el-icon-arrow-down el-icon--right"></i>
+                </span>
+                <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item>待处理订单</el-dropdown-item>
+                    <el-dropdown-item>返修退货订单</el-dropdown-item>
+                    <el-dropdown-item>降价商品</el-dropdown-item>
+                    <el-dropdown-item>我的积分</el-dropdown-item>
+                </el-dropdown-menu>
+            </el-dropdown>
+            <el-dropdown>
+                <span class="el-dropdown-link">
+                   联系客服 
+                   <i class="el-icon-arrow-down el-icon--right"></i>
+                </span>
+                <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item>客户</el-dropdown-item>
+                    <el-dropdown-item>在线客服</el-dropdown-item>
+                    <el-dropdown-item>资讯中心</el-dropdown-item>
+                    <el-dropdown-item>电联客服</el-dropdown-item>
+                </el-dropdown-menu>
+            </el-dropdown>
+            <el-menu-item index="4" style="margin-left:100px;">收藏夹</el-menu-item>
+            <el-dropdown style="margin-right:100px">
+                <span class="el-dropdown-link">
+                    蓝沢帮助<i class="el-icon-arrow-down el-icon--right"></i>
+                </span>
+                <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item>网站介绍</el-dropdown-item>
+                    <el-dropdown-item>关注卖家</el-dropdown-item>
+                    <el-dropdown-item>商品资讯</el-dropdown-item>
+                    <el-dropdown-item>平台招商</el-dropdown-item>
+                </el-dropdown-menu>
+            </el-dropdown>
+        </el-menu>       
+        </el-col>
+    </el-row>
     </div>
-  </header>
 </template>
 <script>
-  export default {
-  }
+export default {
+    data() {
+      return {
+        activeIndex: '1',
+        activeIndex2: '1'
+      };
+    },
+    methods: {
+      handleSelect(key, keyPath) {
+        console.log(key, keyPath);
+      }
+    }
+}
 </script>
 <style scoped>
-   .header{
-    height: 36px;
+.nav-top{
     width:100%;
-    margin: 0 auto;
-    border-bottom: 2px solid #e6e6e6;
-    background: #f2f2f2;
+    min-width:1250px;
+    background-color: #e5e5e5;
 }
-.header-div{
-    height: 100%;
-    width:1180px;
-    margin: 0 auto;
+.el-col{
+    background-color: #e5e5e5;
 }
-.header-left,.header-right{
-    height:100%;
+.el-menu-demo,
+.el-menu-demo>.el-menu-item,
+.el-menu-demo>.el-menu,
+.el-menu-demo1,
+.el-menu-demo1>.el-menu-item,
+.el-menu-demo1>.el-menu{
+  height:30px;
+  line-height: 30px;
+  text-align: center;
+  vertical-align: -webkit-baseline-middle;
 }
-.header-left{
+.el-menu-demo{
     float: left;
 }
-.header-right{
+.el-menu-demo1{
     float: right;
 }
-.header-left-img{
-    width:20px;
-    margin: -2px auto;
-    padding-right: 3px;
-}
-.header-left>a,.header-right>a{
-    margin-right: 20px;
-}
-.header-right-red{
-    color:#f00;
+.el-dropdown-link {
+    cursor: pointer;
+    color: #000;
+    font-size: 14px;
+    padding: 0 20px;
+  }
+.el-icon-arrow-down {
+    font-size: 12px;
 }
 </style>

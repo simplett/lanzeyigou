@@ -134,8 +134,6 @@
 </template>
 
 <script>
-
-	import search from "../components/search.vue"
     export default{
         data(){
             return {
@@ -163,10 +161,6 @@
                 console.log(ev);
             }
         },
-        components:{
-            search
-        }
-        
     }
 </script>
 <style lang="stylus">
