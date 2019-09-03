@@ -6,6 +6,9 @@ import usercenter from './views/userCenter.vue'
 import lunbo from "./components/Carousel.vue"
 import login from "./components/RegLogin.vue"
 import details from "./views/Details.vue"
+import aliyun from "./components/aliyun.vue"
+import header from "./components/Head.vue"
+import aliyun1 from "./components/aliyun copy.vue"
 
 Vue.use(Router)
 
@@ -40,6 +43,21 @@ export default new Router({
 		path: '/details',
 		name: 'details',
 		component: details
+	},
+	{
+		path: '/aliyun',
+		name: 'aliyun',
+		component: aliyun
+	},
+	{
+		path: '/aliyun1',
+		name: 'aliyun1',
+		component: aliyun1
+	},
+	{
+		path: '/header',
+		name: 'header',
+		component: header
 	}
   ]
 })
