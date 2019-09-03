@@ -203,7 +203,7 @@
 }
 .g-l-p{
     width:280px;
-    height:399px;
+    height:420px;
     /* border: 1px solid green; */
     background: #FFFFFF;
     margin-bottom: 22px;
@@ -235,7 +235,7 @@
 .g-l-hp>img{
     float: left;
     width: 40px;
-    margin-left:20px;
+    /* margin-left:20px; */
     margin-top: 20px;
     margin-bottom:10px;
     border-radius: 50%;
@@ -315,9 +315,10 @@ td>span{
     padding:0px;
     color:#333333;
     border:1px solid #333333;
+    border-radius:0;
 }
 .g-l-right-btn-focus:hover{
-    color:#e31c1c;
+    /* color:#e31c1c !important; */
     border:1px solid #e31c1c;
 }
 .td-btn-focus{
@@ -330,7 +331,7 @@ td>span{
     border: 1px solid black;
 }
 .td-btn-focus:hover{
-    color:#fff;
+    color:#fff !important;
     border:0;
     background: #e31c1c;
 }
@@ -381,7 +382,7 @@ td>span{
 }
 .p-introduce{
     width:240px;
-    height:35px;
+    height:45px;
     overflow: hidden;  /*溢出隐藏*/
     text-overflow: ellipsis; /*以省略号...显示*/
     -webkit-line-clamp: 2;

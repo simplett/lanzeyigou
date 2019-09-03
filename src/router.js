@@ -39,6 +39,12 @@ export default new Router({
 		name: 'usercenter',
 		component: usercenter
 	},
+	// {
+	// 	path: '/product',
+	// 	name: 'product',
+	// 	component: product
+	// }
+
 	{
 		path: '/details',
 		name: 'details',
