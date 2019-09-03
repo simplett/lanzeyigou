@@ -75,7 +75,7 @@
                     <div class="p-msg">
                         <div class="p-msg-left">
                             <div class="p-msg-left-img">
-                                <img :src="Hphoto_url" alt="">
+                                <img :src="item.Hphoto_url" alt="">
                             </div>
                             <p>丁晓瑞</p>
                         </div>
@@ -274,7 +274,11 @@ table{
     margin-left:22px;
     margin-top:12px;
     float:left;
-    border:1px solid black;
+    // border:1px solid black;
+}
+.p-msg-left-img>img{
+    width:30px;
+    height:30px;
     border-radius:50%;
 }
 .p-msg-left>p{
