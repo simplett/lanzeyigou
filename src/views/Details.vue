@@ -1,60 +1,6 @@
 <!--商品详情页面-->
 <template>
     <div class="details">
-        <!-- 顶部导航栏 -->
-        <div class="nav-top">
-            <!-- 左边导航 -->
-            <ul class="nav-left ">
-                <li>
-                    <a href="#">
-                    <img src="../../public/images/details/Home-logo.png" alt="">首页</a></li>
-                <li><a href="#">请登录...</a></li>
-                <li><a href="#">免费注册</a></li>
-                <li><a href="#">消息
-                    <img src="../../public/images/details/prev.png" alt="">
-                    </a>
-                    <ul>
-                        <li><a href="#">收货信息</a></li>
-                        <li><a href="#">发布信息</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <!-- 右边导航 -->
-            <ul class="nav-right">
-                <li><a href="#">我的蓝沢
-                    <img src="../../public/images/details/prev.png" alt=""></a>
-                    <ul>
-                        <li><a href="#">待处理订单</a></li>
-                        <li><a href="#">返修退货订单</a></li>
-                        <li><a href="#">降价商品</a></li>
-                        <li><a href="#">我的积分</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">联系客服
-                    <img src="../../public/images/details/prev.png" alt=""></a>
-                    <ul>
-                        <li><a href="#"><strong>客户</strong></a></li>
-                        <li><a href="#">咨询中心</a></li>
-                        <li><a href="#">在线客服</a></li>
-                        <li><a href="#">电话联系</a></li>
-                        <li><hr></li>
-                        <li><a href="#"><strong>商户</strong></a></li>
-                        <li><a href="#">关注店铺</a></li>
-                        <li><a href="#">合作招商</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">收藏夹</a></li>
-                <li><a href="#">帮助
-                    <img src="../../public/images/details/prev.png" alt=""></a>
-                    <ul>
-                        <li><a href="#">网站介绍</a></li>
-                        <li><a href="#">商家介绍</a></li>
-                        <li><a href="#">合作共赢</a></li>
-                        <li><a href="#">商品咨询</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
         <!-- 页头 -->
         <div class="logo-icon">
             <div class="logo">
@@ -405,92 +351,8 @@
     .details{
         background-color: #f5f5f5;
     }
-    .nav-top{
-        /* ****************相对定位********************* */
-        position: relative;
-        width:1180px;
-        height:36px;
-        background:#e5e5e5;
-        box-shadow: 0 3px 1px #b8b1b1;
-        margin:0 auto;
-        /* 测试边框 */
-        /* border:1px solid red; */
-    }
-    .nav-left,.nav-right{
-        margin:0;padding: 0;
-        /* 列表项样式 */
-        list-style:none;
-        font-size:16px;
-        float: left;
-       height:36px;
-        width:500px;  /*//测试所用的宽高 */
-        /* border:1px solid green; */
-    }
-    /* 导航栏菜单设置 */
-    .nav-left>li,.nav-right>li{
-        float: left;
-        width:100px;
-        height:36px;
-        text-align: center;
-        line-height:36px;/*水平居中*/
-        position: relative;
-    }
-    /* 鼠标移入时事件 */
-    .nav-left>li:hover,.nav-right>li:hover{
-        background-color: #fff;
-        border-top:2px solid rgb(55, 0, 255);
-        border-bottom-width:1px; 
-        border-bottom-color: #fff;
-        height:36px;line-height: 36px;
-        cursor: pointer;
-    }
-    /* 下拉菜单的样式设计*/
-    .nav-left>li>ul,.nav-right>li>ul{
-        clear: both;
-        background-color: #fff;
-        width:120px;
-        border:1px solid rgb(239,239,239);
-        border-top: 0;
-        position: absolute;
-        left:0;
-        z-index: 100;
-    }
-    .nav-left>li>ul>li,.nav-right>li>ul>li{
-        display: block;
-        background-color: #fff;
-        text-align: left;
-        height:25px;
-        line-height: 25px;
-        width:90px;
-        font-size: 16px;
-    }
-    /* 下拉菜单里a标签的字体颜色 */
-    .nav-left>li>ul>li>a,.nav-right>li>ul>li>a{
-        color:#666;
-    }
-    .nav-left>li>ul,.nav-right>li>ul{
-        /* 根据透明度的设置，显示下拉菜单：相当于display:none */
-        top:55px;
-        opacity: 0;
-        transition: all .5s linear;
-    }
-    .nav-left>li:hover>ul,.nav-right>li:hover>ul{
-        /* 根据透明度的设置，显示下拉菜单：相当于display:block */
-        color: black;
-        top:35px;
-        opacity: 1;
-    }
-    /* 文字链接的样式设计:鼠标移入时候没有下划线 */
-    .nav-left>li>a,.nav-right>li>a{
-        color:#666;
-        text-decoration-line:none; 
-    }
-    .nav-right{
-        margin-left: 140px;
-        padding-left: 90px;
-    }
+     /* *************************搜索栏宽高************** */
     .logo-icon{
-        /* *************************搜索栏宽高************** */
         width:1180px;
         height:110px;
         margin:0 auto;
@@ -509,13 +371,13 @@
         /* border:1px solid blue; */
     }
     .search{
-        width:600px;height:70px;
+        width:500px;height:70px;
         line-height: 70px;
         /* position: absolute; */
         float: right;
         /* border:1px solid yellow; */
         margin-top: 30px;
-        margin-right: 60px;
+        margin-right:130px;
     }
     .search>input{
         /* 搜索框的宽高 */
@@ -556,7 +418,7 @@
     /* 左侧图片大图 */
     .det-pro>.pro-img>.l-img{
         width: 90%;height:70%;
-        margin: 10px 0;/*图片距离外边框的距离*/
+        margin: 10px 5%;/*图片距离外边框的距离*/
         /* 大图背景颜色设置 */
         /* background-color: #ddd; */
     }
@@ -627,11 +489,12 @@
     }
     /* 立即购买按钮样式 */
     button.buy-btn{
+        color:#fff;
+        font-size:20px;
         width:201px;height:40px;
-        line-height: 40px;
-        text-align: center;
-        vertical-align: -webkit-baseline-middle;
-        margin-top:20px ;
+        border:0;
+        margin:20px 30px 30px 0;
+        
     }
     /* 赞和分享的按钮样式 */
     button.share,
@@ -667,7 +530,10 @@
         font-weight: bold;
     }
     .pro-people>.people-text>.peo-text>.peo-detail>.name>a.btn{
-        margin-left: 30px;
+        margin-right: 40px;
+        border:0;
+        color:#fff;
+        font-size:14px;
     }
     .pro-people>.people-text>.peo-text>.peo-detail>.peo-address,
     .pro-people>.people-text>.peo-text>.peo-detail>.time{
@@ -720,11 +586,16 @@
         background:#e61717;
         width:267px;height:40px;
     }
-    /* 鼠标移入时候紫婷颜色改变 */
+    /* 鼠标移入时候颜色改变 */
     .title-nav>li>a:hover{
         color:#fff;
     }
     /* 留言页面样式 */
+    .tab-content{
+        width:1180px;height:584px;
+        padding: 0;
+        margin:0;
+    }
     .tab-content>#tab1{
         width:100%;
         height:760px;
@@ -744,6 +615,7 @@
     }
     .title-text>button{
         width:160px;height:50px;
+        border:0.5px solid #ddd;
         color:#000;
         font-size:20px;
         float: right;
