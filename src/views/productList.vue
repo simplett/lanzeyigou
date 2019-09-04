@@ -135,6 +135,62 @@
                         Hphoto_url:require("../../public/images/details/素材/0_0.png"),
                         Pphoto_url:require("../../public/images/details/素材/0_1.png")
                     },
+                    {
+                        intro:"智能数码相机",
+                        price:"2500.00",
+                        customer:"12",
+                        Hphoto_url:require("../../public/images/details/素材/0_0.png"),
+                        Pphoto_url:require("../../public/images/details/素材/0_1.png")
+                    },
+                    {
+                        intro:"智能数码相机",
+                        price:"2500.00",
+                        customer:"12",
+                        Hphoto_url:require("../../public/images/details/素材/0_0.png"),
+                        Pphoto_url:require("../../public/images/details/素材/0_1.png")
+                    },
+                    {
+                        intro:"智能数码相机",
+                        price:"2500.00",
+                        customer:"12",
+                        Hphoto_url:require("../../public/images/details/素材/0_0.png"),
+                        Pphoto_url:require("../../public/images/details/素材/0_1.png")
+                    },
+                    {
+                        intro:"智能数码相机",
+                        price:"2500.00",
+                        customer:"12",
+                        Hphoto_url:require("../../public/images/details/素材/0_0.png"),
+                        Pphoto_url:require("../../public/images/details/素材/0_1.png")
+                    },
+                    {
+                        intro:"智能数码相机",
+                        price:"2500.00",
+                        customer:"12",
+                        Hphoto_url:require("../../public/images/details/素材/0_0.png"),
+                        Pphoto_url:require("../../public/images/details/素材/0_1.png")
+                    },
+                    {
+                        intro:"智能数码相机",
+                        price:"2500.00",
+                        customer:"12",
+                        Hphoto_url:require("../../public/images/details/素材/0_0.png"),
+                        Pphoto_url:require("../../public/images/details/素材/0_1.png")
+                    },
+                    {
+                        intro:"智能数码相机",
+                        price:"2500.00",
+                        customer:"12",
+                        Hphoto_url:require("../../public/images/details/素材/0_0.png"),
+                        Pphoto_url:require("../../public/images/details/素材/0_1.png")
+                    },
+                    {
+                        intro:"智能数码相机",
+                        price:"2500.00",
+                        customer:"12",
+                        Hphoto_url:require("../../public/images/details/素材/0_0.png"),
+                        Pphoto_url:require("../../public/images/details/素材/0_1.png")
+                    },
                 ]
             };
         },
@@ -216,6 +272,7 @@
     height:330px;
     background:#ffffff;
     margin-right:10px;
+    margin-bottom:10px;
     float:left;
 }
 .products-img{

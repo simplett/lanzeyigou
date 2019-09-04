@@ -5,11 +5,9 @@ import productList from './views/productList.vue'
 import usercenter from './views/userCenter.vue'
 import lunbo from "./components/Carousel.vue"
 import login from "./components/RegLogin.vue"
-<<<<<<< HEAD
+import focus from "./components/focus.vue"
 // import product from "./components/product.vue"
-=======
 import details from "./views/Details.vue"
->>>>>>> f4343636844ff4589d650e5f71728058c8d625a3
 
 Vue.use(Router)
 
@@ -40,18 +38,15 @@ export default new Router({
 		name: 'usercenter',
 		component: usercenter
 	},
-<<<<<<< HEAD
-	// {
-	// 	path: '/product',
-	// 	name: 'product',
-	// 	component: product
-	// }
-=======
 	{
 		path: '/details',
 		name: 'details',
 		component: details
+	},
+	{
+		path: '/focus',
+		name: 'focus',
+		component: focus
 	}
->>>>>>> f4343636844ff4589d650e5f71728058c8d625a3
   ]
 })

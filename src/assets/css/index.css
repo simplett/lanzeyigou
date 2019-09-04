@@ -319,7 +319,8 @@ td>span{
 }
 .g-l-right-btn-focus:hover{
     /* color:#e31c1c !important; */
-    border:1px solid #e31c1c;
+	border:1px solid #e31c1c;
+	content:"已关注"
 }
 .td-btn-focus{
     width:90px;
