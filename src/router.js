@@ -4,11 +4,15 @@ import index from './views/index.vue'
 import productList from './views/productList.vue'
 import usercenter from './views/userCenter.vue'
 import login from "./components/RegLogin.vue"
+import collect from "./components/collect.vue"
+// import product from "./components/Comment.vue"
 import details from "./views/Details.vue"
 import aliyun from "./components/aliyun.vue"
 import header from "./components/Head.vue"
 import aliyun1 from "./components/aliyun copy.vue"
 
+import fdj from "./components/fadajing.vue"
+import personcenter from "./components/personcenter.vue"
 
 Vue.use(Router)
 
@@ -34,12 +38,20 @@ export default new Router({
 		name: 'usercenter',
 		component: usercenter
 	},
+	// {
+	// 	path: '/product',
+	// 	name: 'product',
+	// 	component: product
+	// }
 	{
 		path: '/details',
 		name: 'details',
 		component: details
 	},
 	{
+		path: '/collect',
+		name: 'collect',
+		component: collect,
 		path: '/aliyun',
 		name: 'aliyun',
 		component: aliyun
@@ -48,6 +60,21 @@ export default new Router({
 		path: '/aliyun1',
 		name: 'aliyun1',
 		component: aliyun1
+	},
+	{
+		path: '/header',
+		name: 'header',
+		component: header
+	},
+	{
+		path: '/fdj',
+		name: 'fdj',
+		component: fdj
+	},
+	{
+		path: '/personcenter',
+		name: 'personcenter',
+		component: personcenter
 	}
   ]
 })
