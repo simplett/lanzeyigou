@@ -16,7 +16,7 @@ import Carousel from "./components/Carousel.vue"
 Vue.use(ElementUI)
 
 
-axios.defaults.baseURL = "http://10.1.180.146:8080"
+axios.defaults.baseURL = "http://120.79.19.253:10086"
 axios.defaults.withCredentials = true
 Vue.prototype.axios = axios
 Vue.prototype.$=jQuery;
@@ -33,6 +33,7 @@ Vue.component(
 Vue.component(
 	"Carousel",Carousel
 )
+
 Vue.config.productionTip = false
 new Vue({
 	router,
