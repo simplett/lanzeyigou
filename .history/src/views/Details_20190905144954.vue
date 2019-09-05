@@ -15,9 +15,7 @@
 			<div class="fandajing">
 				<div id="preview" class="pro-img col pr-0 p-0">
 					<div class="card bg-transparent mr-5 position-absolute">
-						<div class="card-img-top">
-							<img :src="imagesss[i]" alt="Card image cap" id="mImg" />
-						</div>
+						<img class="card-img-top" :src="imagesss[i]" alt="Card image cap" id="mImg" />
 						<!-- 	<div id="mask" class="position-absolute d-none"></div>
 					<div id="super-mask" class="position-absolute"></div> -->
 						<!-- <div id="div-lg" class="position-absolute d-none" :style="{'background-image':`url(${imagesss[i]})`,'background-position':bgposition}"></div> -->
@@ -41,7 +39,7 @@
 				</div>
 			</div>
 			<!-- 商品详情信息介绍 -->
-			<detailsCenter :guarantee="guarantee" :detailsCenter="detailsCenter"></detailsCenter>
+			<detailsCenter :detailsCenter="detailsCenter"></detailsCenter>
 			<!-- 发布者信息 -->
 			<peopledetails :proper="userdatas"></peopledetails>
 		</div>
@@ -49,10 +47,10 @@
 		<div class="title">
 			<ul class="title-nav nav-tabs">
 				<li class="nav-item1">
-					<a id="msg1" @click="msg1()" class="nav-link p-0 ismyactive">留言</a>
+					<a id="msg1" @click="msg1()" class="nav-link p-0">留言</a>
 				</li>
 				<li class="nav-item2">
-					<a id="msg2" @click="msg2()" class="nav-link p-0 ">商家其他发布(7)</a>
+					<a id="msg2" @click="msg2()" class="nav-link p-0 ismyactive">商家其他发布(7)</a>
 				</li>
 			</ul>
 
@@ -80,8 +78,23 @@
                         margin-bottom:10px;">
 							<b>全部留言</b>
 						</div>
-						<div class="msg" v-for="(item,i) of 4" :key="i">
-							<commentcopy />
+						<div class="msg" v-for="(item,i) of 8" :key="i">
+							<!-- 多个客户留言区域 -->
+							<div class="msg-img">
+								<img src="../../public/images/details/1-1.png" />
+							</div>
+							<div class="msg-text">
+								<div class="msg-name">
+									<b style="margin-right:30px;">宇宙无敌小丸子</b>
+									<span>1小时前</span>
+								</div>
+								<div class="msg-info">
+									<span>
+										喜欢好久的商品了，在某宝上面看好久了，妈耶，但是太贵了，
+										今天在这里看到，还么便宜，爱了！
+									</span>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -97,8 +110,37 @@
 						<b>寻求防骗经验</b>
 					</div>
 					<div class="pro-show">
-						<div class="myflex" v-for="(item,i) of 8" :key="i">
-							<delproduct :otherimage="otherimage[i]" :productlist="userother[i]" />
+						<div class="pro-item">
+							<div class="item-detail">
+								<div class="item-img">
+									<div class="img-icon">
+										<img src="../assets/logo.png" />
+									</div>
+									<div class="item-name">
+										<span style="font-size:14px;
+					                    color:#333;margin-top:20px;">李希</span>
+										<br />
+										<span style="color:#999;">1小时前</span>
+									</div>
+								</div>
+								<hr style="margin:0" />
+								<div class="product">
+									<span style="margin:10px;">
+										高端产品，廉价出售
+										大牌产品高价入手低价出货
+									</span>
+									<div class="product-img">
+										<img src="../../public/images/details/1_0.png" style="width:100%;height:100%;" />
+									</div>
+								</div>
+								<div class="pro-price">
+									<span style="color:red;">
+										<b>￥3569.00</b>
+									</span>
+									<span style="color:#999;
+					                margin-left:60px;">云南&nbsp;&nbsp;昆明</span>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -113,22 +155,15 @@
 	import {
 		setTimeout
 	} from "timers";
-	import peopledetails from "../components/details/peopledetails.vue";
-	import detailsCenter from "../components/details/detailsCenter.vue";
-	import commentcopy from "../components/Comment_copy.vue";
-	import delproduct from "../components/DelProduct.vue";
+	import peopledetails from "../components/peopledetails.vue";
+	import detailsCenter from "../components/detailsCenter.vue";
 	export default {
 		components: {
 			peopledetails,
-			detailsCenter,
-			commentcopy,
-			delproduct
+			detailsCenter
 		},
 		data() {
 			return {
-				guarantee:true,
-				otherimage: [],
-				userother: [],
 				detailsCenter: {},
 				userdatas: {},
 				imagesss: [],
@@ -179,23 +214,6 @@
 				msgtab2.classList = "tab-pane";
 			},
 			msg2() {
-				this.axios
-					.get("/Search", {
-						params: {
-							type: "goodlist",
-							uid: 3
-						}
-					}).then(result => {
-						console.log(result.data.data);
-
-						this.userother = result.data.data;
-						var otherimage = [];
-						for (var item of this.userother) {
-							var i = item.pimages.split(";");
-							otherimage.push(i[0]);
-						};
-						this.otherimage = otherimage;
-					})
 				var msg1 = document.getElementById("msg1");
 				var msg2 = document.getElementById("msg2");
 				var msgtab1 = document.getElementById("msgtab1");
@@ -214,57 +232,36 @@
 						.get("/Search", {
 							params: {
 								type: "goods",
-								pid: 10
+								pid: 45
 							}
 						})
 						.then(result => {
 							console.log(result.data);
 							var {
 								pimages,
+								description,
+								image,
 								p_description,
+								nickname,
 								pid,
 								pname,
 								price,
+								sex,
 								uid,
-								status,//是否参与担保
-								wcount
+								status
 							} = result.data;
-							this.guarantee=status==1?true:false;
-							var baobei=p_description;
-							if (uid) {
-								this.axios
-									.get("/Search", {
-										params: {
-											type: "user",
-											uid
-										}
-									}).then(results => {
-										var {
-											image,
-											sex,
-											uid,
-											nickname,
-											create_time
-										} = results.data;
-										this.userdatas = {
-											p_description,
-											image,
-											sex,
-											uid,
-											nickname,
-											pid,
-											create_time
-										};
-										console.log(this.userdatas);
-										console.log(results);
-									})
-							}
+							this.userdatas = {
+								p_description,
+								image,
+								sex,
+								uid,
+								nickname,
+								pid
+							};
 							this.detailsCenter = {
 								pname,
 								price,
-								pid,
-								wcount,
-								status
+								pid
 							}
 							console.log(this.userdata);
 							console.log(1231231313);
@@ -281,8 +278,6 @@
 						});
 				}
 			},
-
-
 			details_ajax() {
 				var pid = this.pid;
 				var url = "/Details?pid=" + pid;
@@ -299,8 +294,8 @@
 					this.times += i;
 					if (this.times < 0) {
 						this.times = 0;
-					} else if (this.times > this.imagesss.length - 4) {
-						this.times = this.imagesss.length - 4;
+					} else if (this.times > this.pics.length - 4) {
+						this.times = this.pics.length - 4;
 					}
 				}
 			},
@@ -320,13 +315,10 @@
 	/* ********************************************************** */
 	/* 商家发布商品其他信息 */
 	.pro-show {
-		width: 1180px;
+		width: 1120px;
+		height: 400px;
 		/* border:1px solid red; */
-		background: #f6f6f6;
-		display: flex;
-		justify-content: space-around;
-		flex-wrap: wrap;
-
+		background: #e5e5e5;
 	}
 
 	.pro-item {
@@ -504,7 +496,8 @@
 	/* **********************商品留言区域************************ */
 	.title {
 		width: 1180px;
-		/* height: 800px; */
+		/* height: 1000px; */
+		/* border:1px solid red; */
 		margin: 50px auto;
 	}
 
@@ -556,6 +549,7 @@
 		/* height: 584px; */
 		padding: 0;
 		margin: 0;
+		border:1px solid green;
 	}
 
 	.tab-content>#tab1 {
@@ -592,7 +586,8 @@
 
 	/* 已有留言模块 */
 	.title-msg {
-		width: 1180px;
+		width: 1120px;
+		/* height: 500px; */
 		margin: 0 auto;
 	}
 
@@ -647,10 +642,7 @@
 		width: 100%;
 		height: 400px;
 	}
-.card-img-top>img{
-	height: 100%;
-	overflow: hidden;
-}
+
 	.card-body {
 		width: 100%;
 		height: 100px;
@@ -668,9 +660,7 @@
 		width: 100%;
 		height: 100%
 	}
-
-	.d-inline-block {
+	.d-inline-block{
 		overflow: hidden;
 	}
-
 </style>

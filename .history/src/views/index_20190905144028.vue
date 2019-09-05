@@ -667,9 +667,6 @@ td>span{
     border:1px solid #333333;
 	cursor:pointer;
 	}
-
-
-
 .td-btn-focus{
     width:90px;
     height:25px;
