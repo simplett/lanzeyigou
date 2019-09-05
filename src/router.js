@@ -19,11 +19,6 @@ export default new Router({
       name: 'index',
       component: index
     },
-	{
-	  path: '/lunbo',
-	  name: 'lunbo',
-	  component: lunbo
-  },
   {
 	  path: '/productList',
 	  name: 'productList',

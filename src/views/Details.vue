@@ -16,9 +16,9 @@
 				<div id="preview" class="pro-img col pr-0 p-0">
 					<div class="card bg-transparent mr-5 position-absolute">
 						<img class="card-img-top" :src="imagesss[i]" alt="Card image cap" id="mImg" />
-						<div id="mask" class="position-absolute d-none"></div>
-						<div id="super-mask" class="position-absolute"></div>
-						<div id="div-lg" class="position-absolute d-none" :style="{'background-image':`url(${imagesss[i]})`,'background-position':bgposition}"></div>
+						<!-- 	<div id="mask" class="position-absolute d-none"></div>
+					<div id="super-mask" class="position-absolute"></div> -->
+						<!-- <div id="div-lg" class="position-absolute d-none" :style="{'background-image':`url(${imagesss[i]})`,'background-position':bgposition}"></div> -->
 						<div class="card-body p-0 text-center">
 							<img src="../../public/images/jt-left.png" class="btn float-left btn-light border-0 p-1" :class="{disabled:leftDisabled}"
 							 @click="move(-1)" id="btnLeft" />
@@ -78,7 +78,7 @@
                         margin-bottom:10px;">
 							<b>全部留言</b>
 						</div>
-						<div class="msg"  v-for="(item,i) of 8" :key="i">
+						<div class="msg" v-for="(item,i) of 8" :key="i">
 							<!-- 多个客户留言区域 -->
 							<div class="msg-img">
 								<img src="../../public/images/details/1-1.png" />
@@ -179,11 +179,11 @@
 		},
 		//   props: ["lid"],
 		computed: {
-			bgposition() {
-				//   var left = parseInt(this.maskStyle.left);
-				//   var top = parseInt(this.maskStyle.top);
-				return;
-			},
+			// bgposition() {
+			// 	//   var left = parseInt(this.maskStyle.left);
+			// 	//   var top = parseInt(this.maskStyle.top);
+			// 	return;
+			// },
 			leftDisabled() {
 				return this.times == 0;
 			},
@@ -196,10 +196,10 @@
 		watch: {
 			//监控
 			times() {
-				this.ulStyle["margin-left"] = -this.times * 80 + "px";
+				this.ulStyle["margin-left"] = -this.times * 90 + "px";
 			},
 			imagesss() {
-				this.ulStyle.width = this.imagesss.length * 80 + "px";
+				this.ulStyle.width = this.imagesss.length * 90 + "px";
 			}
 		},
 		methods: {
@@ -624,5 +624,41 @@
 	.nav-link {
 		height: 40px !important;
 		line-height: 40px !important;
+	}
+
+	.fandajing {
+		width: 450px;
+		height: 500px;
+	}
+
+	.card {
+		width: 100%;
+		height: 500px;
+	}
+
+	.card-img-top {
+		width: 100%;
+		height: 400px;
+	}
+
+	.card-body {
+		width: 100%;
+		height: 100px;
+		display: flex;
+		flex-flow: row;
+	}
+
+	.imageli {
+		width: 70px;
+		height: 80px;
+		margin: 0px 5px;
+	}
+
+	.imageli>img {
+		width: 100%;
+		height: 100%
+	}
+	.d-inline-block{
+		overflow: hidden;
 	}
 </style>
