@@ -496,7 +496,7 @@
 	/* **********************商品留言区域************************ */
 	.title {
 		width: 1180px;
-		/* height: 800px; */
+		height: 800px;
 		margin: 50px auto;
 	}
 
@@ -539,13 +539,13 @@
 		text-decoration: none;
 		text-align: center;
 	}
-
+|
 	/* 鼠标移入时候颜色改变 */
 
 	/* 留言页面样式 */
 	.tab-content {
 		width: 1180px;
-		/* height: 584px; */
+		height: 584px;
 		padding: 0;
 		margin: 0;
 	}
@@ -554,7 +554,7 @@
 		width: 100%;
 		height: 760px;
 		border-top-width: 1px solid #333;
-		background-color: #fff;
+		background-color: #fff;|
 	}
 
 	.title-text {
@@ -585,7 +585,7 @@
 	/* 已有留言模块 */
 	.title-msg {
 		width: 1120px;
-		/* height: 500px; */
+		height: 500px;
 		margin: 0 auto;
 	}
 

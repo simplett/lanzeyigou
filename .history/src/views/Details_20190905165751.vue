@@ -585,7 +585,7 @@
 	/* 已有留言模块 */
 	.title-msg {
 		width: 1120px;
-		/* height: 500px; */
+		height: 500px;
 		margin: 0 auto;
 	}
 

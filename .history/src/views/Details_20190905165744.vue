@@ -545,7 +545,7 @@
 	/* 留言页面样式 */
 	.tab-content {
 		width: 1180px;
-		/* height: 584px; */
+		height: 584px;
 		padding: 0;
 		margin: 0;
 	}
@@ -585,7 +585,7 @@
 	/* 已有留言模块 */
 	.title-msg {
 		width: 1120px;
-		/* height: 500px; */
+		height: 500px;
 		margin: 0 auto;
 	}
 
