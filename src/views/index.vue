@@ -233,7 +233,7 @@
 				// console.log(this.productListJson[code]);
 				this.$store.commit("SAVE_CODE", code);
 				var codeid=this.$store.state.code
-				console.log(this.$store.state.productlist[codeid]);
+				// console.log(this.$store.state.productlist[codeid]);
 			},
 			//跳转到商品详细情况
 			detailsrouter(pid){
