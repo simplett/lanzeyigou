@@ -15,17 +15,10 @@
 				</div>
 				<!--  -->
 				<div class="b-g-b-content">
-					<div>
-						<p>订单号:123456789</p>	
-					</div>
+					<p>订单号:123456789</p>
 					<!-- 步骤条 -->
 					<div class="b-g-b-div">
-						<el-steps :space="200" :active="1" finish-status="success">
-							<el-step title="已付款"></el-step>
-							<el-step title="等待发货"></el-step>
-							<el-step title="等待收货"></el-step>
-							<el-step title="已完成"></el-step>
-						</el-steps>
+
 					</div>
 				</div>
 			</div>
@@ -43,13 +36,7 @@ export default {
   }
 };
 </script>
-<style >
-.el-steps{
-	width:100%;
-}
-div.el-step__title{
-	text-align:center;
-}
+<style scoped>
 .content-title{
     width:100%;
     height:60px;
@@ -80,12 +67,12 @@ div.el-step__title{
 }
 .b-g-b{
 	width:100%;
-	height:125px;
+	height:100px;
 	border: 1px solid red;
 }
 .b-g-b-img{
 	float:left;
-	width:120px;
+	width:80px;
 	height:100%;
 	background:orange;
 }
@@ -94,9 +81,9 @@ div.el-step__title{
 	height:100%;
 }
 .b-g-b-content{
-	width:80%;
+	width:90%;
 	height:100%;
-	/* border:1px solid yellow; */
+	border:1px solid yellow;
 	float: left;
 }
 .b-g-b-content>p{
@@ -106,10 +93,8 @@ div.el-step__title{
 	font-size:20px;
 }
 .b-g-b-div{
-	width:108%;
-	height:70px;
-	border:1px solid red;
-	margin-top:25px;
+	width:90%;
+	height:40px;
+	border:1px solid ;
 }
-
 </style>

@@ -24,7 +24,8 @@
 							<el-step title="已付款"></el-step>
 							<el-step title="等待发货"></el-step>
 							<el-step title="等待收货"></el-step>
-							<el-step title="已完成"></el-step>
+							<div class="el-step__icon-inner">3</div></div></div>
+							<div class="el-step__main"><div class="el-step__title is-wait">等待收货</div><div class="el-step__description is-wait"></div></div></div>
 						</el-steps>
 					</div>
 				</div>

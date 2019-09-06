@@ -94,7 +94,7 @@ div.el-step__title{
 	height:100%;
 }
 .b-g-b-content{
-	width:80%;
+	width:90%;
 	height:100%;
 	/* border:1px solid yellow; */
 	float: left;
@@ -106,7 +106,7 @@ div.el-step__title{
 	font-size:20px;
 }
 .b-g-b-div{
-	width:108%;
+	width:100%;
 	height:70px;
 	border:1px solid red;
 	margin-top:25px;

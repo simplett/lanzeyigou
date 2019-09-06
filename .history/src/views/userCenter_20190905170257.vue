@@ -267,7 +267,6 @@ li>a{
 	padding-left:0px;
 	padding-bottom:0px;
 	float:left;
-	font-weight:bold;
 }
 a>img{
 	width:24px;
@@ -287,28 +286,5 @@ a{
 .p-c-body-gg>img{
 	height:100%;
 	width:100%;
-}
-.trad-re{
-	width:200px;
-	height:80px;
-	float: left;
-	/* border: 1px solid red; */
-	padding:0;
-	/* border-bottom:0; */
-}
-.trad-re>li{
-	width:70%;
-	height:25px;
-	/* margin-left:0; */
-	line-height:25px;
-	border-bottom:0;
-	/* border:1px solid green; */
-	margin-top:5px;
-	/* float:left; */
-	/* margin:0; */
-	font-size:20px;
-}
-.nav-tabs{
-	border-bottom:0;
 }
 </style>
