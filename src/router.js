@@ -44,7 +44,8 @@ export default new Router({
 	{
 		path: '/details',
 		name: 'details',
-		component: details
+		component: details,
+		// props:true,
 	},
 	{
 		path: '/collect',
@@ -69,5 +70,12 @@ export default new Router({
 		name: 'personcenter',
 		component: personcenter
 	}
-  ]
+  ],
+  scrollBehavior (to, from, savedPosition) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve({ x: 0, y: 0 })
+      }, 10)
+    })
+  }
 })

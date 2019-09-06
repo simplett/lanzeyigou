@@ -3,15 +3,15 @@
 		<!-- 多个客户留言区域 -->
 		<div class="msg-xunhuan">
 			<div class="msg-img">
-				<img :src="msg.msgimg">
+				<img :src="msg.image">
 			</div>
 			<div class="msg-text">
 				<div class="msg-name">
-					<b style="">{{msg.msgname}}</b>
-					<span>{{msg.msgpubtime}}</span>
+					<b style="">{{msg.nickname}}</b>
+					<span>{{msg.time}}</span>
 				</div>
 				<div class="msg-info">
-					<span>{{msg.msginfo}}</span>
+					<span>{{msg.message}}</span>
 				</div>
 			</div>
 		</div>

@@ -71,8 +71,8 @@
 					</div>
 					<!-- 留言区域 -->
 					<div class="title-text">
-						<input type="text" />
-						<button class="btn">留言</button>
+						<input type="text" v-model="sendmsg" />
+						<button id="liuying" class="btn" @click="sendmymsg()">留言</button>
 					</div>
 					<hr style="color:#f4f4f4;margin-bottom:0px;" />
 					<div class="title-msg">
@@ -80,8 +80,8 @@
                         margin-bottom:10px;">
 							<b>全部留言</b>
 						</div>
-						<div class="msg" v-for="(item,i) of 4" :key="i">
-							<commentcopy />
+						<div class="msg" v-for="(item,i) of getmsg" :key="i">
+							<commentcopy :msg="getmsg[i]" />
 						</div>
 					</div>
 				</div>
@@ -124,9 +124,13 @@
 			commentcopy,
 			delproduct
 		},
+		// props:["lid"],
 		data() {
 			return {
-				guarantee:true,
+				sendmsg: "这个用户什么都没有评价",
+				getmsg: [],
+				pid: "",
+				guarantee: true,
 				otherimage: [],
 				userother: [],
 				detailsCenter: {},
@@ -168,6 +172,62 @@
 			}
 		},
 		methods: {
+			sendmymsg() {
+				var message = this.sendmsg;
+				var uid=15;
+				var pid= 1;
+				var params = {
+					uid,
+					message,
+					pid,
+					type: "add"
+				};
+				this.axios.get("/Leftmessage", {
+					params
+				}).then(result => {
+					if (result.data.status == 1) {
+						this.open3();
+						document.getElementById("liuying").disabled = true;
+						this.msgJson();
+					} else {
+						this.open4()
+					}
+				})
+			},
+			open3() {
+				this.$notify({
+					title: '成功',
+					message: '您已成功留言，留言内容为：' + this.sendmsg,
+					type: 'success'
+				});
+				this.sengmsg = "";
+			},
+			//点赞之后失败的提示
+			open4() {
+				this.$notify({
+					title: '失败',
+					message: '很抱歉，留言失败',
+					type: 'warning'
+				});
+			},
+			msgJson() {
+				this.axios
+					.get("/Leftmessage", {
+						params: {
+							type: "get",
+							pid: 1
+						}
+					}).then(result => {
+						console.log("json", result);
+
+						this.getmsg = result.data.data;
+					})
+			},
+			getRouterData() {
+				// 只是改了query，其他都不变
+				this.pid = this.$route.query.pid;
+				console.log(this.pid);
+			},
 			msg1() {
 				var msg1 = document.getElementById("msg1");
 				var msg2 = document.getElementById("msg2");
@@ -206,6 +266,7 @@
 				msgtab1.classList = "tab-pane";
 			},
 			load() {
+				console.log(this.pid)
 				//封装发送ajax请求和初始化数据的方法，用于反复调用
 				if (1 === 1) {
 					//在发送请求之前就清除transition
@@ -214,7 +275,7 @@
 						.get("/Search", {
 							params: {
 								type: "goods",
-								pid: 10
+								pid: this.pid
 							}
 						})
 						.then(result => {
@@ -226,11 +287,11 @@
 								pname,
 								price,
 								uid,
-								status,//是否参与担保
+								status, //是否参与担保
 								wcount
 							} = result.data;
-							this.guarantee=status==1?true:false;
-							var baobei=p_description;
+							this.guarantee = status == 1 ? true : false;
+							var baobei = p_description;
 							if (uid) {
 								this.axios
 									.get("/Search", {
@@ -312,7 +373,9 @@
 			}
 		},
 		created() {
-			this.load();
+			this.getRouterData(),
+				this.load(),
+				this.msgJson()
 		}
 	};
 </script>
@@ -647,10 +710,12 @@
 		width: 100%;
 		height: 400px;
 	}
-.card-img-top>img{
-	height: 100%;
-	overflow: hidden;
-}
+
+	.card-img-top>img {
+		height: 100%;
+		overflow: hidden;
+	}
+
 	.card-body {
 		width: 100%;
 		height: 100px;
@@ -672,5 +737,4 @@
 	.d-inline-block {
 		overflow: hidden;
 	}
-
 </style>
