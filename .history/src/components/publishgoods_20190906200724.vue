@@ -1,27 +1,44 @@
 <template>
-<div>
-  <div class="content-title">
+  <div>
+	  <div class="content-title">
 		<div>
 			<img src="../../public/images/usercenter/zhanghao.png" alt="">
-			<p>交易记录</p>
+			<p>已发布商品</p>
 		</div>
 	</div>
 	<div class="content-b">
-
-	</div>	
-</div>
+		<div class="content-z">
+			<!-- 状态、价钱 -->
+			<div>
+				<p>￥3333.00</p>
+			</div>
+			<!-- 名称、图片 -->
+			<div>
+				<p>11111111111111111111111</p>
+				<img src="" alt="">
+			</div>
+			<!-- 收藏和点赞 -->
+			<div>
+				<a href="javascript:;" class="btn btn-danger">收藏(22)</a>
+				<a href="javascript:;" class="btn btn-danger">点赞(22)</a>
+			</div>
+		</div>
+	</div>
+  </div>
 </template>
 <script>
 export default {
   data() {
-    return {}
+    return {
+     
+    };
   },
   methods: {
     
   }
 };
 </script>
-<style scoped>
+<style  scoped>
 .content-title{
     width:100%;
     height:60px;
@@ -49,5 +66,10 @@ export default {
     width:100%;
     height:90%;
     padding-top:10px;
+}
+.content-z{
+	width:300px;
+	height:500px;
+	
 }
 </style>
