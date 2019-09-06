@@ -66,13 +66,13 @@ div.el-step__title{
     float:left;
     margin-left:30px; 
 }
-.content-title>div>p{
+/* .content-title>div>p{
     font-size:26px;
     font-weight:bold;
     float:left;
     padding:0;
     line-height:60px;
-}
+} */
 .content-b{
     width:100%;
     height:90%;

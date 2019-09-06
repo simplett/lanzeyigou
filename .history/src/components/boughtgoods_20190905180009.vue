@@ -66,7 +66,7 @@ div.el-step__title{
     float:left;
     margin-left:30px; 
 }
-.content-title>div>p{
+.content-title>div>>divp{
     font-size:26px;
     font-weight:bold;
     float:left;

@@ -15,9 +15,8 @@
 				</div>
 				<!--  -->
 				<div class="b-g-b-content">
-					<div>
-						<p>订单号:123456789</p>	
-					</div>
+					
+					<p>订单号:123456789</p>
 					<!-- 步骤条 -->
 					<div class="b-g-b-div">
 						<el-steps :space="200" :active="1" finish-status="success">
@@ -80,12 +79,12 @@ div.el-step__title{
 }
 .b-g-b{
 	width:100%;
-	height:125px;
+	height:100px;
 	border: 1px solid red;
 }
 .b-g-b-img{
 	float:left;
-	width:120px;
+	width:80px;
 	height:100%;
 	background:orange;
 }
@@ -94,7 +93,7 @@ div.el-step__title{
 	height:100%;
 }
 .b-g-b-content{
-	width:80%;
+	width:90%;
 	height:100%;
 	/* border:1px solid yellow; */
 	float: left;
@@ -106,7 +105,7 @@ div.el-step__title{
 	font-size:20px;
 }
 .b-g-b-div{
-	width:108%;
+	width:100%;
 	height:70px;
 	border:1px solid red;
 	margin-top:25px;
