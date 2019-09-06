@@ -25,6 +25,9 @@
 </template>
 <script>
 export default {
+	props: {
+				msg:{default: "111"}
+			},
     data(){
 		return {
 			msg:[

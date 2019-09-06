@@ -17,7 +17,7 @@
 				</div>
 				<div class="time mb-3">
 					<span>注册时间:</span>
-					<span>2019-07-01</span>
+					<span>{{proper.create_time}}</span>
 				</div>
 			</div>
 		</div>
