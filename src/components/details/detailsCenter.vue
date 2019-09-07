@@ -36,9 +36,9 @@
 					<img src="../../../public/images/details/lzdb.png" style="margin-left:10px;" />
 				</a>
 			</div>
-			
+
 			<div v-else>
-				蓝沢担保 :不
+				蓝沢担保 :
 				<a>
 					<img src="../../../public/images/details/lzdb-gray.png" style="margin-left:10px;" />
 				</a>
@@ -95,7 +95,12 @@
 					type: 'warning'
 				});
 			},
-
+			open5() {
+				this.$notify.error({
+					title: '错误',
+					message: '请您先登录'
+				});
+			},
 			buy(pid) {
 				var tokens = localStorage.getItem("userinfo");
 				console.log(tokens);
@@ -112,20 +117,26 @@
 				}
 			},
 			thumbsUp(pid) {
-				this.axios
-					.get("/Like", {
-						params: {
-							pid
-						}
-					}).then(result => {
-						if (result.data.status == 1) {
-							this.open3();
-							document.getElementById("likes").disabled = true;
-							this.detailsCenter.wcount++;
-						} else if (result.data.status == 0) {
-							this.open4()
-						}
-					})
+				var token = localStorage.getItem("token")
+				if (token) {
+					this.axios
+						.get("/Like", {
+							params: {
+								pid,token
+							}
+						}).then(result => {
+							if (result.data.status == 1) {
+								this.open3();
+								document.getElementById("likes").disabled = true;
+								this.detailsCenter.wcount++;
+							} else if (result.data.status == 0) {
+								this.open4()
+							}
+						})
+				} else {
+					this.open5()
+				}
+
 			}
 		}
 	}

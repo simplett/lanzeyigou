@@ -351,6 +351,7 @@
 							console.log(this.userdata);
 							console.log(1231231313);
 							this.imagesss = pimages.split(";");
+							console.log("###############################这是裁剪之后产生的数组",this.imagesss)
 							console.log(this.imagesss);
 
 							//每次重新加载页面后，都要把移动次数归零
@@ -1061,11 +1062,12 @@ button.zan {
 	.card-img-top {
 		width: 100%;
 		height: 400px;
+		overflow: hidden;
 	}
 
 	.card-img-top>img {
 		height: 100%;
-		overflow: hidden;
+		
 	}
 
 	.card-body {

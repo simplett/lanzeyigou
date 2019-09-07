@@ -33,7 +33,7 @@
 								<input class="input" type="email" v-model="email" placeholder="邮箱" />
 								<input class="input" type="text" v-model="checking" placeholder="邮箱验证码" />
 								<span class="e-check" @click="check">获取验证码</span>
-								<input class="input" type="password" v-model="upwd" placeholder="密码  8~10位数字" />
+								<input class="input" type="password" v-model="upwd" placeholder="密码  6-20个字母、数字、下划线" />
 								<button @click="reg">注册</button>
 							</form>
 						</div>
@@ -98,10 +98,10 @@
 		methods: {
 			//验证用户是否登录
 			checklog() {
-				console.log("正在测试")
-				var tokens = localStorage.getItem("userinfo");
-				console.log(tokens);
-				if (!tokens) {
+				console.log("#####################正在测试当前用户的登陆状态");
+				var token = localStorage.getItem("token");
+				console.log("####################token",token);
+				if (!token) {
 					this.ShowDiv('MyDiv', 'fade')
 				} else {
 					this.CloseDiv('MyDiv', 'fade')
@@ -167,11 +167,15 @@
 						params
 					})
 					.then(result => {
-						console.log(result);
+						console.log("###################################这是登陆之后的数据",result);
 						this.Status2 = result.data.status;
 						if (this.Status2 === 1) {
 							console.log(111);
 							alert("状态1");
+							var token=result.data.token;
+							this.$store.commit("SAVE_USERINFO", token);
+							this.CloseDiv('MyDiv', 'fade');
+							
 						}
 						if (this.Status2 === 4) {
 							console.log(444);
@@ -195,6 +199,21 @@
 					container.classList.remove("right-panel-active");
 				});
 			},
+			open3(uname) {
+				this.$notify({
+					title: '成功',
+					message: uname+'!您好，您已经成功注册了蓝泽易购',
+					type: 'success'
+				});
+				this.sengmsg = "";
+			},
+			open4() {
+				this.$notify({
+					title: '失败',
+					message: '很抱歉，系统错误',
+					type: 'warning'
+				});
+			},
 			reg() {
 				//正则表达式
 				var name = this.uname,
@@ -204,7 +223,7 @@
 					reguname = /^[a-z1-9]{8,12}$/,
 					regemail = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/,
 					regchecking = /^\d{6}$/,
-					regupwd = /^\d{6,10}$/;
+					regupwd = /^(\w){6,10}$/;
 				//用户名是否输入合法
 				console.log(name);
 				if (!reguname.test(name)) {
@@ -245,15 +264,17 @@
 					//当status改变的时候，自动触发对应的函数
 					this.Status1 = result.data.status;
 					if (this.Status1 == 1) {
-						var token = result.data.token || "";
+						var token = result.data.token;
 						// if (token !== "") {
 						//   this.$store.commit("SAVE_USERINFO", token);
 						// }
 						this.$store.commit("SAVE_USERINFO", token);
-						console.log(result);
-						console.log(this.$store.state.userinfo);
+						this.open3(this.uname);
+						console.log("#######################################这是用户注册成功之后的数据",result);
+						// console.log(this.$store.state.userinfo);//打印出vueX里面的数据
+					}else{
+						this.open4()
 					}
-
 				});
 			}
 		}, //ES6标准，可以简写

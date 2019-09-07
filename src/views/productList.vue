@@ -40,7 +40,7 @@
 				<div class="products" v-for="(item,j) of datas[i]" :key="j">
 					<!-- 商品图片 -->
 					<div class="products-img">
-						<img :src="datas[i][j].pimages" alt="">
+						<img @click="detailsrouter(datas[i][j].pid)" :src="selectimage[i]" alt="">
 					</div>
 					<!-- 商品介绍 -->
 					<table>
@@ -64,9 +64,9 @@
 					<div class="p-msg">
 						<div class="p-msg-left">
 							<div class="p-msg-left-img">
-								<img :src="item.Hphoto_url" alt="">
+								<img @click="touser(item.uid)" :src="item.image" alt="">
 							</div>
-							<p>丁晓瑞</p>
+							<p @click="touser(item.uid)">丁晓瑞</p>
 						</div>
 						<div>
 							<div class="p-msg-right">
@@ -85,6 +85,10 @@
 	export default {
 		data() {
 			return {
+				//选中的裁剪出来的图片
+				selectimage: [
+					[]
+				],
 				//请求回来的所有数据，商品列别的
 				datas: [],
 				codeid: 1,
@@ -101,6 +105,19 @@
 			}
 		},
 		methods: {
+			touser(uid) {
+				this.$router.push("/usercenter");
+			},
+			//跳转到详细页面的方法
+			detailsrouter(pid) {
+				console.log(pid);
+				this.$router.push({
+					name: "details",
+					query: {
+						pid
+					}
+				});
+			},
 			//循环请求数据
 			forajax(codeid) {
 				console.log(codeid[0])
@@ -123,7 +140,18 @@
 					.then(result => {
 						console.log(result.data.data);
 						this.datas.push(result.data.data);
-						console.log(this.datas);
+						console.log("这是商品列别的数据", this.datas);
+						for (var items of this.datas) {
+							var i = 0;
+							console.log("裁剪之后的数组", "pimages", items);
+							for (var item of items) {
+								var i = item.pimages.split(";");
+								console.log(i,"这是I");
+								this.selectimage[i].push(i);
+							}
+							i++;
+						};
+						console.log("这个可能是一个三维数组",this.selectimage);
 					});
 			},
 			getRouterData() {
@@ -135,7 +163,7 @@
 		},
 		created() {
 			this.getRouterData();
-			var mycategory=this.codeid.codelist;
+			var mycategory = this.codeid.codelist;
 			this.forajax(mycategory);
 		}
 	}
@@ -387,7 +415,8 @@
 	.td-top-p-intro:hover {
 		color: #999999;
 	}
-	.myadd-nav{
+
+	.myadd-nav {
 		margin: 20px 0px;
 	}
 </style>
