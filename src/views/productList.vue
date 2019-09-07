@@ -40,7 +40,7 @@
 				<div class="products" v-for="(item,j) of datas[i]" :key="j">
 					<!-- 商品图片 -->
 					<div class="products-img">
-						<img @click="detailsrouter(datas[i][j].pid)" :src="selectimage[i]" alt="">
+						<img @click="detailsrouter(datas[i][j].pid)" :src="selectimage[i][j]" alt="">
 					</div>
 					<!-- 商品介绍 -->
 					<table>
@@ -87,6 +87,11 @@
 			return {
 				//选中的裁剪出来的图片
 				selectimage: [
+					[],
+					[],
+					[],
+					[],
+					[],
 					[]
 				],
 				//请求回来的所有数据，商品列别的
@@ -141,17 +146,22 @@
 						console.log(result.data.data);
 						this.datas.push(result.data.data);
 						console.log("这是商品列别的数据", this.datas);
+						var i = 0;
 						for (var items of this.datas) {
-							var i = 0;
 							console.log("裁剪之后的数组", "pimages", items);
 							for (var item of items) {
-								var i = item.pimages.split(";");
-								console.log(i,"这是I");
-								this.selectimage[i].push(i);
+								var imagereg = /;/;
+								if (imagereg.test(item.pimages)) {
+									var j = item.pimages.split(";");
+									console.log(i, "这是I");
+									this.selectimage[i].push(j[0]);
+								} else {
+									this.selectimage[i].push(item.pimages)
+								}
 							}
 							i++;
 						};
-						console.log("这个可能是一个三维数组",this.selectimage);
+						console.log("这个可能是一个三维数组", this.selectimage);
 					});
 			},
 			getRouterData() {

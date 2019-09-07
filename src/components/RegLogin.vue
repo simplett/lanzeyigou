@@ -156,7 +156,7 @@
 			//登录的方法
 			login() {
 				var email = this.emails;
-				var pwd = this.upwd;
+				var pwd = this.$md5(this.upwd);
 				var url = "/Login";
 				var params = {
 					email,

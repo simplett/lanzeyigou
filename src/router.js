@@ -7,6 +7,7 @@ import login from "./components/RegLogin.vue"
 import collect from "./components/collect.vue"
 // import product from "./components/Comment.vue"
 import details from "./views/Details.vue"
+import searchlist from "./views/SearchList.vue"
 import aliyun from "./components/aliyun.vue"
 import header from "./components/Head.vue"
 import aliyun1 from "./components/aliyun copy.vue"
@@ -69,6 +70,11 @@ export default new Router({
 			path: '/personcenter',
 			name: 'personcenter',
 			component: personcenter
+		},
+		{
+			path: '/searchlist',
+			name: 'searchlist',
+			component: searchlist
 		}
 	],
 	scrollBehavior(to, from, savedPosition) {

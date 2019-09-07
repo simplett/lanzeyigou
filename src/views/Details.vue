@@ -129,6 +129,7 @@
 			return {
 				//留言区域排序的顺序；
 				len: 0,
+				UID:1,//表示用户的uid
 				sendmsg: "这个用户什么都没有评价",
 				getmsg: [],
 				pid: "",
@@ -260,6 +261,7 @@
 				msgtab2.classList = "tab-pane";
 			},
 			msg2() {
+				console.log("##############################################################",this.UID);
 				this.axios
 					.get("/Search", {
 						params: {
@@ -267,13 +269,20 @@
 							uid: 3
 						}
 					}).then(result => {
-						console.log(result.data.data);
-
+						console.log("######################################################这是uid为uid的用户的其他商品",result.data.data);
 						this.userother = result.data.data;
 						var otherimage = [];
+						var imagereg=/;/;
 						for (var item of this.userother) {
-							var i = item.pimages.split(";");
+							if(imagereg.test(item.pimages))
+							{
+								console.log(item.pimages);
+								var i = item.pimages.split(";");
 							otherimage.push(i[0]);
+							}else{
+								otherimage.push(item.pimages);
+							}
+							
 						};
 						this.otherimage = otherimage;
 					})
@@ -300,7 +309,7 @@
 							}
 						})
 						.then(result => {
-							console.log(result.data);
+							console.log("###################################这是商品详情的第一次请求",result.data);
 							var {
 								pimages,
 								p_description,
@@ -311,6 +320,7 @@
 								status, //是否参与担保
 								wcount
 							} = result.data;
+							this.UID=uid;
 							this.guarantee = status == 1 ? true : false;
 							var baobei = p_description;
 							if (uid) {
@@ -392,7 +402,6 @@
 	};
 </script>
 <style scoped>
-<<<<<<< HEAD
 /* ********************************************************** */
 /* 商家发布商品其他信息 */
 .pro-show {

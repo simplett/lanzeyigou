@@ -9,7 +9,7 @@
 			<!-- 首页页头右部分 -->
 			<div class="index-header-right">
 				<input class="index-header-input" type="text" v-model="SearchContent" placeholder="蓝沢   请输入关键词" />
-				<img src="../../public/images/搜索.png" @click="Search()" />
+				<img src="../../public/images/搜索.png" @click="searchlistrouter()" />
 			</div>
 		</div>
   </header>
@@ -22,17 +22,26 @@ SearchContent:"手机"
           }
       },
       methods:{
-          Search() {
-				var SearchContent = this.SearchContent;
-				var url = "/Search";
-				var params = {
-					type:"category",
-					kw: SearchContent
-				};
-				this.axios.get(url, {
-					params
-				}).then(result => {
-					console.log(result)
+   //        Search() {
+			// 	var SearchContent = this.SearchContent;
+			// 	var url = "/Search";
+			// 	var params = {
+			// 		type:"category",
+			// 		kw: SearchContent
+			// 	};
+			// 	this.axios.get(url, {
+			// 		params
+			// 	}).then(result => {
+			// 		console.log(result)
+			// 	});
+			// },
+			searchlistrouter() {
+				var kw=this.SearchContent;
+				this.$router.push({
+					name: "searchlist",
+					query: {
+						kw
+					}
 				});
 			}
       }
