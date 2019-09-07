@@ -391,6 +391,347 @@
 	};
 </script>
 <style scoped>
+<<<<<<< HEAD
+/* ********************************************************** */
+/* 商家发布商品其他信息 */
+.pro-show {
+	width: 1180px;
+	/* border:1px solid red; */
+	background: #f6f6f6;
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+
+}
+
+.pro-item {
+	width: 280px;
+	height: 379px;
+	float: left;
+}
+
+.item-detail {
+	width: 240px;
+	height: 339px;
+	background: #fff;
+	margin: 20px auto;
+}
+
+/* 发布者信息 */
+.item-img {
+	width: 240px;
+	height: 70px;
+	/* border:1px solid yellow; */
+}
+
+.img-icon {
+	width: 40px;
+	height: 40px;
+	margin: 15px 10px;
+	border-radius: 50%;
+	float: left;
+}
+
+.item-name {
+	width: 150px;
+	height: 70px;
+	text-align: left;
+	float: left;
+	padding: 10px;
+}
+
+.item-img>span {
+	margin: 10px auto;
+}
+
+.img-icon>img {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+}
+
+/* 商品展示 */
+.pro-show>.pro-item>.item-detail>.product {
+	width: 240px;
+	height: 220px;
+}
+
+/* 商品图片 */
+.pro-show>.pro-item>.item-detail>.product-img {
+	width: 240px;
+	height: 200px;
+	margin: 0;
+}
+
+/* 底部价格以及位置 */
+.pro-show>.pro-item>.item-detail>.pro-price {
+	margin: 10px auto;
+}
+
+/* ********************************************************** */
+.details {
+	background-color: #f5f5f5;
+}
+
+/* ******************广告图片div************************ */
+.det-img {
+	width: 1180px;
+	height: 150px;
+	margin: 0 auto;
+	margin-bottom: 30px;
+}
+
+/* 广告图片宽高 */
+.det-img>img {
+	width: 100%;
+	height: 100%;
+}
+
+/************************** 商品详情********************* */
+.det-pro {
+	margin-top: 20px;
+	width: 1180px;
+	height: 500px;
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: nowrap;
+	margin: 0 auto;
+}
+
+.fandajing {
+	width: 450px;
+	height: 500px;
+	background: #fff;
+}
+
+/* 商品详情左侧图片 */
+.pro-img {
+	width: 100%;
+	height: 100%;
+}
+
+/* 商品详情介绍 */
+.det-pro>.pro-detail {
+	float: left;
+	text-align: left;
+	width: 30%;
+	height: 100%;
+	/* border:1px solid red; */
+}
+
+.det-pro>.pro-detail>.detail-text {
+	width: 100%;
+	height: 478px;
+	margin: 10px 0;
+	background: #fff;
+}
+
+.det-pro>.pro-detail>.detail-text>.info-text {
+	width: 300px;
+	height: 150px;
+	font-size: 16px;
+	color: #333;
+	padding-left: 70px;
+}
+
+.det-pro>.pro-detail>.detail-text>.info-text>.pname,
+.det-pro>.pro-detail>.detail-text>.pro-address>.address {
+	height: 35px;
+	line-height: 35px;
+	padding-top: 10px;
+}
+
+.det-pro>.pro-detail>.detail-text>.pro-address {
+	width: 300px;
+	height: 328px;
+	font-size: 16px;
+	color: #333;
+	padding-left: 70px;
+}
+
+/* 交易方式按钮样式 */
+button.ex-style {
+	width: 100px;
+	height: 30px;
+	text-align: center;
+	border-radius: 3px;
+}
+
+/* 立即购买按钮样式 */
+button.buy-btn {
+	color: #fff;
+	font-size: 20px;
+	width: 201px;
+	height: 40px;
+	border: 0;
+	margin: 20px 30px 30px 0;
+}
+
+/* 赞和分享的按钮样式 */
+button.share,
+button.zan {
+	width: 86px;
+	height: 30px;
+	background: #f1f1f1;
+	border-radius: 3px;
+}
+
+/* **********************商品留言区域************************ */
+.title {
+	width: 1180px;
+	/* height: 800px; */
+	margin: 50px auto;
+}
+
+.title-nav {
+	list-style: none;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	padding-left: 0;
+	margin-bottom: 0;
+}
+
+/* 留言框按钮的颜色设置 */
+.title-nav>.nav-item1 {
+	width: 160px;
+	height: 40px;
+	font-size: 20px;
+	background: #fff;
+}
+
+.title-nav>.nav-item1>a.ismyactive,
+.title-nav>.nav-item2>a.ismyactive {
+	background-color: #e61717;
+	color: #fff;
+}
+
+/* 商品发布框按钮的颜色设置 */
+.title-nav>.nav-item2 {
+	width: 267px;
+	height: 40px;
+	font-size: 20px;
+	background: #fff;
+	border-right-width: 1px solid #ddd;
+}
+
+.title-nav>li>a {
+	color: #000;
+	text-decoration: none;
+	text-align: center;
+}
+
+/* 鼠标移入时候颜色改变 */
+
+/* 留言页面样式 */
+.tab-content {
+	width: 1180px;
+	/* height: 584px; */
+	padding: 0;
+	margin: 0;
+}
+
+.tab-content>#tab1 {
+	width: 100%;
+	height: 760px;
+	border-top-width: 1px solid #333;
+	background-color: #fff;
+}
+
+.title-text {
+	width: 100%;
+	height: 200px;
+	margin-bottom: 20px;
+}
+
+.title-text>input {
+	width: 1120px;
+	height: 100px;
+	margin: 20px auto;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	background: #f4f4f4;
+}
+
+.title-text>button {
+	width: 160px;
+	height: 50px;
+	border: 0.5px solid #ddd;
+	color: #000;
+	font-size: 20px;
+	float: right;
+	margin-right: 29px;
+}
+
+/* 已有留言模块 */
+.title-msg {
+	width: 1180px;
+	margin: 0 auto;
+}
+
+.title-msg>.msg {
+	width: 100%;
+	height: 100px;
+	border-bottom: 1px solid #b8b1b1;
+}
+
+.title-msg>.msg>.msg-img {
+	width: 10%;
+	height: 100px;
+	float: left;
+	border-radius: 50%;
+}
+
+.title-msg>.msg>.msg-img>img {
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+}
+
+.title-msg>.msg>.msg-text {
+	width: 90%;
+	height: 100px;
+	float: left;
+}
+
+.title-msg>.msg>.msg-text>.msg-name,
+.title-msg>.msg>.msg-text>.msg-info {
+	text-align: left;
+	margin-left: 10px;
+	margin-top: 10px;
+}
+
+.nav-link {
+	height: 40px !important;
+	line-height: 40px !important;
+}
+
+.fandajing {
+	width: 450px;
+	height: 500px;
+}
+
+.card {
+	width: 100%;
+	height: 500px;
+}
+
+.card-img-top {
+	width: 100%;
+	height: 400px;
+}
+.card-img-top>img{
+	height: 100%;
+	overflow: hidden;
+}
+.card-body {
+	width: 100%;
+	height: 100px;
+	display: flex;
+	flex-flow: row;
+}
 	/* ********************************************************** */
 	/* 商家发布商品其他信息 */
 	.pro-show {
@@ -740,11 +1081,23 @@
 		margin: 0px 5px;
 	}
 
-	.imageli>img {
-		width: 100%;
-		height: 100%
-	}
+.imageli {
+	width: 70px;
+	height: 80px;
+	margin: 0px 5px;
+}
+.imageli>img {
+	width: 100%;
+	height: 100%
+}
 
+.d-inline-block {
+	overflow: hidden;
+}
+.pro-address:nth-child(3){
+	padding-top:10px;
+	border:1px solid red;
+}
 	.d-inline-block {
 		overflow: hidden;
 	}
