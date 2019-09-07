@@ -4,7 +4,8 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 const state = {
 		userinfo: {
-			uname: "132111321"
+			uname: "admin",
+			token:localStorage.getItem("token"),
 		},
 		productlist: [{
 				"codelist": [
@@ -232,13 +233,13 @@ const state = {
 		const mutations = {
 			SAVE_USERINFO(state, data) {
 				//把用户信息存入本地存储
-				localStorage.setItem("userinfo", data);
+				localStorage.setItem("token", data);
 
-				let localuserinfo = localStorage.getItem("userinfo");
-				state.userinfo = localuserinfo;
+				let localusertoken = localStorage.getItem("token");
+				state.userinfo.token = localusertoken;
 
 				console.log("name函数被触发");
-				console.log(state.userinfo)
+				console.log(state.userinfo.token)
 			},
 			SAVE_PRODUCTLIST(state, data) {
 				state.productlist = data;

@@ -81,7 +81,7 @@
 							<b>全部留言</b>
 						</div>
 						<div class="msg" v-for="(item,i) of getmsg" :key="i">
-							<commentcopy :msg="getmsg[i]" />
+							<commentcopy :msg="getmsg[len-1-i]" />
 						</div>
 					</div>
 				</div>
@@ -98,7 +98,7 @@
 					</div>
 					<div class="pro-show">
 						<div class="myflex" v-for="(item,i) of 8" :key="i">
-							<delproduct :otherimage="otherimage[i]" :productlist="userother[i]" />
+							<delproduct @childFn="parentFn" :otherimage="otherimage[i]" :productlist="userother[i]" />
 						</div>
 					</div>
 				</div>
@@ -127,6 +127,8 @@
 		// props:["lid"],
 		data() {
 			return {
+				//留言区域排序的顺序；
+				len: 0,
 				sendmsg: "这个用户什么都没有评价",
 				getmsg: [],
 				pid: "",
@@ -169,30 +171,42 @@
 			},
 			imagesss() {
 				this.ulStyle.width = this.imagesss.length * 90 + "px";
+			},
+			pid() {
+				this.load()
 			}
 		},
 		methods: {
+			//儿子向父亲传值
+			parentFn(payload) {
+				this.pid = payload;
+			},
 			sendmymsg() {
+				var token = localStorage.getItem("token")
 				var message = this.sendmsg;
-				var uid=15;
-				var pid= 1;
-				var params = {
-					uid,
-					message,
-					pid,
-					type: "add"
-				};
-				this.axios.get("/Leftmessage", {
-					params
-				}).then(result => {
-					if (result.data.status == 1) {
-						this.open3();
-						document.getElementById("liuying").disabled = true;
-						this.msgJson();
-					} else {
-						this.open4()
-					}
-				})
+				var pid = 1;
+				if (token) {
+					var params = {
+						token,
+						message,
+						pid,
+						type: "add"
+					};
+					this.axios.get("/Leftmessage", {
+						params
+					}).then(result => {
+						if (result.data.status == 1) {
+							this.open3();
+							document.getElementById("liuying").disabled = true;
+							this.msgJson();
+						} else {
+							this.open4()
+						}
+					})
+				} else {
+					this.open5();
+				}
+
 			},
 			open3() {
 				this.$notify({
@@ -210,6 +224,12 @@
 					type: 'warning'
 				});
 			},
+			open5() {
+				this.$notify.error({
+					title: '错误',
+					message: '请您先登录'
+				});
+			},
 			msgJson() {
 				this.axios
 					.get("/Leftmessage", {
@@ -221,6 +241,7 @@
 						console.log("json", result);
 
 						this.getmsg = result.data.data;
+						this.len = this.getmsg.length;
 					})
 			},
 			getRouterData() {
@@ -342,16 +363,6 @@
 						});
 				}
 			},
-
-
-			details_ajax() {
-				var pid = this.pid;
-				var url = "/Details?pid=" + pid;
-				var params = {
-					pid
-				};
-			},
-			over_display() {},
 			move(i) {
 				if (
 					(i == -1 && this.leftDisabled == false) ||
@@ -374,7 +385,7 @@
 		},
 		created() {
 			this.getRouterData(),
-				this.load(),
+				// this.load(),
 				this.msgJson()
 		}
 	};

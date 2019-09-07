@@ -28,7 +28,7 @@
 			</div>
 		</div>
 		<!-- 分类 -->
-		<div v-for="(item,i) of 6" :key="i">
+		<div class="myadd-nav" v-for="(item,i) of 6" :key="i">
 			<!-- 标题 -->
 			<div class="title">
 				<div class="title-div">
@@ -247,21 +247,24 @@
 
 	.p-list {
 		width: 1199px;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
 		/* height: 672px; */
 		margin: 0 auto;
 		/* // border:1px solid red; */
 		padding-left: 9px;
-		padding-bottom: 10px;;
+		/* padding-bottom: 10px;; */
 		/* overflow: hidden; */
 	}
 
 	.products {
 		width: 228px;
-		height: 330px;
+		/* height: 330px; */
 		background: #ffffff;
 		margin-right: 10px;
 		margin-bottom: 10px;
-		float: left;
+		/* float: left; */
 	}
 
 	.products-img {
@@ -383,5 +386,8 @@
 
 	.td-top-p-intro:hover {
 		color: #999999;
+	}
+	.myadd-nav{
+		margin: 20px 0px;
 	}
 </style>
