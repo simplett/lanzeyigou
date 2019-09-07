@@ -22,26 +22,26 @@
 		<!-- 频道广场商品展示 -->
 		<div class="pd-products">
 			<div class="pd-1">
-				<div class="pd-p-1 p-left-1">
+				<div @click="productlistajax(0)" class="pd-p-1 p-left-1">
 					<div class="pd-1-title">
 						<a class="p-left-title" href="javascript:;">数码产品</a>
 						<p>DIGTAL PRODUCTS</p>
-						<img src="../../public/images/details/素材/1_0.png" alt />
+						<img src="http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/0.png" alt />
 					</div>
 				</div>
-				<div class="pd-p-1 p-right-1">
+				<div @click="productlistajax(1)" class="pd-p-1 p-right-1">
 					<div class="pd-1-title">
 						<a class="p-right-title" href="javascript:;">运动体育</a>
 						<p id="p-right-p">MOTION SPORTS</p>
                     <div class="p-right-img">
-                        <img src="../../public/images/details/素材/4_3.png" alt="">
+                        <img src="http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/1_0.png" alt="">
                     </div>
 					</div>
 				</div>
 			</div>
 			<div class="pd-2">
 				<div class="pd-p-2" v-for="(item,i) of nav1" :key="i">
-					<div class="pd-p-s">
+					<div @click="productlistajax(i+2)" class="pd-p-s">
 						<a class="pd-p-a" href="javascript:;">{{item.name}}</a>
 						<p class="pd-p-p">{{item.englishname}}</p>
 						<img class="pd-p-img" :src="item.image_url" alt />
@@ -50,7 +50,7 @@
 			</div>
 			<div class="pd-3">
 				<div class="pd-p-3" v-for="(item,i) of nav2" :key="i">
-					<div class="pd-p-s">
+					<div @click="productlistajax(i+6)" class="pd-p-s">
 						<a class="pd-p-a" href="javascript:;">{{item.name}}</a>
 						<p class="pd-p-p">{{item.englishname}}</p>
 						<img class="pd-p-img" :src="item.image_url" alt />
@@ -123,15 +123,15 @@
 							<div @click="enter"  id="dian" v-bind:class="{ 'you' : flag, 'you2': !flag}">{{con}}</div> 
 						</div>
 						<p class="p-introduce">{{item.pname}}</p>
-						<div class="g-l-product">
-							<img :src="item.pimages" :data-pid="item.pid" alt />
+						<div @click="detailsrouter(item.pid)" class="g-l-product">
+							<img :src="item.pimages"  alt />
 						</div>
 						<div class="g-l-table">
 							<table>
 								<tbody>
 									<tr>
 										<td>
-											<img class="td-right" src="../../public/images/浏览眼睛.png" />
+											<img @click="detailsrouter(item.pid)"  class="td-right" src="../../public/images/浏览眼睛.png" />
 											<p class="td-right">{{item.watched}}人浏览</p>
 										</td>
 										<td>
@@ -143,7 +143,7 @@
 											<p class="td-right td-red">￥{{item.price}}</p>
 										</td>
 										<td>
-											<a :data-pid="item.uid" class="btn td-btn-focus">我想要</a>
+											<a :data-pid="item.uid" @click="detailsrouter(item.pid)" class="btn td-btn-focus">我想要</a>
 										</td>
 									</tr>
 								</tbody>
@@ -178,49 +178,73 @@
 				nav1: [{
 						name: "服装服饰",
 						englishname: "CLOTHING AND APPAREL",
-						image_url: require("../../public/images/details/素材/0_1.png")
+						image_url:"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/2.png"
 					},
 					{
 						name: "饰品首饰",
 						englishname: "JEWELRY AND ORNAMENTS",
-						image_url: require("../../public/images/details/素材/0_1.png")
+						image_url:"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/3.png"
 					},
 					{
 						name: "家用电器",
 						englishname: "ELECTIC APPLIANCE",
-						image_url: require("../../public/images/details/素材/0_1.png")
+						image_url: "http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/4.png"
 					},
 					{
 						name: "宠物用品",
 						englishname: "PET SUPPLIES",
-						image_url: require("../../public/images/details/素材/0_1.png")
+						image_url: "http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/5.png"
 					}
 				],
 				nav2: [{
 						name: "日用百货",
 						englishname: "ARTICLES OF DAILY USE",
-						image_url: require("../../public/images/details/素材/0_1.png")
+						image_url:"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/6.png"
 					},
 					{
 						name: "左图右史",
 						englishname: "BOOL COMPLETE",
-						image_url: require("../../public/images/details/素材/0_1.png")
+						image_url:"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/7.png"
 					},
 					{
 						name: "美容护肤",
 						englishname: "COSMETIC SKIN CARE",
-						image_url: require("../../public/images/details/素材/0_1.png")
+						image_url:"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/8.png"
 					},
 					{
 						name: "健康养生",
 						englishname: "HEALTH PRESERVATION",
-						image_url: require("../../public/images/details/素材/0_1.png")
+						image_url:"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/9.png"
 					}
 				]
+				
 
 			};
 		},
 		methods: {
+			//跳转到商品类别的分类
+			productlistajax(code){
+				this.$router.push({
+				   name:"productList",
+				  query:{
+				    code
+				 }
+				});
+				// console.log(this.productListJson[code]);
+				this.$store.commit("SAVE_CODE", code);
+				var codeid=this.$store.state.code
+				// console.log(this.$store.state.productlist[codeid]);
+			},
+			//跳转到商品详细情况
+			detailsrouter(pid){
+				console.log(pid);
+				this.$router.push({
+				   name:"details",
+				  query:{
+				    pid
+				 }
+				});
+			},
 			 enter:function(){
 		       this.flag=!this.flag;
 		       if(this.flag==true){
@@ -281,6 +305,7 @@
 			//这是为你推荐的Ajax请求
 			//（category的可取值为new,superior,characteristic）
 			DiscoverLike(category) {
+				console.log(this.productlist)
 				var url = "/Index";
 				var params = {};
 				if (category == 1) {
@@ -296,7 +321,9 @@
 					})
 					.then(result => {
 						this.data = result.data.data;
-						console.log(result);
+						// this.productListJson=result.data.productlist.split("@");
+						// console.log("这是productlist",this.productListJson[1]);
+						console.log("这是index的数据",result);
 						//数据保存在data中，分类别的请求会覆盖同一个data，实现数据的共享
 						//在页面加载的时候，会预先发送一个请求，函数名称为DiscoverLike（”new“）
 					});

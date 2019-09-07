@@ -1069,12 +1069,15 @@ button.zan {
 		height: 80px;
 		margin: 0px 5px;
 	}
+>>>>>>> 0c1265b781c187eeba602889dbadcf9e92aa1b9f
 
 .imageli {
 	width: 70px;
 	height: 80px;
 	margin: 0px 5px;
 }
+
+<<<<<<< HEAD
 .imageli>img {
 	width: 100%;
 	height: 100%
@@ -1087,7 +1090,9 @@ button.zan {
 	padding-top:10px;
 	border:1px solid red;
 }
+=======
 	.d-inline-block {
 		overflow: hidden;
 	}
+>>>>>>> 0c1265b781c187eeba602889dbadcf9e92aa1b9f
 </style>
