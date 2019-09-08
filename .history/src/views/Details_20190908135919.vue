@@ -236,7 +236,7 @@
 					.get("/Leftmessage", {
 						params: {
 							type: "get",
-							pid: 100
+							pid: 1
 						}
 					}).then(result => {
 						console.log("json", result);

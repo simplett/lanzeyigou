@@ -236,7 +236,7 @@
 					.get("/Leftmessage", {
 						params: {
 							type: "get",
-							pid: 100
+							pid: 1
 						}
 					}).then(result => {
 						console.log("json", result);
@@ -742,6 +742,7 @@ button.zan {
 	display: flex;
 	flex-flow: row;
 }
+	
 	.card-body {
 		width: 100%;
 		height: 100px;

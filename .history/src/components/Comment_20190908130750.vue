@@ -95,7 +95,6 @@ div.msg-xunhuan>.msg-img>img{
 	width: 100%;
 	height:100%;
 	/* background:#000000; */
-	border-radius: 50%;
 }
 div.msg-xunhuan>.msg-text{
 	width:90%;height:100px;

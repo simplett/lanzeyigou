@@ -119,7 +119,7 @@
 	}
 </script>
 
-<style scoped>
+<style>
 	.g-l-p {
 		width: 280px;
 		height: 420px;
@@ -133,7 +133,7 @@
 	.tab-content {
 		margin: 0 auto;
 		width: 1230px;
-		/* height: 1584px; */
+		height: 1584px;
 		/* border: 1px solid red; */
 		padding-left: 20px;
 		margin-top: 70px;
