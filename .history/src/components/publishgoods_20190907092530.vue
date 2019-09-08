@@ -77,6 +77,5 @@ export default {
 	width:300px;
 	height:30px;
 	border:1px solid red;
-	float:right;
 }
 </style>
