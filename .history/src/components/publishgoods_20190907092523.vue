@@ -73,10 +73,9 @@ export default {
 	float:left;
 	background: #f2f2f2;
 }
-.content-z-p{
+.content-z:nth-child(1){
 	width:300px;
 	height:30px;
 	border:1px solid red;
-	float:right;
 }
 </style>

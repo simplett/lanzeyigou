@@ -9,7 +9,7 @@
 	<div class="content-b">
 		<div class="content-z">
 			<!-- 状态、价钱 -->
-			<div class="content-z-p">
+			<div>
 				<p>￥3333.00</p>
 			</div>
 			<!-- 名称、图片 -->
@@ -67,16 +67,15 @@ export default {
     height:90%;
     padding-top:10px;
 }
-.content-z{
+.content-b:nth-child(1){
 	width:300px;
 	height:400px;
 	float:left;
 	background: #f2f2f2;
 }
-.content-z-p{
+/* .content-z:nth-child(1){
 	width:300px;
 	height:30px;
 	border:1px solid red;
-	float:right;
-}
+} */
 </style>
