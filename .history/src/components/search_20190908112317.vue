@@ -17,9 +17,9 @@
 <script>
   export default {
       data(){
-			return {
+          retu	rn {
 				SearchContent:"手机"
-			}
+          }	
       },
       methods:{
    //        Search() {

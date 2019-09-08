@@ -17,9 +17,9 @@
 <script>
   export default {
       data(){
-			return {
+          return {
 				SearchContent:"手机"
-			}
+          }
       },
       methods:{
    //        Search() {

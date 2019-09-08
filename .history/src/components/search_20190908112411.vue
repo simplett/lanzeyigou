@@ -18,7 +18,7 @@
   export default {
       data(){
 			return {
-				SearchContent:"手机"
+				SearchContent:"电脑"
 			}
       },
       methods:{
