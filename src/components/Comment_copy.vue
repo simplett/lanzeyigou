@@ -39,6 +39,8 @@ div.msg{
 div.msg-xunhuan>.msg-img{
 	width:80px;
 	height:80px;
+	border-radius: 50%;
+	overflow: hidden;
 	/* line-height: 100px; */
 	float: left;
 	border-radius: 50%;
