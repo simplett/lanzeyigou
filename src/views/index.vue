@@ -327,11 +327,12 @@
 					})
 					.then(result => {
 						this.data = result.data.data;
+						this.selectimage=[];
 						for (var item of this.data) {
 							var i = item.pimages.split(";");
 							this.selectimage.push(i[0]);
 						};
-						console.log("#######################################这是裁剪出来的图片列表",this.selectimage)
+						console.log("#################index######################这是裁剪出来的图片列表",this.selectimage)
 						// this.productListJson=result.data.productlist.split("@");
 						// console.log("这是productlist",this.productListJson[1]);
 						console.log("这是index的数据", result);
