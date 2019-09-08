@@ -1,0 +1,22 @@
+<template>
+    <div>
+
+	</div>
+</template>
+
+<script >
+import ossClient from '../assets/client.js';
+export default {
+    data () {
+        return {
+           
+    },
+    methods: {
+		
+    }
+};
+}
+</script>
+<style lang="stylus" scoped>
+
+</style>
