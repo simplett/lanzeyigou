@@ -17,7 +17,7 @@
 						<span>{{productlist.pname}}</span>
 					</div>
 					<div class="product-img">
-						<img :src="otherimage" />
+						<img @click="detailsrouter(productlist.pid)" :src="otherimage" />
 					</div>
 				</div>
 				<div class="pro-price">
@@ -42,6 +42,11 @@
 			otherimage: {
 				default: "111"
 			}
+		},
+		methods:{
+			detailsrouter(pid){
+				            this.$emit('childFn', pid); 
+			},
 		}
 	}
 </script>

@@ -1,13 +1,12 @@
-
 <template>
 	<div>
 		<!-- 主页 -->
 		<!-- 页头 -->
-		<my-header/>
-        <!-- 搜索 -->
-        <search/>
+		<my-header />
+		<!-- 搜索 -->
+		<search />
 		<!-- 这是轮播 -->
-		<Carousel :lunbo="lunbo"/>
+		<Carousel :lunbo="lunbo" />
 		<!-- 频道广场 -->
 		<div class="pd" first="1">
 			<img class="pd-left" src="../../public/images/左边装饰红.png" alt />
@@ -33,9 +32,9 @@
 					<div class="pd-1-title">
 						<a class="p-right-title" href="javascript:;">运动体育</a>
 						<p id="p-right-p">MOTION SPORTS</p>
-                    <div class="p-right-img">
-                        <img src="http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/1_0.png" alt="">
-                    </div>
+						<div class="p-right-img">
+							<img src="http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/1_0.png" alt="">
+						</div>
 					</div>
 				</div>
 			</div>
@@ -98,7 +97,7 @@
 		<div class="g-l">
 			<ul class="nav nav-pills text-center">
 				<li class="nav-item" @click="DiscoverLike(1)">
-					<a class="nav-link active" >最新发布</a>
+					<a class="nav-link active">最新发布</a>
 				</li>
 				<li class="nav-item" @click="DiscoverLike(2)">
 					<a class="nav-link">发现好货</a>
@@ -108,7 +107,7 @@
 				</li>
 			</ul>
 		</div>
-		<div style="display: none;" class="tab-content" v-for="(items,i) of 3" :key="i">
+		<div style="display: none;" class="tab-content" v-for="(items,j) of 3" :key="j">
 			<div style="display: block;" class="tab-pane" v-for="(item,i) of data" :key="i">
 				<!-- 猜你喜欢商品 -->
 				<div class="g-l-p">
@@ -116,7 +115,7 @@
 						<!-- 头像 -->
 						<div class="g-l-hp">
 							<img :src="item.image" :data-uid="item.uid" />
-						<!-- 用户名 -->
+							<!-- 用户名 -->
 							<p>{{item.nickname}}</p>
 						</div>
 						<div class="g-l-right">
@@ -124,14 +123,14 @@
 						</div>
 						<p class="p-introduce">{{item.pname}}</p>
 						<div @click="detailsrouter(item.pid)" class="g-l-product">
-							<img :src="item.pimages"  alt />
+							<img :src="selectimage[i]" alt />
 						</div>
 						<div class="g-l-table">
 							<table>
 								<tbody>
 									<tr>
 										<td>
-											<img @click="detailsrouter(item.pid)"  class="td-right" src="../../public/images/浏览眼睛.png" />
+											<img @click="detailsrouter(item.pid)" class="td-right" src="../../public/images/浏览眼睛.png" />
 											<p class="td-right">{{item.watched}}人浏览</p>
 										</td>
 										<td>
@@ -165,25 +164,32 @@
 	export default {
 		data() {
 			return {
-				con:"+关注",
-		        flag:false,//单位切换开关
-				lunbo:[{lunbo_url:"https://simplett-img.oss-cn-beijing.aliyuncs.com/lunbo/banner2.png"},
-				{lunbo_url:"https://simplett-img.oss-cn-beijing.aliyuncs.com/lunbo/banner1.png"},
-				{lunbo_url:"https://simplett-img.oss-cn-beijing.aliyuncs.com/lunbo/%E9%A5%B0%E5%93%81%E9%A6%96%E9%A5%B0.png"}
+				selectimage: [],
+				con: "+关注",
+				flag: false, //单位切换开关
+				lunbo: [{
+						lunbo_url: "https://simplett-img.oss-cn-beijing.aliyuncs.com/lunbo/banner2.png"
+					},
+					{
+						lunbo_url: "https://simplett-img.oss-cn-beijing.aliyuncs.com/lunbo/banner1.png"
+					},
+					{
+						lunbo_url: "https://simplett-img.oss-cn-beijing.aliyuncs.com/lunbo/%E9%A5%B0%E5%93%81%E9%A6%96%E9%A5%B0.png"
+					}
 				],
 				data: [],
 				recommendation: [],
 				category: [],
-				SearchContent:"手机",
+				SearchContent: "手机",
 				nav1: [{
 						name: "服装服饰",
 						englishname: "CLOTHING AND APPAREL",
-						image_url:"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/2.png"
+						image_url: "http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/2.png"
 					},
 					{
 						name: "饰品首饰",
 						englishname: "JEWELRY AND ORNAMENTS",
-						image_url:"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/3.png"
+						image_url: "http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/3.png"
 					},
 					{
 						name: "家用电器",
@@ -199,66 +205,66 @@
 				nav2: [{
 						name: "日用百货",
 						englishname: "ARTICLES OF DAILY USE",
-						image_url:"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/6.png"
+						image_url: "http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/6.png"
 					},
 					{
 						name: "左图右史",
 						englishname: "BOOL COMPLETE",
-						image_url:"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/7.png"
+						image_url: "http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/7.png"
 					},
 					{
 						name: "美容护肤",
 						englishname: "COSMETIC SKIN CARE",
-						image_url:"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/8.png"
+						image_url: "http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/8.png"
 					},
 					{
 						name: "健康养生",
 						englishname: "HEALTH PRESERVATION",
-						image_url:"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/9.png"
+						image_url: "http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/9.png"
 					}
 				]
-				
+
 
 			};
 		},
 		methods: {
 			//跳转到商品类别的分类
-			productlistajax(code){
+			productlistajax(code) {
 				this.$router.push({
-				   name:"productList",
-				  query:{
-				    code
-				 }
+					name: "productList",
+					query: {
+						code
+					}
 				});
 				// console.log(this.productListJson[code]);
 				this.$store.commit("SAVE_CODE", code);
-				var codeid=this.$store.state.code
+				var codeid = this.$store.state.code
 				// console.log(this.$store.state.productlist[codeid]);
 			},
 			//跳转到商品详细情况
-			detailsrouter(pid){
+			detailsrouter(pid) {
 				console.log(pid);
 				this.$router.push({
-				   name:"details",
-				  query:{
-				    pid
-				 }
+					name: "details",
+					query: {
+						pid
+					}
 				});
 			},
-			 enter:function(){
-		       this.flag=!this.flag;
-		       if(this.flag==true){
-		          this.con="已关注";
-		       }else if(this.flag==false){
-		          this.con="+关注";
-		       }
-		     },
-			//关注此用户
-			concern(uid){
-				console.log(uid);
-				var url="/"
+			enter: function() {
+				this.flag = !this.flag;
+				if (this.flag == true) {
+					this.con = "已关注";
+				} else if (this.flag == false) {
+					this.con = "+关注";
+				}
 			},
-			
+			//关注此用户
+			concern(uid) {
+				console.log(uid);
+				var url = "/"
+			},
+
 			isActive() {
 				//获取tab主要按键
 				var selectactive = document.getElementsByClassName("nav-link");
@@ -312,7 +318,7 @@
 					params.type = "new";
 				} else if (category == 2) {
 					params.type = "superior";
-				} else if(category == 3){
+				} else if (category == 3) {
 					params.type = "characteristic";
 				}
 				this.axios
@@ -321,9 +327,14 @@
 					})
 					.then(result => {
 						this.data = result.data.data;
+						for (var item of this.data) {
+							var i = item.pimages.split(";");
+							this.selectimage.push(i[0]);
+						};
+						console.log("#######################################这是裁剪出来的图片列表",this.selectimage)
 						// this.productListJson=result.data.productlist.split("@");
 						// console.log("这是productlist",this.productListJson[1]);
-						console.log("这是index的数据",result);
+						console.log("这是index的数据", result);
 						//数据保存在data中，分类别的请求会覆盖同一个data，实现数据的共享
 						//在页面加载的时候，会预先发送一个请求，函数名称为DiscoverLike（”new“）
 					});
@@ -337,7 +348,7 @@
 				var SearchContent = this.SearchContent;
 				var url = "/Search";
 				var params = {
-					type:"category",
+					type: "category",
 					kw: SearchContent
 				};
 				this.axios.get(url, {
@@ -352,7 +363,7 @@
 		},
 		mounted() {
 			this.isActive(),
-			this.DiscoverLike(1)
+				this.DiscoverLike(1)
 		},
 		components: {
 			RegLogin,
@@ -362,406 +373,484 @@
 	};
 </script>
 <style scoped>
-.pd[first]
-{
-	margin-top: 600px;
-}
-.pd{
-    margin: 0 auto;
-    width:372px;
-    height:170px;
-    /* border: 1px solid red; */
-}
-.pd-left{
-    margin-top: 20px;
-    float: left;
-}
-.pd-right{
-    float: right;
-    margin-top: -40px;
-}
-.pd-a{
-    /* border: 1px solid red; */
-    width:200px;
-    height:60px;
-    margin: 0 auto;
-    margin-top: 60px;
-}
-.pd_a{
-    color:#e31c1c;
-    font-size: 40px;
-    margin-left: 22px;
-}
-.pd_a:hover{
-    color: red;
-}
-.pd-products{
-    width: 1230px;
-    height:900px;
-    margin: 0 auto;
-}
-.pd-p-1{
-    float: left;
-    width: 580px;
-    height:300px;
-    margin-left: 10px;
-    margin-right: 10px;
-    background: linear-gradient(45deg, #c4e4ff, #91ccff);
-}
-.pd-p-2,.pd-p-3{
-    width: 280px;
-    height:280px;
-    float: left;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-.pd-1{
-    width: 100%;
-    height:300px;
-    margin-bottom: 20px;
-    float: left;
-}
-.pd-2,.pd-3{
-    width: 100%;
-    height: 280px;
-    margin-bottom: 20px;
-    float: left;
-}
-.pd-2 .pd-p-a {
-	color: #b12317;
-}
-.pd-3 .pd-p-a {
-	color: #b14d17;
-}
-.p-left-1{
-    background-color:#91ccff;
-    border: 0px;
-}
-.p-right-1{
-    background:  linear-gradient(45deg, #f4c9ff, #ff9eee);
-    border: 0px;
-}
-.pd-p-2{
-    background:#ffd0dc;
-    border: 0px;
-}
-.pd-p-3{
-    background:#ffe0cd;
-    border: 0px;
-}
-.pd-1-title{
-    margin-left:-250px;
-    margin-top: 15%;
-}
-.p-left-title{
-    color:#00549b;
-    font-size:50px;
-    font-weight:bold; 
-}
-.pd-1-title>p{
-    color:#00549b;
-    font-size:30px;    
-}
-.pd-1-title>img{
-    float: right;
-    margin-top: -150px;
-}
-.p-right-title{
-    color:#d340ba;
-    font-size:50px;
-    font-weight:bold; 
-}
-.p-right-title:hover{
-    color:#d340ba;
-}
-#p-right-p{
-    color:#d340ba;
-    font-size:30px; 
-}
-.p-right-img{
-    margin-top: -193px;
-    margin-left: 55%;
-}
-.p-right-img>img{
-    width: 420px;
-}
-.pd-p-s{
-    margin: 0 auto;
-    width: 92%;
-    height: 100%;
-    padding-top: 20px;
-    margin: 0px;
-}
-.pd-p-a{
-    margin-left:12%;
-    color:#b12317;
-    font-size: 30px;
-    font-weight: bold;
-}
-.pd-p-p{
-    color:#000000;
-    font-size:16px;
-    font-weight: bold;
-    margin: 0px;
-    margin-left: 13%;
-}
-.pd-p-img{
-    width:270px;
-}
-.cn_a{
-    color:#2f80e8;
-    font-size: 40px;
-    margin-left: 22px;
-}
-.pd-p-div,.pd-p_div,.pd-p-d{
-    width: 500px;
-    height:40px;
-    /* border: 1px solid red; *//*测试*/
-    margin: 0 auto;
-    margin-left: -134px;
-}
-.pd-p_div{
-    margin-left: -140px;  
-}
-.pd-p-div>p,.pd-p_div>p,.pd-p-d>p{
-    color:silver;
-    font-size:26px;
-}
-.guess-like{
-    width: 1180px;
-    height:320px;
-    border: 5px solid red;
-    margin: 0 auto;
-    overflow: hidden;
-}
-.guess-like-img{
-    width: 244px;
-    height:100%;
-}
-.g-l-p-img>img{
-    margin-top:20%;
-    width: 90%;
-}
-.pd-p-d{
-    margin-left: -135px;  
-}
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-    color: #fff;
-    width:360px;
-    height:62px!important;
-    background:#f31c1c;
-    border: 1px solid #f31c1c;
-	line-height: 44px;
-    /* color: #000000; */
-}
-.nav-pills .nav-link {
-    width:360px;
-    height:62px!important;
-    color: #000000;
-    border: 1px solid #000000;
-    font-size: 30px;
-    line-height: 44px;
-}
-.nav-link:hover{
-    color: #000000;
-}
-.g-l-p{
-    width:280px;
-    height:420px;
-    /* border: 1px solid green; */
-    background: #FFFFFF;
-    margin-bottom: 22px;
-    margin-right: 22px;
-    float: left;
-}
-.tab-content{
-    margin: 0 auto;
-    width: 1230px;
-    height: 1584px;
-    /* border: 1px solid red; */
-    padding-left:20px;
-    margin-top: 70px;
-}
-.g-l-p-title{
-    width:240px;
-    height:380px;
-    /* border: 1px solid yellow; */
-    margin: 0 auto;
-}
-.g-l-hp{
-    width:100%;
-    height:70px;
-    /* border: 1px solid red; */
-    float: left;
-    border-bottom: 1px solid #f5f5f5;
-    /* border-radius:50%; */
-}
-.g-l-hp>img{
-    float: left;
-    width: 40px;
-    /* margin-left:20px; */
-    margin-top: 20px;
-    margin-bottom:10px;
-    border-radius: 50%;
-}
-.g-l-right{
-    float: right;
-    margin-top: -38px;
-    /* margin-right:20px; */
-    /* border: 1px solid red; */
-    width:50px;
-    height:20px;
-}
-/* .g-l-right>a{
+	.pd[first] {
+		margin-top: 600px;
+	}
+
+	.pd {
+		margin: 0 auto;
+		width: 372px;
+		height: 170px;
+		/* border: 1px solid red; */
+	}
+
+	.pd-left {
+		margin-top: 20px;
+		float: left;
+	}
+
+	.pd-right {
+		float: right;
+		margin-top: -40px;
+	}
+
+	.pd-a {
+		/* border: 1px solid red; */
+		width: 200px;
+		height: 60px;
+		margin: 0 auto;
+		margin-top: 60px;
+	}
+
+	.pd_a {
+		color: #e31c1c;
+		font-size: 40px;
+		margin-left: 22px;
+	}
+
+	.pd_a:hover {
+		color: red;
+	}
+
+	.pd-products {
+		width: 1230px;
+		height: 900px;
+		margin: 0 auto;
+	}
+
+	.pd-p-1 {
+		float: left;
+		width: 580px;
+		height: 300px;
+		margin-left: 10px;
+		margin-right: 10px;
+		background: linear-gradient(45deg, #c4e4ff, #91ccff);
+	}
+
+	.pd-p-2,
+	.pd-p-3 {
+		width: 280px;
+		height: 280px;
+		float: left;
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+
+	.pd-1 {
+		width: 100%;
+		height: 300px;
+		margin-bottom: 20px;
+		float: left;
+	}
+
+	.pd-2,
+	.pd-3 {
+		width: 100%;
+		height: 280px;
+		margin-bottom: 20px;
+		float: left;
+	}
+
+	.pd-2 .pd-p-a {
+		color: #b12317;
+	}
+
+	.pd-3 .pd-p-a {
+		color: #b14d17;
+	}
+
+	.p-left-1 {
+		background-color: #91ccff;
+		border: 0px;
+	}
+
+	.p-right-1 {
+		background: linear-gradient(45deg, #f4c9ff, #ff9eee);
+		border: 0px;
+	}
+
+	.pd-p-2 {
+		background: #ffd0dc;
+		border: 0px;
+	}
+
+	.pd-p-3 {
+		background: #ffe0cd;
+		border: 0px;
+	}
+
+	.pd-1-title {
+		margin-left: -250px;
+		margin-top: 15%;
+	}
+
+	.p-left-title {
+		color: #00549b;
+		font-size: 50px;
+		font-weight: bold;
+	}
+
+	.pd-1-title>p {
+		color: #00549b;
+		font-size: 30px;
+	}
+
+	.pd-1-title>img {
+		float: right;
+		margin-top: -150px;
+	}
+
+	.p-right-title {
+		color: #d340ba;
+		font-size: 50px;
+		font-weight: bold;
+	}
+
+	.p-right-title:hover {
+		color: #d340ba;
+	}
+
+	#p-right-p {
+		color: #d340ba;
+		font-size: 30px;
+	}
+
+	.p-right-img {
+		margin-top: -193px;
+		margin-left: 55%;
+	}
+
+	.p-right-img>img {
+		width: 420px;
+	}
+
+	.pd-p-s {
+		margin: 0 auto;
+		width: 92%;
+		height: 100%;
+		padding-top: 20px;
+		margin: 0px;
+	}
+
+	.pd-p-a {
+		margin-left: 12%;
+		color: #b12317;
+		font-size: 30px;
+		font-weight: bold;
+	}
+
+	.pd-p-p {
+		color: #000000;
+		font-size: 16px;
+		font-weight: bold;
+		margin: 0px;
+		margin-left: 13%;
+	}
+
+	.pd-p-img {
+		width: 270px;
+	}
+
+	.cn_a {
+		color: #2f80e8;
+		font-size: 40px;
+		margin-left: 22px;
+	}
+
+	.pd-p-div,
+	.pd-p_div,
+	.pd-p-d {
+		width: 500px;
+		height: 40px;
+		/* border: 1px solid red; */
+		/*测试*/
+		margin: 0 auto;
+		margin-left: -134px;
+	}
+
+	.pd-p_div {
+		margin-left: -140px;
+	}
+
+	.pd-p-div>p,
+	.pd-p_div>p,
+	.pd-p-d>p {
+		color: silver;
+		font-size: 26px;
+	}
+
+	.guess-like {
+		width: 1180px;
+		height: 320px;
+		border: 5px solid red;
+		margin: 0 auto;
+		overflow: hidden;
+	}
+
+	.guess-like-img {
+		width: 244px;
+		height: 100%;
+	}
+
+	.g-l-p-img>img {
+		margin-top: 20%;
+		width: 90%;
+	}
+
+	.pd-p-d {
+		margin-left: -135px;
+	}
+
+	.nav-pills .nav-link.active,
+	.nav-pills .show>.nav-link {
+		color: #fff;
+		width: 360px;
+		height: 62px !important;
+		background: #f31c1c;
+		border: 1px solid #f31c1c;
+		line-height: 44px;
+		/* color: #000000; */
+	}
+
+	.nav-pills .nav-link {
+		width: 360px;
+		height: 62px !important;
+		color: #000000;
+		border: 1px solid #000000;
+		font-size: 30px;
+		line-height: 44px;
+	}
+
+	.nav-link:hover {
+		color: #000000;
+	}
+
+	.g-l-p {
+		width: 280px;
+		height: 420px;
+		/* border: 1px solid green; */
+		background: #FFFFFF;
+		margin-bottom: 22px;
+		margin-right: 22px;
+		float: left;
+	}
+
+	.tab-content {
+		margin: 0 auto;
+		width: 1230px;
+		height: 1584px;
+		/* border: 1px solid red; */
+		padding-left: 20px;
+		margin-top: 70px;
+	}
+
+	.g-l-p-title {
+		width: 240px;
+		height: 380px;
+		/* border: 1px solid yellow; */
+		margin: 0 auto;
+	}
+
+	.g-l-hp {
+		width: 100%;
+		height: 70px;
+		/* border: 1px solid red; */
+		float: left;
+		border-bottom: 1px solid #f5f5f5;
+		/* border-radius:50%; */
+	}
+
+	.g-l-hp>img {
+		float: left;
+		width: 40px;
+		/* margin-left:20px; */
+		margin-top: 20px;
+		margin-bottom: 10px;
+		border-radius: 50%;
+	}
+
+	.g-l-right {
+		float: right;
+		margin-top: -38px;
+		/* margin-right:20px; */
+		/* border: 1px solid red; */
+		width: 50px;
+		height: 20px;
+	}
+
+	/* .g-l-right>a{
     color:red;
     font-weight: bold;
     margin-top: -10px;
     font-size: 14px;
     margin-left: -14px;
 } */
-.g-l-hp>p{
-	margin-top: 25px;
-	width: 100px;
-}
-.g-l-product{
-    width: 100%;
-    height: 200px;
-    /* border: 1px solid red; */
-    background:#f2f2f2;
-    margin-top:10px;
-}
-.g-l-product>img{
-    width: 100%;
-    height:100%;
-}
-/* .g-l-p-title>p{
+	.g-l-hp>p {
+		margin-top: 25px;
+		width: 100px;
+	}
+
+	.g-l-product {
+		width: 100%;
+		height: 200px;
+		/* border: 1px solid red; */
+		background: #f2f2f2;
+		margin-top: 10px;
+	}
+
+	.g-l-product>img {
+		width: 100%;
+		height: 100%;
+	}
+
+	/* .g-l-p-title>p{
     margin: 0;
 } */
-.g-l-table{
-    width: 100%;
-    height:80px;
-    /* border:1px solid green; */
-}
-.g-l-table>table{
-    width: 100%;
-    height:80px;
-    /* border:1px solid green; */
-    padding:0;
-    margin:0;
-}
-p,span{
-    padding:0;
-    margin:0;
-    font-size:12px;
-}
-.td-right{
-    float: left;
-    margin-left:7px;
-}
-td>img{
-    margin-top: 3%;
-}
-td>span{
-    color:#999999;
-    margin-left: 30%;
-}
-.td-red{
-    color:red;
-    font-weight: bold;
-    font-size:11px;
-}
-.you {
-	width:50px;
-    height:20px;
-    font-size:12px;
-    line-height:20px;
-    /* margin-top: -20px; */
-    padding:0px;
-	color:#e31c1c !important;
-	border:1px solid #e31c1c;
-	border-radius:0;
-	cursor:pointer;
+	.g-l-table {
+		width: 100%;
+		height: 80px;
+		/* border:1px solid green; */
 	}
+
+	.g-l-table>table {
+		width: 100%;
+		height: 80px;
+		/* border:1px solid green; */
+		padding: 0;
+		margin: 0;
+	}
+
+	p,
+	span {
+		padding: 0;
+		margin: 0;
+		font-size: 12px;
+	}
+
+	.td-right {
+		float: left;
+		margin-left: 7px;
+	}
+
+	td>img {
+		margin-top: 3%;
+	}
+
+	td>span {
+		color: #999999;
+		margin-left: 30%;
+	}
+
+	.td-red {
+		color: red;
+		font-weight: bold;
+		font-size: 11px;
+	}
+
+	.you {
+		width: 50px;
+		height: 20px;
+		font-size: 12px;
+		line-height: 20px;
+		/* margin-top: -20px; */
+		padding: 0px;
+		color: #e31c1c !important;
+		border: 1px solid #e31c1c;
+		border-radius: 0;
+		cursor: pointer;
+	}
+
 	.you2 {
-	width:50px;
-	height:20px;
-	font-size:12px;
-	line-height:20px;
-	/* margin-top: -20px; */
-	padding:0px;
-	border-radius:0;
-    color:#333333;
-    border:1px solid #333333;
-	cursor:pointer;
+		width: 50px;
+		height: 20px;
+		font-size: 12px;
+		line-height: 20px;
+		/* margin-top: -20px; */
+		padding: 0px;
+		border-radius: 0;
+		color: #333333;
+		border: 1px solid #333333;
+		cursor: pointer;
 	}
 
-.td-btn-focus{
-    width:90px;
-    height:25px;
-    font-size:11px;
-    line-height:10px;
-    margin-top: 10px;
-    margin-left: 10%;
-    border: 1px solid black;
-}
-.td-btn-focus:hover{
-    color:#fff !important;
-    border:0;
-    background: #e31c1c;
-}
-.footer-div{
-    float: bottom;
-}
-#footer{
-    height:500px;
-}
-.login-img2{
-    margin-top:20px;
-    width:40px;
-    height:40px;
-    text-align:center; 
-}
-.login-img2>a{
-    color:#FFFFFF;  
-    font-size: 22px;  
-}
+	.td-btn-focus {
+		width: 90px;
+		height: 25px;
+		font-size: 11px;
+		line-height: 10px;
+		margin-top: 10px;
+		margin-left: 10%;
+		border: 1px solid black;
+	}
 
-.p-right-title:hover{
-    color:#d340ba;
-}
-.guess-like-img>img{
-    width: 100%;
-    height: 100%;
-}
+	.td-btn-focus:hover {
+		color: #fff !important;
+		border: 0;
+		background: #e31c1c;
+	}
 
-.guess-like-products{
-    width:100%;
-    height:100%;
-    /* border: 1px solid green; */
-    margin-top:-320px; 
-    margin-left:100px;
-}
-.g-l-p-img{
-    width: 280px;
-    height:100%;
-    border-left: 3px solid #e6e6e6;
-    float: left;
-}
-.g-l{
-    margin: 0 auto;
-    width:1180px;
-    height:80px;
-    padding-left: 30px;
-    margin-bottom: 30px;
-}
-.p-introduce{
-    width:240px;
-    height:45px;
-    overflow: hidden;  /*溢出隐藏*/
-    text-overflow: ellipsis; /*以省略号...显示*/
-    -webkit-line-clamp: 2;
-    word-break:break-all;
-    display:-webkit-box;
-    -webkit-box-orient:vertical;
-}
+	.footer-div {
+		float: bottom;
+	}
+
+	#footer {
+		height: 500px;
+	}
+
+	.login-img2 {
+		margin-top: 20px;
+		width: 40px;
+		height: 40px;
+		text-align: center;
+	}
+
+	.login-img2>a {
+		color: #FFFFFF;
+		font-size: 22px;
+	}
+
+	.p-right-title:hover {
+		color: #d340ba;
+	}
+
+	.guess-like-img>img {
+		width: 100%;
+		height: 100%;
+	}
+
+	.guess-like-products {
+		width: 100%;
+		height: 100%;
+		/* border: 1px solid green; */
+		margin-top: -320px;
+		margin-left: 100px;
+	}
+
+	.g-l-p-img {
+		width: 280px;
+		height: 100%;
+		border-left: 3px solid #e6e6e6;
+		float: left;
+	}
+
+	.g-l {
+		margin: 0 auto;
+		width: 1180px;
+		height: 80px;
+		padding-left: 30px;
+		margin-bottom: 30px;
+	}
+
+	.p-introduce {
+		width: 240px;
+		height: 45px;
+		overflow: hidden;
+		/*溢出隐藏*/
+		text-overflow: ellipsis;
+		/*以省略号...显示*/
+		-webkit-line-clamp: 2;
+		word-break: break-all;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+	}
 </style>

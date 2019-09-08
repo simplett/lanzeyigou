@@ -1,54 +1,42 @@
 <template>
-<div>
-	<div class="content-title">
-		<div>
-			<img src="../../public/images/usercenter/shoucang.png" alt="">
-			<p>关注</p>
-		</div>
-	</div>
-	<div class="content-b">
 	<div class="people-text">
-			<div class="peo-text">
-				<!-- 发布者头像 -->
-				<div class="peo-img">
-					<img :src="proper.image" style="width:100%;height:100%;border-radius:50%;" />
-				</div>
-				<!-- 发布者详情信息 -->
-				<div class="peo-detail">
-					<div class="name mb-4">
-						{{proper.nickname}}
-						<a @click="guanzhu(proper.uid)" class="btn btn-danger ml-5">关注</a>
-					</div>
-					<div class="peo-address mb-3">
-						<span>昆明</span>
-						<span>{{proper.sex}}</span>
-					</div>
-					<div class="time mb-3">
-						<span>注册时间:</span>
-						<span>{{proper.create_time}}</span>
-					</div>
-				</div>
+		<div class="peo-text">
+			<!-- 发布者头像 -->
+			<div class="peo-img">
+				<img :src="proper.image" style="width:100%;height:100%;border-radius:50%;" />
 			</div>
-			<div class="conten">
-				<div>
-					<span>转卖0笔</span>
-					<span>1人评价</span>
+			<!-- 发布者详情信息 -->
+			<div class="peo-detail">
+				<div class="name mb-4">
+					{{proper.nickname}}
+					<a @click="guanzhu(proper.uid)" class="btn btn-danger ml-5">关注</a>
 				</div>
-				<div>
-					<span>靠谱度</span>
-					<span>10分</span>
+				<div class="peo-address mb-3">
+					<span>昆明</span>
+					<span>{{proper.sex}}</span>
 				</div>
-				<div>
-					<span>性价比</span>
-					<span>10分</span>
+				<div class="time mb-3">
+					<span>注册时间:</span>
+					<span>{{proper.create_time}}</span>
 				</div>
-				<a class="btn btn-danger" @click="Todetails(proper.pid)">查看详细</a>
 			</div>
 		</div>
+		<div class="conten">
+			<div>
+				<span>转卖0笔</span>
+				<span>1人评价</span>
+			</div>
+			<div>
+				<span>靠谱度</span>
+				<span>10分</span>
+			</div>
+			<div>
+				<span>性价比</span>
+				<span>10分</span>
+			</div>
+			<a class="btn btn-danger" @click="Todetails(proper.pid)">查看详细</a>
+		</div>
 	</div>
-	
-</div>
-	
 </template>
 <script>
 	export default {
@@ -61,39 +49,10 @@
 	};
 </script>
 <style scoped>
-.content-title{
-    width:100%;
-    height:60px;
-    background:#c0c0c0;
-	margin-top:10px;
-}
-.content-title>div{
-    width:250px;
-    height:100%;
-    float:left;
-}
-.content-title>div>img{
-    margin:20px;
-    float:left;
-    margin-left:30px; 
-}
-.content-title>div>p{
-    font-size:26px;
-    font-weight:bold;
-    float:left;
-    padding:0;
-    line-height:60px;
-}
-.content-b{
-    width:100%;
-    height:90%;
-    padding-top:10px;
-}
 	.people-text {
 		width: 300px;
 		float: left;
-		/* height: 500px; */
-		height: 258px;
+		height: 260px;
 		background: #fff;
 	}
 
@@ -173,11 +132,12 @@
 		padding:0;
 	}
 
-	/* .introduce {
+	.introduce {
 		width: 100%;
 		height: 242px;
 		overflow: hidden;
 		text-overflow: ellipsis;
+		/*以省略号...显示*/
 		padding-left: 15px;
 	}
 
@@ -214,5 +174,5 @@
 		color: #666;
 		margin-bottom:0;
 		margin-top:10px;
-	} */
+	}
 </style>

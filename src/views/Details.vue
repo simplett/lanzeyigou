@@ -81,7 +81,7 @@
 							<b>全部留言</b>
 						</div>
 						<div class="msg" v-for="(item,i) of getmsg" :key="i">
-							<commentcopy :msg="getmsg[i]" />
+							<commentcopy :msg="getmsg[len-1-i]" />
 						</div>
 					</div>
 				</div>
@@ -98,7 +98,7 @@
 					</div>
 					<div class="pro-show">
 						<div class="myflex" v-for="(item,i) of 8" :key="i">
-							<delproduct :otherimage="otherimage[i]" :productlist="userother[i]" />
+							<delproduct @childFn="parentFn" :otherimage="otherimage[i]" :productlist="userother[i]" />
 						</div>
 					</div>
 				</div>
@@ -127,6 +127,9 @@
 		// props:["lid"],
 		data() {
 			return {
+				//留言区域排序的顺序；
+				len: 0,
+				UID:1,//表示用户的uid
 				sendmsg: "这个用户什么都没有评价",
 				getmsg: [],
 				pid: "",
@@ -169,30 +172,42 @@
 			},
 			imagesss() {
 				this.ulStyle.width = this.imagesss.length * 90 + "px";
+			},
+			pid() {
+				this.load()
 			}
 		},
 		methods: {
+			//儿子向父亲传值
+			parentFn(payload) {
+				this.pid = payload;
+			},
 			sendmymsg() {
+				var token = localStorage.getItem("token")
 				var message = this.sendmsg;
-				var uid=15;
-				var pid= 1;
-				var params = {
-					uid,
-					message,
-					pid,
-					type: "add"
-				};
-				this.axios.get("/Leftmessage", {
-					params
-				}).then(result => {
-					if (result.data.status == 1) {
-						this.open3();
-						document.getElementById("liuying").disabled = true;
-						this.msgJson();
-					} else {
-						this.open4()
-					}
-				})
+				var pid = 1;
+				if (token) {
+					var params = {
+						token,
+						message,
+						pid,
+						type: "add"
+					};
+					this.axios.get("/Leftmessage", {
+						params
+					}).then(result => {
+						if (result.data.status == 1) {
+							this.open3();
+							document.getElementById("liuying").disabled = true;
+							this.msgJson();
+						} else {
+							this.open4()
+						}
+					})
+				} else {
+					this.open5();
+				}
+
 			},
 			open3() {
 				this.$notify({
@@ -210,6 +225,12 @@
 					type: 'warning'
 				});
 			},
+			open5() {
+				this.$notify.error({
+					title: '错误',
+					message: '请您先登录'
+				});
+			},
 			msgJson() {
 				this.axios
 					.get("/Leftmessage", {
@@ -221,6 +242,7 @@
 						console.log("json", result);
 
 						this.getmsg = result.data.data;
+						this.len = this.getmsg.length;
 					})
 			},
 			getRouterData() {
@@ -239,6 +261,7 @@
 				msgtab2.classList = "tab-pane";
 			},
 			msg2() {
+				console.log("##############################################################",this.UID);
 				this.axios
 					.get("/Search", {
 						params: {
@@ -246,13 +269,20 @@
 							uid: 3
 						}
 					}).then(result => {
-						console.log(result.data.data);
-
+						console.log("######################################################这是uid为uid的用户的其他商品",result.data.data);
 						this.userother = result.data.data;
 						var otherimage = [];
+						var imagereg=/;/;
 						for (var item of this.userother) {
-							var i = item.pimages.split(";");
+							if(imagereg.test(item.pimages))
+							{
+								console.log(item.pimages);
+								var i = item.pimages.split(";");
 							otherimage.push(i[0]);
+							}else{
+								otherimage.push(item.pimages);
+							}
+							
 						};
 						this.otherimage = otherimage;
 					})
@@ -279,7 +309,7 @@
 							}
 						})
 						.then(result => {
-							console.log(result.data);
+							console.log("###################################这是商品详情的第一次请求",result.data);
 							var {
 								pimages,
 								p_description,
@@ -290,6 +320,7 @@
 								status, //是否参与担保
 								wcount
 							} = result.data;
+							this.UID=uid;
 							this.guarantee = status == 1 ? true : false;
 							var baobei = p_description;
 							if (uid) {
@@ -330,6 +361,7 @@
 							console.log(this.userdata);
 							console.log(1231231313);
 							this.imagesss = pimages.split(";");
+							console.log("###############################这是裁剪之后产生的数组",this.imagesss)
 							console.log(this.imagesss);
 
 							//每次重新加载页面后，都要把移动次数归零
@@ -342,16 +374,6 @@
 						});
 				}
 			},
-
-
-			details_ajax() {
-				var pid = this.pid;
-				var url = "/Details?pid=" + pid;
-				var params = {
-					pid
-				};
-			},
-			over_display() {},
 			move(i) {
 				if (
 					(i == -1 && this.leftDisabled == false) ||
@@ -374,7 +396,7 @@
 		},
 		created() {
 			this.getRouterData(),
-				this.load(),
+				// this.load(),
 				this.msgJson()
 		}
 	};
@@ -1049,11 +1071,12 @@ button.zan {
 	.card-img-top {
 		width: 100%;
 		height: 400px;
+		overflow: hidden;
 	}
 
 	.card-img-top>img {
 		height: 100%;
-		overflow: hidden;
+		
 	}
 
 	.card-body {

@@ -45,8 +45,11 @@
 				<span>最近编辑时间</span>
 				<span style="color:#333">2019-08-27</span>
 			</div>
-			<p class="top-text">宝贝介绍</p>
-			<p class="buttom-text">{{proper.p_description}}</p>
+			<div class="myadd-introduce-describe">
+				<p class="top-text">宝贝介绍</p>
+				<p class="buttom-text">{{proper.p_description}}</p>
+			</div>
+
 		</div>
 	</div>
 </template>
@@ -98,7 +101,7 @@
 		color: #666;
 		text-align: left;
 		font-weight: bold;
-		margin-top:20px;
+		margin-top: 20px;
 		margin-bottom: 10px !important;
 	}
 
@@ -116,7 +119,7 @@
 		text-align: left;
 		height: 16px;
 		line-height: 16px;
-		margin-bottom:10px !important;
+		margin-bottom: 10px !important;
 	}
 
 	.conten {
@@ -140,8 +143,8 @@
 		color: #ffffff !important;
 		text-align: center;
 		margin-top: 26px;
-		background: #dc3545!important;
-		padding:0;
+		background: #dc3545 !important;
+		padding: 0;
 	}
 
 	.introduce {
@@ -158,8 +161,8 @@
 		height: 25px;
 		line-height: 25px;
 		text-align: left;
-		padding-top:10px;
-		margin-bottom:10px;
+		padding-top: 10px;
+		margin-bottom: 10px;
 	}
 
 	.visits>span:nth-child(1) {
@@ -176,15 +179,22 @@
 		font-size: 20px;
 		color: #333;
 		font-weight: bold;
-		margin-top:20px;
-		margin-bottom:0px;
+		margin-top: 20px;
+		margin-bottom: 0px;
 	}
 
 	.buttom-text {
 		text-align: left;
 		font-size: 12px;
 		color: #666;
-		margin-bottom:0;
-		margin-top:10px;
+		margin-bottom: 0;
+		margin-top: 10px;
+	}
+	.myadd-introduce-describe
+	{
+		height: 150px;
+		overflow-x: hidden;
+		overflow-y: auto;
+		/* text-overflow: ellipsis; */
 	}
 </style>
