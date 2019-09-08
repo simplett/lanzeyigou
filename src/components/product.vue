@@ -12,7 +12,7 @@
             </div>
             <p class="p-introduce">{{item.pname}}</p>
             <div class="g-l-product">
-                <img @click="detailsrouter(item.pid)" :src="selectimage" />
+                <img @click="detailsrouter(item.pid)" :src="selectimage">
             </div>
             <div class="g-l-table">
                 <table>
@@ -50,7 +50,7 @@
   		}
   	},
   	props:{
-  		item:{
+  		item: {
   			default: "111"
   		},
   		selectimage:{
@@ -68,6 +68,16 @@
   				}
   			});
   		},
+		//跳转到当前用户详细情况
+		userCenterRouter(uid) {
+			console.log(uid);
+			this.$router.push({
+				name: "usercenter",
+				query: {
+					uid
+				}
+			});
+		},
   		enter() {
   			this.flag = !this.flag;
   			if (this.flag == true) {

@@ -1,5 +1,5 @@
 <template>
-<div>
+<div :userdata="userdata">
 	<div class="content-title">
 		<div>
 			<img src="../../public/images/usercenter/fangzi.png" alt="">
@@ -38,7 +38,7 @@
 		<!-- 邮箱 -->
 			<el-form-item label="邮箱">
 				<div class="intro-input">
-					<el-input v-model="email"></el-input><i class="el-icon-edit"></i>	
+					<el-input v-model="userdata.nickname"></el-input><i class="el-icon-edit"></i>	
 				</div>		
 			</el-form-item>	
 		<!-- 电话号码 -->
@@ -63,7 +63,7 @@
       data(){
 		   return {
 				name:'丁晓瑞',
-				email:'1111199@qq.com',
+				// email:'1111199@qq.com',
 				phone:'123456789',
 				password:'',
 				birthTime:'',
@@ -77,6 +77,11 @@
 					sex:''
 				}
 			}
+	  },
+	  props:{
+		  userdata:{
+			  default: "111"
+		  }
 	  },
 		methods: {
 			

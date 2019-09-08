@@ -50,13 +50,13 @@
 					<div class="intro-img-msg">
 						<!-- 头像 -->
 						<div class="intro-img">
-							<img src="../../public/images/喜欢小banner.png" alt="">
+							<img :src="userdata.image">
 						</div>
 						<!-- 姓名、介绍 -->
 						<div class="intro-msg">
-							<h3>丁晓瑞</h3>
+							<h3>{{userdata.nickname}}</h3>
 							<div class="intro-input">
-								<el-input v-model="input" placeholder="请输入内容"></el-input><i class="el-icon-edit"></i>
+								<el-input v-model="input" :placeholder="userdata.description"></el-input><i class="el-icon-edit"></i>
 							</div>
 
 						</div>
@@ -106,6 +106,8 @@
 	export default {
 		data() {
 			return {
+				userdata:[],
+				uid:"",
 				activeName: '1',
 				input: '',
 				c1:'c1',
@@ -120,11 +122,44 @@
          methods: {
             tabshow(tabItem){
 				this.contentView = tabItem;
-			}
+			},
+			GetUserData(){
+				var url="/Search";
+				var uid=this.uid;
+				var params={
+					uid,
+					type:"user"
+				};
+				if(uid)
+				{
+					this.axios.get(url,{params}).then(result=>{
+						console.log("########################################################这是用户中心的第一次数据请求",result);
+						this.userdata=result.data;
+					})
+				}else{
+					this.open5()
+				}
+				
+			},
+			open5() {
+				this.$notify.error({
+					title: '错误',
+					message: '用户状态异常'
+				});
+			},
+			getRouterData() {
+				// 只是改了query，其他都不变
+				this.uid = this.$route.query.uid;
+				console.log(this.uid);
+			},
         },
         components:{
             search,c1,c2,c3,c5,c6,c7
-        }
+        },
+		created(){
+			this.getRouterData();
+			this.GetUserData();
+		}
     }
 </script>
 <style scoped>

@@ -110,46 +110,7 @@
 		<div style="display: none;" class="tab-content" v-for="(items,j) of 3" :key="j">
 			<div style="display: block;" class="tab-pane" v-for="(item,i) of data" :key="i">
 				<!-- 猜你喜欢商品 -->
-				<div class="g-l-p">
-					<div class="g-l-p-title">
-						<!-- 头像 -->
-						<div class="g-l-hp">
-							<img :src="item.image" :data-uid="item.uid" />
-							<!-- 用户名 -->
-							<p>{{item.nickname}}</p>
-						</div>
-						<div class="g-l-right">
-							<div @click="enter"  id="dian" v-bind:class="{ 'you' : flag, 'you2': !flag}">{{con}}</div> 
-						</div>
-						<p class="p-introduce">{{item.pname}}</p>
-						<div @click="detailsrouter(item.pid)" class="g-l-product">
-							<img :src="selectimage[i]" alt />
-						</div>
-						<div class="g-l-table">
-							<table>
-								<tbody>
-									<tr>
-										<td>
-											<img @click="detailsrouter(item.pid)" class="td-right" src="../../public/images/浏览眼睛.png" />
-											<p class="td-right">{{item.watched}}人浏览</p>
-										</td>
-										<td>
-											<span>12人想要</span>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<p class="td-right td-red">￥{{item.price}}</p>
-										</td>
-										<td>
-											<a :data-pid="item.uid" @click="detailsrouter(item.pid)" class="btn td-btn-focus">我想要</a>
-										</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
+				<Product :selectimage="selectimage[i]" :item="item"></Product>
 			</div>
 		</div>
 		<reg-login />

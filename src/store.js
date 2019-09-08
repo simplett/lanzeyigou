@@ -8,6 +8,7 @@ const state = {
 			token:localStorage.getItem("token"),
 		},
 		SearchContent:"手机",
+		uid:"",
 		productlist: [{
 				"codelist": [
 					101,
@@ -256,6 +257,11 @@ const state = {
 				state.SearchContent = data;
 				console.log("searchcontent函数被触发");
 				console.log(state.SearchContent);
+			},
+			SAVE_uid(state, data) {
+				state.uid = data;
+				console.log("uid函数被触发");
+				console.log(state.uid);
 			}
 		}
 		export default new Vuex.Store({

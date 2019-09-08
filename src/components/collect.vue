@@ -1,5 +1,5 @@
 <template>
-<div>
+<div :userdata="userdata">
 	<div class="content-title">
 		<div>
 			<img src="../../public/images/usercenter/shoucang.png" alt="">
@@ -14,7 +14,7 @@
 				<div class="g-l-hp">
 					<img :src="item.shoucang_img" />
 				<!-- 用户名 -->
-					<p>{{item.nickname}}</p>
+					<p>{{userdata.image}}</p>
 				</div>
 				<!-- <div class="g-l-right">
 					<a class="btn g-l-right-btn-focus">已关注</a>
@@ -53,6 +53,9 @@
 </template>
 <script>
   export default {
+	  props:{
+		  userdata:{default:"111"}
+	  },
       data(){
 		  return {
 			  shoucang:[
