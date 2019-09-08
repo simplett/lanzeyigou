@@ -124,7 +124,7 @@ export default {
 	height:50px;
 	/* border:1px solid red; */
 	margin: 0 auto;
-	margin-top:20px;
+	margin-top:10px;
 }
 .content-collect .btn-danger{
 	width:80px;

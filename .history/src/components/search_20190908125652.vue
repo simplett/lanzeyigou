@@ -15,6 +15,14 @@
 	</header>
 </template>
 <script>
+  export default {
+      data(){
+			return {
+				SearchContent:"手机"
+			}
+      },
+      methods:{
+   //        Search() {
 	export default {
 		data() {
 			return {
@@ -23,6 +31,7 @@
 		},
 		methods: {
 			//        Search() {
+>>>>>>> c19bf2344319a4cd5f05f716fcb0f26b0d559c1d
 			// 	var SearchContent = this.SearchContent;
 			// 	var url = "/Search";
 			// 	var params = {

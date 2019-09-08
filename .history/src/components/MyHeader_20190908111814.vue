@@ -7,7 +7,7 @@
         <el-menu class="el-menu-demo" mode="horizontal" background-color="#e5e5e5"
          text-color="#000" active-text-color="#00f">
             <el-menu-item index="5" style="margin-left:100px;">
-                <a href="javascript:;">首页</a>
+                <a href="javasc">首页</a>
             </el-menu-item>
             <el-menu-item index="2">
                 <a href="#">请登录...</a>

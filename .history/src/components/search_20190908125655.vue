@@ -15,6 +15,14 @@
 	</header>
 </template>
 <script>
+  export default {
+      data(){
+			return {
+				SearchContent:"手机"
+			}
+      },
+      methods:{
+   //        Search() {
 	export default {
 		data() {
 			return {

@@ -7,7 +7,7 @@
 		</div>
 	</div>
 	<div class="content-b">
-		<div class="content-z" v-for="(item,i) of 6" :key="i ">
+		<div class="content-z">
 			<!-- 状态、价钱 -->
 			<div class="content-z-p">
 				<a href="javascript:;" class="btn btn-light">已售出</a>
@@ -67,15 +67,12 @@ export default {
     width:100%;
     height:90%;
     padding-top:10px;
-	/* border:1px solid red; */
 }
 .content-z{
-	width:281px;
+	width:300px;
 	height:400px;
 	float:left;
 	background: #ffffff;
-	margin-right:10px;
-	margin-bottom:20px;
 }
 .content-z-p{
 	width:90%;
@@ -116,23 +113,19 @@ export default {
 .content-name img{
 	width:90%;
 	height:230px;
-	background:#f2f2f2;
+	background:#ffffff;
 	margin: 0 auto;
 }
 .content-collect{
 	width:90%;
 	height:50px;
-	/* border:1px solid red; */
+	border:1px solid red;
 	margin: 0 auto;
-	margin-top:20px;
+	margin-top:10px;
 }
 .content-collect .btn-danger{
-	width:80px;
-	height:35px;
-	line-height:35px;
-	padding:0;
-	margin-right:10px;
-	margin-left:10px;
-	font-size: 16px;
+	width:100px;
+	height:40px;
+	line-height:;
 }
 </style>

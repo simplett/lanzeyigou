@@ -7,7 +7,7 @@
 		</div>
 	</div>
 	<div class="content-b">
-		<div class="content-z" v-for="(item,i) of 6" :key="i ">
+		<div class="content-z">
 			<!-- 状态、价钱 -->
 			<div class="content-z-p">
 				<a href="javascript:;" class="btn btn-light">已售出</a>
@@ -67,37 +67,31 @@ export default {
     width:100%;
     height:90%;
     padding-top:10px;
-	/* border:1px solid red; */
 }
 .content-z{
-	width:281px;
+	width:300px;
 	height:400px;
 	float:left;
 	background: #ffffff;
-	margin-right:10px;
-	margin-bottom:20px;
 }
 .content-z-p{
-	width:90%;
-	height:60px;
-	border-bottom:1px solid silver;
+	width:100%;
+	height:35px;
+	border-bottom:1px solid ;
 	/* float:right; */
-	padding-top:10px;
-	margin: 0 auto;
+	margin-top:10px;
 }
 .content-z-p a{
 	float:left;
-	height:40px;
+	height:95%;
 	width:90px;
 	padding:0;
-	line-height:40px;
+	line-height:100%;
 	margin-left:20px;
 }
 .content-z-p p{
 	float:right;
-	height:50px;
 	margin-right:20px;
-	line-height: 50px;
 }
 .content-name{
 	width:90%;
@@ -116,23 +110,14 @@ export default {
 .content-name img{
 	width:90%;
 	height:230px;
-	background:#f2f2f2;
+	background:#ffffff;
 	margin: 0 auto;
 }
 .content-collect{
 	width:90%;
 	height:50px;
-	/* border:1px solid red; */
+	border:1px solid red;
 	margin: 0 auto;
 	margin-top:20px;
-}
-.content-collect .btn-danger{
-	width:80px;
-	height:35px;
-	line-height:35px;
-	padding:0;
-	margin-right:10px;
-	margin-left:10px;
-	font-size: 16px;
 }
 </style>
