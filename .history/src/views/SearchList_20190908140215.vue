@@ -119,7 +119,7 @@
 	}
 </script>
 
-<style scoped>
+<style>
 	.g-l-p {
 		width: 280px;
 		height: 420px;

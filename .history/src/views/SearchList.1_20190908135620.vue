@@ -1,47 +1,64 @@
 <template>
-	<div>
-		<my-header></my-header>
-		<search></search>
-		<div>
-			<div class="tab-content">
-				<div style="display: block;" class="tab-pane" v-for="(item,i) of data" :key="i">
 					<!-- 猜你喜欢商品 -->
-					<Product :selectimage="selectimage[i]" :item="item"></Product>
-				</div>
-			</div>
-		</div>
-		<my-foot></my-foot>
-	</div>
-
+					<div class="g-l-p">
+						<div class="g-l-p-title">
+							<!-- 头像 -->
+							<div class="g-l-hp">
+								<img :src="item.image" :data-uid="item.uid" />
+								<!-- 用户名 -->
+								<p>{{item.nickname}}</p>
+							</div>
+							<div class="g-l-right">
+								<div @click="enter"  id="dian" v-bind:class="{ 'you' : flag, 'you2': !flag}">{{con}}</div> 
+							</div>
+							<p class="p-introduce">{{item.pname}}</p>
+							<div @click="detailsrouter(item.pid)" class="g-l-product">
+								<img :src="selectimage[i]" alt />
+							</div>
+							<div class="g-l-table">
+								<table>
+									<tbody>
+										<tr>
+											<td>
+												<img @click="detailsrouter(item.pid)" class="td-right" src="../../public/images/浏览眼睛.png" />
+												<p class="td-right">{{item.watched}}人浏览</p>
+											</td>
+											<td>
+												<span>12人想要</span>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<p class="td-right td-red">￥{{item.price}}</p>
+											</td>
+											<td>
+												<a :data-pid="item.uid" @click="detailsrouter(item.pid)" class="btn td-btn-focus">我想要</a>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
 </template>
 
 <script>
-	import {
-		setInterval
-	} from "timers";
 	export default {
+		
 		data() {
 			return {
-				SearchContent: "",
-				selectimage: [],
-				data: [],
+				selectimage:[],
 				con: "+关注",
 				flag: false, //单位切换开关
 			}
 		},
+		props:{
+			data: {
+				default: "111"
+			},
+			selectimage:[]
+		},
 		methods: {
-			xuanhuang(){
-				setInterval(this.isActive(),500);
-			},
-			//监测搜素值的变化
-			isActive(){
-				var contentsearch = this.$store.state.SearchContent;
-				if(!contentsearch===this.SearchContent)
-				{
-					this.SearchContent=contentsearch;
-					console.log("#################################搜素值发生了改变",contentsearch);
-				}
-			},
 			//跳转到商品详细情况
 			detailsrouter(pid) {
 				console.log(pid);
@@ -60,66 +77,14 @@
 					this.con = "+关注";
 				}
 			},
-			open4() {
-				this.$notify({
-					title: '失败',
-					message: '很抱歉，请输入您要搜素的关键字',
-					type: 'warning'
-				});
-			},
-			getRouterData() {
-				// 只是改了query，其他都不变
-				this.SearchContent = this.$store.state.SearchContent
-				console.log("这是搜素页的数据", this.SearchContent);
-				if (this.SearchContent) {
-					var url = "/Search";
-					var params = {
-						type: "category",
-						kw: this.SearchContent
-					};
-					this.axios.get(url, {
-						params
-					}).then(result => {
-						console.log("#######################################这是搜素商品出来的数据", result.data.data);
-						this.data = result.data.data;
-						console.log(this.data);
-						var otherimage = [];
-						var imagereg = /;/;
-						for (var item of this.data) {
-							if (imagereg.test(item.pimages)) {
-								console.log(item.pimages);
-								var i = item.pimages.split(";");
-								otherimage.push(i[0]);
-							} else {
-								otherimage.push(item.pimages);
-							}
-
-						};
-						this.selectimage = otherimage;
-						console.log(this.selectimage);
-					});
-				}else{
-					this.open4()
-				}
-
-			}
-		},
-		watch:{
-			'$store.state.SearchContent'(){
-				this.getRouterData();
-			}
-			// SearchContent(){
-			// 	this.getRouterData();
-			// }
-		},
-		created() {
-			this.getRouterData();
-			// this.xuanhuang();
+		created(){
+			
 		}
+	}
 	}
 </script>
 
-<style scoped>
+<style>
 	.g-l-p {
 		width: 280px;
 		height: 420px;
@@ -133,7 +98,7 @@
 	.tab-content {
 		margin: 0 auto;
 		width: 1230px;
-		/* height: 1584px; */
+		height: 1584px;
 		/* border: 1px solid red; */
 		padding-left: 20px;
 		margin-top: 70px;

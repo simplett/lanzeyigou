@@ -185,7 +185,7 @@
 			sendmymsg() {
 				var token = localStorage.getItem("token")
 				var message = this.sendmsg;
-				var pid = this.pid;
+				var pid = 1;
 				if (token) {
 					var params = {
 						token,
@@ -236,8 +236,7 @@
 					.get("/Leftmessage", {
 						params: {
 							type: "get",
-							pid: this.pid
-
+							pid: 1
 						}
 					}).then(result => {
 						console.log("json", result);
@@ -267,7 +266,7 @@
 					.get("/Search", {
 						params: {
 							type: "goodlist",
-							uid: this.UID
+							uid: 3
 						}
 					}).then(result => {
 						console.log("######################################################这是uid为uid的用户的其他商品",result.data.data);
@@ -392,6 +391,7 @@
 			//当鼠标进入每个li时，修改data中i变量的值，为当前li的下标。
 			changei(i) {
 				this.i = i;
+				//data中i改变，导致中图片的src和大图片的background-image自动同时变化。
 				//data中i改变，导致中图片的src和大图片的background-image自动同时变化。
 			}
 		},
@@ -743,37 +743,5 @@ button.zan {
 	display: flex;
 	flex-flow: row;
 }
-	.card-body {
-		width: 100%;
-		height: 100px;
-		display: flex;
-		flex-flow: row;
-	}
 
-	.imageli {
-		width: 70px;
-		height: 80px;
-		margin: 0px 5px;
-	}
-
-.imageli {
-	width: 70px;
-	height: 80px;
-	margin: 0px 5px;
-}
-.imageli>img {
-	width: 100%;
-	height: 100%
-}
-
-.d-inline-block {
-	overflow: hidden;
-}
-.pro-address:nth-child(3){
-	padding-top:10px;
-	border:1px solid red;
-}
-	.d-inline-block {
-		overflow: hidden;
-	}
 </style>

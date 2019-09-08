@@ -185,7 +185,7 @@
 			sendmymsg() {
 				var token = localStorage.getItem("token")
 				var message = this.sendmsg;
-				var pid = this.pid;
+				var pid = 1;
 				if (token) {
 					var params = {
 						token,
@@ -236,8 +236,7 @@
 					.get("/Leftmessage", {
 						params: {
 							type: "get",
-							pid: this.pid
-
+							pid: 789
 						}
 					}).then(result => {
 						console.log("json", result);
@@ -267,7 +266,7 @@
 					.get("/Search", {
 						params: {
 							type: "goodlist",
-							uid: this.UID
+							uid: 3
 						}
 					}).then(result => {
 						console.log("######################################################这是uid为uid的用户的其他商品",result.data.data);
