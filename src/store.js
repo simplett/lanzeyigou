@@ -7,6 +7,7 @@ const state = {
 			uname: "admin",
 			token:localStorage.getItem("token"),
 		},
+		SearchContent:"手机",
 		productlist: [{
 				"codelist": [
 					101,
@@ -250,6 +251,11 @@ const state = {
 				state.code = data;
 				console.log("code函数被触发");
 				console.log(state.code);
+			},
+			SAVE_SEARCHCONTENT(state, data) {
+				state.SearchContent = data;
+				console.log("searchcontent函数被触发");
+				console.log(state.SearchContent);
 			}
 		}
 		export default new Vuex.Store({
