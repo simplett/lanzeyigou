@@ -3,16 +3,16 @@
         <div class="g-l-p-title">
             <!-- 头像 -->
             <div class="g-l-hp">
-                <img :src="item.image" :data-uid="item.uid" />
+                <img :src="item.image" @click="userCenterRouter(item.uid)" />
             <!-- 用户名 -->
                 <p>{{item.nickname}}</p>
             </div>
             <div class="g-l-right">
-                <a class="btn g-l-right-btn-focus" @click="concern(item.uid)" :data-uid="item.uid">+ 关注</a>
+                <div @click="enter"  id="dian" v-bind:class="{ 'you' : flag, 'you2': !flag}">{{con}}</div> 
             </div>
             <p class="p-introduce">{{item.pname}}</p>
             <div class="g-l-product">
-                <img :src="item.pimages" :data-pid="item.pid" alt />
+                <img @click="detailsrouter(item.pid)" :src="selectimage" />
             </div>
             <div class="g-l-table">
                 <table>
@@ -31,7 +31,7 @@
                                 <p class="td-right td-red">￥{{item.price}}</p>
                             </td>
                             <td>
-                                <a :data-pid="item.uid" class="btn td-btn-focus">我想要</a>
+                                <a @click="detailsrouter(item.pid)" class="btn td-btn-focus">我想要</a>
                             </td>
                         </tr>
                     </tbody>
@@ -42,6 +42,41 @@
 </template>
 <script>
   export default {
+  	
+  	data() {
+  		return {
+  			con: "+关注",
+  			flag: false, //单位切换开关
+  		}
+  	},
+  	props:{
+  		item:{
+  			default: "111"
+  		},
+  		selectimage:{
+  			default: "111"
+  		}
+  	},
+  	methods: {
+  		//跳转到商品详细情况
+  		detailsrouter(pid) {
+  			console.log(pid);
+  			this.$router.push({
+  				name: "details",
+  				query: {
+  					pid
+  				}
+  			});
+  		},
+  		enter() {
+  			this.flag = !this.flag;
+  			if (this.flag == true) {
+  				this.con = "已关注";
+  			} else if (this.flag == false) {
+  				this.con = "+关注";
+  			}
+  		}
+  }
   }
 </script>
 <style scoped>
