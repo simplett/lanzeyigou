@@ -210,13 +210,13 @@
 		width: 201px;
 		height: 40px;
 		border: 0;
-		margin: 20px 30px 0px 0;
+		margin: 0px 30px 0px 0;
 	}
 
 	/* 赞和分享的按钮样式 */
 	button.share,
 	button.zan {
-		width: 86px;
+		width: 95px;
 		height: 30px;
 		background: #f1f1f1;
 		border-radius: 3px;
