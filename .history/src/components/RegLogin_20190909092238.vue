@@ -1,24 +1,72 @@
 <template>
 	<div>
-		<!-- 页面右边登录div -->
-		<div class="login">
-			<div class="login-img">
-				<a href="javascript:;" @click="ShowDiv('MyDiv','fade')" id="Button1">
-					<img src="../../public/images/登录.png" alt />
-				</a>
-			</div>
-			<div class="login-img2">
-				<a href="javascript:;">
-					<img src="../../public/images/收藏夹.png" alt />收藏夹
-				</a>
+		<!--弹出层时背景层DIV-->
+		<div id="fade" class="black_overlay"></div>
+		<div id="MyDiv" class="white_content">
+			<div style="text-align: right; cursor: default;" id="move">
+				<span style="font-size:16px;" class="closeDiv" @click="CloseDiv('MyDiv','fade')">稍后弹出?</span>
+				<div>
+					<div class="container" id="container">
+						<div class="form-container sign-up-container">
+							<form action="#">
+								<h1>注册</h1>
+								<!-- <div class="social-container">
+                                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>-->
+								<span>第三方账号注册</span>
+								<input class="input" type="text" v-model="uname" value placeholder="用户名  8~12位字母或数字" />
+								<input class="input" type="email" v-model="email" placeholder="邮箱" />
+								<input class="input" type="text" v-model="checking" placeholder="邮箱验证码" />
+								<span class="e-check" @click="check">获取验证码</span>
+								<input class="input" type="password" v-model="upwd" placeholder="密码  6-20个字母、数字、下划线" />
+								<button @click="reg">注册</button>
+							</form>
+						</div>
+						<div class="form-container sign-in-container">
+							<form action="#">
+								<h1>登录</h1>
+								<div class="social-container">
+									<a href="#" class="social">
+										<i class="fab fa-facebook-f"></i>
+									</a>
+									<a href="#" class="social">
+										<i class="fab fa-google-plus-g"></i>
+									</a>
+									<a href="#" class="social">
+										<i class="fab fa-linkedin-in"></i>
+									</a>
+								</div>
+								<span>第三方账号登录</span>
+								<input class="input" type="text" v-model="emails" placeholder="邮箱" />
+								<input class="input" type="password" v-model="upwd" placeholder="密码" />
+								<a href="#">忘记密码？</a>
+								<button @click="login">登录</button>
+							</form>
+						</div>
+						<div class="overlay-container">
+							<div class="overlay">
+								<div class="overlay-panel overlay-left">
+									<h1>欢迎回来！</h1>
+									<p>请您先登录的个人信息，进行操作。</p>
+									<button class="ghost" id="signIn">登录</button>
+								</div>
+								<div class="overlay-panel overlay-right">
+									<h1>你好朋友！</h1>
+									<p>输入您的个人信息注册成为会员。</p>
+									<button class="ghost" id="signUp">注册</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
-		<tdiv></tdiv>
 	</div>
 </template>
 
 <script>
-import tdiv from './RegLoginDiv.vue'
 	export default {
 		data() {
 			return {
@@ -60,20 +108,7 @@ import tdiv from './RegLoginDiv.vue'
 				// 	alert("未登录");
 				// }
 			},
-			// 弹出隐藏层
-			ShowDiv(show_div, bg_div) {
-				document.getElementById(show_div).style.display = "block";
-				document.getElementById(bg_div).style.display = "block";
-				var bgdiv = document.getElementById(bg_div);
-				bgdiv.style.width = document.body.scrollWidth;
-				// bgdiv.style.height = $(document).height();
-				$("#" + bg_div).height($(document).height());
-			},
-			//关闭弹出层
-			CloseDiv(show_div, bg_div) {
-				document.getElementById(show_div).style.display = "none";
-				document.getElementById(bg_div).style.display = "none";
-			},
+			
 			check() {
 				console.log(this.email);
 				var regemail = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
@@ -257,9 +292,6 @@ import tdiv from './RegLoginDiv.vue'
 		},
 		created() {
 
-		},
-		components:{
-			tdiv
 		}
 	};
 </script>
@@ -568,31 +600,5 @@ import tdiv from './RegLoginDiv.vue'
 	#move>span {
 		margin-right: 30px;
 		color: #fff;
-	}
-
-	.login {
-		width: 40px;
-		height: 100%;
-		float: right;
-		background: #000000;
-		/* border: 1px solid red; */
-		/* margin-top: 200px; */
-		/* position: relative; */
-		z-index: 5;
-		position: fixed;
-		top: 0px;
-		right: 1px;
-	}
-
-	.login-img {
-		width: 40px;
-		height: 40px;
-		background: red;
-	}
-
-	.login-img>a>img,
-	.login-img2>a>img {
-		width: 100%;
-		height: 100%;
 	}
 </style>
