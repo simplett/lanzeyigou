@@ -1,5 +1,5 @@
 <template>
-<div :userdata="userdata">
+<div>
 	<div class="content-title">
 		<div>
 			<img src="../../public/images/usercenter/shoucang.png" alt="">
@@ -57,10 +57,19 @@
 		  userdata:{default:"111"}
 	  },
 	  watch: {
-	      userdata(newVal){
-	          this.mydata = newVal;
-	          console.log(this.expandDetail);
-	      }
+	      // userdata(newVal){
+	      //     this.mydata = newVal;
+	      //     console.log(this.expandDetail);
+	      // }
+	  },
+	  methods:{
+		  dfsd()
+		  {
+			  console.log("动态组件",this.userdata);
+		  }
+	  },
+	  created(){
+		  this.dfsd();
 	  },
       data(){
 		  return {
