@@ -70,6 +70,7 @@
 		},
 		name: "detailsCenter",
 		methods: {
+			
 			// guarantee(){
 			// 	if(detailsCenter.status==1)
 			// 	{
@@ -101,11 +102,17 @@
 					message: '请您先登录'
 				});
 			},
+			//#############################################################################################################
+			//未完成
 			buy(pid) {
-				var tokens = localStorage.getItem("userinfo");
-				console.log(tokens);
-				if (tokens) {
-
+				var token = localStorage.getItem("token");
+				if (token) {
+					this.axios
+						.get("/Like", {
+							params: {
+								pid,token
+							}
+						})
 				} else {
 					alert
 				}

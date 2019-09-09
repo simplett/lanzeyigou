@@ -1,16 +1,16 @@
 <template>
   <div>
 	<div class="content-b">
-		<div class="content-z" v-for="(item,i) of 6" :key="i ">
+		<div class="content-z" v-for="(item,i) of userProductData" :key="i ">
 			<!-- 状态、价钱 -->
 			<div class="content-z-p">
 				<a href="javascript:;" class="btn btn-light">热卖中...</a>
-				<p>￥3333.00</p>
+				<p>￥.{{item.price}}</p>
 			</div>
 			<!-- 名称、图片 -->
 			<div class="content-name"> 
-				<p>11111111111111111111111</p>
-				<img src="../../../public/images/details/素材/0_0.png" alt="">
+				<p>{{item.pname}}</p>
+				<img :src="item.image" alt="">
 			</div>
 			<!-- 收藏和点赞 -->
 			<div class="content-collect">
@@ -23,6 +23,9 @@
 </template>
 <script>
 export default {
+	props:{
+		userProductData:{default:"111"}
+	},
   data() {
     return {
        

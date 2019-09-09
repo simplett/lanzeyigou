@@ -120,7 +120,7 @@
 
 <script>
 	// @ is an alias to /src
-	import RegLogin from "../components/RegLoginDiv";
+	import RegLogin from "../components/RegLogin";
 	import Carousel from "../components/Carousel.vue"
 	export default {
 		data() {
@@ -325,7 +325,7 @@
 		},
 		mounted() {
 			this.isActive(),
-				this.DiscoverLike(1)
+			this.DiscoverLike(1)
 		},
 		components: {
 			RegLogin,

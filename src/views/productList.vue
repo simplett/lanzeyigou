@@ -11,7 +11,7 @@
 		<div class="p-7-img">
 			<!-- 最左边的大的div -->
 			<div class="p-7-left">
-
+<img :src="codeid.imgurl[6]" alt="">
 			</div>
 			<!-- 右边6个div -->
 			<div class="p-7-right">

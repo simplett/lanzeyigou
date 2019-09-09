@@ -9,6 +9,8 @@ const state = {
 		},
 		SearchContent:"手机",
 		uid:"",
+		guanzhu:"",
+		shoucan:"",
 		productlist: [{
 				"codelist": [
 					101,
@@ -28,7 +30,8 @@ const state = {
 					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/0_3.png",
 					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/0_4.png",
 					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/0_5.png",
-					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/0_6.png"
+					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/0_6.png",
+					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/fenleiye/0_7.png"
 				]
 			},
 			{
@@ -50,7 +53,8 @@ const state = {
 					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/1_3.png",
 					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/1_4.png",
 					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/1_5.png",
-					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/1_6.png"
+					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/1_6.png",
+					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/fenleiye/1_7.png"
 				]
 			},
 			{
@@ -72,7 +76,8 @@ const state = {
 					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/2_3.png",
 					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/2_4.png",
 					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/2_5.png",
-					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/2_6.png"
+					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/2_6.png",
+					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/fenleiye/2_7.png"
 				]
 			},
 			{
@@ -94,7 +99,8 @@ const state = {
 					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/3_3.png",
 					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/3_4.png",
 					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/3_5.png",
-					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/3_6.png"
+					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/3_6.png",
+					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/fenleiye/3_7.png"
 				]
 			},
 			{
@@ -116,7 +122,8 @@ const state = {
 					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/4_3.png",
 					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/4_4.png",
 					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/4_5.png",
-					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/4_6.png"
+					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/4_6.png",
+					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/fenleiye/4_7.png"
 				]
 			},
 			{
@@ -138,7 +145,8 @@ const state = {
 					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/5_3.png",
 					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/5_4.png",
 					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/5_5.png",
-					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/5_6.png"
+					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/5_6.png",
+					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/fenleiye/5_7.png"
 				]
 			},
 			{
@@ -160,7 +168,8 @@ const state = {
 					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/6_3.png",
 					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/6_4.png",
 					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/6_5.png",
-					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/6_6.png"
+					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/6_6.png",
+					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/fenleiye/6_7.png"
 				]
 			},
 			{
@@ -182,7 +191,8 @@ const state = {
 					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/7_3.png",
 					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/7_4.png",
 					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/7_5.png",
-					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/7_6.png"
+					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/7_6.png",
+					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/fenleiye/7_7.png"
 				]
 			},
 			{
@@ -204,7 +214,8 @@ const state = {
 					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/8_3.png",
 					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/8_4.png",
 					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/8_5.png",
-					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/8_6.png"
+					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/8_6.png",
+					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/fenleiye/8_7.png"
 				]
 			},
 			{
@@ -226,13 +237,33 @@ const state = {
 					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/9_3.png",
 					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/9_4.png",
 					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/9_5.png",
-					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/9_6.png"
+					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/sucaizong/9_6.png",
+					"http://lanzesucai.oss-cn-beijing.aliyuncs.com/fenleiye/9_7.png"
 				]
 			}
 		],
 		code:0}
 		console.log(state.userinfo);
 		const mutations = {
+			SAVE_GUANZHU(state, data) {
+				//把用户信息存入本地存储
+				localStorage.setItem("guanzhu", data);
+			
+				let guanzhu = localStorage.getItem("guanzhu");
+				state.guanzhu = guanzhu;
+			
+				console.log("guanzhu函数被触发");
+				console.log(state.guanzhu)
+			},
+			SAVE_SHOUCAN(state, data) {
+				//把用户信息存入本地存储
+				localStorage.setItem("shoucan", data);
+			
+				let shoucan = localStorage.getItem("shoucan");
+				state.shoucan = shoucan;
+				console.log("shoucan函数被触发");
+				console.log(state.shoucan)
+			},
 			SAVE_USERINFO(state, data) {
 				//把用户信息存入本地存储
 				localStorage.setItem("token", data);

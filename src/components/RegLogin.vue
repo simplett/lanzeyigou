@@ -1,5 +1,18 @@
 <template>
 	<div>
+		<!-- 页面右边登录div -->
+		<div class="login">
+			<div class="login-img">
+				<a href="javascript:;" @click="ShowDiv('MyDiv','fade')" id="Button1">
+					<img src="../../public/images/登录.png" alt />
+				</a>
+			</div>
+			<div class="login-img2">
+				<a href="javascript:;">
+					<img src="../../public/images/收藏夹.png" alt />收藏夹
+				</a>
+			</div>
+		</div>
 		<!--弹出层时背景层DIV-->
 		<div id="fade" class="black_overlay"></div>
 		<div id="MyDiv" class="white_content">
@@ -154,13 +167,20 @@
 						params
 					})
 					.then(result => {
-						console.log("###################################这是登陆之后的数据",result);
+						console.log("###################################这是登陆之后的数据",result.data);
 						this.Status2 = result.data.status;
 						if (this.Status2 === 1) {
 							console.log(111);
 							alert("状态1");
-							var token=result.data.token;
+							var token = result.data.token;
+							// var guanzhu=result.data;
+							var shoucan=result.data.su_data;
+							// if (token !== "") {
+							//   this.$store.commit("SAVE_USERINFO", token);
+							// }
 							this.$store.commit("SAVE_USERINFO", token);
+							// this.$store.commit("SAVE_GUANZHU", guanzhu);
+							this.$store.commit("SAVE_SHOUCAN", shoucan);
 							this.CloseDiv('MyDiv', 'fade');
 							
 						}
@@ -252,10 +272,15 @@
 					this.Status1 = result.data.status;
 					if (this.Status1 == 1) {
 						var token = result.data.token;
+						var guanzhu=result.data;
+						var shoucan=result.data;
 						// if (token !== "") {
 						//   this.$store.commit("SAVE_USERINFO", token);
 						// }
 						this.$store.commit("SAVE_USERINFO", token);
+						this.$store.commit("SAVE_GUANZHU", token);
+						this.$store.commit("SAVE_SHOUCAN", token);
+						
 						this.open3(this.uname);
 						console.log("#######################################这是用户注册成功之后的数据",result);
 						// console.log(this.$store.state.userinfo);//打印出vueX里面的数据
@@ -613,5 +638,30 @@
 	#move>span {
 		margin-right: 30px;
 		color: #fff;
+	}
+	.login {
+		width: 40px;
+		height: 100%;
+		float: right;
+		background: #000000;
+		/* border: 1px solid red; */
+		/* margin-top: 200px; */
+		/* position: relative; */
+		z-index: 5;
+		position: fixed;
+		top: 0px;
+		right: 1px;
+	}
+	
+	.login-img {
+		width: 40px;
+		height: 40px;
+		background: red;
+	}
+	
+	.login-img>a>img,
+	.login-img2>a>img {
+		width: 100%;
+		height: 100%;
 	}
 </style>
