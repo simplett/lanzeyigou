@@ -14,7 +14,7 @@
 				<div class="g-l-hp">
 					<img :src="item.shoucang_img" />
 				<!-- 用户名 -->
-					<p>{{userdata.image}}</p>
+					<p>{{mydata.image}}</p>
 				</div>
 				<!-- <div class="g-l-right">
 					<a class="btn g-l-right-btn-focus">已关注</a>
@@ -56,8 +56,15 @@
 	  props:{
 		  userdata:{default:"111"}
 	  },
+	  watch: {
+	      userdata(newVal){
+	          this.mydata = newVal;
+	          console.log(this.expandDetail);
+	      }
+	  },
       data(){
 		  return {
+			  mydata:{},
 			  shoucang:[
                     {
                         shoucang_img:require("../../public/images/喜欢小banner.png"),

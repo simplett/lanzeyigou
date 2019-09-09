@@ -8,8 +8,8 @@
 			</div>
 			<!-- 首页页头右部分 -->
 			<div class="index-header-right">
-				<input class="index-header-input" type="text" v-model="SearchContent" placeholder="蓝沢   请输入关键词" />
-				<img src="../../public/images/搜索.png" @click="searchlistrouter()" />
+				<input class="index-header-input" type="text" @keyup.enter="searchlistrouter()" v-model="SearchContent" placeholder="蓝沢   请输入关键词" />
+				<img src="../../public/images/搜索.png"  @click="searchlistrouter()" />
 			</div>
 		</div>
 	</header>
