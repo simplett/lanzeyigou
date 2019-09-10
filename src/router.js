@@ -13,6 +13,7 @@ import header from "./components/Head.vue"
 import aliyun1 from "./components/aliyun copy.vue"
 import otherperson from "./components/otherperson.vue"
 import personcenter from "./components/personcenter.vue"
+import Publish from "./views/Publish.vue"
 
 Vue.use(Router)
 
@@ -21,6 +22,11 @@ export default new Router({
 			path: '/',
 			name: 'index',
 			component: index
+		},
+		{
+			path: '/Publish',
+			name: 'Publish',
+			component: Publish
 		},
 		{
 			path: '/productList',
