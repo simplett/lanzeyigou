@@ -13,7 +13,7 @@
                 <a href="#">请登录...</a>
             </el-menu-item>
             <el-menu-item index="3">
-                <a href="#">免费注册</a>
+                <a href="#" @click="getUserCenter">个人中心</a>
             </el-menu-item>
             <el-dropdown>
                 <span class="el-dropdown-link">
@@ -86,6 +86,9 @@ export default {
 		handleSelect(key, keyPath) {
 			console.log(key, keyPath);
 		},
+		getUserCenter(){
+			this.$router.push("/usercenter");
+		}
 	}
 }
 </script>

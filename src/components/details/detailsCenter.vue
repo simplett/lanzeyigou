@@ -102,19 +102,45 @@
 					message: '请您先登录'
 				});
 			},
+			// orderajax(orderlist) {
+			// 	var xhr=new XMLHttpRequest;
+			// 	//4.绑定监听，获取响应
+			// 	xhr.onreadystatechange=function (){
+			// 		if(xhr.readyState==4 && xhr.status==200){
+			// 			var result=xhr.responseText;
+			// 			console.log(result);
+			// 		}
+			// 	}
+			// 	//2.打开连接，创建请求
+			// 	xhr.open("get","http://10.2.57.31:8080/alipay/index?orderlist="+orderlist,true);
+			// 	
+			// 	//3.发送请求
+			// 	//3.1设置请求头信息
+			// 	// xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+			// 	//创建请求主体
+			// 	// var formdata="orderlist="+orderlist;
+			// 	xhr.send(null);
+			// },
 			//#############################################################################################################
 			//未完成
 			buy(pid) {
 				var token = localStorage.getItem("token");
 				if (token) {
 					this.axios
-						.get("/Like", {
+						.get("/Order", {
 							params: {
 								pid,token
 							}
+						}).then(result=>{
+							console.log("购买之后的数据",result);
+							if(result.data.status==1)
+							{
+								// this.orderajax(result.data.orderlist)
+								window.location.href = 'http://10.2.57.31:8080/alipay/index?orderlist='+result.data.orderlist;
+							}
 						})
 				} else {
-					alert
+					this.open5()
 				}
 			},
 			collect(pid) {

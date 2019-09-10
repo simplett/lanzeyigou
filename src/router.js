@@ -8,11 +8,13 @@ import collect from "./components/collect.vue"
 // import product from "./components/Comment.vue"
 import details from "./views/Details.vue"
 import searchlist from "./views/SearchList.vue"
+import paysuccess from "./views/paysuccess.vue"
 import aliyun from "./components/aliyun.vue"
 import header from "./components/Head.vue"
 import aliyun1 from "./components/aliyun copy.vue"
 import otherperson from "./components/otherperson.vue"
 import personcenter from "./components/personcenter.vue"
+import publish from "./views/Publish.vue"
 
 Vue.use(Router)
 
@@ -21,6 +23,11 @@ export default new Router({
 			path: '/',
 			name: 'index',
 			component: index
+		},
+		{
+			path: '/publish',
+			name: 'publish',
+			component: publish
 		},
 		{
 			path: '/productList',
@@ -81,6 +88,11 @@ export default new Router({
 			path: '/otherperson',
 			name: 'otherperson',
 			component: otherperson
+		},
+		{
+			path: '/paysuccess',
+			name: 'paysuccess',
+			component: paysuccess
 		}
 	],
 	scrollBehavior(to, from, savedPosition) {

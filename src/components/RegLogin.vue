@@ -31,7 +31,7 @@
 								<span>第三方账号注册</span>
 								<input class="input" type="text" v-model="uname" value placeholder="用户名  8~12位字母或数字" />
 								<input class="input" type="email" v-model="email" placeholder="邮箱" />
-								<input class="input" type="text" v-model="checking" placeholder="邮箱验证码" />
+								<input class="input" type="text" v-model="yzm" placeholder="邮箱验证码" />
 								<span class="e-check" @click="check">获取验证码</span>
 								<input class="input" type="password" v-model="upwd" placeholder="密码  6-20个字母、数字、下划线" />
 								<button @click="reg">注册</button>
@@ -92,7 +92,7 @@
 				code: 0, //注册正则验证时候的状态码
 				Status1: "", //注册时服务器返回的状态
 				Status2: "", //登录时服务器返回的状态
-				checking: "" //邮箱验证时服务器返回的验证码
+				yzm: "" //邮箱验证时服务器返回的验证码
 			};
 		},
 		methods: {
@@ -100,7 +100,7 @@
 			checklog() {
 				console.log("#####################正在测试当前用户的登陆状态");
 				var token = localStorage.getItem("token");
-				console.log("####################token",token);
+				console.log("####################token", token);
 				if (!token) {
 					this.ShowDiv('MyDiv', 'fade')
 				} else {
@@ -139,19 +139,35 @@
 				console.log(this.email);
 				var regemail = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
 				var email = this.email;
-				var url = "Mail";
-				var params = {
-					email
-				};
+				var url = "/M";
+
 				if (regemail.test(email)) {
+					var params = {
+						email
+					};
 					console.log(email);
-					this.axios.get(url, {
-						params
-					});
+					
+								//1获取xhr对象
+								var xhr=new XMLHttpRequest();
+								console.log(xhr);
+								//4监听
+								xhr.onreadystatechange=function(){
+									if(xhr.readyState==4 && xhr.status==200){
+											//接收响应数据
+											var result=xhr.responseText;
+											console.log(result);
+											
+										}
+								}
+					
+								//2创建请求
+					      xhr.open('get','http://10.1.180.146:10086/M?email='+email,true);
+								//3发送请求
+								xhr.send(null);
 				} else {
 					this.code = 2;
 				}
-				this.code = 0;
+				// this.code = 0;
 			},
 			//登录的方法
 			login() {
@@ -167,22 +183,30 @@
 						params
 					})
 					.then(result => {
-						console.log("###################################这是登陆之后的数据",result.data);
+						console.log("###################################这是登陆之后的数据", result.data);
 						this.Status2 = result.data.status;
 						if (this.Status2 === 1) {
 							console.log(111);
 							alert("状态1");
 							var token = result.data.token;
 							// var guanzhu=result.data;
-							var shoucan=result.data.su_data;
+							var shoucan = result.data.su_data;
+							console.log("这是收藏 的数据", shoucan)
 							// if (token !== "") {
 							//   this.$store.commit("SAVE_USERINFO", token);
 							// }
 							this.$store.commit("SAVE_USERINFO", token);
 							// this.$store.commit("SAVE_GUANZHU", guanzhu);
-							this.$store.commit("SAVE_SHOUCAN", shoucan);
+							if (shoucan) {
+								console.log("这是收藏有数据");
+								this.$store.commit("SAVE_SHOUCAN", shoucan);
+							} else {
+								console.log("这是收藏没有数据");
+								var init = undefined;
+								this.$store.commit("SAVE_SHOUCANINIT", init);
+							}
 							this.CloseDiv('MyDiv', 'fade');
-							
+
 						}
 						if (this.Status2 === 4) {
 							console.log(444);
@@ -209,7 +233,7 @@
 			open3(uname) {
 				this.$notify({
 					title: '成功',
-					message: uname+'!您好，您已经成功注册了蓝泽易购',
+					message: uname + '!您好，您已经成功注册了蓝泽易购',
 					type: 'success'
 				});
 				this.sengmsg = "";
@@ -226,10 +250,10 @@
 				var name = this.uname,
 					pwd = this.upwd,
 					email = this.email,
-					checking = this.checking,
+					yzm = this.yzm,
 					reguname = /^[a-z1-9]{8,12}$/,
 					regemail = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/,
-					regchecking = /^\d{6}$/,
+					regchecking = /^\w{6}$/,
 					regupwd = /^(\w){6,10}$/;
 				//用户名是否输入合法
 				console.log(name);
@@ -247,7 +271,7 @@
 					this.code = 3;
 					return;
 				}
-				if (!regchecking.test(checking)) {
+				if (!regchecking.test(yzm)) {
 					this.code = 4;
 					return;
 				}
@@ -263,7 +287,7 @@
 					name,
 					pwd: this.$md5(pwd),
 					email,
-					checking
+					yzm
 				}; //ES6标准，可以简写
 				this.axios.get(url, {
 					params
@@ -272,19 +296,20 @@
 					this.Status1 = result.data.status;
 					if (this.Status1 == 1) {
 						var token = result.data.token;
-						var guanzhu=result.data;
-						var shoucan=result.data;
+						// var guanzhu=result.data;
+						// var shoucan=result.data;
 						// if (token !== "") {
 						//   this.$store.commit("SAVE_USERINFO", token);
 						// }
 						this.$store.commit("SAVE_USERINFO", token);
-						this.$store.commit("SAVE_GUANZHU", token);
-						this.$store.commit("SAVE_SHOUCAN", token);
-						
+						// this.$store.commit("SAVE_GUANZHU", token);
+						var init = undefined;
+						this.$store.commit("SAVE_SHOUCANINIT", init);
+
 						this.open3(this.uname);
-						console.log("#######################################这是用户注册成功之后的数据",result);
+						console.log("#######################################这是用户注册成功之后的数据", result);
 						// console.log(this.$store.state.userinfo);//打印出vueX里面的数据
-					}else{
+					} else {
 						this.open4()
 					}
 				});
@@ -640,6 +665,7 @@
 		margin-right: 30px;
 		color: #fff;
 	}
+
 	.login {
 		width: 40px;
 		height: 100%;
@@ -653,11 +679,13 @@
 		top: 0px;
 		right: 1px;
 	}
+
 	.login-img {
 		width: 40px;
 		height: 40px;
 		background: red;
 	}
+
 	.login-img>a>img,
 	.login-img2>a>img {
 		width: 100%;

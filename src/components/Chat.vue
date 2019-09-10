@@ -297,7 +297,7 @@ img.list-i{
     width:490px;
 	/* height:80px; */
     /* border:1px solid #dae8ba; */
-    margin:0 10px;
+    /* margin:0 10px; */
 }
 .chat-msg-img{
 	width: 50px;height:50px;

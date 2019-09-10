@@ -13,7 +13,7 @@
 		<div class="p-7-img">
 			<!-- 最左边的大的div -->
 			<div class="p-7-left">
-				<img :src="codeid.imgurl[9]" alt="">
+				<img :src="codeid.imgurl[8]" alt="">
 			</div>
 			<!-- 右边6个div -->
 			<div class="p-7-right">
@@ -432,8 +432,12 @@
 		margin: 20px 0px;
 	}
 	.IMG{
-		width:1920px;
-		height:600px;
+		width:1180px;
+		height:500px;
 		margin:0 auto;
+	}
+	.IMG img{
+		width:100%;
+		height:100%;
 	}
 </style>

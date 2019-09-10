@@ -38,7 +38,7 @@
 
 <style scoped>
 	.lbt-1{
-	    width: 1920px;
+	    width: 1180px;
 		/* margin: 0 auto; */
 	    /* height: 600px; */
 		/* left: 13%; */
@@ -51,7 +51,7 @@
 	.lbt-out-1{
 	    margin: 0 auto;
 	    width: 100%;
-	    height: 600px;
+	    height: 500px;
 	    margin-top: 0px;
 	    position: absolute;
 		-moz-filter: blur(10px);
@@ -79,7 +79,7 @@
 	}
 	img.w-100{
 	    width: 100%;
-	    height:585px;
+	    height:500px;
 	    margin-top: 5px;
 	}
 </style>

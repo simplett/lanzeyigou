@@ -68,13 +68,13 @@
 								<li>
 									<p>{{userdata.phone}}</p>
 								</li>
-								<li><img src="" alt="">
+								<li><img src="../../public/images/usercenter/zhenque.png" alt="">
 									<p>绑定手机</p>
 								</li>
 								<li>
 									<p>{{userdata.email}}</p>
 								</li>
-								<li><img src="" alt="">
+								<li><img src="../../public/images/usercenter/zhenque.png" alt="">
 									<p>绑定邮箱</p>
 								</li>
 							</ul>
@@ -220,7 +220,8 @@
 			//获取C6的请求
 			getC6() {
 				var url = "/Search";
-				var uid = this.uid;
+				var uid = 1;
+				// this.uid;
 				var params = {
 					uid,
 					type: "user"
@@ -264,14 +265,19 @@
 				this.uid = this.$route.query.uid;
 				console.log(this.uid);
 			},
-        },
+		},
         components:{
             search,c1,c2,c3,c4,c5,c6,c7
         },
 		created() {
 			this.getRouterData();
 			this.GetUserData();
-		}
+		},
+		// filters:{
+		// 	hideMiddle(val){
+		// 		return `${val.substring(0,3)}****${val.substring(val.length-4)}`
+		// 	}
+		// },
 	}
 </script>
 <style scoped>

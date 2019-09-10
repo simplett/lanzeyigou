@@ -268,8 +268,17 @@ const mutations = {
 	},
 	SAVE_SHOUCAN(state, data) {
 		//把用户信息存入本地存储
-		localStorage.setItem("shoucan", data);
+		localStorage.setItem("shoucan",JSON.stringify(data));
 
+		let shoucan = localStorage.getItem("shoucan");
+		state.shoucan = shoucan;
+		console.log("shoucan函数被触发");
+		console.log(state.shoucan)
+	},
+	SAVE_SHOUCANINIT(state, data) {
+		//把用户信息存入本地存储
+		localStorage.setItem("shoucan",data);
+	
 		let shoucan = localStorage.getItem("shoucan");
 		state.shoucan = shoucan;
 		console.log("shoucan函数被触发");

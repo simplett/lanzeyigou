@@ -45,7 +45,7 @@
 
 		data() {
 			return {
-				con: "+关注",
+				con: "+收藏",
 				flag: false, //单位切换开关
 				shoucan: []
 			}
@@ -69,15 +69,21 @@
 			},
 			init() {
 				var shoucan = localStorage.getItem("shoucan");
-				var shoucanreg = /@/;
-				if (shoucanreg.test(shoucan)) {
-					this.shoucan = token.splic("@");
+				console.log("#############################################################这是初始化的数据", shoucan);
+				if (shoucan == undefined) {
+					this.shoucan[0] = "-1";
 				} else {
-					this.shoucan[0] = shoucan;
+					shoucan = JSON.parse(shoucan);
+					console.log(shoucan);
+					for (var item of shoucan) {
+						this.shoucan.push(item.su_uid);
+
+					}
+					console.log(this.shoucan)
 				}
 			},
 			arrincludes() {
-				var bool = this.shoucan.arrincludes(this.item.pid);
+				var bool = ((this.shoucan).indexOf(this.item.pid))==-1?true:false;
 				this.flag = bool;
 			},
 			//用户的关注
@@ -85,7 +91,7 @@
 				var token = localStorage.getItem("token")
 				if (token) {
 					var shoucan = localStorage.getItem("shoucan");
-					shoucan =shoucan+"@"+uid;
+					shoucan = shoucan + "@" + uid;
 					this.$store.commit("SAVE_shoucan", shoucan);
 					this.axios
 						.get("/Subscribe", {
@@ -153,12 +159,14 @@
 		created() {
 			this.init();
 			this.arrincludes();
-		},
-		mounted() {
-			if (this.falg) {
+			if (!this.falg) {
 				document.getElementById("dian").disabled = true;
+				console.log("状态为",this.flag);
 			}
-		}
+		},
+		// mounted() {
+		// 	
+		// }
 	}
 </script>
 <style scoped>

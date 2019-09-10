@@ -129,18 +129,21 @@ div.el-step__title{
 	/* border:1px solid red; */
 	padding-top:10px;
 	/* margin-top:25px; */
-	background: #f2f2f2;
+	background: #ffffff;
 }
-.b-g-b-div .el-step__icon{
-	margin-left:-185px;
+.b-g-b-div>>>.el-step__icon{
+	margin-left:-177px;
 }
-.b-g-b-div .el-step__head{
+.b-g-b-div>>>.el-step__head{
 	width:200%;
+}
+.b-g-b-div>>>.el-step__main{
+	text-align: center;
 }
 .b-g-b-p{
 	height:40px;
-	width:100%;
-	background:#e2e3e4;
+	width:99%;
+	background:#f6f6f6;
 }
 .b-g-b-p>p{
 	float: right;

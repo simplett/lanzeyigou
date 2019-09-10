@@ -177,7 +177,7 @@
 	}
 
 	input.el-input__inner {
-		background-color: #e2e3e4 !important;
+		background-color: #f6f6f6 !important;
 	}
 
 	.el-icon-edit:before {
