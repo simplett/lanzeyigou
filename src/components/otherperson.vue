@@ -21,15 +21,10 @@
 			<!-- 商品 -->
 			<div class="product-state">
 				<div class="product-state-a">
-<<<<<<< HEAD
 					<a href="javascript:;" class="btn btn-danger
 					" @click="tabshow(a1)">热卖中</a>
 					<a href="javascript:;" class="btn btn-danger
 					" @click="tabshow(a2)">已售出</a>
-=======
-					<a href="javascript:;" class="btn btn-danger" @click="tabshow(0)">热卖中</a>
-					<a href="javascript:;" class="btn btn-danger" @click="tabshow(1)">已售出</a>
->>>>>>> 0846d293d3a8271b204c8ce2e0377d99e144edc4
 				</div>
 				<div :is="contentView" :userProductData="userProductData" class="content">
 				</div>

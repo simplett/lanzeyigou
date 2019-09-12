@@ -15,7 +15,6 @@ import aliyun1 from "./components/aliyun copy.vue"
 import otherperson from "./components/otherperson.vue"
 import personcenter from "./components/personcenter.vue"
 import publish from "./views/Publish.vue"
-
 Vue.use(Router)
 
 export default new Router({
