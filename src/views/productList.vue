@@ -66,13 +66,13 @@
 					<div class="p-msg">
 						<div class="p-msg-left">
 							<div class="p-msg-left-img">
-								<img @click="touser(item.uid)" :src="item.image" alt="">
+								<img @click="userCenterRouter(item.uid)" :src="item.image" alt="">
 							</div>
-							<p @click="touser(item.uid)">丁晓瑞</p>
+							<p @click="userCenterRouter(item.uid)">丁晓瑞</p>
 						</div>
 						<div>
 							<div class="p-msg-right">
-								<a href="javascript:;" class="btn btn-focus">+ 关注</a>
+								<a href="javascript:;" @click="detailsrouter(item.pid)" class="btn btn-focus">我想要</a>
 							</div>
 						</div>
 					</div>
@@ -112,19 +112,6 @@
 			}
 		},
 		methods: {
-			touser(uid) {
-				this.$router.push("/usercenter");
-			},
-			//跳转到详细页面的方法
-			detailsrouter(pid) {
-				console.log(pid);
-				this.$router.push({
-					name: "details",
-					query: {
-						pid
-					}
-				});
-			},
 			//循环请求数据
 			forajax(codeid) {
 				console.log(codeid[0])
@@ -171,7 +158,27 @@
 				this.codeid = this.$store.state.productlist[this.$route.query.code]
 				console.log("这是商品内页的数据", this.codeid);
 
-			}
+			},
+			//跳转到商品详细情况
+			detailsrouter(pid) {
+				console.log(pid);
+				this.$router.push({
+					name: "details",
+					query: {
+						pid
+					}
+				});
+			},
+			//跳转到当前用户详细情况
+			userCenterRouter(uid) {
+				console.log(uid);
+				this.$router.push({
+					name: "otherperson",
+					query: {
+						uid
+					}
+				});
+			},
 		},
 		created() {
 			this.getRouterData();

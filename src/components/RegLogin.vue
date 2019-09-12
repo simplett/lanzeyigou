@@ -34,7 +34,7 @@
 								<input class="input" type="text" v-model="yzm" placeholder="邮箱验证码" />
 								<span class="e-check" @click="check">获取验证码</span>
 								<input class="input" type="password" v-model="upwd" placeholder="密码  6-20个字母、数字、下划线" />
-								<button @click="reg">注册</button>
+								<button @click="reg()">注册</button>
 							</form>
 						</div>
 						<div class="form-container sign-in-container">
@@ -55,7 +55,7 @@
 								<input class="input" type="text" v-model="emails" placeholder="邮箱" />
 								<input class="input" type="password" v-model="upwd" placeholder="密码" />
 								<a href="#">忘记密码？</a>
-								<button @click="login">登录</button>
+								<button @click="login()">登录</button>
 							</form>
 						</div>
 						<div class="overlay-container">
@@ -190,7 +190,7 @@
 							alert("状态1");
 							var token = result.data.token;
 							// var guanzhu=result.data;
-							var shoucan = result.data.su_data;
+							var shoucan = result.data.sp_data;
 							console.log("这是收藏 的数据", shoucan)
 							// if (token !== "") {
 							//   this.$store.commit("SAVE_USERINFO", token);
@@ -307,6 +307,7 @@
 						this.$store.commit("SAVE_SHOUCANINIT", init);
 
 						this.open3(this.uname);
+						this.closeDiv();
 						console.log("#######################################这是用户注册成功之后的数据", result);
 						// console.log(this.$store.state.userinfo);//打印出vueX里面的数据
 					} else {

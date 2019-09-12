@@ -95,7 +95,7 @@
 
 		<!-- 为你推荐胶囊导航 -->
 		<div class="g-l">
-			<ul class="nav nav-pills text-center">
+			<ul class="nav nav-pills p-0 m-0 text-center row justify-content-around">
 				<li class="nav-item" @click="DiscoverLike(1)">
 					<a class="nav-link active">最新发布</a>
 				</li>

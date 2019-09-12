@@ -8,7 +8,7 @@
 				<p>{{item.nickname}}</p>
 			</div>
 			<div class="g-l-right">
-				<div @click="enter"  id="dian" v-bind:class="{ 'you' : !flag, 'you2': flag}">{{con}}</div> 
+				<div @click="enter(item.pid)"  id="dian" v-bind:class="{ 'you' : !flag, 'you2': flag}">{{con}}</div> 
 			</div>
 			<p class="p-introduce">{{item.pname}}</p>
 			<div class="g-l-product">
@@ -45,7 +45,7 @@
 
 		data() {
 			return {
-				con: "+收藏",
+				con: "收藏",
 				flag: false, //单位切换开关
 				shoucan: []
 			}
@@ -59,12 +59,36 @@
 			}
 		},
 		methods: {
-			enter() {
-				this.flag = !this.flag;
-				if (this.flag == true) {
-					this.con = "已收藏";
-				} else if (this.flag == false) {
-					this.con = "+收藏";
+			enter(pid) {
+				// this.flag = !this.flag;
+				if (this.flag == !true) {
+					var token = localStorage.getItem("token")
+					if (token) {
+						this.axios
+							.get("/Subscribe", {
+								params: {
+									pid,
+									token,
+									type: "production",
+									action: "add"
+								}
+							}).then(result => {
+								if (result.data.status == 1) {
+									this.open3();
+									this.con = "已收藏";
+									this.$store.commit("SAVE_SHOUCANLIST", pid);
+									this.shoucan = localStorage.getItem("shoucanlist").split(",");
+									document.getElementById("dian").disabled = true;
+									this.flag=true;
+								} else if (result.data.status == 0) {
+									this.open4()
+								}
+							})
+					} else {	
+						this.open5()
+					}
+
+
 				}
 			},
 			init() {
@@ -76,23 +100,27 @@
 					shoucan = JSON.parse(shoucan);
 					console.log(shoucan);
 					for (var item of shoucan) {
-						this.shoucan.push(item.su_uid);
+						this.shoucan.push(item.sp_pids);
 
 					}
-					console.log(this.shoucan)
+					this.$store.commit("SAVE_SHOUCANLIST", this.shoucan);
+					this.shoucan = localStorage.getItem("shoucanlist").split(",");
+					console.log("这是shoucanlist的裁剪数据",this.shoucan)
 				}
 			},
 			arrincludes() {
-				var bool = ((this.shoucan).indexOf(this.item.pid))==-1?true:false;
+				var bool = ((this.shoucan).indexOf(this.item.pid)) == -1 ? false : true;
 				this.flag = bool;
+				console.log("这是判断商品是否有被收藏", this.flag)
+				if (this.flag) {
+					document.getElementById("dian").disabled = true;
+					console.log("######################################################3状态为", this.flag);
+				}
 			},
 			//用户的关注
 			Attention() {
 				var token = localStorage.getItem("token")
 				if (token) {
-					var shoucan = localStorage.getItem("shoucan");
-					shoucan = shoucan + "@" + uid;
-					this.$store.commit("SAVE_shoucan", shoucan);
 					this.axios
 						.get("/Subscribe", {
 							params: {
@@ -135,6 +163,7 @@
 					message: '请您先登录'
 				});
 			},
+
 			//跳转到商品详细情况
 			detailsrouter(pid) {
 				console.log(pid);
@@ -158,15 +187,11 @@
 		},
 		created() {
 			this.init();
-			this.arrincludes();
-			if (!this.falg) {
-				document.getElementById("dian").disabled = true;
-				console.log("状态为",this.flag);
-			}
+
 		},
-		// mounted() {
-		// 	
-		// }
+		mounted() {
+			this.arrincludes();	
+		}
 	}
 </script>
 <style scoped>
@@ -642,7 +667,7 @@
 
 	.p-introduce {
 		width: 240px;
-		height: 45px;
+		height: 42px;
 		overflow: hidden;
 		/*溢出隐藏*/
 		text-overflow: ellipsis;

@@ -10,8 +10,32 @@
 export default {
     data() {
       return {
+		  alipay:{
+			charset:"",
+		  out_trade_no:"",
+		  method:"",
+		  total_amount:"",
+		  sign:"",
+		  trade_no:""  
+		  }
+		  
       };
     },
+	methods:{
+		getRouterData() {
+			// 只是改了query，其他都不变
+			this.alipay.charset = this.$route.query.charset;
+			this.alipay.out_trade_no = this.$route.query.out_trade_no;
+			this.alipay.method = this.$route.query.method;
+			this.alipay.total_amount = this.$route.query.total_amount;
+			this.alipay.sign = this.$route.query.sign;
+			this.alipay.trade_no = this.$route.query.trade_no;
+			console.log(this.alipay);
+		},
+	},
+	created(){
+		this.getRouterData()
+	}
 }
 </script>
 <style scoped>
