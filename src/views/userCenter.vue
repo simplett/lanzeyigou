@@ -127,12 +127,13 @@
 			//请求用户的基本详细信息
 			GetUserData() {
 				var url = "/Search";
-				var uid = this.uid;
+				// var uid = this.uid;
+				var token=localStorage.getItem("token")
 				var params = {
-					uid,
+					token,
 					type: "user"
 				};
-				if (uid) {
+				if (token) {
 					this.axios.get(url, {
 						params
 					}).then(result => {
