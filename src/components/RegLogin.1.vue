@@ -1,9 +1,17 @@
 <template>
 	<div>
 		<!-- 页面右边登录div -->
-		<div class="login">
-			<div class="login-img">
-				<a href="javascript:;" @click="ShowDiv(' ','fade')" id="Button1">
+		<div class="right">
+			<div class="login-div">
+				<a href="javascript:;" @click="ShowDiv('MyDiv','fade')" id="Button1">登录</a><br>
+				<a href="javascript:;" @click="getUserCenter"  class="chat">聊天</a><br>
+				<a href="javascript:;" @click="getUserCenter" class="pc">个人中心</a>
+			</div>
+			<button class="login">...</button>
+		</div>
+
+		<!-- <div class="login-img">
+				<a href="javascript:;" @click="ShowDiv(' ','fade')">
 					<img src="../../public/images/登录.png" alt />
 				</a>
 			</div>
@@ -11,8 +19,7 @@
 				<a href="javascript:;">
 					<img src="../../public/images/收藏夹.png" alt />收藏夹
 				</a>
-			</div>
-		</div>
+			</div> -->
 		<!--弹出层时背景层DIV-->
 		<div id="fade" class="black_overlay"></div>
 		<div id="MyDiv" class="white_content">
@@ -96,6 +103,9 @@
 			};
 		},
 		methods: {
+			getUserCenter(){
+				this.$router.push("/usercenter");
+			},
 			//验证用户是否登录
 			checklog() {
 				console.log("#####################正在测试当前用户的登陆状态");
@@ -146,24 +156,24 @@
 						email
 					};
 					console.log(email);
-					
-								//1获取xhr对象
-								var xhr=new XMLHttpRequest();
-								console.log(xhr);
-								//4监听
-								xhr.onreadystatechange=function(){
-									if(xhr.readyState==4 && xhr.status==200){
-											//接收响应数据
-											var result=xhr.responseText;
-											console.log(result);
-											
-										}
-								}
-					
-								//2创建请求
-					      xhr.open('get','http://10.1.180.146:10086/M?email='+email,true);
-								//3发送请求
-								xhr.send(null);
+
+					//1获取xhr对象
+					var xhr = new XMLHttpRequest();
+					console.log(xhr);
+					//4监听
+					xhr.onreadystatechange = function() {
+						if (xhr.readyState == 4 && xhr.status == 200) {
+							//接收响应数据
+							var result = xhr.responseText;
+							console.log(result);
+
+						}
+					}
+
+					//2创建请求
+					xhr.open('get', 'http://10.1.180.146:10086/M?email=' + email, true);
+					//3发送请求
+					xhr.send(null);
 				} else {
 					this.code = 2;
 				}
@@ -666,30 +676,41 @@
 		margin-right: 30px;
 		color: #fff;
 	}
-
+	.right{
+		width:50px;
+		height:200px;
+		/* border: 1px solid red; */
+		z-index: 5;
+		position: fixed;
+		top: 60%;
+		right: 200px;
+	}
 	.login {
-		width: 40px;
-		height: 100%;
-		float: right;
+		width: 50px;
+		height: 50px;
+		float: top;
 		background: #000000;
 		/* border: 1px solid red; */
 		/* margin-top: 200px; */
 		/* position: relative; */
-		z-index: 5;
-		position: fixed;
-		top: 0px;
-		right: 1px;
+		color: #FFFFFF;
+		border-radius: 50%;
+		position: relative;
+		padding: 0;
+		border: 0;
+		font-size: 20px;
+		line-height: 40px;
 	}
 
-	.login-img {
-		width: 40px;
-		height: 40px;
-		background: red;
+	.login-div {
+		width:100% ;
+		height:140px;
+		float: top;
+		border: 1px solid #000000;
+		border-radius: 5px;
 	}
-
-	.login-img>a>img,
-	.login-img2>a>img {
-		width: 100%;
-		height: 100%;
+	#Button1,.chat,.pc{
+		font-size: 16px;
+		margin-bottom: 20px;
 	}
 </style>

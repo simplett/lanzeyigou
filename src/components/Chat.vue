@@ -19,50 +19,16 @@
 					</div> -->
 					<div class="chat-list">
 						<!-- 聊天朋友列表 -->
-						<div class="chat-list-b">
-							<div class="list-img">
-								<img class="list-i" src="../../public/images/usercenter/liaotian.png">
-							</div>
-							<div class="list-text">
-								<p class="list-name text-left">qwe</p>
-								<p class="list-time">14:53</p>
-							</div>
-						</div>
-						<div class="chat-list-b">
-							<div class="list-img">
-								<img class="list-i" src="../../public/images/usercenter/liaotian.png">
-							</div>
-							<div class="list-text">
-								<p class="list-name text-left">qwe</p>
-								<p class="list-time">14:53</p>
-							</div>
-						</div>
+					<peoplelist></peoplelist>	
+					<peoplelist></peoplelist>	
 					</div>
 				</el-aside>
 				<el-main>
 					<!-- 信息框 -->
 					<div class="chat-b"><p>小螺号</p></div>
 					<div class="chat-msg">
-						<div class="chat-msg-a">
-							<div class="chat-msg-img">
-								<img src="../../public/images/usercenter/liaotian.png">
-							</div>
-							<div class="msg-list">
-								<div class="back-img">
-									<p>11111111111111</p>
-								</div>
-							</div>
-						</div>
-						<div class="chat-msg-b">
-							<div class="chat-msg-img-right">
-								<img src="../../public/images/usercenter/liaotian.png">
-							</div>
-							<div class="msg-list">
-								<div class="back-img-right">
-									<p>111111111111</p>
-								</div>
-							</div>
-						</div>
+						<saya></saya>
+						<sayb></sayb>
 						<div class="msg-input">
 							<input class="m-input" type="text">
 							<a href="javascript:;" class="btn btn-success">发送</a>
@@ -75,8 +41,13 @@
 </div>
 </template>
 <script>
+	import saya from "./chat/say_a.vue"
+	import sayb from "./chat/say_b.vue"
+	import peoplelist from "./chat/peoplelist.vue"
 export default {
-    
+    components:{
+		peoplelist,saya,sayb
+	}
 }
 </script>
 <style scoped>
@@ -176,59 +147,6 @@ main.el-main{
     background-color: #80c26a;
     margin: 2px 0 10px;
 } */
-.chat-list-b{
-    width:100%;height:50px;
-    background-color: #cbe198;
-    border:2px solid #d8e7b5;
-    border-left-color: #cbe198;
-    border-right-color:#cbe198; 
-	/* border:1px solid purple; */
-	margin-bottom:5px;
-}
-.list-img{
-	/* margin:5px 10px; */
-    width:40px;
-    height:40px;
-    float: left;
-	/* border:1px solid rebeccapurple; */
-	margin:5px;
-}
-img.list-i{
-   width:100%;
-   height:100%;
-   margin-top:-161px;
-}
-.list-text{
-    width: 190px;
-	height:50px;
-    float: left;
-	/* border:1px solid yellow; */
-}
-/* .chat-list-b>div.list-text>p{
-    line-height: 20px;
-    float: left;
-    font-size:18px;
-} */
-.list-name{
-    /* margin-top:-74px; */
-	height:50px;
-	width:50%;
-	float: left;
-	padding:0;
-	line-height:30px;
-	margin-left:0;
-	/* border:1px solid red; */
-}
-.chat-list-b>div.list-text>.list-time{
-    float:right;
-    /* margin-top:-25px; */
-    margin-right: 5px;
-	height:50px;
-	line-height:50px;
-	padding:0;
-	font-size:12px;
-}
-
 .chat-msg>.chat-msg-a,
 .chat-msg>.chat-msg-b{
     width: 100%;height:80px;

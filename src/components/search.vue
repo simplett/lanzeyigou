@@ -91,8 +91,8 @@
 	.index-header-right>img {
 		/* float: right; */
 		margin-left: -45px;
-		margin-top: 43px;
-		width: 36px;
+		margin-top: 54px;
+		width:20px;
 		position: absolute;
 	}
 </style>

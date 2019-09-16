@@ -22,6 +22,17 @@ export default {
       };
     },
 	methods:{
+		out_trade_no(){
+			this.axios
+				.get("/Order", {
+					params: {
+						type:"finish",
+						orderlist:this.alipay.out_trade_no
+					}
+				}).then(result=>{
+					console.log(result)
+				})
+		},
 		getRouterData() {
 			// 只是改了query，其他都不变
 			this.alipay.charset = this.$route.query.charset;
@@ -34,7 +45,8 @@ export default {
 		},
 	},
 	created(){
-		this.getRouterData()
+		this.getRouterData();
+		this.out_trade_no();
 	}
 }
 </script>

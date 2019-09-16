@@ -3,7 +3,7 @@
 		<div class="peo-text">
 			<!-- 发布者头像 -->
 			<div class="peo-img">
-				<img :src="proper.image" style="width:100%;height:100%;border-radius:50%;" />
+				<img @click="userrouter(proper.uid)" :src="proper.image" style="width:100%;height:100%;border-radius:50%;" />
 			</div>
 			<!-- 发布者详情信息 -->
 			<div class="peo-detail">
@@ -34,7 +34,7 @@
 				<span>性价比</span>
 				<span>10分</span>
 			</div>
-			<a class="btn btn-danger" @click="Todetails(proper.pid)">查看详细</a>
+			<a class="btn btn-danger" @click="userrouter(proper.uid)">查看详细</a>
 		</div>
 		<div class="introduce">
 			<div class="visits">
@@ -55,6 +55,17 @@
 </template>
 <script>
 	export default {
+		methods:{
+			userrouter(uid) {
+				console.log(uid);
+				this.$router.push({
+					name: "otherperson",
+					query: {
+						uid
+					}
+				});
+			},
+		},
 		props: {
 			proper: {
 				default: "111"

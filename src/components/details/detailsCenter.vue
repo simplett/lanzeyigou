@@ -140,13 +140,14 @@
 						.get("/Order", {
 							params: {
 								pid,
+								type:"start",
 								token
 							}
 						}).then(result => {
 							console.log("购买之后的数据", result);
 							if (result.data.status == 1) {
 								// this.orderajax(result.data.orderlist)
-								window.location.href = 'http://10.2.57.31:8080/alipay/index?orderlist=' + result.data.orderlist;
+								window.location.href = 'http://47.94.230.26:8080/store-0.0.1-SNAPSHOT/alipay/index?orderlist=' + result.data.orderlist;
 							} else if (result.data.status == 0) {
 								this.open6();
 							}

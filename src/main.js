@@ -20,7 +20,42 @@ axios.defaults.baseURL = "http://10.1.180.146:8080"
 axios.defaults.withCredentials = true
 Vue.prototype.axios = axios
 Vue.prototype.$=jQuery;
-Vue.prototype.$md5 = md5
+Vue.prototype.$md5 = md5 
+Vue.prototype.uploadEnclosure = function (files, cb) {
+ 
+          console.log(files)
+          var file = files.target.files[0]; //获取要上传的文件对象
+          var url = this.ServerIp + this.API.getTSTToken;
+          this.$http({
+              method: 'post',
+              url: url
+          }).then((res) => {
+ 
+              console.log(res);
+              var client = new OSS.Wrapper({
+                  region: this.OssRegion,
+                  accessKeyId:"LTAIlbkoZl60gNWT",
+                  accessKeySecret:"CbVR0tmpKXqAIEXxavJDqad3lcIIez",
+                  // stsToken: res.data.result.SecurityToken,
+                  bucket: "simplett-productlist-img.oss-cn-beijing.aliyuncs.com"
+              });
+ 
+              var fileName = Date.parse(new Date());
+              var fileExt = file.name.toLowerCase().split('.').splice(-1);
+              var randStr = this.randomString(6);
+              var newFilename = fileName + "-" + randStr + "." + fileExt[0];
+ 
+              client.multipartUpload("2017/" + newFilename, file).then(function (result) {
+                  console.log(result);
+                  cb(true, result);
+              }).catch(function (err) {
+                  console.log(err);
+                  cb(false, "上传附件失败");
+              });
+          });
+ 
+
+      }
 Vue.component(
 	"my-header",myheader,
 )

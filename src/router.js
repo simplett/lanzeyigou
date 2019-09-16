@@ -9,12 +9,14 @@ import collect from "./components/collect.vue"
 import details from "./views/Details.vue"
 import searchlist from "./views/SearchList.vue"
 import paysuccess from "./views/paysuccess.vue"
+import publish from "./views/Publish.vue"
 import aliyun from "./components/aliyun.vue"
 import header from "./components/Head.vue"
 import aliyun1 from "./components/aliyun copy.vue"
-import otherperson from "./components/otherperson.vue"
+import otherperson from "./views/otherperson.vue"
 import personcenter from "./components/personcenter.vue"
-import publish from "./views/Publish.vue"
+import RegLogin1 from "./components/RegLogin.1.vue"
+
 Vue.use(Router)
 
 export default new Router({
@@ -92,6 +94,11 @@ export default new Router({
 			path: '/paysuccess',
 			name: 'paysuccess',
 			component: paysuccess
+		},
+		{
+			path: '/RegLogin1',
+			name: 'RegLogin1',
+			component: RegLogin1
 		}
 	],
 	scrollBehavior(to, from, savedPosition) {

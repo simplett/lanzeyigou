@@ -95,7 +95,7 @@
 							3、卖家要求直接汇款。
 						</span>
 						<b>寻求防骗经验</b>
-					</div>
+					</div>pro-show
 					<div class="pro-show">
 						<div class="myflex" v-for="(item,i) of 8" :key="i">
 							<delproduct @childFn="parentFn" :otherimage="otherimage[i]" :productlist="userother[i]" />
@@ -412,7 +412,6 @@
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
-
 }
 
 .pro-item {

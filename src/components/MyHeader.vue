@@ -89,6 +89,13 @@ export default {
 		getUserCenter(){
 			this.$router.push("/usercenter");
 		}
+	},
+	created(){
+		window.addEventListener('beforeunload', e => {
+			var c=this.$store.state.shoucanlist;
+			console.log(c,"这是我们关闭的数据######################################%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
+		      localStorage.setItem('shoucanlist',c);
+		    });
 	}
 }
 </script>
