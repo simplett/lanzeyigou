@@ -244,7 +244,7 @@
 								}
 							}).then(result => {
 								console.log("########################################################这是用户中心的第一次数据请求", result.data);
-								this.sunuserdata[6][0] = result.data;
+								this.sunuserdata[7][0] = result.data;
 							})
 						}
 			},
@@ -274,7 +274,7 @@
 			this.getRouterData();
 			this.GetUserData();
 			this.getC2();
-			this.getC3();
+			// this.getC3();
 			this.getC4();
 			this.getC6();
 			this.getC7();
