@@ -40,7 +40,7 @@
 						</li>
 						<ul class="trad-re">
 							<li @click="tabshow(5)">已购商品</li>
-							<li @click="tabshow(6)">发布商品</li>
+							<li @click="tabshow(6)">未完成交易</li>
 						</ul>
 					</ul>
 				</div>
@@ -115,9 +115,9 @@
 				activeName: '1',
 				input: '',
 				c: ["c1", "c2", "c3", "c4", "c5", "c6", "c7"],
-				contentView:'c1'
-            };
-        },
+				contentView: 'c1'
+			};
+		},
 		methods: {
 			tabshow(number) {
 				// this.userdata = this.sunuserdata[number][0];
@@ -128,7 +128,7 @@
 			GetUserData() {
 				var url = "/Search";
 				// var uid = this.uid;
-				var token=localStorage.getItem("token")
+				var token = localStorage.getItem("token")
 				var params = {
 					token,
 					type: "user"
@@ -148,112 +148,105 @@
 			},
 			//获取C2的请求
 			getC2() {
-				var url = "/Search";
-				var uid = this.uid;
-				var params = {
-					uid,
-					type: "user"
-				};
-				if (uid) {
-					this.axios.get(url, {
-						params
-					}).then(result => {
-						console.log("########################################################这是用户中心的第一次数据请求", result.data);
-						this.userdata = result.data;
-						this.sunuserdata[1][0] = result.data;
-					})
+				var token = localStorage.getItem("token")
+				if (token) {
+					this.axios
+						.get("/Subscribe", {
+							params: {
+								token,
+								type: "production",
+								action: "get"
+							}
+						}).then(result => {
+							console.log("########################################################这是用户中心的第一次数据请求", result.data);
+							this.sunuserdata[2][0] = result.data;
+						})
 				}
 			},
 			//获取C3的请求
 			getC3() {
-				var url = "/Search";
-				var uid = this.uid;
-				var params = {
-					uid,
-					type: "user"
-				};
-				if (uid) {
-					this.axios.get(url, {
-						params
-					}).then(result => {
-						console.log("########################################################这是用户中心的第一次数据请求", result.data);
-						this.userdata = result.data;
-						this.sunuserdata[2][0] = result.data;
-					})
+				var token = localStorage.getItem("token")
+				if (token) {
+					this.axios
+						.get("/Subscribe", {
+							params: {
+								token,
+								type: "user",
+								action: "get"
+							}
+						}).then(result => {
+							console.log("########################################################这是用户中心的第一次数据请求", result.data);
+							this.sunuserdata[3][0] = result.data;
+						})
 				}
 			},
 			//获取C4的请求
 			getC4() {
-				var url = "/Search";
-				var uid = this.uid;
-				var params = {
-					uid,
-					type: "user"
-				};
-				if (uid) {
-					this.axios.get(url, {
-						params
-					}).then(result => {
-						console.log("########################################################这是用户中心的第一次数据请求", result.data);
-						this.userdata = result.data;
-						this.sunuserdata[3][0] = result.data;
-					})
+				var token = localStorage.getItem("token")
+				if (token) {
+					this.axios
+						.get("/Subscribe", {
+							params: {
+								token,
+								type: "production",
+								action: "get"
+							}
+						}).then(result => {
+							console.log("########################################################这是用户中心的第一次数据请求", result.data);
+							this.sunuserdata[2][0] = result.data;
+						})
 				}
 			},
 			//获取C5的请求
 			getC5() {
-				var url = "/Search";
-				var uid = this.uid;
-				var params = {
-					uid,
-					type: "user"
-				};
-				if (uid) {
-					this.axios.get(url, {
-						params
-					}).then(result => {
-						console.log("########################################################这是用户中心的第一次数据请求", result.data);
-						this.userdata = result.data;
-						this.sunuserdata[4][0] = result.data;
-					})
-				}
+				var token = localStorage.getItem("token")
+				if (token) {
+					this.axios
+						.get("/Subscribe", {
+								params: {
+									token,
+									type: "production",
+									action: "get"
+								}
+							}).then(result => {
+								console.log("########################################################这是用户中心的第一次数据请求", result.data);
+								this.sunuserdata[2][0] = result.data;
+							})
+						}
 			},
 			//获取C6的请求
 			getC6() {
-				var url = "/Search";
-				var uid = 1;
-				// this.uid;
-				var params = {
-					uid,
-					type: "user"
-				};
-				if (uid) {
-					this.axios.get(url, {
-						params
-					}).then(result => {
-						console.log("########################################################这是用户中心的第一次数据请求", result.data);
-						this.userdata = result.data;
-						this.sunuserdata[5][0] = result.data;
-					})
-				}
+				var token = localStorage.getItem("token")
+				if (token) {
+					this.axios
+						.get("/List", {
+								params: {
+									token,
+									type: "history",
+									
+								}
+							}).then(result => {
+								console.log("########################################################这是用户中心的第一次数据请求", result.data);
+								this.sunuserdata[6][0] = result.data;
+							})
+						}
 			},
 			//获取C7的请求
 			getC7() {
-				var url = "/Search";
-				var uid = this.uid;
-				var params = {
-					uid,
-					type: "user"
-				};
-				if (uid) {
-					this.axios.get(url, {
-						params
-					}).then(result => {
-						console.log("########################################################这是用户中心的第一次数据请求", result.data);
-						this.userdata = result.data;
-						this.sunuserdata[6][0] = result.data;
-					})
-				}
+				var token = localStorage.getItem("token")
+				if (token) {
+					this.axios
+						.get("/List", {
+								params: {
+									token,
+									type: "unfinish",
+									
+								}
+							}).then(result => {
+								console.log("########################################################这是用户中心的第一次数据请求", result.data);
+								this.sunuserdata[6][0] = result.data;
+							})
+						}
 			},
 			open5() {
 				this.$notify.error({
@@ -267,12 +260,24 @@
 				console.log(this.uid);
 			},
 		},
-        components:{
-            search,c1,c2,c3,c4,c5,c6,c7
-        },
+		components: {
+			search,
+			c1,
+			c2,
+			c3,
+			c4,
+			c5,
+			c6,
+			c7
+		},
 		created() {
 			this.getRouterData();
 			this.GetUserData();
+			this.getC2();
+			this.getC3();
+			this.getC4();
+			this.getC6();
+			this.getC7();
 		},
 		// filters:{
 		// 	hideMiddle(val){
@@ -414,88 +419,6 @@
 	/* .tab-content{
 	margin-top:20px;
 } */
-.intro-input{
-	width:150px;
-	height:40px;
-	/* // border:1px solid red; */
-	margin-left:20px;
-}
-.el-input{
-	width:85% !important;
-	float:left;
-}
-.el-input>>>input{
-	border:0 !important;
-	background:#f2f2f2 !important;
-}
-.el-icon-edit:before{
-	padding-top:15px;
-}
-.intro-input>el-input>[class*=" el-icon-"], [class^=el-icon-]{
-	margin-top:10px;
-}
-.nav-tabs,.nav-item{
-	width:90%;
-	margin:0 auto;
-}
-li{
-	padding-left:0px;
-	border-bottom:1px solid #c0c0c0;
-	height:75px;
-	line-height:72px;
-	width:100%;
-}
-li>a{
-	padding-left:0px;
-	padding-bottom:0px;
-	float:left;
-	font-weight:bold;
-}
-a>img{
-	width:24px;
-	height:24px;
-	margin-right:10px;
-}
-
-a{
-	color:#000000;
-	font-size:22px;
-	/* margin-left:10px; */
-}
-.nav-tabs a{
-	border:0px;
-	cursor: pointer;
-}
-.p-c-body-gg>img{
-	height:100%;
-	width:100%;
-}
-.trad-re{
-	width:200px;
-	height:80px;
-	float: left;
-	/* border: 1px solid red; */
-	padding:0;
-	/* border-bottom:0; */
-}
-.trad-re>li{
-	width:70%;
-	height:25px;
-	/* margin-left:0; */
-	line-height:25px;
-	border-bottom:0;
-	/* border:1px solid green; */
-	margin-top:5px;
-	/* float:left; */
-	/* margin:0; */
-	font-size:20px;
-	cursor: pointer;
-}
-.nav-tabs{
-	border-bottom:0;
-}
-</style>
-=======
 	.intro-input {
 		width: 150px;
 		height: 40px;
@@ -585,10 +508,107 @@ a{
 		/* float:left; */
 		/* margin:0; */
 		font-size: 20px;
+		cursor: pointer;
 	}
 
 	.nav-tabs {
 		border-bottom: 0;
 	}
+</style>
+=======
+.intro-input {
+width: 150px;
+height: 40px;
+/* // border:1px solid red; */
+margin-left: 20px;
+}
+
+.el-input {
+width: 85% !important;
+float: left;
+}
+
+.el-input>>>input {
+border: 0 !important;
+background: #f2f2f2 !important;
+}
+
+.el-icon-edit:before {
+padding-top: 15px;
+}
+
+.intro-input>el-input>[class*=" el-icon-"],
+[class^=el-icon-] {
+margin-top: 10px;
+}
+
+.nav-tabs,
+.nav-item {
+width: 90%;
+margin: 0 auto;
+}
+
+li {
+padding-left: 0px;
+border-bottom: 1px solid #c0c0c0;
+height: 75px;
+line-height: 72px;
+width: 100%;
+}
+
+li>a {
+padding-left: 0px;
+padding-bottom: 0px;
+float: left;
+font-weight: bold;
+}
+
+a>img {
+width: 24px;
+height: 24px;
+margin-right: 10px;
+}
+
+a {
+color: #000000;
+font-size: 22px;
+/* margin-left:10px; */
+}
+
+.nav-tabs a {
+border: 0px;
+cursor: pointer;
+}
+
+.p-c-body-gg>img {
+height: 100%;
+width: 100%;
+}
+
+.trad-re {
+width: 200px;
+height: 80px;
+float: left;
+/* border: 1px solid red; */
+padding: 0;
+/* border-bottom:0; */
+}
+
+.trad-re>li {
+width: 70%;
+height: 25px;
+/* margin-left:0; */
+line-height: 25px;
+border-bottom: 0;
+/* border:1px solid green; */
+margin-top: 5px;
+/* float:left; */
+/* margin:0; */
+font-size: 20px;
+}
+
+.nav-tabs {
+border-bottom: 0;
+}
 </style>
 >>>>>>> 0846d293d3a8271b204c8ce2e0377d99e144edc4
