@@ -15,8 +15,8 @@ import search from "./components/search.vue"
 import Carousel from "./components/Carousel.vue"
 import product from "./components/product.vue"
 Vue.use(ElementUI)
-// axios.defaults.baseURL = "http://120.79.19.253:10086"
-axios.defaults.baseURL = "http://10.1.180.146:8080"
+axios.defaults.baseURL = "http://120.79.19.253:10086"
+// axios.defaults.baseURL = "http://10.1.180.146:8080"
 axios.defaults.withCredentials = true
 Vue.prototype.axios = axios
 Vue.prototype.$=jQuery;
