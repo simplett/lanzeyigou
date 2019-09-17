@@ -4,7 +4,6 @@
 		<!-- 搜索 -->
 		<search />
 		<!-- 个人中心 -->
-		<div class="bg-green">
 			<div class="p-c-body">
 				<div class="person-list">
 					<ul class="nav nav-tabs pt-4">
@@ -91,7 +90,6 @@
 				</div>
 
 			</div>
-		</div>
 	</div>
 </template>
 

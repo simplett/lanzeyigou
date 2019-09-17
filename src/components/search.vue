@@ -73,8 +73,9 @@
 		height: 40px;
 		margin-top: 8%;
 		position: relative;
-		border: 0;
+		border:0;
 		border-radius: 5px;
+		caret-color:red;  /*鼠标光标颜色*/
 	}
 
 	.index-header-input::-webkit-input-placeholder {

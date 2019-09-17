@@ -601,9 +601,10 @@
 		width: 90px;
 		height: 25px;
 		font-size: 11px;
-		line-height: 10px;
+		line-height: 25px;
 		margin-top: 10px;
 		margin-left: 10%;
+		padding:0;
 		border: 1px solid black;
 	}
 
@@ -676,5 +677,6 @@
 		word-break: break-all;
 		display: -webkit-box;
 		-webkit-box-orient: vertical;
+		color:#999999;
 	}
 </style>

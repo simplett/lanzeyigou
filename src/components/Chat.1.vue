@@ -23,7 +23,7 @@
 					this.axios
 						.get("/Chat", {
 							params: {
-								uid: this.uid,
+								ruid: this.uid,
 								token,
 								type: "add",
 								message: this.msg
@@ -49,7 +49,7 @@
 								console.log("收到的聊天消息", result);
 							})
 					}
-				}, 2000)
+				}, 10000)
 
 			}
 		},
