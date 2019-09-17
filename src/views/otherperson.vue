@@ -181,7 +181,7 @@
 		overflow: hidden;
 		margin: 0 auto;
 		// border:1px solid red;
-		background: #f2f2f2;
+		// background: #f2f2f2;
 		padding-top: 10px;
 	}
 
