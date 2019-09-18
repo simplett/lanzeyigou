@@ -44,7 +44,7 @@ name:"peoplelist"
 	}
 
 	.list-text {
-		width: 190px;
+		width: 170px;
 		height: 50px;
 		float: left;
 		/* border:1px solid yellow; */

@@ -498,7 +498,7 @@
 	.trad-re>li {
 		width: 70%;
 		height: 25px;
-		/* margin-left:0; */
+		margin-left:20px;
 		line-height: 25px;
 		border-bottom: 0;
 		/* border:1px solid green; */
@@ -507,6 +507,7 @@
 		/* margin:0; */
 		font-size: 20px;
 		cursor: pointer;
+		text-align:left;
 	}
 
 	.nav-tabs {
