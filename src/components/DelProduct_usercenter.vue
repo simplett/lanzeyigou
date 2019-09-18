@@ -127,11 +127,12 @@
 </script>
 <style scoped>
 	div.pro-item {
-		width: 280px;
+		width:100%;
 		height: 379px;
 		/* float: left; */
 		margin-top: 20px;
 		/* margin-right: 10px; */
+		margin-right:10px;
 	}
 
 	div.pro-item:hover {

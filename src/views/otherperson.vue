@@ -181,14 +181,14 @@
 		overflow: hidden;
 		margin: 0 auto;
 		// border:1px solid red;
-		background: #f2f2f2;
+		// background: #f2f2f2;
 		padding-top: 10px;
 	}
 
 	.product-state-a {
 		width: 100%;
 		height: 60px;
-		padding-left: 100px;
+		// padding-left: 10px;
 		margin-top: 30px;
 		// border:1px solid green;
 	}
@@ -206,9 +206,11 @@
 	}
 
 	.content {
-		// width: 100%;
-		height: 500px;
+		width: 23%;
+		height: 400px;
 		// border:1px solid red;
 		// padding-left: 95px;
+		margin-right:10px;
+		margin-left:10px;
 	}
 </style>
