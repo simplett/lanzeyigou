@@ -8,10 +8,10 @@
 		<!-- 这是轮播 -->
 		<Carousel :lunbo="lunbo" />
 		<!-- 频道广场 -->
-		<div class="pd" first="1">
+		<div class="pd text-center" first="1">
 			<img class="pd-left" src="../../public/images/左边装饰红.png" alt />
 			<div class="pd-a">
-				<a href="javascript:;" class="pd_a">频道广场</a>
+				<a class="pd_a">频道广场</a>
 				<div class="pd-p-div">
 					<p>Classification of commodities</p>
 				</div>
@@ -364,7 +364,9 @@
 	.pd_a {
 		color: #e31c1c;
 		font-size: 40px;
-		margin-left: 22px;
+		/* margin-left: 22px;
+		 */
+		margin: 0 auto;
 	}
 
 	.pd_a:hover {

@@ -5,7 +5,8 @@
 		</div>
 		<div class="msg-list">
 			<div class="back-img-right">
-				<p>111111111111</p>
+				<span>{{time}}</span>
+				<p>{{info}}</p>
 			</div>
 		</div>
 	</div>
@@ -13,7 +14,15 @@
 
 <script>
 	export default {
-		name: "say_b"
+		name: "say_b",
+		props: {
+			info: {
+				default: 111
+			},
+			time: {
+				default: 111
+			}
+		}
 	}
 </script>
 

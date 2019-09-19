@@ -37,21 +37,29 @@
 </script>
 
 <style scoped>
+	.lunbotu{
+		max-width: 1180px;
+		width: 100%;
+		margin: 0 auto;
+		/* height: 600px; */
+		min-width: 1180px;
+	}
 	.lbt-1{
-	    width: 1180px;
-		/* margin: 0 auto; */
+	    width: 100%;
+		margin: 0 auto;
 	    /* height: 600px; */
 		/* left: 13%; */
 		/* margin-left: -590px; */
 	    /* position: absolute; */
-		border-radius: 20px;
+		/* border-radius: 20px; */
 		overflow: hidden;
+		/* height: 600px; */
 		margin:0 auto;
 	}
 	.lbt-out-1{
 	    margin: 0 auto;
 	    width: 100%;
-	    height: 500px;
+	    /* height: 500px; */
 	    margin-top: 0px;
 	    position: absolute;
 		-moz-filter: blur(10px);
@@ -79,7 +87,7 @@
 	}
 	img.w-100{
 	    width: 100%;
-	    height:500px;
-	    margin-top: 5px;
+	    /* height:600px; */
+	    /* margin-top: 5px; */
 	}
 </style>

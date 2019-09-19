@@ -17,13 +17,16 @@
 			</div>
 			<!-- 右边6个div -->
 			<div class="p-7-right">
-				<div class="p-7-right-2" v-for="(item,i) of 6" :key="i">
+				<div class="p-7-right-2" :style="DIVstyle" v-for="(item,i) of 6" :key="i">
 					<!-- 6个div上覆盖的模糊层 -->
 
 					<div class="p-7-right-img">
-						<img :src="codeid.imgurl[i]" />
+						<img 
+						:src="codeid.imgurl[i]" />
+						<div class="p-7-m-font">
+							{{codeid.name[i]}}
+						</div>
 						<div class="p-7-m-img">
-							<p>{{codeid.name[i]}}</p>
 						</div>
 					</div>
 				</div>
@@ -99,19 +102,15 @@
 				//请求回来的所有数据，商品列别的
 				datas: [],
 				codeid: 1,
-				lunbo: [{
-						lunbo_url: "https://simplett-img.oss-cn-beijing.aliyuncs.com/lunbo/banner2.png"
-					},
-					{
-						lunbo_url: "https://simplett-img.oss-cn-beijing.aliyuncs.com/lunbo/banner1.png"
-					},
-					{
-						lunbo_url: "https://simplett-img.oss-cn-beijing.aliyuncs.com/lunbo/%E9%A5%B0%E5%93%81%E9%A6%96%E9%A5%B0.png"
-					}
-				],
+				DIVstyle:{
+					background:"linear-gradient(45deg, #c4e4ff, #91ccff)"
+				}
 			}
 		},
 		methods: {
+			// change(){
+			// 	document.getElementById("userimage").style.filter="blur(50px)";
+			// }
 			//循环请求数据
 			forajax(codeid) {
 				console.log(codeid[0])
@@ -183,6 +182,7 @@
 		created() {
 			this.getRouterData();
 			var mycategory = this.codeid.codelist;
+			this.DIVstyle.background=this.codeid.divstyle;
 			this.forajax(mycategory);
 		}
 	}
@@ -193,9 +193,8 @@
 		height: 550px;
 		margin: 0 auto;
 		/* // border 1px solid red; */
-		margin-top:50px;
+		margin-top: 50px;
 	}
-
 	.p-7-left {
 		float: left;
 		width: 335px;
@@ -203,7 +202,6 @@
 		/* // border:1px solid green; */
 		background: linear-gradient(45deg, #c4e4ff, #91ccff);
 	}
-
 	.p-7-right {
 		float: left;
 		width: 842px;
@@ -212,7 +210,6 @@
 		margin-left: 15px;
 		/* display: flex; */
 	}
-
 	.p-7-right-2 {
 		width: 270px;
 		height: 270px;
@@ -220,10 +217,9 @@
 		/* // border:1px solid pink; */
 		margin-bottom: 10px;
 		margin-right: 10px;
-		background: linear-gradient(45deg, #c4e4ff, #91ccff);
+		/* background: linear-gradient(45deg, #c4e4ff, #91ccff); */
 		float: left;
 	}
-
 	.p-7-right-img {
 		width: 100%;
 		height: 100%;
@@ -232,25 +228,14 @@
 		top: 0px;
 		left: 0px;
 	}
-
-	.p-7-m-img {
-		width: 100%;
-		height: 100%;
-		overflow: hidden;
-		position: absolute;
-		top: 0px;
-		left: 0px;
-		z-index: 500;
-		/* display: none; */
-		/* border: 1px solid green; */
+	/* .p-7-right-img:hover {
+	filter: blur(20px);
 	}
+	.p-7-right-img:hover p {
+	color: blue;
+	} */
 
-	.p-7-m-img:hover {
-		/* background: #f00; */
-		height: 100%;
-		color: rgba(255, 255, 255, 0.8);
-		filter: blur(20px);
-	}
+
 
 	.p-7-right-img>img {
 		width: 270px;
@@ -258,15 +243,54 @@
 		margin-top: 10%;
 
 	}
-
-	.p-7-m-img>p {
+	
+	.p-7-m-img {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		position: absolute;
+		top: 0px;
+		/* background: #17A2B8; */
+		left: 0px;
+		z-index: 400;
+		/* display: none; */
+		/* border: 1px solid green; */
+	}
+	.p-7-m-font {
+		/* width: 100%;
+		height: 100%; */
+		overflow: hidden;
+		position: absolute;
+		top: 0px;
+		left:20px;
+		/* margin:auto auto; */
+		z-index: 300;
+		/* display: none; */
+		/* border: 1px solid green; */
+		
 		font-size: 36px;
 		font-weight: 400;
-		color: rgba(255, 255, 255, 0);
+		color: gold;
 		padding: 0;
 		margin: 0 auto;
-		height: 270px;
+		height: 100%;
 		line-height: 270px;
+	}
+	
+
+	.p-7-m-font:hover {
+		/* background: #f00; */
+		/* height: 100%; */
+		/* color: red; */
+		z-index: 300;
+		filter: blur(50px);
+	}
+	.p-7-m-img:hover {
+		/* background: #f00; */
+		/* height: 100%; */
+		/* color: red; */
+		/* z-index: 300; */
+		filter: blur(50px);
 	}
 
 	.title {
@@ -438,13 +462,15 @@
 	.myadd-nav {
 		margin: 20px 0px;
 	}
-	.IMG{
-		width:1180px;
-		height:500px;
-		margin:0 auto;
+
+	.IMG {
+		width: 1920px;
+		/* height:600px; */
+		margin: 0 auto;
 	}
-	.IMG img{
-		width:100%;
-		height:100%;
+
+	.IMG img {
+		width: 100%;
+		/* height:100%; */
 	}
 </style>

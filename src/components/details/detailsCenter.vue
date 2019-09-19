@@ -44,7 +44,7 @@
 				</a>
 			</div>
 			<br />
-			<button class="btn btn-danger1 buy-btn" @click="buy(detailsCenter.pid)">立即购买</button>
+			<button class="btn btn-danger1 buy-btn" @click="tobuy(detailsCenter.pid)">立即购买</button>
 			<br />
 			<br />
 			<!-- <button class="share" style="margin-right:20px;" @click="collect(detailsCenter.pid)">收藏(3)</button> -->
@@ -99,62 +99,14 @@
 					type: 'warning'
 				});
 			},
-			open5() {
-				this.$notify.error({
-					title: '错误',
-					message: '请您先登录'
-				});
-			},
-			open6() {
-				this.$notify({
-					title: '失败',
-					message: '很抱歉，此商品正在被下单或者已经被购买，请您重新刷新数据',
-					type: 'warning'
-				});
-			},
-			// orderajax(orderlist) {
-			// 	var xhr=new XMLHttpRequest;
-			// 	//4.绑定监听，获取响应
-			// 	xhr.onreadystatechange=function (){
-			// 		if(xhr.readyState==4 && xhr.status==200){
-			// 			var result=xhr.responseText;
-			// 			console.log(result);
-			// 		}
-			// 	}
-			// 	//2.打开连接，创建请求
-			// 	xhr.open("get","http://10.2.57.31:8080/alipay/index?orderlist="+orderlist,true);
-			// 	
-			// 	//3.发送请求
-			// 	//3.1设置请求头信息
-			// 	// xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-			// 	//创建请求主体
-			// 	// var formdata="orderlist="+orderlist;
-			// 	xhr.send(null);
-			// },
-			//#############################################################################################################
-			//未完成
-			buy(pid) {
-				var token = localStorage.getItem("token");
-				if (token) {
-					this.axios
-						.get("/Order", {
-							params: {
-								pid,
-								type:"start",
-								token
-							}
-						}).then(result => {
-							console.log("购买之后的数据", result);
-							if (result.data.status == 1) {
-								// this.orderajax(result.data.orderlist)
-								window.location.href = 'http://47.94.230.26:8080/store-0.0.1-SNAPSHOT/alipay/index?orderlist=' + result.data.orderlist;
-							} else if (result.data.status == 0) {
-								this.open6();
-							}
-						})
-				} else {
-					this.open5()
-				}
+			tobuy(pid) {
+				this.$router.push({
+						name: "order",
+						query: {
+							pid
+						}
+				})
+
 			},
 			collect(pid) {
 				var tokens = localStorage.getItem("userinfo");
@@ -292,10 +244,10 @@
 		border-radius: 3px;
 		cursor: pointer;
 		background: #f1f1f1;
-		margin-right:34px;
-		font-size:16px;
+		margin-right: 34px;
+		font-size: 16px;
 	}
-	
+
 	.you2 {
 		/* width: 80px; */
 		height: 31px;
@@ -309,9 +261,10 @@
 		/* border: 1px solid #333333; */
 		cursor: pointer;
 		background: #f1f1f1;
-		margin-right:34px;
-		font-size:16px;
+		margin-right: 34px;
+		font-size: 16px;
 	}
+
 	.pro-detail {
 		text-align: left;
 		width: 390px;

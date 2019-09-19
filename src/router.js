@@ -17,6 +17,7 @@ import otherperson from "./views/otherperson.vue"
 import personcenter from "./components/personcenter.vue"
 import RegLogin1 from "./components/RegLogin.1.vue"
 import chat from "./components/Chat.1.vue"
+import order from "./views/Order.vue"
 
 Vue.use(Router)
 
@@ -35,6 +36,11 @@ export default new Router({
 			path: '/productList',
 			name: 'productList',
 			component: productList
+		},
+		{
+			path: '/order',
+			name: 'order',
+			component: order
 		},
 		{
 			path: '/login',
