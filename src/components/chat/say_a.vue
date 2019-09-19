@@ -1,130 +1,34 @@
 <template>
-	<div class="chat-msg-a">
-		<div class="chat-msg-img">
-			<img src="../../../public/images/usercenter/liaotian.png">
-		</div>
-		<div class="msg-list">
-			<div class="back-img">
-				<span>{{time|tosubstring()}}</span>
-				<p>{{info}}</p>
-			</div>
-		</div>
-	</div>
+    <div> 
+        <div class="msg-time">
+            <p>{{time|tosubstring()}}</p>
+        </div>
+            <div class="chat-msg-img">
+                <img src="../../../public/images/usercenter/liaotian.png">
+            </div>
+            <div class="back-img">
+                <p>{{info}}</p>
+            </div>
+    </div>
 </template>
 
 <script>
 	export default {
-name:"say_a",
-props:{
-	info:{default:111},
-	time:{default:111}
-},
-filters:{
-	tosubstring(vuale)
-	{
-		return vuale.substr(2, 6)
-	}
-}
+        name:"say_a",
+        props:{
+            info:{default:111},
+            time:{default:111}
+        },
+        filters:{
+            tosubstring(vuale)
+            {
+                return vuale.substr(2, 6)
+            }
+        }
 	}
 </script>
 
 <style>
-.content-title{
-    width:100%;
-    height:60px;
-    background:#c0c0c0;
-	margin-top:10px;
-}
-.content-title>div{
-    width:250px;
-    height:100%;
-    float:left;
-}
-.content-title>div>img{
-    margin:20px;
-    float:left;
-    margin-left:30px; 
-}
-.content-title>div>p{
-    font-size:26px;
-    font-weight:bold;
-    float:left;
-    padding:0;
-    line-height:60px;
-}
-
-.content-b{
-    width:100%;
-    height:90%;
-    padding-top:10px;
-}
-.el-header{
-    background-color: #ccc;
-    color: #323232;
-    text-align: left;
-    line-height: 60px;
-    margin:10px 0 20px;
-    font-size:26px;
-    font-weight:bold;
-    float:left;
-    padding:0;
-}
-aside.el-aside{
-    width:255px !important;
-}
-.el-aside {
-    background-color: #cbe198;
-    color: #333;
-    text-align: center;
-    line-height: 200px;
-    width:255px;
-    /* height:430px; */
-    margin:0 10px;
-}
-.el-main {
-    background-color: #cbe198;
-    color: #333;
-    text-align: center;
-    line-height: 160px;
-}
-.el-header>div>img{
-    margin:20px;
-    float:left;
-    margin-left:30px; 
-}
-main.el-main{
-    padding: 0;
-}
-.chat-a,.chat-b,.chat-a>p{
-    width:100%;height:40px;
-    background-color: #add597;
-    font-size: 20px;
-    line-height: 40px;
-}
-.chat-b{
-	position: relative;
-}
-.chat-a>p{
-    /* position: fixed;
-    top:0;left:0; */
-    color:#fff;
-    /* z-index: 2; */
-    }
-.chat-b>p{
-    color:#000;
-    font-size:20px;
-    }
-.chat-list,.chat-msg{
-    width:100%;
-    height:385px;
-    min-height: 385px;
-	/* border:1px solid rosybrown; */
-}
-/* .chat-list-a{
-    width:100%;height:70px;
-    background-color: #80c26a;
-    margin: 2px 0 10px;
-} */
 .chat-msg-a,
 .chat-msg-b{
     width: 100%;
@@ -158,7 +62,7 @@ main.el-main{
 	border-radius:5px;
 	background-size: cover; 
 	-moz-background-size: cover; 
-	margin-top:-20px;
+	margin-top:10px;
 	/* display: inline; */
 }
 
@@ -166,16 +70,16 @@ main.el-main{
  /* border:1px solid yellowgreen; */
 	/* height:80px; */
 	padding:0;
-	line-height:80px;
+	line-height:20px;
 	/* padding-left:20px; */
-	max-width:200px;
+	max-width:500px;
 	overflow: hidden;
+    word-wrap:break-word;
+    word-break:break-all;
+	padding-left:20px;
+	padding-right:20px;
+    padding-top:10px;
 }
-.back-img>p{
-	padding-left:40px;
-	padding-right:40px;
-}
-
 .chat-msg>.chat-msg-b>.msg-list{
     float: right;
     width:490px;
@@ -220,5 +124,18 @@ main.el-main{
 }
 .el-container{
 	height:508px;
+}
+.msg-time{
+    width:100%;
+    height:20px;
+    text-align: center;
+    /* border: 1px solid red; */
+}
+.msg-time p{
+    font-size: 12px;
+    height:20px;
+    line-height:20px;
+    padding:0;
+    margin-bottom:0; 
 }
 </style>
