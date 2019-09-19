@@ -23,7 +23,7 @@
 				<div class="product-state-a">
 					<a href="javascript:;" class="btn btn-danger">我的商品</a>
 				</div>
-				<div class="row justify-content-around">
+				<div class="row justify-content-between">
 					<div class="content" v-for="(item,i) of user_pid" :key="i">
 						<delproduct_usercenter :pid="item" :image="userdata.image" :nickname="userdata.nickname"></delproduct_usercenter>
 					</div>

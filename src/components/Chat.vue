@@ -68,8 +68,8 @@
 						["2019-05-45"],
 						[
 							{
-								"user": "you",
-								"msg": "61651631"
+								"user": "me",
+								"msg": "616516311111111111111111111111111111111111111111111111111111111"
 							}
 						], "00"
 					],
@@ -443,10 +443,12 @@
 	}
 
 	.msg-input {
-		/* width: 100%; */
-		height: 50px;
+		width: 100%;
+		height: 150px;
 		/* float:left; */
-		position: fixed;
+		position: absolute;
+		left: 0;
+		bottom: 0;
 		/* border:1px solid red; */
 		background: #add597;
 		/* position: relative; */

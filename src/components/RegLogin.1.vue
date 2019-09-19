@@ -683,8 +683,8 @@
 		/* border: 1px solid red; */
 		z-index: 5;
 		position: fixed;
-		top: 60%;
-		right: 200px;
+		top: 30%;
+		right: 100px;
 	}
 	.login {
 		width: 50px;
@@ -692,7 +692,7 @@
 		float: top;
 		background: #000000;
 		/* border: 1px solid red; */
-		/* margin-top: 200px; */
+		margin-top: 20px;
 		/* position: relative; */
 		color: #FFFFFF;
 		border-radius: 50%;
@@ -701,6 +701,8 @@
 		border: 0;
 		font-size: 20px;
 		line-height: 40px;
+		left:13px;
+		box-shadow: 0px 0px 12px #000000;
 	}
 
 	.login-div {
