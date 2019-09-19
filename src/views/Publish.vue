@@ -30,12 +30,14 @@
 					<div class="text3">发布成功</div>
 				</div>
 			</div>
-			<!-- *********************第一步*********************** -->
+			<component :is="active"></component>
+			<button style="margin-top: 12px;" class="btn btn-success btn-lg" @click="next()">下一步</button>
+			<!-- 	*********************第一步***********************
 			<PubSelect></PubSelect>
-			<!-- ********************第二步********************** -->
+			********************第二步**********************
 			<PublishDel></PublishDel>
-			<!-- **********************第三步************************* -->
-			<Success></Success>
+			**********************第三步*************************
+			<Success></Success> -->
 		</div>
 	</div>
 	</div>
@@ -44,43 +46,44 @@
 	import PubSelect from "../components/publish/PubSelect.vue"
 	import PublishDel from "../components/publish/PublishDel.vue"
 	import Success from "../components/publish/Success.vue"
-	import search from "../components/search.vue"
 	let id = 0;
 	export default {
 		data() {
 			return {
-					codeidlist: [],
-					// showdata:false,
-					codeid: [],
-					tableData: [{
-						date: '服装服饰',
-					}, {
-						date: '饰品首饰',
-					}, {
-						date: '家用电器',
-					}, {
-						date: '宠物用品',
-					}, {
-						date: '日用百货',
-					}, {
-						date: '左图右史',
-					}, {
-						date: '美容护肤',
-					}, {
-						date: '健康养生',
-					}],
-					active: 0,
-					value: ''
-				}
+				active:"PubSelect",
+				codeidlist: [],
+				activelist: ["PubSelect","PublishDel", "Success"],
+				// showdata:false,
+				codeid: [],
+				tableData: [{
+					date: '服装服饰',
+				}, {
+					date: '饰品首饰',
+				}, {
+					date: '家用电器',
+				}, {
+					date: '宠物用品',
+				}, {
+					date: '日用百货',
+				}, {
+					date: '左图右史',
+				}, {
+					date: '美容护肤',
+				}, {
+					date: '健康养生',
+				}],
+				value: ''
+			}
 		},
 		components: {
-			search,
 			PubSelect,
 			PublishDel,
 			Success
 		},
 		methods: {
-			
+			next() {
+				this.active=this.activelist.shift()
+			},
 			getVuexData() {
 				// 只是改了query，其他都不变
 				var myvuexdata = this.$store.state.productlist;
@@ -232,4 +235,25 @@
 		height: 400px;
 		margin: 0 auto;
 	}
+
+	/* button {
+	    padding: 0;
+	    margin: 0;
+	    font-size: 20px;
+	}
+	button{
+	    background-color: #ccc;
+	    color:#fff;
+	    height:50px;
+	    line-height: 50px;
+	    width:200px;
+	    font-size:20px;
+	    border:0;
+	    margin:25px 0;
+	    padding: 0;
+	}
+	button:hover{
+	    background-color: #e61717;
+	    color:#fff;
+	} */
 </style>
