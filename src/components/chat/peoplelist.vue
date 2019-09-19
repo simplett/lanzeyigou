@@ -4,15 +4,44 @@
 			<img class="list-i" src="../../../public/images/usercenter/liaotian.png">
 		</div>
 		<div class="list-text">
-			<p class="list-name text-left">qwe</p>
-			<p class="list-time">14:53</p>
+			<p class="list-name text-left">{{msg}}</p>
+			<p class="list-time">{{time}}</p>
 		</div>
 	</div>
 </template>
 
 <script>
 	export default {
-name:"peoplelist"
+		data(){
+			return{
+				image:""
+			}
+		},
+name:"peoplelist",
+props:{
+	msg:{
+		default:111
+	},
+	time:{
+		default:111
+	},
+	uid:{
+		default:111
+	}
+},
+methods:{
+	load(){
+		var params = {
+			uid:this.uid,
+			type: "user"
+		};
+		var url="/Search"
+		this.axios.get(url,{params}).then(result=>{
+			console.log("聊天联系人的头像",result);
+			this.image=result.data.image;
+		})
+	}
+}
 	}
 </script>
 
