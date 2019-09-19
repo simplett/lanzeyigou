@@ -710,7 +710,7 @@
 
 	.login {
 		width: 40px;
-		height: 100%;
+		/* height: 100%; */
 		float: right;
 		background: #000000;
 		/* border: 1px solid red; */

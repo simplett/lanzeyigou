@@ -43,12 +43,6 @@
 		props: {
 			pid: {
 				default: "111"
-			},
-			nickname: {
-				default: "111"
-			},
-			image: {
-				default: "111"
 			}
 		},
 		methods: {
@@ -79,7 +73,7 @@
 							
 						this.pimages=otherimage,
 						this.p_description=p_description,
-						this.p_description=pname,
+						this.pname=pname,
 						this.price=price,
 						this.wcount=wcount
 

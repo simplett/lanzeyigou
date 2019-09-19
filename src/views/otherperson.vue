@@ -38,7 +38,7 @@
 <script>
 	// import search from "../components/search.vue"
 	// import a1 from "../components/personother/sellgoods.vue"
-	import delproduct_usercenter from "../components/DelProduct_usercenter.vue"
+	import delproduct_usercenter from "../components/DelProduct_other.vue"
 
 	export default {
 		data() {

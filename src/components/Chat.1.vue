@@ -62,10 +62,10 @@
 													prev[mymsg.suid][0]=[];
 													prev[mymsg.suid][1]=[]
 													prev[mymsg.suid][0].unshift(mymsg.time);
-													prev[mymsg.suid][1].unshift(mymsg.message)
+													prev[mymsg.suid][1].unshift({"user":"you","msg":mymsg.message})
 												} else {
 													prev[mymsg.suid][0].unshift(mymsg.time);
-													prev[mymsg.suid][1].unshift(mymsg.message)
+													prev[mymsg.suid][1].unshift({"user":"you","msg":mymsg.message})
 												}
 												return prev;
 											}, {}
@@ -92,7 +92,7 @@
 			}
 		},
 		created() {
-			this.getsendmsg()
+			// this.getsendmsg()
 		}
 	}
 </script>
