@@ -20,8 +20,8 @@
 					</div> -->
 					<div class="chat-list">
 						<!-- 聊天朋友列表 -->
-						<div @click="Tomsg(item[2])" v-for="(item,i) in summsg" :key="i">
-							<peoplelist></peoplelist>
+						<div @click="Tomsg(item[2])" v-for="(item,i) of summsg" :key="i">
+							<peoplelist :time="totime" :msg="tomsg" :uid="item[2]"></peoplelist>
 						</div>
 
 
@@ -33,7 +33,8 @@
 						<p>小螺号</p>
 					</div>
 					<div class="chat-msg">
-					<!-- 	<component v-for="(item,index) in summsg[msguser][0]" :is="summsg[msguser][1].user" :key="index" :info="summsg[msguser][1].msg[index]" :time="summsg[msguser][0][index]"></component> -->
+						<component v-for="(item,index) in summsg[msguser][0]" :key="index" :is="summsg[msguser][1][index].user" :info="summsg[msguser][1][index].msg"
+						 :time="item"></component>
 					</div>
 					<div class="msg-input">
 						<input class="m-input" type="text">
@@ -58,28 +59,32 @@
 		data() {
 			return {
 				msguser: "00",
+				totime: "",
+				tomsg: "",
 				msg: "",
 				uid: "",
 				summsg: {
 					"00": [
 						["2019-05-45"],
 						[
-							[{
-								"user": "you"
-							}, {
+							{
+								"user": "you",
 								"msg": "61651631"
-							}]
-						],"00"
+							}
+						], "00"
 					],
 					"22": [
-						["2019-05-45","123131"],
+						["2019-05-45", "123131"],
 						[
-							[{
-								"user": "you"
-							}, {
+							{
+								"user": "you",
 								"msg": "61651631"
-							}]
-						],"22"
+							},
+							{
+								"user": "you",
+								"msg": "61651631"
+							}
+						], "22"
 					]
 				}
 			}
@@ -123,7 +128,7 @@
 								var status = result.data.status;
 								if (status == 1) {
 									var msg = result.data.data;
-									var summessage={};
+									var summessage = {};
 									if (msg) {
 										summessage = msg.reduce(
 											(prev, elem) => {
@@ -142,39 +147,41 @@
 														"msg": mymsg.message
 													})
 													prev[mymsg.suid][2] = mymsg.suid;
+													this.totime = prev[mymsg.suid][0][(prev[mymsg.suid][0]).length - 1].substr(11, 8);
+													this.tomsg = prev[mymsg.suid][1][(prev[mymsg.suid][1]).length - 1][msg];
 												} else {
 													prev[mymsg.suid][0].unshift(mymsg.time);
 													prev[mymsg.suid][1].unshift({
 														"user": "you",
 														"msg": mymsg.message
 													})
+													this.totime = prev[mymsg.suid][0][(prev[mymsg.suid][0]).length - 1].substr(11, 8);
+													this.tomsg = prev[mymsg.suid][1][(prev[mymsg.suid][1]).length - 1].msg;
+													console.log(this.tomsg);
 												}
 												return prev;
 											}, {}
 										);
-										console.log("########################这是数据",summessage)
-										for(var item in summessage)
-										{
-											if(this.summsg[item]==undefined)
-											{
+										console.log("########################这是数据", summessage)
+										for (var item in summessage) {
+											if (this.summsg[item] == undefined) {
 												this.summsg[item] = [
 													[]
 												];
-												console.log("@@@@@@@@@@@@@@@@@@@@@@@@@",item[0],item[1],item[2],item);
+												console.log("@@@@@@@@@@@@@@@@@@@@@@@@@", item[0], item[1], item[2], item);
 												this.summsg[item][0] = [];
-												console.log("&&&&&&&&&&&&&&&&&&&&&",summessage[item][0]);
+												console.log("&&&&&&&&&&&&&&&&&&&&&", summessage[item][0]);
 												this.summsg[item][1] = [];
 												this.summsg[item][2] = '';
-												this.summsg[item][0]=[...summessage[item][0]]
-												this.summsg[item][1]=[[...summessage[item][1]]]
+												this.summsg[item][0] = [...summessage[item][0]]
+												this.summsg[item][1] = [...summessage[item][1]]
 												this.summsg[item][2] = summessage[item][2];
-											}else{
-												this.summsg[item][0]=[...this.summsg[item][0],...summessage[item][0]]
-												this.summsg[item][1]=[[...this.summsg[item][1],...summessage[item][1]]]
+											} else {
+												this.summsg[item][0] = [...this.summsg[item][0], ...summessage[item][0]]
+												this.summsg[item][1] = [...this.summsg[item][1], ...summessage[item][1]]
 												this.summsg[item][2] = summessage[item][2];
 											}
 										}
-										
 										console.log(this.summsg, "###################这是this.summsg############################");
 									}
 									var count = result.data.count;
@@ -356,8 +363,8 @@
 		background-size: cover;
 		-moz-background-size: cover;
 		margin-top: -20px;
-		background:#f6f6f6;
-		border-radius:5px;
+		background: #f6f6f6;
+		border-radius: 5px;
 		/* display: inline; */
 	}
 
@@ -370,8 +377,8 @@
 		/* background-position: center; */
 		background-size: cover;
 		-moz-background-size: cover;
-		background:#f6f6f6;
-		border-radius:5px;
+		background: #f6f6f6;
+		border-radius: 5px;
 		/* margin-top:-20px; */
 	}
 

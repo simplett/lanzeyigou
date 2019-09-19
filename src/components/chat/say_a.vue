@@ -5,7 +5,7 @@
 		</div>
 		<div class="msg-list">
 			<div class="back-img">
-				<span>{{time}}</span>
+				<span>{{time|tosubstring()}}</span>
 				<p>{{info}}</p>
 			</div>
 		</div>
@@ -18,6 +18,12 @@ name:"say_a",
 props:{
 	info:{default:111},
 	time:{default:111}
+},
+filters:{
+	tosubstring(vuale)
+	{
+		return vuale.substr(2, 6)
+	}
 }
 	}
 </script>
