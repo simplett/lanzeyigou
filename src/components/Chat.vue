@@ -3,7 +3,7 @@
 		<div class="content-title">
 			<div>
 				<img src="../../public/images/usercenter/shoucang.png" alt="">
-				<p>收藏</p>
+				<p>聊天</p>
 			</div>
 		</div>
 		<div class="content-b">
@@ -36,9 +36,17 @@
 						<component v-for="(item,index) in summsg[msguser][0]" :key="index" :is="summsg[msguser][1][index].user" :info="summsg[msguser][1][index].msg"
 						 :time="item"></component>
 					</div>
-					<div class="msg-input">
-						<input class="m-input" type="text">
-						<a href="javascript:;" class="btn btn-success">发送</a>
+					<div class="msg-input row justify-content-between px-1">
+						<!-- <input class="m-input" v-model="sendmsg"  type="text"> -->
+						<div class="w-75 lanze-line-height">
+							<el-input placeholder="请输入内容" @keyup.enter="sendmsgs()" v-model="sendmsg" clearable>
+							</el-input>
+						</div>
+						<div class="w-25 lanze-line-height">
+							<el-button type="primary" @click="sendmsgs()" :disabled="disabled">发送</el-button>
+							<!-- <a href="javascript:;" class="btn btn-success" >发送</a> -->
+						</div>
+
 					</div>
 				</el-main>
 			</el-container>
@@ -58,39 +66,73 @@
 		},
 		data() {
 			return {
+				sendmsg: "",
 				msguser: "00",
 				totime: "",
 				tomsg: "",
 				msg: "",
 				uid: "",
+				disabled:true,
 				summsg: {
 					"00": [
 						["2019-05-45"],
-						[
-							{
-								"user": "me",
-								"msg": "616516311111111111111111111111111111111111111111111111111111111"
-							}
-						], "00"
+						[{
+							"user": "me",
+							"msg": "616516"
+						}], "00"
 					],
 					"22": [
-						["2019-05-45", "123131"],
-						[
-							{
+						["2019-05-45", "2019-05-45"],
+						[{
 								"user": "you",
-								"msg": "61651631"
+								"msg": "616vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv51"
 							},
 							{
 								"user": "you",
-								"msg": "61651631"
+								"msg": "61631"
 							}
 						], "22"
 					]
 				}
 			}
 		},
+		watch:{
+			sendmsg()
+			{
+				if(this.sendmsg=="")
+				{
+					this.disabled=true;
+				}else{
+					this.disabled=false;
+				}
+			}
+		},
 		methods: {
-			sendmsg() {
+			sendmsgs() {
+				if (this.summsg[this.uid] == undefined) {
+					this.summsg[this.uid] = [
+						[]
+					];
+					// console.log("@@@@@@@@@@@@@@@@@@@@@@@@@", item[0], item[1], item[2], item);
+					this.summsg[this.uid][0] = [];
+					// console.log("&&&&&&&&&&&&&&&&&&&&&", summessage[this.uid][0]);
+					this.summsg[this.uid][1] = [];
+					this.summsg[this.uid][2] = '';
+					this.summsg[this.uid][0].push("111111");
+					this.summsg[this.uid][1].push({
+						"user": "me",
+						"msg": this.sendmsg
+					});
+					this.summsg[this.uid][2] = this.uid;
+				} else {
+					this.summsg[this.uid][0].push("111111");
+					this.summsg[this.uid][1].push({
+						"user": "me",
+						"msg": this.sendmsg
+					});
+					this.summsg[this.uid][2] = this.uid;
+					console.log("发送一次")
+				}
 				var token = localStorage.getItem("token");
 				if (token) {
 					this.axios
@@ -106,9 +148,11 @@
 
 						})
 				}
+				this.sendmsg="";
 			},
 			Tomsg(uid) {
 				this.msguser = uid;
+				this.uid = uid;
 				console.log(uid);
 			},
 			getsendmsg() {
@@ -240,6 +284,7 @@
 		width: 100%;
 		height: 100%;
 		padding-top: 10px;
+		position: relative;
 	}
 
 	.el-header {
@@ -316,10 +361,16 @@
 	.chat-msg {
 		width: 100%;
 		/* height: 385px; */
-		min-height: 385px;
+		height: 350px;
+		overflow-y: scroll;
 		/* border: 1px solid rosybrown; */
 	}
-
+	.chat-list{
+		height: 401px;
+	}
+.el-container{
+	height:441px!important;
+}
 	/* .chat-list-a{
     width:100%;height:70px;
     background-color: #80c26a;
@@ -411,16 +462,16 @@
 		/* margin:0 10px; */
 	}
 
-	.chat-msg-img {
+	/* 	.chat-msg-img {
 		width: 50px;
 		height: 50px;
 		float: left;
 		margin: 15px;
 		border-radius: 50%;
-		/* border:1px solid fuchsia; */
-		/* padding:0; */
+		border:1px solid fuchsia; 
+		 padding:0;
 	}
-
+ */
 	.chat-msg-img-right {
 		width: 50px;
 		height: 50px;
@@ -442,16 +493,29 @@
 		margin-top: -115px;
 	}
 
+	.w-75>.el-input {
+		line-height: 50px;
+	}
+	.el-main
+	{
+		position: relative!important;
+	}
+.lanze-line-height
+{
+	line-height: 50px !important;
+	overflow: hidden;
+}
 	.msg-input {
 		width: 100%;
-		height: 150px;
+		height: 50px;
 		/* float:left; */
-		position: absolute;
+		/* position: fixed; */
 		left: 0;
 		bottom: 0;
+		
 		/* border:1px solid red; */
 		background: #add597;
-		/* position: relative; */
+		/* position: absolute; */
 		margin-bottom: 0px;
 	}
 

@@ -121,7 +121,7 @@
 <script>
 	// @ is an alias to /src
 	import RegLogin from "../components/RegLogin.1";
-	import Carousel from "../components/Carousel.vue"
+	import Carousel from "../components/Carousel.vue";
 	export default {
 		data() {
 			return {

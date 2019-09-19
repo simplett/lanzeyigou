@@ -1,14 +1,18 @@
 <template>
 	<div>
 		<!-- 页面右边登录div -->
-		<div class="right">
-			<div class="login-div">
+		<div :style="myheight" class="right">
+			<div :style="isshow" class="login-div">
+				<!-- <button class=" btn btn-danger" @click="ShowDiv('MyDiv','fade')" id="Button1">登录</button>
+				<button @click="getUserCenter"  class="chat btn btn-danger">登出</button>
+				<button @click="getUserCenter"  class="chat btn btn-danger">发布</button>
+				<button @click="getUserCenter"  class="chat btn btn-danger">个人中心</button> -->
 				<a class=" btn btn-danger" href="javascript:;" @click="ShowDiv('MyDiv','fade')" id="Button1">登录</a><br>
 				<a href="javascript:;" @click="getUserCenter"  class="chat btn btn-danger">聊天</a><br>
 				<a href="javascript:;" @click="getUserCenter" class="pb btn btn-danger">发布</a><br>
 				<a href="javascript:;" @click="getUserCenter" class="pc btn btn-danger">个人中心</a>
 			</div>
-			<button class="login">...</button>
+			<button class="login" @click="showmybuttom()">...</button>
 		</div>
 
 		<!-- <div class="login-img">
@@ -91,6 +95,13 @@
 	export default {
 		data() {
 			return {
+				isselect:true,
+				isshow:{
+					height:"0px"
+				},
+				myheight:{
+					height:"0px"
+				},
 				uname: "", //自动添加了kwords()来监视kwords的变化
 				upwd: "",
 				upwd1: "",
@@ -104,6 +115,18 @@
 			};
 		},
 		methods: {
+			showmybuttom(){
+				if(this.isselect)
+				{
+					this.isshow.height="235px";
+					this.myheight.height="310px";
+					this.isselect=false;
+				}else{
+					this.myheight.height="0px";
+					this.isshow.height="0px";
+					this.isselect=true
+				}
+			},
 			getUserCenter(){
 				this.$router.push("/usercenter");
 			},
@@ -368,7 +391,7 @@
 		created() {
 
 		}
-	};
+	}
 </script>
 
 <style scoped>
@@ -679,12 +702,13 @@
 	}
 	.right{
 		width:100px;
-		height:200px;
 		/* border: 1px solid red; */
 		z-index: 5;
 		position: fixed;
-		top: 30%;
+		bottom:20%;
 		right: 100px;
+		/* overflow: hidden; */
+		transition: all 0.5s;
 	}
 	.login {
 		width: 50px;
@@ -707,12 +731,13 @@
 
 	.login-div {
 		width:120%;
-		height:230px;
 		float: top;
 		/* border: 1px solid #000000; */
 		border-radius: 5px;
 		background:white;
 		box-shadow:10px 10px 5px #666666;
+		overflow: hidden;
+		transition: all 0.5s;
 	}
 	#Button1,.chat,.pb,.pc{
 		font-size: 16px;
