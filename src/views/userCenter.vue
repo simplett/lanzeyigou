@@ -401,7 +401,7 @@
 	}
 
 	.pho-em>ul>li>p {
-		width: 80%;
+		width:55%;
 		height: 40px;
 		padding: 0;
 		margin: 0;

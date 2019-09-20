@@ -13,6 +13,9 @@
 					<div class="carousel-item">
 						<img class="w-100" :src="lunbo[2].lunbo_url" />
 					</div>
+					<div class="carousel-item">
+						<img class="w-100" :src="lunbo[3].lunbo_url" />
+					</div>
 				</div>
 				
 				<!-- 2.左右箭头-->

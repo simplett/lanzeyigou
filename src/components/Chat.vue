@@ -34,7 +34,7 @@
 						<component v-for="(item,index) in summsg[msguser][0]" :key="index" :is="summsg[msguser][1][index].user" :info="summsg[msguser][1][index].msg"
 						 :time="item"></component>
 					</div>
-					<div class="msg-input row justify-content-between px-5">
+					<div class="msg-input row justify-content-between">
 						<!-- <input class="m-input" v-model="sendmsg"  type="text"> -->
 						<div class="w-75 lanze-line-height">
 							<el-input placeholder="请输入内容" @keyup.enter="sendmsgs()" v-model="sendmsg" clearable>
@@ -165,7 +165,7 @@
 				console.log(uid);
 			},
 			getsendmsg() {
-				var time = 5000;
+				var time = 1000;
 				setInterval(() => {
 					console.log("请求一次");
 					var token = localStorage.getItem("token");
@@ -238,14 +238,14 @@
 										console.log(this.summsg, "###################这是this.summsg############################");
 									}
 									var count = result.data.count;
-									if (count == 0 && time >= 5000) {
-										time += (time < 10000) ? 500 : 0;
-										if (time == 10000) {
-											time = 5000;
+									if (count == 0 && time >= 1000) {
+										time += (time < 5000) ? 500 : 0;
+										if (time == 5000) {
+											time = 1000;
 										}
 										console.log("##################11111", time)
 									} else {
-										time = 5000;
+										time = 1000;
 										console.log("##################", time)
 									}
 								}
