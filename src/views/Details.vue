@@ -52,7 +52,7 @@
 					<a id="msg1" @click="msg1()" class="nav-link p-0 ismyactive">留言</a>
 				</li>
 				<li class="nav-item2">
-					<a id="msg2" @click="msg2()" class="nav-link p-0 ">商家其他发布(7)</a>
+					<a id="msg2" @click="msg2()" class="nav-link p-0 ">商家其他发布</a>
 				</li>
 			</ul>
 

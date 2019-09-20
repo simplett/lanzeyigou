@@ -71,7 +71,9 @@
 		<el-dialog title="提示" :visible.sync="dialogVisible" width="30%" :before-close="handleClose">
 			<span>这是一段信息</span>
 			<el-input v-model="names" placeholder="姓名"></el-input>
+			<hr>
 			<el-input v-model="add" placeholder="收货地址"></el-input>
+			<hr>
 			<el-input v-model="tall" placeholder="联系方式"></el-input>
 			<span slot="footer" class="dialog-footer">
 				<el-button @click="dialogVisible = false">取 消</el-button>

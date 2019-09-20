@@ -18,6 +18,7 @@ import personcenter from "./components/personcenter.vue"
 import RegLogin1 from "./components/RegLogin.1.vue"
 import chat from "./components/Chat.1.vue"
 import order from "./views/Order.vue"
+import card from "./components/card.vue"
 
 Vue.use(Router)
 
@@ -27,6 +28,11 @@ export default new Router({
 			name: 'index',
 			component: index
 		},
+		{
+				path: '/card',
+				name: 'card',
+				component: card
+			},
 		{
 			path: '/publish',
 			name: 'publish',

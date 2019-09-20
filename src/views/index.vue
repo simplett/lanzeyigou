@@ -75,9 +75,11 @@
 				<img src="../../public/images/喜欢小banner.png" alt />
 			</div>
 			<div class="guess-like-products">
-				<div class="g-l-p-img" v-for="(item,i) of 12" :key="i">
+				<card></card>
+				<!-- <div class="g-l-p-img" v-for="(item,i) of 12" :key="i">
+					
 					<img :data-id="item.pid" src="../../public/images/details/素材/4_5.png" />
-				</div>
+				</div> -->
 			</div>
 		</div>
 
@@ -122,6 +124,7 @@
 	// @ is an alias to /src
 	import RegLogin from "../components/RegLogin.1";
 	import Carousel from "../components/Carousel.vue";
+	import card from "../components/card.vue";
 	export default {
 		data() {
 			return {
@@ -129,13 +132,16 @@
 				con: "+关注",
 				flag: false, //单位切换开关
 				lunbo: [{
-						lunbo_url: "https://simplett-img.oss-cn-beijing.aliyuncs.com/lunbo/banner2.png"
+						lunbo_url: "https://simplett-img.oss-cn-beijing.aliyuncs.com/lunbo/banner.png"
 					},
 					{
 						lunbo_url: "https://simplett-img.oss-cn-beijing.aliyuncs.com/lunbo/banner1.png"
 					},
 					{
-						lunbo_url: "https://simplett-img.oss-cn-beijing.aliyuncs.com/lunbo/%E9%A5%B0%E5%93%81%E9%A6%96%E9%A5%B0.png"
+						lunbo_url: "https://simplett-img.oss-cn-beijing.aliyuncs.com/lunbo/banner2.png"
+					},
+					{
+						lunbo_url: "https://simplett-img.oss-cn-beijing.aliyuncs.com/lunbo/banner1(1).png"
 					}
 				],
 				data: [],
@@ -329,7 +335,8 @@
 		},
 		components: {
 			RegLogin,
-			Carousel
+			Carousel,
+			card
 		}
 
 	};

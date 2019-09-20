@@ -156,7 +156,7 @@
 				console.log(uid);
 			},
 			getsendmsg() {
-				var time = 5000;
+				var time = 1000;
 				setInterval(() => {
 					console.log("请求一次");
 					var token = localStorage.getItem("token");
@@ -229,14 +229,14 @@
 										console.log(this.summsg, "###################这是this.summsg############################");
 									}
 									var count = result.data.count;
-									if (count == 0 && time >= 5000) {
-										time += (time < 10000) ? 500 : 0;
-										if (time == 10000) {
-											time = 5000;
+									if (count == 0 && time >= 1000) {
+										time += (time < 5000) ? 500 : 0;
+										if (time == 5000) {
+											time = 1000;
 										}
 										console.log("##################11111", time)
 									} else {
-										time = 5000;
+										time = 1000;
 										console.log("##################", time)
 									}
 								}

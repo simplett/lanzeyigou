@@ -1,6 +1,5 @@
 <template>
 	<div class="msg_you">
-		<a style="display: table;"></a>
 		<div class="time">
 			<div class="lanze-time text-center">
 				{{time|tosubstring()}}
@@ -27,6 +26,11 @@
 			},
 			time: {
 				default: 111
+			}
+		},
+		filters: {
+			tosubstring(vuale) {
+				return vuale.substr(2, 6)
 			}
 		}
 	}
