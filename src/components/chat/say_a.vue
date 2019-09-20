@@ -30,7 +30,7 @@
 		},
 		filters: {
 			tosubstring(vuale) {
-				return vuale.substr(2, 6)
+				return vuale.substr(2,6)
 			}
 		},
 		created(){
@@ -38,7 +38,6 @@
 		}
 	}
 </script>
-
 <style scoped>
 	.msg_you {
 		width: 100%;
@@ -85,4 +84,73 @@
 		margin-bottom: -20px;
 	}
 
+.back-img>p{
+ /* border:1px solid yellowgreen; */
+	/* height:80px; */
+	padding:0;
+	line-height:20px;
+	/* padding-left:20px; */
+	max-width:500px;
+	overflow: hidden;
+    word-wrap:break-word;
+    word-break:break-all;
+	padding-left:20px;
+	padding-right:20px;
+    padding-top:10px;
+}
+.chat-msg>.chat-msg-b>.msg-list{
+    float: right;
+    width:490px;
+	/* height:80px; */
+    /* border:1px solid #dae8ba; */
+    /* margin:0 10px; */
+}
+
+.msg-input{
+	width:100%;
+	height:150px;
+	float:left;
+	/* border:1px solid red; */
+	background: #add597;
+	position: relative;
+	bottom:-127px;
+}
+.m-input{
+	width:80%;
+	height:70%;
+	margin-left:20px;
+	margin-top:30px;
+	float: left;
+	background: #ffffff;
+	border-radius:5px;
+	border:0;
+}
+.btn-success{
+	width:80px;
+	height:40px;
+	border-radius:10px;
+	padding:0;
+	line-height:40px;
+	margin-top:-50px;
+}
+.el-container{
+	height:508px;
+}
+.msg{
+    width:100%;
+    margin-bottom: 20px;
+}
+.msg-time{
+    width:100%;
+    height:20px;
+    text-align: center;
+    /* border: 1px solid red; */
+}
+.msg-time p{
+    font-size: 12px;
+    height:20px;
+    line-height:20px;
+    padding:0;
+    margin-bottom:0; 
+}
 </style>

@@ -23,8 +23,6 @@
 						<div @click="Tomsg(item[2])" v-for="(item,i) of summsg" :key="i">
 							<peoplelist :time="totime" :msg="tomsg" :uid="item[2]"></peoplelist>
 						</div>
-
-
 					</div>
 				</el-aside>
 				<el-main>
@@ -36,7 +34,7 @@
 						<component v-for="(item,index) in summsg[msguser][0]" :key="index" :is="summsg[msguser][1][index].user" :info="summsg[msguser][1][index].msg"
 						 :time="item"></component>
 					</div>
-					<div class="msg-input row justify-content-between px-1">
+					<div class="msg-input row justify-content-between">
 						<!-- <input class="m-input" v-model="sendmsg"  type="text"> -->
 						<div class="w-75 lanze-line-height">
 							<el-input placeholder="请输入内容" @keyup.enter="sendmsgs()" v-model="sendmsg" clearable>
@@ -75,6 +73,17 @@
 				disabled:true,
 				summsg: {
 					"00": [
+						["2019-05-45","2019-05-45"],
+						[
+							{
+								"user": "you",
+								"msg": "616516311111111111111111111111111111111111111111111111111111111"
+							},
+							{
+								"user": "you",
+								"msg": "616516311111111111111111111111111111111111111111111111111111111"
+							}
+						], "00"
 						["2019-05-45"],
 						[{
 							"user": "me",

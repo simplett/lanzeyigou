@@ -14,7 +14,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 import search from "./components/search.vue"
 import Carousel from "./components/Carousel.vue"
 import product from "./components/product.vue"
-import card from "./components/card.vue"
+import Reglogin from "./components/RegLogin.1.vue"
 Vue.use(ElementUI)
 axios.defaults.baseURL = "http://120.79.19.253:10086"
 // axios.defaults.baseURL = "http://10.1.180.146:8080"
@@ -62,6 +62,9 @@ Vue.component(
 )
 Vue.component(
 	"my-foot",myfoot
+)
+Vue.component(
+	"reg-login",Reglogin
 )
 Vue.component(
 	"search",search
