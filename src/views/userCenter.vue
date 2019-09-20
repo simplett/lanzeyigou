@@ -330,6 +330,7 @@
 		/* border:1px solid red; */
 		padding-left: 10px;
 		/* margin:0 auto; */
+		margin-bottom: 200px;
 	}
 
 	.intro-img-msg {
