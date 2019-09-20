@@ -14,6 +14,7 @@
 					<Product :selectimage="selectimage[i]" :item="item"></Product>
 				</div>
 			</div>
+			<reg-login />
 		<my-foot></my-foot>
 	</div>
 

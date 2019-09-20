@@ -82,7 +82,7 @@
 				</div>
 			</div>
 		</div>
-
+<reg-login />
 	</div>
 </template>
 

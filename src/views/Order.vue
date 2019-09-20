@@ -80,6 +80,7 @@
 				<el-button type="primary" @click="add_address()">确 定</el-button>
 			</span>
 		</el-dialog>
+		<reg-login />
 	</div>
 </template>
 <script>
@@ -177,7 +178,7 @@
 							console.log("购买之后的数据", result);
 							if (result.data.status == 1) {
 								// this.orderajax(result.data.orderlist)
-								window.location.href = 'http://47.94.230.26:8080/store-0.0.1-SNAPSHOT/alipay/index?orderlist=' + result.data.orderlist;
+								window.location.href = 'http://47.94.230.26:8080/store-0.0.1-SNAPSHOT/alipay/pay?orderlist=' + result.data.orderlist;
 							} else if (result.data.status == 0) {
 								this.open6();
 							}

@@ -39,7 +39,7 @@
 			**********************第三步*************************
 			<Success></Success> -->
 		</div>
-	</div>
+		<reg-login />
 	</div>
 </template>
 <script scoped>
@@ -50,9 +50,9 @@
 	export default {
 		data() {
 			return {
-				active:"PubSelect",
+				active: "PubSelect",
 				codeidlist: [],
-				activelist: ["PubSelect","PublishDel", "Success"],
+				activelist: ["PubSelect", "PublishDel", "Success"],
 				// showdata:false,
 				codeid: [],
 				tableData: [{
@@ -82,7 +82,7 @@
 		},
 		methods: {
 			next() {
-				this.active=this.activelist.shift()
+				this.active = this.activelist.shift()
 			},
 			getVuexData() {
 				// 只是改了query，其他都不变

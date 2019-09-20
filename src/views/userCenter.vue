@@ -4,92 +4,92 @@
 		<!-- 搜索 -->
 		<search />
 		<!-- 个人中心 -->
-			<div class="p-c-body">
-				<div class="person-list">
-					<ul class="nav nav-tabs pt-4">
-						<!-- 个人中心 -->
-						<li>
-							<a @click="tabshow(0)">
-								<img src="../../public/images/usercenter/fangzi.png" alt="">个人中心</a>
-						</li>
-						<!-- 收藏 -->
-						<li>
-							<a @click="tabshow(1)">
-								<img src="../../public/images/usercenter/shoucang.png" alt="">收藏</a>
-						</li>
-						<!-- 关注 -->
-						<li>
-							<a @click="tabshow(2)">
-								<img src="../../public/images/usercenter/shoucang.png" alt="">关注</a>
-						</li>
-						<!-- 聊天 -->
-						<li>
-							<a @click="tabshow(3)">
-								<img src="../../public/images/usercenter/liaotian.png" alt="">聊天</a>
-						</li>
-						<!-- 评论 -->
-						<li>
-							<a @click="tabshow(4)">
-								<img src="../../public/images/usercenter/pinglun.png" alt="">评论</a>
-						</li>
-						<!-- 交易记录 -->
-						<li>
-							<a>
-								<img src="../../public/images/usercenter/zhanghao.png" alt="">交易记录</a>
-						</li>
-						<ul class="trad-re">
-							<li @click="tabshow(5)">已购商品</li>
-							<li @click="tabshow(6)">未完成交易</li>
-						</ul>
+		<div class="p-c-body">
+			<div class="person-list">
+				<ul class="nav nav-tabs pt-4">
+					<!-- 个人中心 -->
+					<li>
+						<a @click="tabshow(0)">
+							<img src="../../public/images/usercenter/fangzi.png" alt="">个人中心</a>
+					</li>
+					<!-- 收藏 -->
+					<li>
+						<a @click="tabshow(1)">
+							<img src="../../public/images/usercenter/shoucang.png" alt="">收藏</a>
+					</li>
+					<!-- 关注 -->
+					<li>
+						<a @click="tabshow(2)">
+							<img src="../../public/images/usercenter/shoucang.png" alt="">关注</a>
+					</li>
+					<!-- 聊天 -->
+					<li>
+						<a @click="tabshow(3)">
+							<img src="../../public/images/usercenter/liaotian.png" alt="">聊天</a>
+					</li>
+					<!-- 评论 -->
+					<li>
+						<a @click="tabshow(4)">
+							<img src="../../public/images/usercenter/pinglun.png" alt="">评论</a>
+					</li>
+					<!-- 交易记录 -->
+					<li>
+						<a>
+							<img src="../../public/images/usercenter/zhanghao.png" alt="">交易记录</a>
+					</li>
+					<ul class="trad-re">
+						<li @click="tabshow(5)">已购商品</li>
+						<li @click="tabshow(6)">未完成交易</li>
 					</ul>
-				</div>
-				<!-- 个人信息 -->
-				<div class="person-msg">
-					<!-- 左边的头像、用户姓名和个人介绍 -->
-					<div class="intro-img-msg">
-						<!-- 头像 -->
-						<div class="intro-img">
-							<img :src="userdata.image">
-						</div>
-						<!-- 姓名、介绍 -->
-						<div class="intro-msg">
-							<h3>{{userdata.nickname}}</h3>
-							<div class="intro-input">
-								<el-input v-model="input" :placeholder="userdata.description"></el-input><i class="el-icon-edit"></i>
-							</div>
-
-						</div>
+				</ul>
+			</div>
+			<!-- 个人信息 -->
+			<div class="person-msg">
+				<!-- 左边的头像、用户姓名和个人介绍 -->
+				<div class="intro-img-msg">
+					<!-- 头像 -->
+					<div class="intro-img">
+						<img :src="userdata.image">
 					</div>
-					<!-- 右边的电话号码和邮箱 -->
-					<div class="intro-pho-em">
-						<div class="pho-em">
-							<ul>
-								<li>
-									<p>{{userdata.phone}}</p>
-								</li>
-								<li><img src="../../public/images/usercenter/zhenque.png" alt="">
-									<p>绑定手机</p>
-								</li>
-								<li>
-									<p>{{userdata.email}}</p>
-								</li>
-								<li><img src="../../public/images/usercenter/zhenque.png" alt="">
-									<p>绑定邮箱</p>
-								</li>
-							</ul>
+					<!-- 姓名、介绍 -->
+					<div class="intro-msg">
+						<h3>{{userdata.nickname}}</h3>
+						<div class="intro-input">
+							<el-input v-model="input" :placeholder="userdata.description"></el-input><i class="el-icon-edit"></i>
 						</div>
+
 					</div>
 				</div>
-				<!-- 广告 -->
-				<div class="p-c-body-gg">
-					<img src="../../public/images/首页页头背景.jpg" alt="">
+				<!-- 右边的电话号码和邮箱 -->
+				<div class="intro-pho-em">
+					<div class="pho-em">
+						<ul>
+							<li>
+								<p>{{userdata.phone}}</p>
+							</li>
+							<li><img src="../../public/images/usercenter/zhenque.png" alt="">
+								<p>绑定手机</p>
+							</li>
+							<li>
+								<p>{{userdata.email}}</p>
+							</li>
+							<li><img src="../../public/images/usercenter/zhenque.png" alt="">
+								<p>绑定邮箱</p>
+							</li>
+						</ul>
+					</div>
 				</div>
-				<!-- 内容 -->
-				<div :is="contentView" :description="input" :userdata="userdata" class="content">
-
-				</div>
+			</div>
+			<!-- 广告 -->
+			<div class="p-c-body-gg">
+				<img src="../../public/images/首页页头背景.jpg" alt="">
+			</div>
+			<!-- 内容 -->
+			<div :is="contentView" :description="input" :userdata="userdata" class="content">
 
 			</div>
+			<reg-login />
+		</div>
 	</div>
 </template>
 
@@ -201,16 +201,16 @@
 				if (token) {
 					this.axios
 						.get("/Subscribe", {
-								params: {
-									token,
-									type: "production",
-									action: "get"
-								}
-							}).then(result => {
-								console.log("########################################################这是用户中心的第一次数据请求", result.data);
-								this.sunuserdata[2][0] = result.data;
-							})
-						}
+							params: {
+								token,
+								type: "production",
+								action: "get"
+							}
+						}).then(result => {
+							console.log("########################################################这是用户中心的第一次数据请求", result.data);
+							this.sunuserdata[2][0] = result.data;
+						})
+				}
 			},
 			//获取C6的请求
 			getC6() {
@@ -218,16 +218,16 @@
 				if (token) {
 					this.axios
 						.get("/List", {
-								params: {
-									token,
-									type: "history",
-									
-								}
-							}).then(result => {
-								console.log("########################################################这是用户中心的第一次数据请求", result.data);
-								this.sunuserdata[6][0] = result.data;
-							})
-						}
+							params: {
+								token,
+								type: "history",
+
+							}
+						}).then(result => {
+							console.log("########################################################这是用户中心的第一次数据请求", result.data);
+							this.sunuserdata[6][0] = result.data;
+						})
+				}
 			},
 			//获取C7的请求
 			getC7() {
@@ -235,16 +235,16 @@
 				if (token) {
 					this.axios
 						.get("/List", {
-								params: {
-									token,
-									type: "unfinish",
-									
-								}
-							}).then(result => {
-								console.log("########################################################这是用户中心的第一次数据请求", result.data);
-								this.sunuserdata[7][0] = result.data;
-							})
-						}
+							params: {
+								token,
+								type: "unfinish",
+
+							}
+						}).then(result => {
+							console.log("########################################################这是用户中心的第一次数据请求", result.data);
+							this.sunuserdata[7][0] = result.data;
+						})
+				}
 			},
 			open5() {
 				this.$notify.error({
@@ -401,7 +401,7 @@
 	}
 
 	.pho-em>ul>li>p {
-		width:55%;
+		width: 55%;
 		height: 40px;
 		padding: 0;
 		margin: 0;
@@ -498,7 +498,7 @@
 	.trad-re>li {
 		width: 70%;
 		height: 25px;
-		margin-left:20px;
+		margin-left: 20px;
 		line-height: 25px;
 		border-bottom: 0;
 		/* border:1px solid green; */
@@ -507,7 +507,7 @@
 		/* margin:0; */
 		font-size: 20px;
 		cursor: pointer;
-		text-align:left;
+		text-align: left;
 	}
 
 	.nav-tabs {

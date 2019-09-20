@@ -105,6 +105,7 @@
 				<!-- 商品显示结束 -->
 			</div>
 		</div>
+		<reg-login />
 		<!-- 页尾 -->
 		<my-foot></my-foot>
 	</div>

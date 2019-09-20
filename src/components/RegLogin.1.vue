@@ -219,9 +219,7 @@
 					.then(result => {
 						console.log("###################################这是登陆之后的数据", result.data);
 						this.Status2 = result.data.status;
-						if (this.Status2 === 1) {
-							console.log(111);
-							alert("状态1");
+						if (this.Status2 === 1) {					
 							var token = result.data.token;
 							// var guanzhu=result.data;
 							var shoucan = result.data.su_data;
@@ -345,7 +343,7 @@
 						console.log("#######################################这是用户注册成功之后的数据", result);
 						// console.log(this.$store.state.userinfo);//打印出vueX里面的数据
 					} else {
-						this.open4()
+						// this.open4()
 					}
 				});
 			}
@@ -353,35 +351,59 @@
 		watch: {
 			code() {
 				if (this.code == 1) {
-					alert("用户名格式有误");
-					// this.$router.push("list")
+					 this.$message({
+					          message: '用户名格式有误',
+					          type: 'warning'
+					        });
 				}
 				if (this.code == 2) {
-					alert("邮箱格式有误");
+					this.$message({
+					         message: '邮箱格式有误',
+					         type: 'warning'
+					       });
 				}
 				if (this.code == 3) {
-					alert("用户密码格式有误");
+					this.$message({
+					         message: '用户密码格式有误',
+					         type: 'warning'
+					       });
 				}
 				if (this.code == 4) {
-					alert("验证码有误");
+					this.$message({
+					         message: '验证码有误',
+					         type: 'warning'
+					       });
 				}
 				this.code = 0;
 			},
 			Status1() {
 				// (this.Status1 == 1) ? this.$router.push("list"): alert("失败");T
 				if (this.Status1 == 1) {
-					console.log("成功");
-					// this.$router.push("list");
+					console.log("成功")
 				}
 				if (this.Status1 == 2) {
-					console.log("邮箱的验证码不对");
+					this.$message({
+					          message: '邮箱的验证码不对',
+					          type: 'warning'
+					        });
 				}
 				if (this.Status1 == 3) {
-					console.log("邮箱占用");
+					this.$message({
+					          message: '邮箱被占用，请您直接登陆或使用新的邮箱号',
+					          type: 'warning'
+					        });
 				}
+				this.Status1=0;
 			},
 			Status2() {
-				this.Status2 == 1 ? alert("成功") : alert("失败");
+				if(this.Status2 == 1){
+					 this.$message({
+					          message: "恭喜你:用户"+this.emails+"登陆成功",
+					          type: 'success'
+					        });
+				} else{
+					 this.$message.error('账号或者密码错误');
+				}
 			}
 		},
 		mounted() {

@@ -31,7 +31,9 @@
 
 			</div>
 		</div>
+		<reg-login />
 		<my-foot />
+		
 	</div>
 </template>
 

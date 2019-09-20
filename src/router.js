@@ -9,6 +9,8 @@ import collect from "./components/collect.vue"
 import details from "./views/Details.vue"
 import searchlist from "./views/SearchList.vue"
 import paysuccess from "./views/paysuccess.vue"
+import defail from "./views/defail.vue"
+import success from "./views/success.vue"
 import publish from "./views/Publish.vue"
 import aliyun from "./components/aliyun.vue"
 import header from "./components/Head.vue"
@@ -107,6 +109,16 @@ export default new Router({
 			path: '/paysuccess',
 			name: 'paysuccess',
 			component: paysuccess
+		},
+		{
+			path: '/success',
+			name: 'success',
+			component: success
+		},
+		{
+			path: '/defail',
+			name: 'defail',
+			component: defail
 		},
 		{
 			path: '/RegLogin1',
