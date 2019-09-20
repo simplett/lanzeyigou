@@ -72,7 +72,6 @@ Vue.component(
 Vue.component(
 	"Product",product
 )
-
 Vue.config.productionTip = false
 new Vue({
 	router,

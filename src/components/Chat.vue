@@ -71,7 +71,7 @@
 				totime: "",
 				tomsg: "",
 				msg: "",
-				uid: "",
+				uid: "00",
 				disabled:true,
 				summsg: {
 					"00": [
@@ -85,7 +85,7 @@
 						["2019-05-45", "2019-05-45"],
 						[{
 								"user": "you",
-								"msg": "616vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv51"
+								"msg": "666666"
 							},
 							{
 								"user": "you",
@@ -109,30 +109,6 @@
 		},
 		methods: {
 			sendmsgs() {
-				if (this.summsg[this.uid] == undefined) {
-					this.summsg[this.uid] = [
-						[]
-					];
-					// console.log("@@@@@@@@@@@@@@@@@@@@@@@@@", item[0], item[1], item[2], item);
-					this.summsg[this.uid][0] = [];
-					// console.log("&&&&&&&&&&&&&&&&&&&&&", summessage[this.uid][0]);
-					this.summsg[this.uid][1] = [];
-					this.summsg[this.uid][2] = '';
-					this.summsg[this.uid][0].push("111111");
-					this.summsg[this.uid][1].push({
-						"user": "me",
-						"msg": this.sendmsg
-					});
-					this.summsg[this.uid][2] = this.uid;
-				} else {
-					this.summsg[this.uid][0].push("111111");
-					this.summsg[this.uid][1].push({
-						"user": "me",
-						"msg": this.sendmsg
-					});
-					this.summsg[this.uid][2] = this.uid;
-					console.log("发送一次")
-				}
 				var token = localStorage.getItem("token");
 				if (token) {
 					this.axios
@@ -141,14 +117,44 @@
 								ruid: this.uid,
 								token,
 								type: "add",
-								message: this.msg
+								message: this.sendmsg
 							}
 						}).then(result => {
 							console.log("发送的聊天消息", result);
-
+							if(result.data.status==1)
+							{
+								if (this.summsg[this.uid] == undefined) {
+									this.summsg[this.uid] = [
+										[]
+									];
+									// console.log("@@@@@@@@@@@@@@@@@@@@@@@@@", item[0], item[1], item[2], item);
+									this.summsg[this.uid][0] = [];
+									// console.log("&&&&&&&&&&&&&&&&&&&&&", summessage[this.uid][0]);
+									this.summsg[this.uid][1] = [];
+									this.summsg[this.uid][2] = '';
+									this.summsg[this.uid][0].push("111111");
+									this.summsg[this.uid][1].push({
+										"user": "me",
+										"msg": this.sendmsg
+									});
+									this.summsg[this.uid][2] = this.uid;
+								} else {
+									this.summsg[this.uid][0].push("111111");
+									this.summsg[this.uid][1].push({
+										"user": "me",
+										"msg": this.sendmsg
+									});
+									this.summsg[this.uid][2] = this.uid;
+									console.log("发送一次")
+								}
+								this.sendmsg="";
+							}
+							else{
+								 this.$message.error('系统错误，消息发送失败');
+							}
 						})
 				}
-				this.sendmsg="";
+				
 			},
 			Tomsg(uid) {
 				this.msguser = uid;
@@ -156,7 +162,7 @@
 				console.log(uid);
 			},
 			getsendmsg() {
-				var time = 1000;
+				var time = 500;
 				setInterval(() => {
 					console.log("请求一次");
 					var token = localStorage.getItem("token");
@@ -229,14 +235,14 @@
 										console.log(this.summsg, "###################这是this.summsg############################");
 									}
 									var count = result.data.count;
-									if (count == 0 && time >= 1000) {
-										time += (time < 5000) ? 500 : 0;
-										if (time == 5000) {
-											time = 1000;
+									if (count == 0 && time >= 500) {
+										time += (time < 1000) ? 100 : 0;
+										if (time == 1000) {
+											time = 500;
 										}
 										console.log("##################11111", time)
 									} else {
-										time = 1000;
+										time = 500;
 										console.log("##################", time)
 									}
 								}
@@ -244,7 +250,7 @@
 
 							})
 					}
-				}, 10000)
+				}, time)
 			}
 		},
 		created() {

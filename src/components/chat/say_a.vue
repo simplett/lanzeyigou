@@ -32,6 +32,9 @@
 			tosubstring(vuale) {
 				return vuale.substr(2, 6)
 			}
+		},
+		created(){
+			console.log("这是你说的话",this.info)
 		}
 	}
 </script>

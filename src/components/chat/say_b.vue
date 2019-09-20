@@ -2,7 +2,7 @@
 	<div class="msg_you">
 		<div class="time">
 			<div class="lanze-time text-center">
-				{{time|tosubstring()}}
+				<!-- {{time|tosubstring()}} -->
 			</div>
 
 		</div>
