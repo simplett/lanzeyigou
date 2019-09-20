@@ -92,7 +92,8 @@ div.el-step__title{
 }
 .content-b{
     width:100%;
-    height:90%;
+    height:500px;
+	overflow-y: auto;
     padding-top:10px;
 }
 .b-g-b{
@@ -100,6 +101,7 @@ div.el-step__title{
 	height:180px;
 	border:1px solid silver;
 	margin-bottom:20px;
+	overflow: hidden;
 }
 .b-g-b-img{
 	float:left;

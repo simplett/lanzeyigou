@@ -34,7 +34,7 @@
 						<component v-for="(item,index) in summsg[msguser][0]" :key="index" :is="summsg[msguser][1][index].user" :info="summsg[msguser][1][index].msg"
 						 :time="item"></component>
 					</div>
-					<div class="msg-input row justify-content-between">
+					<div class="msg-input row justify-content-between px-0">
 						<!-- <input class="m-input" v-model="sendmsg"  type="text"> -->
 						<div class="w-75 lanze-line-height">
 							<el-input placeholder="请输入内容" @keyup.enter="sendmsgs()" v-model="sendmsg" clearable>
@@ -265,7 +265,7 @@
 	.content-title {
 		width: 100%;
 		height: 60px;
-		background: #c0c0c0;
+		background: #ffffff;
 		margin-top: 10px;
 	}
 
@@ -352,6 +352,7 @@
 
 	.chat-b {
 		position: relative;
+		height:8%;
 	}
 
 	.chat-a>p {
@@ -370,8 +371,9 @@
 	.chat-msg {
 		width: 100%;
 		/* height: 385px; */
-		height: 350px;
-		overflow-y: scroll;
+		height: 72%;
+		/* height: 350px; */
+		overflow: auto;
 		/* border: 1px solid rosybrown; */
 	}
 	.chat-list{
@@ -504,6 +506,7 @@
 
 	.w-75>.el-input {
 		line-height: 50px;
+		padding-left:20px;
 	}
 	.el-main
 	{
@@ -516,16 +519,17 @@
 }
 	.msg-input {
 		width: 100%;
-		height: 50px;
+		height:20%;
 		/* float:left; */
 		/* position: fixed; */
 		left: 0;
 		bottom: 0;
-		
+		margin-left: 0;
 		/* border:1px solid red; */
 		background: #add597;
 		/* position: absolute; */
 		margin-bottom: 0px;
+		padding-top:10px;
 	}
 
 	.m-input {
