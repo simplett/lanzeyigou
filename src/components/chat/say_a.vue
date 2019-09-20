@@ -1,14 +1,16 @@
 <template>
-    <div> 
+    <div class="msg"> 
         <div class="msg-time">
             <p>{{time|tosubstring()}}</p>
         </div>
+        <div class="chat-msg-b">
             <div class="chat-msg-img">
                 <img src="../../../public/images/usercenter/liaotian.png">
             </div>
             <div class="back-img">
                 <p>{{info}}</p>
             </div>
+        </div>
     </div>
 </template>
 
@@ -87,14 +89,7 @@
     /* border:1px solid #dae8ba; */
     /* margin:0 10px; */
 }
-.chat-msg-img{
-	width: 50px;height:50px;
-    float: left;
-    margin:15px;
-	border-radius:50%;
-	/* border:1px solid fuchsia; */
-	/* padding:0; */
-}
+
 .msg-input{
 	width:100%;
 	height:150px;
@@ -124,6 +119,10 @@
 }
 .el-container{
 	height:508px;
+}
+.msg{
+    width:100%;
+    margin-bottom: 20px;
 }
 .msg-time{
     width:100%;
