@@ -3,7 +3,7 @@
 		<div class="content-title">
 			<div>
 				<img src="../../public/images/usercenter/shoucang.png" alt="">
-				<p>收藏</p>
+				<p>聊天</p>
 			</div>
 		</div>
 		<div class="content-b">
@@ -34,9 +34,17 @@
 						<component v-for="(item,index) in summsg[msguser][0]" :key="index" :is="summsg[msguser][1][index].user" :info="summsg[msguser][1][index].msg"
 						 :time="item"></component>
 					</div>
-					<div class="msg-input">
-						<input class="m-input" type="text">
-						<a href="javascript:;" class="btn btn-success">发送</a>
+					<div class="msg-input row justify-content-between px-5">
+						<!-- <input class="m-input" v-model="sendmsg"  type="text"> -->
+						<div class="w-75 lanze-line-height">
+							<el-input placeholder="请输入内容" @keyup.enter="sendmsgs()" v-model="sendmsg" clearable>
+							</el-input>
+						</div>
+						<div class="w-25 lanze-line-height">
+							<el-button type="primary" @click="sendmsgs()" :disabled="disabled">发送</el-button>
+							<!-- <a href="javascript:;" class="btn btn-success" >发送</a> -->
+						</div>
+
 					</div>
 				</el-main>
 			</el-container>
@@ -56,11 +64,13 @@
 		},
 		data() {
 			return {
+				sendmsg: "",
 				msguser: "00",
 				totime: "",
 				tomsg: "",
 				msg: "",
 				uid: "",
+				disabled:true,
 				summsg: {
 					"00": [
 						["2019-05-45","2019-05-45"],
@@ -74,25 +84,64 @@
 								"msg": "616516311111111111111111111111111111111111111111111111111111111"
 							}
 						], "00"
+						["2019-05-45"],
+						[{
+							"user": "me",
+							"msg": "616516"
+						}], "00"
 					],
 					"22": [
-						["2019-05-45", "123131"],
-						[
-							{
+						["2019-05-45", "2019-05-45"],
+						[{
 								"user": "you",
-								"msg": "61651631"
+								"msg": "616vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv51"
 							},
 							{
 								"user": "you",
-								"msg": "61651631"
+								"msg": "61631"
 							}
 						], "22"
 					]
 				}
 			}
 		},
+		watch:{
+			sendmsg()
+			{
+				if(this.sendmsg=="")
+				{
+					this.disabled=true;
+				}else{
+					this.disabled=false;
+				}
+			}
+		},
 		methods: {
-			sendmsg() {
+			sendmsgs() {
+				if (this.summsg[this.uid] == undefined) {
+					this.summsg[this.uid] = [
+						[]
+					];
+					// console.log("@@@@@@@@@@@@@@@@@@@@@@@@@", item[0], item[1], item[2], item);
+					this.summsg[this.uid][0] = [];
+					// console.log("&&&&&&&&&&&&&&&&&&&&&", summessage[this.uid][0]);
+					this.summsg[this.uid][1] = [];
+					this.summsg[this.uid][2] = '';
+					this.summsg[this.uid][0].push("111111");
+					this.summsg[this.uid][1].push({
+						"user": "me",
+						"msg": this.sendmsg
+					});
+					this.summsg[this.uid][2] = this.uid;
+				} else {
+					this.summsg[this.uid][0].push("111111");
+					this.summsg[this.uid][1].push({
+						"user": "me",
+						"msg": this.sendmsg
+					});
+					this.summsg[this.uid][2] = this.uid;
+					console.log("发送一次")
+				}
 				var token = localStorage.getItem("token");
 				if (token) {
 					this.axios
@@ -108,9 +157,11 @@
 
 						})
 				}
+				this.sendmsg="";
 			},
 			Tomsg(uid) {
 				this.msguser = uid;
+				this.uid = uid;
 				console.log(uid);
 			},
 			getsendmsg() {
@@ -242,6 +293,7 @@
 		width: 100%;
 		height: 100%;
 		padding-top: 10px;
+		position: relative;
 	}
 
 	.el-header {
@@ -318,25 +370,161 @@
 	.chat-msg {
 		width: 100%;
 		/* height: 385px; */
-		min-height: 385px;
+		height: 350px;
+		overflow-y: scroll;
 		/* border: 1px solid rosybrown; */
 	}
-
+	.chat-list{
+		height: 401px;
+	}
+.el-container{
+	height:441px!important;
+}
 	/* .chat-list-a{
     width:100%;height:70px;
     background-color: #80c26a;
     margin: 2px 0 10px;
 } */
+	.chat-msg>.chat-msg-a,
+	.chat-msg>.chat-msg-b {
+		width: 100%;
+		/* height: 80px; */
+		/* border:1px solid red; */
+		margin-top: 20px;
+	}
+
+	.chat-msg>.chat-msg-b {
+		float: right;
+	}
+
+	.chat-msg>.chat-msg-b>img {
+		width: 50px;
+		height: 50px;
+		float: right;
+		margin: 15px;
+	}
+
+	.chat-msg-a>.msg-list {
+		float: left;
+		width: 490px;
+		/* height:80px; */
+		/* border:1px solid #dae8ba; */
+		margin-top: 10px;
+		/* border:1px solid red; */
+		padding: 0;
+	}
+
+	.back-img {
+		/* width:150px; */
+		height: 100%;
+		float: left;
+		/* background: url('../../public/images/chatleft.png') center center no-repeat; */
+		/* background-position: center; */
+		background-size: cover;
+		-moz-background-size: cover;
+		margin-top: -20px;
+		background: #f6f6f6;
+		border-radius: 5px;
+		/* display: inline; */
+	}
+
+	.back-img-right {
+		float: right;
+		/* width:150px; */
+		height: 100%;
+		/* background: url('../../public/images/chatright.png') center center no-repeat; */
+		/* background-size:100% 100%;  */
+		/* background-position: center; */
+		background-size: cover;
+		-moz-background-size: cover;
+		background: #f6f6f6;
+		border-radius: 5px;
+		/* margin-top:-20px; */
+	}
+
+	.back-img>p,
+	.back-img-right>p {
+		/* border:1px solid yellowgreen; */
+		/* height: 80px; */
+		padding: 0;
+		line-height: 80px;
+		/* padding-left:20px; */
+		max-width: 200px;
+		overflow: hidden;
+	}
+
+	.back-img>p {
+		padding-left: 40px;
+		padding-right: 40px;
+	}
+
+	.back-img-right>p {
+		padding-right: 40px;
+		padding-left: 0px;
+	}
+
+	.chat-msg>.chat-msg-b>.msg-list {
+		float: right;
+		width: 490px;
+		/* height:80px; */
+		/* border:1px solid #dae8ba; */
+		/* margin:0 10px; */
+	}
+
+	/* 	.chat-msg-img {
+		width: 50px;
+		height: 50px;
+		float: left;
+		margin: 15px;
+		border-radius: 50%;
+		border:1px solid fuchsia; 
+		 padding:0;
+	}
+ */
+	.chat-msg-img-right {
+		width: 50px;
+		height: 50px;
+		float: right;
+		margin: 15px;
+		border-radius: 50%;
+		/* border:1px solid fuchsia; */
+		/* padding:0; */
+	}
+
+	.chat-msg-img>img,
+	.chat-msg-img-right>img {
+		width: 100%;
+		height: 100%;
+		border-radius: 50%;
+		/* padding:0; */
+		line-height: 100%;
+		/* border:1px solid greenyellow; */
+		margin-top: -115px;
+	}
+
+	.w-75>.el-input {
+		line-height: 50px;
+	}
+	.el-main
+	{
+		position: relative!important;
+	}
+.lanze-line-height
+{
+	line-height: 50px !important;
+	overflow: hidden;
+}
 	.msg-input {
 		width: 100%;
-		height: 150px;
+		height: 50px;
 		/* float:left; */
-		position: absolute;
+		/* position: fixed; */
 		left: 0;
 		bottom: 0;
+		
 		/* border:1px solid red; */
 		background: #add597;
-		/* position: relative; */
+		/* position: absolute; */
 		margin-bottom: 0px;
 	}
 

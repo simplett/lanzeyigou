@@ -57,8 +57,6 @@
             </div>
         </div>
         <!-- 下一步按钮 -->
-        <button style="margin-top: 12px;" 
-        @click="next1()">下一步</button> 
     </div>
 </template>
 <script>
@@ -74,10 +72,7 @@ export default {
         },
         active:0,
         methods:{
-            next1(){
-                if (this.active++ > 2) 
-                this.active = 0;
-            }
+           
         }
         }
     }
@@ -202,24 +197,5 @@ div#my-input.el-form-item{
     padding: 0;
 }
 /*************  按钮样式 ****************/
-button {
-    padding: 0;
-    margin: 0;
-    font-size: 20px;
-}
-.publish-b>button{
-    background-color: #ccc;
-    color:#fff;
-    height:50px;
-    line-height: 50px;
-    width:200px;
-    font-size:20px;
-    border:0;
-    margin:25px 0;
-    padding: 0;
-}
-.publish-b>button:hover{
-    background-color: #e61717;
-    color:#fff;
-}
+
 </style>

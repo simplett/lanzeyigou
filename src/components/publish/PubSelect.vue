@@ -16,8 +16,7 @@
         </div>
 
         <!-- 下一步按钮 -->
-        <button style="margin-top: 12px;" 
-        @click="next">下一步</button>
+    
     </div>
 </template>
 <script>
@@ -51,10 +50,7 @@ export default {
         }
     },
 	methods:{
-		next() {
-			if (this.active++ > 2)
-				this.active = 0;
-		}
+		
 	}
 }
 </script>
