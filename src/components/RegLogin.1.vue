@@ -8,7 +8,7 @@
 				<button @click="getUserCenter"  class="chat btn btn-danger">发布</button>
 				<button @click="getUserCenter"  class="chat btn btn-danger">个人中心</button> -->
 				<a class=" btn btn-danger" href="javascript:;" @click="ShowDiv('MyDiv','fade')" id="Button1">登录</a><br>
-				<a href="javascript:;" @click="getUserCenter"  class="chat btn btn-danger">聊天</a><br>
+				<a href="javascript:;" @click="getUserCenter" class="chat btn btn-danger">聊天</a><br>
 				<a href="javascript:;" @click="getUserCenter" class="pb btn btn-danger">发布</a><br>
 				<a href="javascript:;" @click="getUserCenter" class="pc btn btn-danger">个人中心</a>
 			</div>
@@ -95,12 +95,12 @@
 	export default {
 		data() {
 			return {
-				isselect:true,
-				isshow:{
-					height:"0px"
+				isselect: true,
+				isshow: {
+					height: "0px"
 				},
-				myheight:{
-					height:"0px"
+				myheight: {
+					height: "0px"
 				},
 				uname: "", //自动添加了kwords()来监视kwords的变化
 				upwd: "",
@@ -115,19 +115,18 @@
 			};
 		},
 		methods: {
-			showmybuttom(){
-				if(this.isselect)
-				{
-					this.isshow.height="235px";
-					this.myheight.height="310px";
-					this.isselect=false;
-				}else{
-					this.myheight.height="0px";
-					this.isshow.height="0px";
-					this.isselect=true
+			showmybuttom() {
+				if (this.isselect) {
+					this.isshow.height = "235px";
+					this.myheight.height = "310px";
+					this.isselect = false;
+				} else {
+					this.myheight.height = "0px";
+					this.isshow.height = "0px";
+					this.isselect = true
 				}
 			},
-			getUserCenter(){
+			getUserCenter() {
 				this.$router.push("/usercenter");
 			},
 			//验证用户是否登录
@@ -219,7 +218,7 @@
 					.then(result => {
 						console.log("###################################这是登陆之后的数据", result.data);
 						this.Status2 = result.data.status;
-						if (this.Status2 === 1) {					
+						if (this.Status2 === 1) {
 							var token = result.data.token;
 							// var guanzhu=result.data;
 							var shoucan = result.data.su_data;
@@ -351,28 +350,28 @@
 		watch: {
 			code() {
 				if (this.code == 1) {
-					 this.$message({
-					          message: '用户名格式有误',
-					          type: 'warning'
-					        });
+					this.$message({
+						message: '用户名格式有误',
+						type: 'warning'
+					});
 				}
 				if (this.code == 2) {
 					this.$message({
-					         message: '邮箱格式有误',
-					         type: 'warning'
-					       });
+						message: '邮箱格式有误',
+						type: 'warning'
+					});
 				}
 				if (this.code == 3) {
 					this.$message({
-					         message: '用户密码格式有误',
-					         type: 'warning'
-					       });
+						message: '用户密码格式有误',
+						type: 'warning'
+					});
 				}
 				if (this.code == 4) {
 					this.$message({
-					         message: '验证码有误',
-					         type: 'warning'
-					       });
+						message: '验证码有误',
+						type: 'warning'
+					});
 				}
 				this.code = 0;
 			},
@@ -383,26 +382,27 @@
 				}
 				if (this.Status1 == 2) {
 					this.$message({
-					          message: '邮箱的验证码不对',
-					          type: 'warning'
-					        });
+						message: '邮箱的验证码不对',
+						type: 'warning'
+					});
 				}
 				if (this.Status1 == 3) {
 					this.$message({
-					          message: '邮箱被占用，请您直接登陆或使用新的邮箱号',
-					          type: 'warning'
-					        });
+						message: '邮箱被占用，请您直接登陆或使用新的邮箱号',
+						type: 'warning'
+					});
 				}
-				this.Status1=0;
+				this.Status1 = 0;
 			},
 			Status2() {
-				if(this.Status2 == 1){
-					 this.$message({
-					          message: "恭喜你:用户"+this.emails+"登陆成功",
-					          type: 'success'
-					        });
-				} else{
-					 this.$message.error('账号或者密码错误');
+				if (this.Status2 == 1) {
+					this.$notify({
+						title: '成功',
+						message: "恭喜你:     用户" + this.emails + "！  登陆成功",
+						type: 'success'
+					});
+				} else {
+					this.$message.error('账号或者密码错误');
 				}
 			}
 		},
@@ -722,16 +722,18 @@
 		margin-right: 30px;
 		color: #fff;
 	}
-	.right{
-		width:100px;
+
+	.right {
+		width: 100px;
 		/* border: 1px solid red; */
 		z-index: 5;
 		position: fixed;
-		bottom:20%;
+		bottom: 20%;
 		right: 100px;
 		/* overflow: hidden; */
 		transition: all 0.5s;
 	}
+
 	.login {
 		width: 50px;
 		height: 50px;
@@ -747,26 +749,31 @@
 		border: 0;
 		font-size: 20px;
 		line-height: 40px;
-		left:13px;
+		left: 13px;
 		box-shadow: 0px 0px 12px #000000;
 	}
 
 	.login-div {
-		width:120%;
+		width: 120%;
 		float: top;
 		/* border: 1px solid #000000; */
 		border-radius: 5px;
-		background:white;
-		box-shadow:10px 10px 5px #666666;
+		background: white;
+		box-shadow: 10px 10px 5px #666666;
 		overflow: hidden;
 		transition: all 0.5s;
 	}
-	#Button1,.chat,.pb,.pc{
+
+	#Button1,
+	.chat,
+	.pb,
+	.pc {
 		font-size: 16px;
 		margin-bottom: 10px;
 		margin-top: 10px;
 	}
-	.btn-danger{
-		color:#ffffff;
+
+	.btn-danger {
+		color: #ffffff;
 	}
 </style>

@@ -9,12 +9,11 @@
 		</div>
 		<div class="checked">选择收货地址</div>
 		<div class="select-pro1">
-			<div v-for="(item,i) of addressdata" :key="i">
+			<div class="w-100" v-for="(item,i) of addressdata" :key="i">
 				<addresses :addressdata="item"></addresses>
 			</div>
-
 			<div class="address-link">
-				<button @click="dialogVisible = true" class="btn">新增收货地址</button>
+				<button @click="dialogVisible = true" class="btn ">新增收货地址</button>
 			</div>
 		</div>
 		<div class="checked">确认订单信息</div>
@@ -273,7 +272,7 @@
 		/* height: 130px; */
 		background-color: #fff;
 		margin: 0 auto;
-		margin-bottom: 20px;
+		/* margin-bottom: 20px; */
 	}
 
 	.select-pro {
@@ -466,9 +465,9 @@
 
 	.address-link {
 		text-align: center;
-		height: 50px;
-		line-height: 50px;
+		height: 80px;
+		line-height: 80px;
 		margin-top: 50px;
-		;
+		margin-bottom: 50px;
 	}
 </style>
