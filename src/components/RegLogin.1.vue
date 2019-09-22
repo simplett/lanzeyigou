@@ -205,49 +205,76 @@
 			//登录的方法
 			login() {
 				var email = this.emails;
-				var pwd = this.$md5(this.upwd);
-				var url = "/Login";
-				var params = {
-					email,
-					pwd
-				};
-				this.axios
-					.get(url, {
-						params
-					})
-					.then(result => {
-						console.log("###################################这是登陆之后的数据", result.data);
-						this.Status2 = result.data.status;
-						if (this.Status2 === 1) {
-							var token = result.data.token;
-							// var guanzhu=result.data;
-							var shoucan = result.data.su_data;
-							console.log("这是收藏 的数据", shoucan)
-							// if (token !== "") {
-							//   this.$store.commit("SAVE_USERINFO", token);
-							// }
-							this.$store.commit("SAVE_USERINFO", token);
-							// this.$store.commit("SAVE_GUANZHU", guanzhu);
-							if (shoucan) {
-								console.log("这是收藏有数据");
-								this.$store.commit("SAVE_SHOUCAN", shoucan);
-							} else {
-								console.log("这是收藏没有数据");
-								var init = undefined;
-								this.$store.commit("SAVE_SHOUCANINIT", init);
-							}
-							this.CloseDiv('MyDiv', 'fade');
+				var upwd = this.upwd;
+				var regemail = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+				var regupwd = /^(\w){6,10}$/;
+				var e=regemail.test(email);
+				var w=regupwd.test(upwd);
+				if (e&&w) {
+					var pwd = this.$md5(upwd);
+					var url = "/Login";
+					var params = {
+						email,
+						pwd
+					};
+					this.axios
+						.get(url, {
+							params
+						})
+						.then(result => {
+							console.log("###################################这是登陆之后的数据", result.data);
+							this.Status2 = result.data.status;
+							if (this.Status2 === 1) {
+								var token = result.data.token;
+								// var guanzhu=result.data;
+								var shoucan = result.data.su_data;
+								console.log("这是收藏 的数据", shoucan)
+								// if (token !== "") {
+								//   this.$store.commit("SAVE_USERINFO", token);
+								// }
+								this.$store.commit("SAVE_USERINFO", token);
+								// this.$store.commit("SAVE_GUANZHU", guanzhu);
+								if (shoucan) {
+									console.log("这是收藏有数据");
+									this.$store.commit("SAVE_SHOUCAN", shoucan);
+								} else {
+									console.log("这是收藏没有数据");
+									var init = undefined;
+									this.$store.commit("SAVE_SHOUCANINIT", init);
+								}
+								this.CloseDiv('MyDiv', 'fade');
 
-						}
-						if (this.Status2 === 4) {
-							console.log(444);
-							alert("状态4");
-						}
-						if (this.Status2 === 5) {
-							console.log(555);
-							alert("状态5");
-						}
+							}
+							if (this.Status2 === 4) {
+								console.log(444);
+								alert("状态4");
+							}
+							if (this.Status2 === 5) {
+								console.log(555);
+								alert("状态5");
+							}
+						});
+				}else if(!e&&!w)
+				{
+					this.$message({
+						message: '邮箱格式和密码格式有误，密码由6到10位数字组成',
+						type: 'warning'
 					});
+				}
+				else if(!e)
+				{
+					this.$message({
+						message: '邮箱格式有误',
+						type: 'warning'
+					});
+				}else if(!w)
+				{
+					this.$message({
+						message: '密码格式有误，密码由6到10位数字组成',
+						type: 'warning'
+					});
+				}
+
 			},
 			//登录与注册切换时的动画
 			change() {

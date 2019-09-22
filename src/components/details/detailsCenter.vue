@@ -19,7 +19,7 @@
 			<div>
 				联系方式 :
 				<a>
-					<img src="../../../public/images/details/lianxi.png" style="margin-left:10px;" />
+					<img @click="tosay(detailsCenter.uid)" src="../../../public/images/details/lianxi.png" style="margin-left:10px;" />
 				</a>
 			</div>
 			<br />
@@ -73,6 +73,10 @@
 		},
 		name: "detailsCenter",
 		methods: {
+			tosay(uid){
+				this.$store.commit("SAVE_sayuid", uid);
+				this.$router.push("/chat");
+			},
 
 			// guarantee(){
 			// 	if(detailsCenter.status==1)

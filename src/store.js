@@ -9,6 +9,7 @@ const state = {
 	},
 	SearchContent: "手机",
 	uid: "",
+	say_uid: "",
 	guanzhu: "",
 	shoucan: "",
 	shoucanlist: [],
@@ -35,7 +36,7 @@ const state = {
 				"http://lanzesucai.oss-cn-beijing.aliyuncs.com/fenleiye/0_7.png",
 				"http://lanzesucai.oss-cn-beijing.aliyuncs.com/xiaoguanggao/0_8.png"
 			],
-			"divstyle":"linear-gradient(45deg, #c4e4ff, #91ccff)"
+			"divstyle": "linear-gradient(45deg, #c4e4ff, #91ccff)"
 		},
 		{
 			"codelist": [
@@ -60,7 +61,7 @@ const state = {
 				"http://lanzesucai.oss-cn-beijing.aliyuncs.com/fenleiye/1_7.png",
 				"http://lanzesucai.oss-cn-beijing.aliyuncs.com/xiaoguanggao/1_8.png"
 			],
-			"divstyle":"linear-gradient(45deg, #f4c9ff, #ff9eee)"
+			"divstyle": "linear-gradient(45deg, #f4c9ff, #ff9eee)"
 		},
 		{
 			"codelist": [
@@ -85,7 +86,7 @@ const state = {
 				"http://lanzesucai.oss-cn-beijing.aliyuncs.com/fenleiye/2_7.png",
 				"http://lanzesucai.oss-cn-beijing.aliyuncs.com/xiaoguanggao/2_8.png"
 			],
-			"divstyle":"#ffd0dc"
+			"divstyle": "#ffd0dc"
 		},
 		{
 			"codelist": [
@@ -110,7 +111,7 @@ const state = {
 				"http://lanzesucai.oss-cn-beijing.aliyuncs.com/fenleiye/3_7.png",
 				"http://lanzesucai.oss-cn-beijing.aliyuncs.com/xiaoguanggao/3_8.png"
 			],
-			"divstyle":"#ffd0dc"
+			"divstyle": "#ffd0dc"
 		},
 		{
 			"codelist": [
@@ -135,7 +136,7 @@ const state = {
 				"http://lanzesucai.oss-cn-beijing.aliyuncs.com/fenleiye/4_7.png",
 				"http://lanzesucai.oss-cn-beijing.aliyuncs.com/xiaoguanggao/4_8.png"
 			],
-			"divstyle":"#ffd0dc"
+			"divstyle": "#ffd0dc"
 		},
 		{
 			"codelist": [
@@ -160,7 +161,7 @@ const state = {
 				"http://lanzesucai.oss-cn-beijing.aliyuncs.com/fenleiye/5_7.png",
 				"http://lanzesucai.oss-cn-beijing.aliyuncs.com/xiaoguanggao/5_8.png"
 			],
-			"divstyle":"#ffd0dc"
+			"divstyle": "#ffd0dc"
 		},
 		{
 			"codelist": [
@@ -185,7 +186,7 @@ const state = {
 				"http://lanzesucai.oss-cn-beijing.aliyuncs.com/fenleiye/6_7.png",
 				"http://lanzesucai.oss-cn-beijing.aliyuncs.com/xiaoguanggao/6_8.png"
 			],
-			"divstyle":"#ffe0cd"
+			"divstyle": "#ffe0cd"
 		},
 		{
 			"codelist": [
@@ -210,7 +211,7 @@ const state = {
 				"http://lanzesucai.oss-cn-beijing.aliyuncs.com/fenleiye/7_7.png",
 				"http://lanzesucai.oss-cn-beijing.aliyuncs.com/xiaoguanggao/7_8.png"
 			],
-			"divstyle":"#ffe0cd"
+			"divstyle": "#ffe0cd"
 		},
 		{
 			"codelist": [
@@ -235,7 +236,7 @@ const state = {
 				"http://lanzesucai.oss-cn-beijing.aliyuncs.com/fenleiye/8_7.png",
 				"http://lanzesucai.oss-cn-beijing.aliyuncs.com/xiaoguanggao/8_8.png"
 			],
-			"divstyle":"#ffe0cd"
+			"divstyle": "#ffe0cd"
 		},
 		{
 			"codelist": [
@@ -260,13 +261,137 @@ const state = {
 				"http://lanzesucai.oss-cn-beijing.aliyuncs.com/fenleiye/9_7.png",
 				"http://lanzesucai.oss-cn-beijing.aliyuncs.com/xiaoguanggao/9_8.png"
 			],
-			"divstyle":"#ffe0cd"
+			"divstyle": "#ffe0cd"
 		}
 	],
-	code: 0
+	code: 0,
+	summsg: {
+		"00": [
+			["2019-05-45", "2019-05-45"],
+			[{
+					"user": "you",
+					"msg": "616516311111111111111111111111111111111111111111111111111111111"
+				},
+				{
+					"user": "you",
+					"msg": "616516311111111111111111111111111111111111111111111111111111111"
+				}
+			], "00" ["2019-05-45"],
+			[{
+				"user": "me",
+				"msg": "616516"
+			}], "00"
+		]
+	}
 }
-console.log(state.userinfo);
+console.log(state.userinfo,"这是初始时候检查本地的token");
 const mutations = {
+	INIT_SUMMSG(state,uid)
+	{
+		if (state.summsg[uid] == undefined) {
+			state.summsg[uid] = [
+				[]
+			];
+			// console.log("@@@@@@@@@@@@@@@@@@@@@@@@@", item[0], item[1], item[2], item);
+			state.summsg[uid][0] = [];
+			// console.log("&&&&&&&&&&&&&&&&&&&&&", summessage[this.uid][0]);
+			state.summsg[uid][1] = [];
+			state.summsg[uid][2] = '';
+			state.summsg[uid][0].push("111111");
+			state.summsg[uid][1].push({
+				"user": "me",
+				"msg": "hello"
+			});
+			state.summsg[uid][2] = uid;
+		}
+	},
+	SEND_MSG(state, data, uid) {
+		if (state.summsg[uid] == undefined) {
+			state.summsg[uid] = [
+				[]
+			];
+			// console.log("@@@@@@@@@@@@@@@@@@@@@@@@@", item[0], item[1], item[2], item);
+			state.summsg[uid][0] = [];
+			// console.log("&&&&&&&&&&&&&&&&&&&&&", summessage[this.uid][0]);
+			state.summsg[uid][1] = [];
+			state.summsg[uid][2] = '';
+			state.summsg[uid][0].push("111111");
+			state.summsg[uid][1].push({
+				"user": "me",
+				"msg": data
+			});
+			state.summsg[uid][2] = uid;
+		} else {
+			state.summsg[uid][0].push("111111");
+			state.summsg[uid][1].push({
+				"user": "me",
+				"msg": data
+			});
+			state.summsg[uid][2] = uid;
+			console.log("发送一次")
+		}
+		console.log("发消息函数被触发")
+	},
+	SAVE_SUMMSH(state, data) {
+		var msg = data;
+		var summessage = {};
+		if (msg) {
+			console.log("收到的聊天消息", msg);
+			summessage = msg.reduce(
+				(prev, elem) => {
+					console.log(JSON.parse(elem.message));
+					var mymsg = JSON.parse(elem.message);
+					if (prev[mymsg.suid] === undefined) {
+						prev[mymsg.suid] = [
+							[]
+						];
+						prev[mymsg.suid][0] = [];
+						prev[mymsg.suid][1] = [];
+						prev[mymsg.suid][2] = '';
+						prev[mymsg.suid][0].unshift(mymsg.time);
+						prev[mymsg.suid][1].unshift({
+							"user": "you",
+							"msg": mymsg.message
+						})
+						prev[mymsg.suid][2] = mymsg.suid;
+						// this.totime = prev[mymsg.suid][0][(prev[mymsg.suid][0]).length - 1].substr(11, 8);
+						// this.tomsg = prev[mymsg.suid][1][(prev[mymsg.suid][1]).length - 1][msg];
+					} else {
+						prev[mymsg.suid][0].unshift(mymsg.time);
+						prev[mymsg.suid][1].unshift({
+							"user": "you",
+							"msg": mymsg.message
+						})
+						// this.totime = prev[mymsg.suid][0][(prev[mymsg.suid][0]).length - 1].substr(11, 8);
+						// this.tomsg = prev[mymsg.suid][1][(prev[mymsg.suid][1]).length - 1].msg;
+						console.log(this.tomsg);
+					}
+					return prev;
+				}, {}
+			);
+			for (var item in summessage) {
+				if (state.summsg[item] == undefined) {
+					state.summsg[item] = [
+						[]
+					];
+					console.log("@@@@@@@@@@@@@@@@@@@@@@@@@", item[0], item[1], item[2], item);
+					state.summsg[item][0] = [];
+					console.log("&&&&&&&&&&&&&&&&&&&&&", summessage[item][0]);
+					state.summsg[item][1] = [];
+					state.summsg[item][2] = '';
+					state.summsg[item][0] = [...summessage[item][0]]
+					state.summsg[item][1] = [...summessage[item][1]]
+					state.summsg[item][2] = summessage[item][2];
+				} else {
+					state.summsg[item][0] = [...state.summsg[item][0], ...summessage[item][0]]
+					state.summsg[item][1] = [...state.summsg[item][1], ...summessage[item][1]]
+					state.summsg[item][2] = summessage[item][2];
+				}
+			}
+			console.log(state.summsg, "###################这是state.summsg############################");
+			console.log("聊天函数被触发")
+		}
+	},
 	SAVE_GUANZHU(state, data) {
 		//把用户信息存入本地存储
 		localStorage.setItem("guanzhu", data);
@@ -345,6 +470,11 @@ const mutations = {
 		state.uid = data;
 		console.log("uid函数被触发");
 		console.log(state.uid);
+	},
+	SAVE_sayuid(state, data) {
+		state.say_uid = data;
+		console.log("say_uid函数被触发");
+		console.log(state.say_uid);
 	}
 }
 export default new Vuex.Store({

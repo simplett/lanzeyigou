@@ -132,30 +132,31 @@
 							console.log("发送的聊天消息", result);
 							if(result.data.status==1)
 							{
-								if (this.summsg[this.uid] == undefined) {
-									this.summsg[this.uid] = [
-										[]
-									];
-									// console.log("@@@@@@@@@@@@@@@@@@@@@@@@@", item[0], item[1], item[2], item);
-									this.summsg[this.uid][0] = [];
-									// console.log("&&&&&&&&&&&&&&&&&&&&&", summessage[this.uid][0]);
-									this.summsg[this.uid][1] = [];
-									this.summsg[this.uid][2] = '';
-									this.summsg[this.uid][0].push("111111");
-									this.summsg[this.uid][1].push({
-										"user": "me",
-										"msg": this.sendmsg
-									});
-									this.summsg[this.uid][2] = this.uid;
-								} else {
-									this.summsg[this.uid][0].push("111111");
-									this.summsg[this.uid][1].push({
-										"user": "me",
-										"msg": this.sendmsg
-									});
-									this.summsg[this.uid][2] = this.uid;
-									console.log("发送一次")
-								}
+								this.$store.commit("SEND_MSG", this.sendmsg,this.uid);
+								// if (this.summsg[this.uid] == undefined) {
+								// 	this.summsg[this.uid] = [
+								// 		[]
+								// 	];
+								// 	// console.log("@@@@@@@@@@@@@@@@@@@@@@@@@", item[0], item[1], item[2], item);
+								// 	this.summsg[this.uid][0] = [];
+								// 	// console.log("&&&&&&&&&&&&&&&&&&&&&", summessage[this.uid][0]);
+								// 	this.summsg[this.uid][1] = [];
+								// 	this.summsg[this.uid][2] = '';
+								// 	this.summsg[this.uid][0].push("111111");
+								// 	this.summsg[this.uid][1].push({
+								// 		"user": "me",
+								// 		"msg": this.sendmsg
+								// 	});
+								// 	this.summsg[this.uid][2] = this.uid;
+								// } else {
+								// 	this.summsg[this.uid][0].push("111111");
+								// 	this.summsg[this.uid][1].push({
+								// 		"user": "me",
+								// 		"msg": this.sendmsg
+								// 	});
+								// 	this.summsg[this.uid][2] = this.uid;
+								// 	console.log("发送一次")
+								// }
 								this.sendmsg="";
 							}
 							else{
@@ -183,66 +184,67 @@
 									type: "get"
 								}
 							}).then(result => {
-								console.log("收到的聊天消息", result);
+								// console.log("收到的聊天消息", result);
 								var status = result.data.status;
 								if (status == 1) {
 									var msg = result.data.data;
-									var summessage = {};
-									if (msg) {
-										summessage = msg.reduce(
-											(prev, elem) => {
-												console.log(JSON.parse(elem.message));
-												var mymsg = JSON.parse(elem.message);
-												if (prev[mymsg.suid] === undefined) {
-													prev[mymsg.suid] = [
-														[]
-													];
-													prev[mymsg.suid][0] = [];
-													prev[mymsg.suid][1] = [];
-													prev[mymsg.suid][2] = '';
-													prev[mymsg.suid][0].unshift(mymsg.time);
-													prev[mymsg.suid][1].unshift({
-														"user": "you",
-														"msg": mymsg.message
-													})
-													prev[mymsg.suid][2] = mymsg.suid;
-													this.totime = prev[mymsg.suid][0][(prev[mymsg.suid][0]).length - 1].substr(11, 8);
-													this.tomsg = prev[mymsg.suid][1][(prev[mymsg.suid][1]).length - 1][msg];
-												} else {
-													prev[mymsg.suid][0].unshift(mymsg.time);
-													prev[mymsg.suid][1].unshift({
-														"user": "you",
-														"msg": mymsg.message
-													})
-													this.totime = prev[mymsg.suid][0][(prev[mymsg.suid][0]).length - 1].substr(11, 8);
-													this.tomsg = prev[mymsg.suid][1][(prev[mymsg.suid][1]).length - 1].msg;
-													console.log(this.tomsg);
-												}
-												return prev;
-											}, {}
-										);
-										console.log("########################这是数据", summessage)
-										for (var item in summessage) {
-											if (this.summsg[item] == undefined) {
-												this.summsg[item] = [
-													[]
-												];
-												console.log("@@@@@@@@@@@@@@@@@@@@@@@@@", item[0], item[1], item[2], item);
-												this.summsg[item][0] = [];
-												console.log("&&&&&&&&&&&&&&&&&&&&&", summessage[item][0]);
-												this.summsg[item][1] = [];
-												this.summsg[item][2] = '';
-												this.summsg[item][0] = [...summessage[item][0]]
-												this.summsg[item][1] = [...summessage[item][1]]
-												this.summsg[item][2] = summessage[item][2];
-											} else {
-												this.summsg[item][0] = [...this.summsg[item][0], ...summessage[item][0]]
-												this.summsg[item][1] = [...this.summsg[item][1], ...summessage[item][1]]
-												this.summsg[item][2] = summessage[item][2];
-											}
-										}
-										console.log(this.summsg, "###################这是this.summsg############################");
-									}
+									this.$store.commit("SAVE_SUMMSH", msg);
+									// var summessage = {};
+									// if (msg) {
+									// 	summessage = msg.reduce(
+									// 		(prev, elem) => {
+									// 			console.log(JSON.parse(elem.message));
+									// 			var mymsg = JSON.parse(elem.message);
+									// 			if (prev[mymsg.suid] === undefined) {
+									// 				prev[mymsg.suid] = [
+									// 					[]
+									// 				];
+									// 				prev[mymsg.suid][0] = [];
+									// 				prev[mymsg.suid][1] = [];
+									// 				prev[mymsg.suid][2] = '';
+									// 				prev[mymsg.suid][0].unshift(mymsg.time);
+									// 				prev[mymsg.suid][1].unshift({
+									// 					"user": "you",
+									// 					"msg": mymsg.message
+									// 				})
+									// 				prev[mymsg.suid][2] = mymsg.suid;
+									// 				this.totime = prev[mymsg.suid][0][(prev[mymsg.suid][0]).length - 1].substr(11, 8);
+									// 				this.tomsg = prev[mymsg.suid][1][(prev[mymsg.suid][1]).length - 1][msg];
+									// 			} else {
+									// 				prev[mymsg.suid][0].unshift(mymsg.time);
+									// 				prev[mymsg.suid][1].unshift({
+									// 					"user": "you",
+									// 					"msg": mymsg.message
+									// 				})
+									// 				this.totime = prev[mymsg.suid][0][(prev[mymsg.suid][0]).length - 1].substr(11, 8);
+									// 				this.tomsg = prev[mymsg.suid][1][(prev[mymsg.suid][1]).length - 1].msg;
+									// 				console.log(this.tomsg);
+									// 			}
+									// 			return prev;
+									// 		}, {}
+									// 	);
+									// 	console.log("########################这是数据", summessage)
+									// 	for (var item in summessage) {
+									// 		if (this.summsg[item] == undefined) {
+									// 			this.summsg[item] = [
+									// 				[]
+									// 			];
+									// 			console.log("@@@@@@@@@@@@@@@@@@@@@@@@@", item[0], item[1], item[2], item);
+									// 			this.summsg[item][0] = [];
+									// 			console.log("&&&&&&&&&&&&&&&&&&&&&", summessage[item][0]);
+									// 			this.summsg[item][1] = [];
+									// 			this.summsg[item][2] = '';
+									// 			this.summsg[item][0] = [...summessage[item][0]]
+									// 			this.summsg[item][1] = [...summessage[item][1]]
+									// 			this.summsg[item][2] = summessage[item][2];
+									// 		} else {
+									// 			this.summsg[item][0] = [...this.summsg[item][0], ...summessage[item][0]]
+									// 			this.summsg[item][1] = [...this.summsg[item][1], ...summessage[item][1]]
+									// 			this.summsg[item][2] = summessage[item][2];
+									// 		}
+									// 	}
+									// 	console.log(this.summsg, "###################这是this.summsg############################");
+									// }
 									var count = result.data.count;
 									if (count == 0 && time >= 500) {
 										time += (time < 1000) ? 100 : 0;

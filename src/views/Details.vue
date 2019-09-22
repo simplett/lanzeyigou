@@ -358,7 +358,8 @@
 								price,
 								pid,
 								wcount,
-								status
+								status,
+								uid
 							}
 							console.log(this.userdata);
 							console.log(1231231313);

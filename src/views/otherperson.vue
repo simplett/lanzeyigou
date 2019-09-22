@@ -77,16 +77,7 @@
 						console.log("########################################################这是其他用户中心的第一次成功数据请求", result);
 						this.userdata = result.data;
 					})
-				} else {
-					params.uid = 1;
-					this.axios.get(url, {
-						params
-					}).then(result => {
-						console.log("########################################################这是其他用用户中心的第一次模板数据请求", result);
-						this.userdata = result.data;
-						this.open5();
-					})
-				}
+				} 
 			},
 			GetUserHot() {
 				this.axios

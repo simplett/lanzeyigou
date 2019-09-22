@@ -18,7 +18,8 @@ import aliyun1 from "./components/aliyun copy.vue"
 import otherperson from "./views/otherperson.vue"
 import personcenter from "./components/personcenter.vue"
 import RegLogin1 from "./components/RegLogin.1.vue"
-import chat from "./components/Chat.1.vue"
+import chat from "./views/Chatviews.vue"
+import chat1 from "./components/Chat.1.vue"
 import order from "./views/Order.vue"
 import card from "./components/card.vue"
 
@@ -64,6 +65,11 @@ export default new Router({
 			path: '/chat',
 			name: 'chat',
 			component: chat
+		},
+		{
+			path: '/chat1',
+			name: 'chat1',
+			component: chat1
 		},
 		{
 			path: '/details',
