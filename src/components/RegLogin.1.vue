@@ -8,7 +8,11 @@
 				<button @click="getUserCenter"  class="chat btn btn-danger">发布</button>
 				<button @click="getUserCenter"  class="chat btn btn-danger">个人中心</button> -->
 				<a class=" btn btn-danger" href="javascript:;" @click="ShowDiv('MyDiv','fade')" id="Button1">登录</a><br>
+<<<<<<< HEAD
 				<a href="javascript:;" @click="removetoken" class="chat btn btn-danger">退出登录</a><br>
+=======
+				<a href="javascript:;" @click="getChat" class="chat btn btn-danger">退出登录</a><br>
+>>>>>>> d0ab52faeb8dfdb29cdc4ada00d6ced6a80214ab
 				<a href="javascript:;" @click="getPublish" class="pb btn btn-danger">发布</a><br>
 				<a href="javascript:;" @click="getUserCenter" class="pc btn btn-danger">个人中心</a>
 			</div>

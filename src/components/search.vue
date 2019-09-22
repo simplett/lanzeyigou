@@ -88,7 +88,7 @@
 		font-size: 16px;
 		/* placeholder位置  */
 		text-align: left;
-		padding-left: 20px;
+		/* padding-left: 20px; */
 		line-height: normal;
 	}
 
