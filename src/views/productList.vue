@@ -80,8 +80,13 @@
 				</div>
 			</div>
 		</div>
+<<<<<<< HEAD
 		<reg-login />
 		<my-foot></my-foot>
+=======
+<reg-login />
+<my-foot></my-foot>
+>>>>>>> 618ecfdd1242ae2e9de963cf7fd80e0cb8188853
 	</div>
 </template>
 

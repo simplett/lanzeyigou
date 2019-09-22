@@ -4,7 +4,7 @@
 		<div class="index-header">
 			<!-- 首页页头左部分 -->
 			<div class="index-header-left">
-				<img src="../../public/images/logo完整版.png" alt />
+				<img @click="ToIndex()" src="../../public/images/logo完整版.png" alt />
 			</div>
 			<!-- 首页页头右部分 -->
 			<div class="index-header-right">
@@ -22,6 +22,9 @@
 			}
 		},
 		methods: {
+			ToIndex(){
+				this.$router.push("/");
+			},
 			//        Search() {
 			// 	var SearchContent = this.SearchContent;
 			// 	var url = "/Search";
