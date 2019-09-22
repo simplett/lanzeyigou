@@ -268,7 +268,7 @@
 		font-weight: bold;
 		background-color: #e5e5e5;
 		text-align: left;
-		padding-left: 50px;
+		padding-left: 20px;
 	}
 
 	.select-pro1 {

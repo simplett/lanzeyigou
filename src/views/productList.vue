@@ -80,7 +80,8 @@
 				</div>
 			</div>
 		</div>
-<reg-login />
+		<reg-login />
+		<my-foot></my-foot>
 	</div>
 </template>
 

@@ -4,7 +4,6 @@
 		<my-header />
 		<!-- 搜索 -->
 		<search />
-		<!-- 填写并且核对信息 -->
 		<div class="Ordertext">
 			<h1>填写并且核对信息</h1>
 		</div>
@@ -17,7 +16,6 @@
 				<button @click="dialogVisible = true" class="btn ">新增收货地址</button>
 			</div>
 		</div>
-		<!-- 确认订单信息 -->
 		<div class="checked">确认订单信息</div>
 		<div class="select-pro">
 			<div class="pro-name"><span>商家:丁晓瑞</span></div>
@@ -267,8 +265,6 @@
 		margin: 0 auto;
 		font-weight: bold;
 		background-color: #e5e5e5;
-		text-align: left;
-		padding-left: 50px;
 	}
 
 	.select-pro1 {

@@ -4,7 +4,7 @@
 		<my-header />
 		<!-- 搜索 -->
 		<search />
-		<!-- 填写并且核对信息 -->
+		<!--  -->
 		<div class="Ordertext">
 			<h1>填写并且核对信息</h1>
 		</div>
@@ -267,8 +267,6 @@
 		margin: 0 auto;
 		font-weight: bold;
 		background-color: #e5e5e5;
-		text-align: left;
-		padding-left: 50px;
 	}
 
 	.select-pro1 {
