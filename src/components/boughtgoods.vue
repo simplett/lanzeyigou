@@ -70,7 +70,7 @@ div.el-step__title{
 .content-title{
     width:100%;
     height:60px;
-    background:#c0c0c0;
+    background: #ffffff;;
 	margin-top:10px;
 }
 .content-title>div{
