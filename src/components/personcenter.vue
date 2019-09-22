@@ -45,9 +45,9 @@
 					</div>
 				</el-form-item>
 				<!-- 修改密码 -->
-				<el-form-item label="修改密码">
+				<el-form-item label="修改地址">
 					<div class="intro-input">
-						<el-input placeholder="新密码" v-model="password" type="password"></el-input><i class="el-icon-edit"></i>
+						<el-input v-model="password"></el-input><i class="el-icon-edit"></i>
 					</div>
 				</el-form-item>
 			</el-form>
@@ -123,7 +123,7 @@
 	.content-title {
 		width: 100%;
 		height: 60px;
-		background: #c0c0c0;
+		background: #ffffff;
 		margin-top: 10px;
 	}
 

@@ -26,8 +26,6 @@
 						<div class="p-7-m-font">
 							{{codeid.name[i]}}
 						</div>
-						<div class="p-7-m-img">
-						</div>
 					</div>
 				</div>
 			</div>
@@ -223,76 +221,44 @@
 	.p-7-right-img {
 		width: 100%;
 		height: 100%;
-		position: absolute;
+		position: relative;
 		/* border:1px solid green; */
 		top: 0px;
 		left: 0px;
+		text-align: center;
+		/* z-index: 200; */
+		/* filter: blur(50px); */
 	}
-	/* .p-7-right-img:hover {
-	filter: blur(20px);
+	.p-7-right-img:hover img{
+		-webkit-filter: blur(10px);
+		-moz-filter: blur(10px);
+		-ms-filter: blur(10px);    
+		filter: blur(10px);
+		filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false); /* IE6~IE9 */
 	}
-	.p-7-right-img:hover p {
-	color: blue;
-	} */
-
-
-
+	.p-7-right-img:hover .p-7-m-font{
+		display: block;
+	}
 	.p-7-right-img>img {
 		width: 270px;
 		height: 80%;
 		margin-top: 10%;
 
 	}
-	
-	.p-7-m-img {
-		width: 100%;
-		height: 100%;
-		overflow: hidden;
-		position: absolute;
-		top: 0px;
-		/* background: #17A2B8; */
-		left: 0px;
-		z-index: 400;
-		/* display: none; */
-		/* border: 1px solid green; */
-	}
 	.p-7-m-font {
-		/* width: 100%;
-		height: 100%; */
 		overflow: hidden;
 		position: absolute;
 		top: 0px;
-		left:20px;
-		/* margin:auto auto; */
 		z-index: 300;
-		/* display: none; */
-		/* border: 1px solid green; */
-		
+		display: none;
 		font-size: 36px;
 		font-weight: 400;
-		color: gold;
+		color: #ffffff;
 		padding: 0;
-		margin: 0 auto;
 		height: 100%;
+		width:100%;
 		line-height: 270px;
 	}
-	
-
-	.p-7-m-font:hover {
-		/* background: #f00; */
-		/* height: 100%; */
-		/* color: red; */
-		z-index: 300;
-		filter: blur(50px);
-	}
-	.p-7-m-img:hover {
-		/* background: #f00; */
-		/* height: 100%; */
-		/* color: red; */
-		/* z-index: 300; */
-		filter: blur(50px);
-	}
-
 	.title {
 		width: 1180px;
 		height: 68px;
