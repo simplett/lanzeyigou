@@ -8,7 +8,7 @@
 				<button @click="getUserCenter"  class="chat btn btn-danger">发布</button>
 				<button @click="getUserCenter"  class="chat btn btn-danger">个人中心</button> -->
 				<a class=" btn btn-danger" href="javascript:;" @click="ShowDiv('MyDiv','fade')" id="Button1">登录</a><br>
-				<a href="javascript:;" @click="getUserCenter" class="chat btn btn-danger">聊天</a><br>
+				<a href="javascript:;" @click="removetoken" class="chat btn btn-danger">退出登录</a><br>
 				<a href="javascript:;" @click="getUserCenter" class="pb btn btn-danger">发布</a><br>
 				<a href="javascript:;" @click="getUserCenter" class="pc btn btn-danger">个人中心</a>
 			</div>
@@ -115,6 +115,9 @@
 			};
 		},
 		methods: {
+			removetoken(){
+				localStorage.clear();
+			},
 			showmybuttom() {
 				if (this.isselect) {
 					this.isshow.height = "235px";
@@ -137,7 +140,48 @@
 				if (!token) {
 					this.ShowDiv('MyDiv', 'fade')
 				} else {
-					this.CloseDiv('MyDiv', 'fade')
+					var params = {
+						token
+					};
+					var url="/Login"
+					this.axios
+						.get(url, {
+							params
+						})
+						.then(result => {
+							console.log("###################################这是登陆之后的数据", result.data);
+							this.Status2 = result.data.status;
+							if (this.Status2 === 1) {
+								this.CloseDiv('MyDiv', 'fade')
+								var token = result.data.token;
+								// var guanzhu=result.data;
+								var shoucan = result.data.sp_data;
+								console.log("这是收藏 的数据", shoucan)
+								// if (token !== "") {
+								//   this.$store.commit("SAVE_USERINFO", token);
+								// }
+								this.$store.commit("SAVE_USERINFO", token);
+								// this.$store.commit("SAVE_GUANZHU", guanzhu);
+								if (shoucan) {
+									console.log("这是收藏有数据");
+									this.$store.commit("SAVE_SHOUCAN", shoucan);
+								} else {
+									console.log("这是收藏没有数据");
+									var init = undefined;
+									this.$store.commit("SAVE_SHOUCANINIT", init);
+								}
+								this.CloseDiv('MyDiv', 'fade');
+					
+							}
+							if (this.Status2 === 4) {
+								console.log(444);
+								alert("状态4");
+							}
+							if (this.Status2 === 5) {
+								console.log(555);
+								alert("状态5");
+							}
+						});
 				}
 				// var search = "name=";
 				// var begin = document.cookie.indexOf(search);

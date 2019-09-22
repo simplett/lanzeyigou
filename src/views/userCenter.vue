@@ -88,7 +88,6 @@
 			<div :is="contentView" :description="input" :userdata="userdata" class="content">
 
 			</div>
-			<reg-login />
 		</div>
 	</div>
 </template>

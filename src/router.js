@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import index from './views/index.vue'
 import productList from './views/productList.vue'
 import usercenter from './views/userCenter.vue'
-import login from "./components/RegLogin.vue"
+import login from "./components/RegLogin.1.vue"
 import collect from "./components/collect.vue"
 // import product from "./components/Comment.vue"
 import details from "./views/Details.vue"
