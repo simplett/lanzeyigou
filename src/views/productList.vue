@@ -20,10 +20,10 @@
 				<div class="p-7-right-2" :style="DIVstyle" v-for="(item,i) of 6" :key="i">
 					<!-- 6个div上覆盖的模糊层 -->
 
-					<div class="p-7-right-img">
+					<div @click="tolist(listdata[i])" class="p-7-right-img">
 						<img 
 						:src="codeid.imgurl[i]" />
-						<div class="p-7-m-font">
+						<div @click="tolist(listdata[i])" class="p-7-m-font">
 							{{codeid.name[i]}}
 						</div>
 					</div>
@@ -33,7 +33,7 @@
 		<!-- 分类 -->
 		<div class="myadd-nav" v-for="(item,i) of 6" :key="i">
 			<!-- 标题 -->
-			<div class="title">
+			<div :id="listdata[i]" class="title">
 				<div class="title-div">
 					<a>{{codeid.name[i]}}</a>
 				</div>
@@ -80,7 +80,14 @@
 				</div>
 			</div>
 		</div>
-<reg-login />
+		<div class="btn-group-vertical lanze-loucen ">
+			<button type="button" @click="tolist(listdata[0])" class="btn btn-default px-3 bg-light">{{codeid.name[0]}}</button>
+			<button type="button" @click="tolist(listdata[1])" class="btn btn-default px-3 bg-light">{{codeid.name[1]}}</button>
+			<button type="button" @click="tolist(listdata[2])" class="btn btn-default px-3 bg-light">{{codeid.name[2]}}</button>
+			<button type="button" @click="tolist(listdata[3])" class="btn btn-default px-3 bg-light">{{codeid.name[3]}}</button>
+			<button type="button" @click="tolist(listdata[4])" class="btn btn-default px-3 bg-light">{{codeid.name[4]}}</button>
+			<button type="button" @click="tolist(listdata[5])" class="btn btn-default px-3 bg-light">{{codeid.name[5]}}</button>		
+		</div>
 <my-foot></my-foot>
 	</div>
 </template>
@@ -89,6 +96,7 @@
 	export default {
 		data() {
 			return {
+				listdata:["a1","a2","a3","a4","a5","a6"],
 				//选中的裁剪出来的图片
 				selectimage: [
 					[],
@@ -107,6 +115,13 @@
 			}
 		},
 		methods: {
+			tolist(id){
+				document.getElementById(id).scrollIntoView({
+  behavior:  "smooth", // 默认 auto
+  block: "start", // 默认 center
+  inline: "start" // 默认 nearest
+});
+			},
 			// change(){
 			// 	document.getElementById("userimage").style.filter="blur(50px)";
 			// }
@@ -187,6 +202,11 @@
 	}
 </script>
 <style scoped>
+	.lanze-loucen{
+		position: fixed;
+		right: 30px;
+		bottom: 60px;
+	}
 	.p-7-img {
 		width: 1192px;
 		height: 550px;

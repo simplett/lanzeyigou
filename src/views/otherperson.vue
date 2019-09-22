@@ -23,7 +23,7 @@
 				<div class="product-state-a">
 					<a href="javascript:;" class="btn btn-danger">我的商品</a>
 				</div>
-				<div class="row justify-content-between">
+				<div class="row myproduct justify-content-between">
 					<div class="content" v-for="(item,i) of user_pid" :key="i">
 						<delproduct_usercenter :pid="item" :image="userdata.image" :nickname="userdata.nickname"></delproduct_usercenter>
 					</div>
@@ -107,6 +107,10 @@
 	}
 </script>
 <style lang="stylus" scoped>
+	.myproduct{
+		padding 10px 15px;
+		background #DAE0E5;
+	}
 	.y-intro {
 		width: 1180px;
 		height: 100%;
@@ -121,6 +125,7 @@
 		border: 1px solid silver;
 		margin: 0 auto;
 		margin-bottom: 10px;
+		border-radius 15px;
 	}
 
 	.y-photo {

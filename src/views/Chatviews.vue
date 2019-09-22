@@ -103,7 +103,7 @@
 				this.uid = this.$store.state.say_uid;
 				console.log(this.uid,"这是vuex的共享数据uid");
 			},
-			'$store.state.summsg'() {
+			'this.$store.state.add'() {
 				this.summsg = this.$store.state.summsg;
 				console.log(this.summsg,"这是vuex的共享数据");
 			}
@@ -111,6 +111,7 @@
 		methods: {
 			init() {
 				this.$store.commit("INIT_SUMMSG",this.uid);
+				console.log(this.$store.state.summsg,"fghjfghjghjhjhjhgh");
 				// if (this.summsg[this.uid] == undefined) {
 				// 	this.summsg[this.uid] = [
 				// 		[]

@@ -12,8 +12,8 @@
 				<!-- 步骤条线圆 -->
 				<div class="step">
 					<!-- 线 -->
-					<div class="step-line1-success"></div>
-					<div class="step-line2"></div>
+					<div id="tu1" class="step-line1"></div>
+					<div id="tu2" class="step-line1"></div>
 					<!-- 圆 -->
 					<div class="step-icon1">
 						<img src="../../public/images/publish/11.png">
@@ -31,7 +31,7 @@
 				</div>
 			</div>
 			<component :is="active"></component>
-			<button style="margin-top: 12px;" class="btn btn-success btn-lg" @click="next()">下一步</button>
+			<button style="margin-top: 12px;" class="btn btn-danger btn-lg" @click="next()">下一步</button>
 			<!-- 	*********************第一步***********************
 			<PubSelect></PubSelect>
 			********************第二步**********************
@@ -46,10 +46,13 @@
 	import PubSelect from "../components/publish/PubSelect.vue"
 	import PublishDel from "../components/publish/PublishDel.vue"
 	import Success from "../components/publish/Success.vue"
+	var numberlist=1;
 	let id = 0;
 	export default {
 		data() {
 			return {
+				code:"",
+				codelist:"",
 				active: "PubSelect",
 				codeidlist: [],
 				activelist: ["PubSelect", "PublishDel", "Success"],
@@ -82,7 +85,11 @@
 		},
 		methods: {
 			next() {
-				this.active = this.activelist.shift()
+				this.active = this.activelist.shift();
+				var c="tu";
+				var d=c+numberlist;
+				document.getElementById(d).classList="step-line1-success";
+				numberlist++;
 			},
 			getVuexData() {
 				// 只是改了query，其他都不变

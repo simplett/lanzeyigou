@@ -487,6 +487,7 @@ const state = {
 		}
 	],
 	code: 0,
+	add:1,
 	summsg: {
 		"00": [
 			["2019-05-45", "2019-05-45"],
@@ -525,6 +526,7 @@ const mutations = {
 				"msg": "hello"
 			});
 			state.summsg[uid][2] = uid;
+			state.add+=1;
 		}
 	},
 	SEND_MSG(state, data, uid) {

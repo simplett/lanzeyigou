@@ -8,13 +8,8 @@
 				<button @click="getUserCenter"  class="chat btn btn-danger">发布</button>
 				<button @click="getUserCenter"  class="chat btn btn-danger">个人中心</button> -->
 				<a class=" btn btn-danger" href="javascript:;" @click="ShowDiv('MyDiv','fade')" id="Button1">登录</a><br>
-<<<<<<< HEAD
 				<a href="javascript:;" @click="removetoken" class="chat btn btn-danger">退出登录</a><br>
-				<a href="javascript:;" @click="getUserCenter" class="pb btn btn-danger">发布</a><br>
-=======
-				<a href="javascript:;" @click="getChat" class="chat btn btn-danger">退出登录</a><br>
 				<a href="javascript:;" @click="getPublish" class="pb btn btn-danger">发布</a><br>
->>>>>>> d66ac8706cee36fce57af284e42f7a6428d31f24
 				<a href="javascript:;" @click="getUserCenter" class="pc btn btn-danger">个人中心</a>
 			</div>
 			<button class="login" @click="showmybuttom()">...</button>
@@ -79,12 +74,12 @@
 							<div class="overlay">
 								<div class="overlay-panel overlay-left">
 									<h1>欢迎回来！</h1>
-									<p>请您先登录的个人信息，进行操作。</p>
+									<p>日不见兮，如隔三秋</p>
 									<button class="ghost" id="signIn">登录</button>
 								</div>
 								<div class="overlay-panel overlay-right">
 									<h1>你好朋友！</h1>
-									<p>输入您的个人信息注册成为会员。</p>
+									<p>在最好的时光遇到最好的你</p>
 									<button class="ghost" id="signUp">注册</button>
 								</div>
 							</div>
@@ -120,7 +115,7 @@
 			};
 		},
 		methods: {
-			removetoken(){
+			removetoken() {
 				localStorage.clear();
 			},
 			showmybuttom() {
@@ -137,7 +132,7 @@
 			getUserCenter() {
 				this.$router.push("/usercenter");
 			},
-			getPublish(){
+			getPublish() {
 				this.$router.push("/publish")
 			},
 			//验证用户是否登录
@@ -147,277 +142,272 @@
 				console.log("####################token", token);
 				if (!token) {
 					this.ShowDiv('MyDiv', 'fade')
-				} else {
-					var params = {
-						token
-					};
-					var url="/Login"
-					this.axios
-						.get(url, {
-							params
-						})
-						.then(result => {
-							console.log("###################################这是登陆之后的数据", result.data);
-							this.Status2 = result.data.status;
-							if (this.Status2 === 1) {
-								this.CloseDiv('MyDiv', 'fade')
-								var token = result.data.token;
-								// var guanzhu=result.data;
-								var shoucan = result.data.sp_data;
-								console.log("这是收藏 的数据", shoucan)
-								// if (token !== "") {
-								//   this.$store.commit("SAVE_USERINFO", token);
-								// }
-								this.$store.commit("SAVE_USERINFO", token);
-								// this.$store.commit("SAVE_GUANZHU", guanzhu);
-								if (shoucan) {
-									console.log("这是收藏有数据");
-									this.$store.commit("SAVE_SHOUCAN", shoucan);
-								} else {
-									console.log("这是收藏没有数据");
-									var init = undefined;
-									this.$store.commit("SAVE_SHOUCANINIT", init);
-								}
-								this.CloseDiv('MyDiv', 'fade');
-							}
-						});
+				} else {		
+					this.CloseDiv('MyDiv', 'fade');
+					// var params = {
+					// 	token
+					// };
+					// var url="/Login"
+					// this.axios
+					// 	.get(url, {
+					// 		params
+					// 	})
+					// 	.then(result => {
+					// 		console.log("###################################这是登陆之后的数据", result.data);
+					// 		this.Status2 = result.data.status;
+					// 		if (this.Status2 === 1) {
+					// 			this.CloseDiv('MyDiv', 'fade')
+					// 			var token = result.data.token;
+					// 			// var guanzhu=result.data;
+					// 			var shoucan = result.data.sp_data;
+					// 			console.log("这是收藏 的数据", shoucan)
+					// 			// if (token !== "") {
+					// 			//   this.$store.commit("SAVE_USERINFO", token);
+					// 			// }
+					// 			this.$store.commit("SAVE_USERINFO", token);
+					// 			// this.$store.commit("SAVE_GUANZHU", guanzhu);
+					// 			if (shoucan) {
+					// 				console.log("这是收藏有数据");
+					// 				this.$store.commit("SAVE_SHOUCAN", shoucan);
+					// 			} else {
+					// 				console.log("这是收藏没有数据");
+					// 				var init = undefined;
+					// 				this.$store.commit("SAVE_SHOUCANINIT", init);
+					// 			}
+				};
+
+		// var search = "name=";
+		// var begin = document.cookie.indexOf(search);
+		// if (begin != -1) {
+		// 	begin += search.length;
+		// 	end = document.cookie.indexOf(";", begin);
+		// 	if (end == -1) {
+		// 		end = document.cookie.length;
+		// 	}
+		// 	document.getElementById("pageNameD").innerHTML = "<h1>对不起，" + document.cookie.substring(begin, end) +
+		// 		".您已经登录。</h1>"
+		// 	document.all.pageName.style.display = 'none'
+		// } else {
+		// 	alert("未登录");
+		// }
+	},
+	// 弹出隐藏层
+	ShowDiv(show_div, bg_div) {
+			document.getElementById(show_div).style.display = "block";
+			document.getElementById(bg_div).style.display = "block";
+			var bgdiv = document.getElementById(bg_div);
+			bgdiv.style.width = document.body.scrollWidth;
+			// bgdiv.style.height = $(document).height();
+			$("#" + bg_div).height($(document).height());
+		},
+		//关闭弹出层
+		CloseDiv(show_div, bg_div) {
+			document.getElementById(show_div).style.display = "none";
+			document.getElementById(bg_div).style.display = "none";
+		},
+		check() {
+			console.log(this.email);
+			var regemail = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+			var email = this.email;
+			var url = "/M";
+
+			if (regemail.test(email)) {
+				var params = {
+					email
+				};
+				console.log(email);
+
+				//1获取xhr对象
+				var xhr = new XMLHttpRequest();
+				console.log(xhr);
+				//4监听
+				xhr.onreadystatechange = function() {
+					if (xhr.readyState == 4 && xhr.status == 200) {
+						//接收响应数据
+						var result = xhr.responseText;
+						console.log(result);
+
+					}
 				}
-				// var search = "name=";
-				// var begin = document.cookie.indexOf(search);
-				// if (begin != -1) {
-				// 	begin += search.length;
-				// 	end = document.cookie.indexOf(";", begin);
-				// 	if (end == -1) {
-				// 		end = document.cookie.length;
-				// 	}
-				// 	document.getElementById("pageNameD").innerHTML = "<h1>对不起，" + document.cookie.substring(begin, end) +
-				// 		".您已经登录。</h1>"
-				// 	document.all.pageName.style.display = 'none'
-				// } else {
-				// 	alert("未登录");
-				// }
-			},
-			// 弹出隐藏层
-			ShowDiv(show_div, bg_div) {
-				document.getElementById(show_div).style.display = "block";
-				document.getElementById(bg_div).style.display = "block";
-				var bgdiv = document.getElementById(bg_div);
-				bgdiv.style.width = document.body.scrollWidth;
-				// bgdiv.style.height = $(document).height();
-				$("#" + bg_div).height($(document).height());
-			},
-			//关闭弹出层
-			CloseDiv(show_div, bg_div) {
-				document.getElementById(show_div).style.display = "none";
-				document.getElementById(bg_div).style.display = "none";
-			},
-			check() {
-				console.log(this.email);
-				var regemail = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
-				var email = this.email;
-				var url = "/M";
 
-				if (regemail.test(email)) {
-					var params = {
-						email
-					};
-					console.log(email);
-
-					//1获取xhr对象
-					var xhr = new XMLHttpRequest();
-					console.log(xhr);
-					//4监听
-					xhr.onreadystatechange = function() {
-						if (xhr.readyState == 4 && xhr.status == 200) {
-							//接收响应数据
-							var result = xhr.responseText;
-							console.log(result);
+				//2创建请求
+				xhr.open('get', 'http://10.1.180.146:10086/M?email=' + email, true);
+				//3发送请求
+				xhr.send(null);
+			} else {
+				this.code = 2;
+			}
+			// this.code = 0;
+		},
+		//登录的方法
+		login() {
+			var email = this.emails;
+			var upwd = this.upwd;
+			var regemail = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+			var regupwd = /^(\w){6,10}$/;
+			var e = regemail.test(email);
+			var w = regupwd.test(upwd);
+			if (e && w) {
+				var pwd = this.$md5(upwd);
+				var url = "/Login";
+				var params = {
+					email,
+					pwd
+				};
+				this.axios
+					.get(url, {
+						params
+					})
+					.then(result => {
+						console.log("###################################这是登陆之后的数据", result.data);
+						this.Status2 = result.data.status;
+						if (this.Status2 === 1) {
+							var token = result.data.token;
+							// var guanzhu=result.data;
+							var shoucan = result.data.su_data;
+							console.log("这是收藏 的数据", shoucan)
+							// if (token !== "") {
+							//   this.$store.commit("SAVE_USERINFO", token);
+							// }
+							this.$store.commit("SAVE_USERINFO", token);
+							// this.$store.commit("SAVE_GUANZHU", guanzhu);
+							if (shoucan) {
+								console.log("这是收藏有数据");
+								this.$store.commit("SAVE_SHOUCAN", shoucan);
+							} else {
+								console.log("这是收藏没有数据");
+								var init = undefined;
+								this.$store.commit("SAVE_SHOUCANINIT", init);
+							}
+							this.CloseDiv('MyDiv', 'fade');
 
 						}
-					}
-
-					//2创建请求
-					xhr.open('get', 'http://10.1.180.146:10086/M?email=' + email, true);
-					//3发送请求
-					xhr.send(null);
-				} else {
-					this.code = 2;
-				}
-				// this.code = 0;
-			},
-			//登录的方法
-			login() {
-				var email = this.emails;
-				var upwd = this.upwd;
-				var regemail = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
-				var regupwd = /^(\w){6,10}$/;
-				var e=regemail.test(email);
-				var w=regupwd.test(upwd);
-				if (e&&w) {
-					var pwd = this.$md5(upwd);
-					var url = "/Login";
-					var params = {
-						email,
-						pwd
-					};
-					this.axios
-						.get(url, {
-							params
-						})
-						.then(result => {
-							console.log("###################################这是登陆之后的数据", result.data);
-							this.Status2 = result.data.status;
-							if (this.Status2 === 1) {
-								var token = result.data.token;
-								// var guanzhu=result.data;
-								var shoucan = result.data.su_data;
-								console.log("这是收藏 的数据", shoucan)
-								// if (token !== "") {
-								//   this.$store.commit("SAVE_USERINFO", token);
-								// }
-								this.$store.commit("SAVE_USERINFO", token);
-								// this.$store.commit("SAVE_GUANZHU", guanzhu);
-								if (shoucan) {
-									console.log("这是收藏有数据");
-									this.$store.commit("SAVE_SHOUCAN", shoucan);
-								} else {
-									console.log("这是收藏没有数据");
-									var init = undefined;
-									this.$store.commit("SAVE_SHOUCANINIT", init);
-								}
-								this.CloseDiv('MyDiv', 'fade');
-
-							}
-							if (this.Status2 === 4) {
-								console.log(444);
-								alert("状态4");
-							}
-							if (this.Status2 === 5) {
-								console.log(555);
-								alert("状态5");
-							}
-						});
-				}else if(!e&&!w)
-				{
-					this.$message({
-						message: '邮箱格式和密码格式有误，密码由6到10位数字组成',
-						type: 'warning'
+						if (this.Status2 === 4) {
+							console.log(444);
+							alert("状态4");
+						}
+						if (this.Status2 === 5) {
+							console.log(555);
+							alert("状态5");
+						}
 					});
-				}
-				else if(!e)
-				{
-					this.$message({
-						message: '邮箱格式有误',
-						type: 'warning'
-					});
-				}else if(!w)
-				{
-					this.$message({
-						message: '密码格式有误，密码由6到10位数字组成',
-						type: 'warning'
-					});
-				}
-
-			},
-			//登录与注册切换时的动画
-			change() {
-				const signUpButton = document.getElementById("signUp");
-				const signInButton = document.getElementById("signIn");
-				const container = document.getElementById("container");
-				signUpButton.addEventListener("click", () => {
-					container.classList.add("right-panel-active");
-				});
-				signInButton.addEventListener("click", () => {
-					container.classList.remove("right-panel-active");
-				});
-			},
-			open3(uname) {
-				this.$notify({
-					title: '成功',
-					message: uname + '!您好，您已经成功注册了蓝泽易购',
-					type: 'success'
-				});
-				this.sengmsg = "";
-			},
-			open4() {
-				this.$notify({
-					title: '失败',
-					message: '很抱歉，系统错误',
+			} else if (!e && !w) {
+				this.$message({
+					message: '邮箱格式和密码格式有误，密码由6到10位数字组成',
 					type: 'warning'
 				});
-			},
-			reg() {
-				//正则表达式
-				var name = this.uname,
-					pwd = this.upwd,
-					email = this.email,
-					yzm = this.yzm,
-					reguname = /^[a-z1-9]{8,12}$/,
-					regemail = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/,
-					regchecking = /^\w{6}$/,
-					regupwd = /^(\w){6,10}$/;
-				//用户名是否输入合法
-				console.log(name);
-				if (!reguname.test(name)) {
-					this.code = 1; //根据code的状态，使用watch来动态监视在哪一步验证出错，动态的做出调整
-					return;
-				}
-				//邮箱号是否输入合法
-				if (!regemail.test(email)) {
-					this.code = 2;
-					return;
-				}
-				//密码格式是否合法
-				if (!regupwd.test(pwd)) {
-					this.code = 3;
-					return;
-				}
-				if (!regchecking.test(yzm)) {
-					this.code = 4;
-					return;
-				}
-				//验证用户输入的第二次密码是否和第一次一样，第一次已经验证了格式，
-				//所以第二次就不用验证了，通过就是格式和内容与第一次密码一致
-				//如果不需要输入第二次密码，则不启用
-				// if (upwd === this.upwd1) {
-				// 	this.code = 4;
-				// 	return;
-				// }
-				var url = "/Regist";
-				var params = {
-					name,
-					pwd: this.$md5(pwd),
-					email,
-					yzm
-				}; //ES6标准，可以简写
-				this.axios.get(url, {
-					params
-				}).then(result => {
-					//当status改变的时候，自动触发对应的函数
-					this.Status1 = result.data.status;
-					if (this.Status1 == 1) {
-						var token = result.data.token;
-						// var guanzhu=result.data;
-						// var shoucan=result.data;
-						// if (token !== "") {
-						//   this.$store.commit("SAVE_USERINFO", token);
-						// }
-						this.$store.commit("SAVE_USERINFO", token);
-						// this.$store.commit("SAVE_GUANZHU", token);
-						var init = undefined;
-						this.$store.commit("SAVE_SHOUCANINIT", init);
-
-						this.open3(this.uname);
-						this.closeDiv();
-						console.log("#######################################这是用户注册成功之后的数据", result);
-						// console.log(this.$store.state.userinfo);//打印出vueX里面的数据
-					} else {
-						// this.open4()
-					}
+			} else if (!e) {
+				this.$message({
+					message: '邮箱格式有误',
+					type: 'warning'
+				});
+			} else if (!w) {
+				this.$message({
+					message: '密码格式有误，密码由6到10位数字组成',
+					type: 'warning'
 				});
 			}
-		}, //ES6标准，可以简写
-		watch: {
+
+		},
+		//登录与注册切换时的动画
+		change() {
+			const signUpButton = document.getElementById("signUp");
+			const signInButton = document.getElementById("signIn");
+			const container = document.getElementById("container");
+			signUpButton.addEventListener("click", () => {
+				container.classList.add("right-panel-active");
+			});
+			signInButton.addEventListener("click", () => {
+				container.classList.remove("right-panel-active");
+			});
+		},
+		open3(uname) {
+			this.$notify({
+				title: '成功',
+				message: uname + '!您好，您已经成功注册了蓝泽易购',
+				type: 'success'
+			});
+			this.sengmsg = "";
+		},
+		open4() {
+			this.$notify({
+				title: '失败',
+				message: '很抱歉，系统错误',
+				type: 'warning'
+			});
+		},
+		reg() {
+			//正则表达式
+			var name = this.uname,
+				pwd = this.upwd,
+				email = this.email,
+				yzm = this.yzm,
+				reguname = /^[a-z1-9]{8,12}$/,
+				regemail = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/,
+				regchecking = /^\w{6}$/,
+				regupwd = /^(\w){6,10}$/;
+			//用户名是否输入合法
+			console.log(name);
+			if (!reguname.test(name)) {
+				this.code = 1; //根据code的状态，使用watch来动态监视在哪一步验证出错，动态的做出调整
+				return;
+			}
+			//邮箱号是否输入合法
+			if (!regemail.test(email)) {
+				this.code = 2;
+				return;
+			}
+			//密码格式是否合法
+			if (!regupwd.test(pwd)) {
+				this.code = 3;
+				return;
+			}
+			if (!regchecking.test(yzm)) {
+				this.code = 4;
+				return;
+			}
+			//验证用户输入的第二次密码是否和第一次一样，第一次已经验证了格式，
+			//所以第二次就不用验证了，通过就是格式和内容与第一次密码一致
+			//如果不需要输入第二次密码，则不启用
+			// if (upwd === this.upwd1) {
+			// 	this.code = 4;
+			// 	return;
+			// }
+			var url = "/Regist";
+			var params = {
+				name,
+				pwd: this.$md5(pwd),
+				email,
+				yzm
+			}; //ES6标准，可以简写
+			this.axios.get(url, {
+				params
+			}).then(result => {
+				//当status改变的时候，自动触发对应的函数
+				this.Status1 = result.data.status;
+				if (this.Status1 == 1) {
+					var token = result.data.token;
+					// var guanzhu=result.data;
+					// var shoucan=result.data;
+					// if (token !== "") {
+					//   this.$store.commit("SAVE_USERINFO", token);
+					// }
+					this.$store.commit("SAVE_USERINFO", token);
+					// this.$store.commit("SAVE_GUANZHU", token);
+					var init = undefined;
+					this.$store.commit("SAVE_SHOUCANINIT", init);
+
+					this.open3(this.uname);
+					this.closeDiv();
+					console.log("#######################################这是用户注册成功之后的数据", result);
+					// console.log(this.$store.state.userinfo);//打印出vueX里面的数据
+				} else {
+					// this.open4()
+				}
+			});
+		}
+	}, //ES6标准，可以简写
+	watch: {
 			code() {
 				if (this.code == 1) {
 					this.$message({
@@ -829,7 +819,7 @@
 		/* border: 1px solid #000000; */
 		border-radius: 5px;
 		background: white;
-		box-shadow: 10px 10px 5px #666666;
+		box-shadow: 5px 5px 5px #666666;
 		overflow: hidden;
 		transition: all 0.5s;
 	}
