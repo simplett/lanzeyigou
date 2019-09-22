@@ -80,13 +80,8 @@
 				</div>
 			</div>
 		</div>
-<<<<<<< HEAD
 		<reg-login />
 		<my-foot></my-foot>
-=======
-<reg-login />
-<my-foot></my-foot>
->>>>>>> 618ecfdd1242ae2e9de963cf7fd80e0cb8188853
 	</div>
 </template>
 
@@ -236,11 +231,11 @@
 		/* filter: blur(50px); */
 	}
 	.p-7-right-img:hover img{
-		-webkit-filter: blur(10px);
-		-moz-filter: blur(10px);
-		-ms-filter: blur(10px);    
-		filter: blur(10px);
-		filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false); /* IE6~IE9 */
+		-webkit-filter: blur(20px);
+		-moz-filter: blur(20px);
+		-ms-filter: blur(20px);    
+		filter: blur(20px);
+		filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=20, MakeShadow=false); /* IE6~IE9 */
 	}
 	.p-7-right-img:hover .p-7-m-font{
 		display: block;
@@ -436,8 +431,8 @@
 	}
 
 	.IMG {
-		width: 1920px;
-		/* height:600px; */
+		width: 1180px;
+		height:500px;
 		margin: 0 auto;
 	}
 

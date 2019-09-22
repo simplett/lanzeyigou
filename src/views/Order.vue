@@ -259,7 +259,7 @@
 		font-weight: bold;
 	}
 
-	.checked {
+	.checked{
 		width: 1180px;
 		height: 50px;
 		line-height: 50px;
