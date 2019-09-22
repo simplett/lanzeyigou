@@ -13,6 +13,228 @@ const state = {
 	guanzhu: "",
 	shoucan: "",
 	shoucanlist: [],
+	options: [{
+	  value: '1',
+	  label: '数码产品',
+	  children: [{
+	      value: '1',
+	      label: '炫酷电脑'
+	    }, {
+	      value: '2',
+	      label: '手机一族'
+	    }, {
+	      value: '3',
+	      label: '相机拍摄'
+	    }, {
+	      value: '4',
+	      label: '智能穿戴'
+	    }, {
+	      value: '5',
+	      label: '电脑周边'
+	    }, {
+	      value: '6',
+	      label: '网络设备'
+	    }]
+	},{
+	  value: '2',
+	  label: '运动体育',
+	  children: [{
+	      value: '1',
+	      label: '运动器材'
+	    }, {
+	      value: '1',
+	      label: '户外运动'
+	    }, {
+	      value: '3',
+	      label: '健身塑形'
+	    }, {
+	      value: '4',
+	      label: '球类包陪'
+	    }, {
+	      value: '5',
+	      label: '小众运动'
+	    }, {
+	      value: '6',
+	      label: '运动鞋'
+	    }]
+	},{
+	  value: '3',
+	  label: '服装服饰',
+	  children: [{
+	      value: '1',
+	      label: '运动风格'
+	    }, {
+	      value: '2',
+	      label: '休闲风格'
+	    }, {
+	      value: '3',
+	      label: '商务风格'
+	    }, {
+	      value: '4',
+	      label: '百搭风格'
+	    }, {
+	      value: '5',
+	      label: '街头风格'
+	    }, {
+	      value: '6',
+	      label: '简约风格'
+	    }]
+	},{
+	  value: '4',
+	  label: '饰品首饰',
+	  children: [{
+	      value: '1',
+	      label: '新潮搭配'
+	    }, {
+	      value: '2',
+	      label: '服饰配饰'
+	    }, {
+	      value: '3',
+	      label: '首饰手表'
+	    }, {
+	      value: '4',
+	      label: '珠宝一类'
+	    }, {
+	      value: '5',
+	      label: '眼睛一族'
+	    }, {
+	      value: '6',
+	      label: '各种包包'
+	    }]
+	},{
+	  value: '5',
+	  label: '家用电器',
+	  children: [{
+	      value: '1',
+	      label: '厨卫电器'
+	    }, {
+	      value: '2',
+	      label: '小家电'
+	    }, {
+	      value: '3',
+	      label: '环境电器'
+	    }, {
+	      value: '4',
+	      label: '大家电'
+	    }, {
+	      value: '5',
+	      label: '温控电气'
+	    }, {
+	      value: '6',
+	      label: '其他电器'
+	    }]
+	},{
+	  value: '6',
+	  label: '宠物用品',
+	  children: [{
+	      value: '1',
+	      label: '宠物玩具'
+	    }, {
+	      value: '2',
+	      label: '宠物零食'
+	    }, {
+	      value: '3',
+	      label: '喂食器'
+	    }, {
+	      value: '4',
+	      label: '宠物'
+	    }, {
+	      value: '5',
+	      label: '宠物药品'
+	    }, {
+	      value: '6',
+	      label: '宠物之家'
+	    }]
+	},{
+	  value: '7',
+	  label: '日用百货',
+	  children: [{
+	      value: '1',
+	      label: '文具教具'
+	    }, {
+	      value: '2',
+	      label: '餐饮用具'
+	    }, {
+	      value: '3',
+	      label: '厨房用品'
+	    }, {
+	      value: '4',
+	      label: '床上用品'
+	    }, {
+	      value: '5',
+	      label: '家居日用'
+	    }, {
+	      value: '6',
+	      label: '其他日用'
+	    }]
+	},{
+	  value: '8',
+	  label: '左图右史',
+	  children: [{
+	      value: '1',
+	      label: '国际名著'
+	    }, {
+	      value: '2',
+	      label: '工具用书'
+	    }, {
+	      value: '3',
+	      label: '课本教材'
+	    }, {
+	      value: '4',
+	      label: '科普类书'
+	    }, {
+	      value: '5',
+	      label: '小说大全'
+	    }, {
+	      value: '6',
+	      label: '100本必读'
+	    }]
+	},{
+	  value: '9',
+	  label: '美容护肤',
+	  children: [{
+	      value: '1',
+	      label: '化妆彩妆'
+	    }, {
+	      value: '2',
+	      label: '护理护肤'
+	    }, {
+	      value: '3',
+	      label: '口红卖场'
+	    }, {
+	      value: '4',
+	      label: '美容美颜'
+	    }, {
+	      value: '5',
+	      label: '香水一类'
+	    }, {
+	      value: '6',
+	      label: '滋生面膜'
+	    }]
+	},{
+	  value: '10',
+	  label: '健康养生',
+	  children: [{
+	      value: '1',
+	      label: '计生用品'
+	    }, {
+	      value: '2',
+	      label: '外用理疗'
+	    }, {
+	      value: '3',
+	      label: '传统滋补'
+	    }, {
+	      value: '4',
+	      label: '保健品'
+	    }, {
+	      value: '5',
+	      label: '养生药品'
+	    }, {
+	      value: '6',
+	      label: '养生食物'
+	    }]
+	},
+	],
 	productlist: [{
 			"codelist": [
 				101,

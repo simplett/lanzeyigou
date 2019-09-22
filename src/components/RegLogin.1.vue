@@ -184,15 +184,6 @@
 									this.$store.commit("SAVE_SHOUCANINIT", init);
 								}
 								this.CloseDiv('MyDiv', 'fade');
-					
-							}
-							if (this.Status2 === 4) {
-								console.log(444);
-								alert("状态4");
-							}
-							if (this.Status2 === 5) {
-								console.log(555);
-								alert("状态5");
 							}
 						});
 				}
