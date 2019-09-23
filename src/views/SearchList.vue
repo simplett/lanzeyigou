@@ -3,11 +3,11 @@
 		<my-header></my-header>
 		<search></search>
 		<hr>
-		<div class="btn-group btn-group-lg text-left" style="margin-left: 50px;">
+		<!-- <div class="btn-group btn-group-lg text-left" style="margin-left: 50px;">
 			<button type="button" class="btn btn-default"></button>
 			<button type="button" class="btn btn-default">Button 2</button>
 			<button type="button" class="btn btn-default">Button 3</button>
-		</div>
+		</div> -->
 			<div class="tab-content">
 				<div style="display: block;" class="tab-pane" v-for="(item,i) of data" :key="i">
 					<!-- 猜你喜欢商品 -->

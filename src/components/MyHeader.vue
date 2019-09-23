@@ -12,7 +12,7 @@
 						<a href="#">请登录...</a>
 					</el-menu-item> -->
 					<el-menu-item index="2">
-						<a href="#" @click="getUserCenter">个人中心</a>
+						<a href="#" @click="getUserCenter()">个人中心</a>
 					</el-menu-item>
 					<el-dropdown>
 						<span class="el-dropdown-link">
@@ -89,6 +89,7 @@
 			getUserCenter() {
 				var token = localStorage.getItem("token");
 				if (token) {
+					this.$router.push("/usercenter");
 					var params = {
 						token
 					};
@@ -101,6 +102,8 @@
 							console.log("###################################这是登陆之后的数据", result.data);
 							this.Status2 = result.data.status;
 							if (this.Status2 === 1) {
+								var mytoken=result.data.token;
+									this.$store.commit("SAVE_USERINFO", mytoken);
 								this.$router.push("/usercenter");
 							} else {
 								this.$notify({

@@ -57,217 +57,479 @@
 	import peoplelist from "./chat/peoplelist.vue"
 
 	export default {
-		components: {
-			peoplelist,
-			me,
-			you
-		},
-		data() {
-			return {
-				sendmsg: "",
-				msguser: "00",
-				totime: "",
-				tomsg: "",
-				msg: "",
-				uid: "00",
-				disabled:true,
-				summsg: {
-					"00": [
-						["2019-05-45","2019-05-45"],
-						[
-							{
-								"user": "you",
-								"msg": "616516311111111111111111111111111111111111111111111111111111111"
-							},
-							{
-								"user": "you",
-								"msg": "616516311111111111111111111111111111111111111111111111111111111"
-							}
-						], "00"
-						["2019-05-45"],
-						[{
-							"user": "me",
-							"msg": "616516"
-						}], "00"
-					],
-					"22": [
-						["2019-05-45", "2019-05-45"],
-						[{
-								"user": "you",
-								"msg": "666666"
-							},
-							{
-								"user": "you",
-								"msg": "61631"
-							}
-						], "22"
-					]
-				}
-			}
-		},
-		watch:{
-			sendmsg()
-			{
-				if(this.sendmsg=="")
-				{
-					this.disabled=true;
-				}else{
-					this.disabled=false;
-				}
-			}
-		},
-		methods: {
-			sendmsgs() {
-				var token = localStorage.getItem("token");
-				if (token) {
-					this.axios
-						.get("/Chat", {
-							params: {
-								ruid: this.uid,
-								token,
-								type: "add",
-								message: this.sendmsg
-							}
-						}).then(result => {
-							console.log("发送的聊天消息", result);
-							if(result.data.status==1)
-							{
-								this.$store.commit("SEND_MSG", this.sendmsg,this.uid);
-								// if (this.summsg[this.uid] == undefined) {
-								// 	this.summsg[this.uid] = [
-								// 		[]
-								// 	];
-								// 	// console.log("@@@@@@@@@@@@@@@@@@@@@@@@@", item[0], item[1], item[2], item);
-								// 	this.summsg[this.uid][0] = [];
-								// 	// console.log("&&&&&&&&&&&&&&&&&&&&&", summessage[this.uid][0]);
-								// 	this.summsg[this.uid][1] = [];
-								// 	this.summsg[this.uid][2] = '';
-								// 	this.summsg[this.uid][0].push("111111");
-								// 	this.summsg[this.uid][1].push({
-								// 		"user": "me",
-								// 		"msg": this.sendmsg
-								// 	});
-								// 	this.summsg[this.uid][2] = this.uid;
-								// } else {
-								// 	this.summsg[this.uid][0].push("111111");
-								// 	this.summsg[this.uid][1].push({
-								// 		"user": "me",
-								// 		"msg": this.sendmsg
-								// 	});
-								// 	this.summsg[this.uid][2] = this.uid;
-								// 	console.log("发送一次")
-								// }
-								this.sendmsg="";
-							}
-							else{
-								 this.$message.error('系统错误，消息发送失败');
-							}
-						})
-				}
+		// components: {
+		// 	peoplelist,
+		// 	me,
+		// 	you
+		// },
+		// data() {
+		// 	return {
+		// 		sendmsg: "",
+		// 		msguser: "00",
+		// 		totime: "",
+		// 		tomsg: "",
+		// 		msg: "",
+		// 		uid: "00",
+		// 		disabled:true,
+		// 		summsg: {
+		// 			"00": [
+		// 				["2019-05-45","2019-05-45"],
+		// 				[
+		// 					{
+		// 						"user": "you",
+		// 						"msg": "616516311111111111111111111111111111111111111111111111111111111"
+		// 					},
+		// 					{
+		// 						"user": "you",
+		// 						"msg": "616516311111111111111111111111111111111111111111111111111111111"
+		// 					}
+		// 				], "00"
+		// 				["2019-05-45"],
+		// 				[{
+		// 					"user": "me",
+		// 					"msg": "616516"
+		// 				}], "00"
+		// 			],
+		// 			"22": [
+		// 				["2019-05-45", "2019-05-45"],
+		// 				[{
+		// 						"user": "you",
+		// 						"msg": "666666"
+		// 					},
+		// 					{
+		// 						"user": "you",
+		// 						"msg": "61631"
+		// 					}
+		// 				], "22"
+		// 			]
+		// 		}
+		// 	}
+		// },
+		// computed: {
+		//     listData() {
+		//       return this.$store.state.add;
+		//     }
+		//   },
+		// watch: {
+		// 	sendmsg() {
+		// 		if (this.sendmsg == "") {
+		// 			this.disabled = true;
+		// 		} else {
+		// 			this.disabled = false;
+		// 		}
+		// 	},
+		// 	listData(val) {
+		// 		this.summsg = this.$store.state.summsg;
+		// 		console.log(this.summsg,"这是vuex的共享数据");
+		// 	}
+		// },
+		// methods: {
+		// 	sendmsgs() {
+		// 		var token = localStorage.getItem("token");
+		// 		if (token) {
+		// 			this.axios
+		// 				.get("/Chat", {
+		// 					params: {
+		// 						ruid: this.uid,
+		// 						token,
+		// 						type: "add",
+		// 						message: this.sendmsg
+		// 					}
+		// 				}).then(result => {
+		// 					console.log("发送的聊天消息", result);
+		// 					if(result.data.status==1)
+		// 					{
+								
+		// 						this.$store.commit("SEND_MSG", this.sendmsg,this.uid);
+		// 						// if (this.summsg[this.uid] == undefined) {
+		// 						// 	this.summsg[this.uid] = [
+		// 						// 		[]
+		// 						// 	];
+		// 						// 	// console.log("@@@@@@@@@@@@@@@@@@@@@@@@@", item[0], item[1], item[2], item);
+		// 						// 	this.summsg[this.uid][0] = [];
+		// 						// 	// console.log("&&&&&&&&&&&&&&&&&&&&&", summessage[this.uid][0]);
+		// 						// 	this.summsg[this.uid][1] = [];
+		// 						// 	this.summsg[this.uid][2] = '';
+		// 						// 	this.summsg[this.uid][0].push("111111");
+		// 						// 	this.summsg[this.uid][1].push({
+		// 						// 		"user": "me",
+		// 						// 		"msg": this.sendmsg
+		// 						// 	});
+		// 						// 	this.summsg[this.uid][2] = this.uid;
+		// 						// } else {
+		// 						// 	this.summsg[this.uid][0].push("111111");
+		// 						// 	this.summsg[this.uid][1].push({
+		// 						// 		"user": "me",
+		// 						// 		"msg": this.sendmsg
+		// 						// 	});
+		// 						// 	this.summsg[this.uid][2] = this.uid;
+		// 						// 	console.log("发送一次")
+		// 						// }
+		// 						this.sendmsg="";
+		// 					}
+		// 					else{
+		// 						 this.$message.error('系统错误，消息发送失败');
+		// 					}
+		// 				})
+		// 		}
 				
+		// 	},
+		// 	Tomsg(uid) {
+		// 		this.msguser = uid;
+		// 		this.uid = uid;
+		// 		console.log(uid);
+		// 	},
+		// 	getsendmsg() {
+		// 		var time = 500;
+		// 		setInterval(() => {
+		// 			console.log("请求一次");
+		// 			var token = localStorage.getItem("token");
+		// 			if (token) {
+		// 				this.axios
+		// 					.get("/Chat", {
+		// 						params: {
+		// 							token,
+		// 							type: "get"
+		// 						}
+		// 					}).then(result => {
+		// 						// console.log("收到的聊天消息", result);
+		// 						var status = result.data.status;
+		// 						if (status == 1) {
+		// 							var msg = result.data.data;
+		// 							this.$store.commit("SAVE_SUMMSH", msg);
+		// 							// var summessage = {};
+		// 							// if (msg) {
+		// 							// 	summessage = msg.reduce(
+		// 							// 		(prev, elem) => {
+		// 							// 			console.log(JSON.parse(elem.message));
+		// 							// 			var mymsg = JSON.parse(elem.message);
+		// 							// 			if (prev[mymsg.suid] === undefined) {
+		// 							// 				prev[mymsg.suid] = [
+		// 							// 					[]
+		// 							// 				];
+		// 							// 				prev[mymsg.suid][0] = [];
+		// 							// 				prev[mymsg.suid][1] = [];
+		// 							// 				prev[mymsg.suid][2] = '';
+		// 							// 				prev[mymsg.suid][0].unshift(mymsg.time);
+		// 							// 				prev[mymsg.suid][1].unshift({
+		// 							// 					"user": "you",
+		// 							// 					"msg": mymsg.message
+		// 							// 				})
+		// 							// 				prev[mymsg.suid][2] = mymsg.suid;
+		// 							// 				this.totime = prev[mymsg.suid][0][(prev[mymsg.suid][0]).length - 1].substr(11, 8);
+		// 							// 				this.tomsg = prev[mymsg.suid][1][(prev[mymsg.suid][1]).length - 1][msg];
+		// 							// 			} else {
+		// 							// 				prev[mymsg.suid][0].unshift(mymsg.time);
+		// 							// 				prev[mymsg.suid][1].unshift({
+		// 							// 					"user": "you",
+		// 							// 					"msg": mymsg.message
+		// 							// 				})
+		// 							// 				this.totime = prev[mymsg.suid][0][(prev[mymsg.suid][0]).length - 1].substr(11, 8);
+		// 							// 				this.tomsg = prev[mymsg.suid][1][(prev[mymsg.suid][1]).length - 1].msg;
+		// 							// 				console.log(this.tomsg);
+		// 							// 			}
+		// 							// 			return prev;
+		// 							// 		}, {}
+		// 							// 	);
+		// 							// 	console.log("########################这是数据", summessage)
+		// 							// 	for (var item in summessage) {
+		// 							// 		if (this.summsg[item] == undefined) {
+		// 							// 			this.summsg[item] = [
+		// 							// 				[]
+		// 							// 			];
+		// 							// 			console.log("@@@@@@@@@@@@@@@@@@@@@@@@@", item[0], item[1], item[2], item);
+		// 							// 			this.summsg[item][0] = [];
+		// 							// 			console.log("&&&&&&&&&&&&&&&&&&&&&", summessage[item][0]);
+		// 							// 			this.summsg[item][1] = [];
+		// 							// 			this.summsg[item][2] = '';
+		// 							// 			this.summsg[item][0] = [...summessage[item][0]]
+		// 							// 			this.summsg[item][1] = [...summessage[item][1]]
+		// 							// 			this.summsg[item][2] = summessage[item][2];
+		// 							// 		} else {
+		// 							// 			this.summsg[item][0] = [...this.summsg[item][0], ...summessage[item][0]]
+		// 							// 			this.summsg[item][1] = [...this.summsg[item][1], ...summessage[item][1]]
+		// 							// 			this.summsg[item][2] = summessage[item][2];
+		// 							// 		}
+		// 							// 	}
+		// 							// 	console.log(this.summsg, "###################这是this.summsg############################");
+		// 							// }
+		// 							var count = result.data.count;
+		// 							if (count == 0 && time >= 500) {
+		// 								time += (time < 1000) ? 100 : 0;
+		// 								if (time == 1000) {
+		// 									time = 500;
+		// 								}
+		// 								console.log("##################11111", time)
+		// 							} else {
+		// 								time = 500;
+		// 								console.log("##################", time)
+		// 							}
+		// 						}
+
+
+		// 					})
+		// 			}
+		// 		}, time)
+		// 	}
+		// },
+		// created() {
+		// 	this.getsendmsg()
+		// 
+			components: {
+				peoplelist,
+				me,
+				you
 			},
-			Tomsg(uid) {
-				this.msguser = uid;
-				this.uid = uid;
-				console.log(uid);
+			data() {
+				return {
+					touid:"",
+					sendmsg: "",
+					msguser: "00",
+					totime: "",
+					tomsg: "",
+					msg: "",
+					uid: "00",
+					disabled: true,
+					chatimage:{},
+					summsg: {
+						"00": [
+							["2019-05-45", "2019-05-45"],
+							[{
+									"user": "you",
+									"msg": "616516311111111111111111111111111111111111111111111111111111111"
+								},
+								{
+									"user": "you",
+									"msg": "616516311111111111111111111111111111111111111111111111111111111"
+								}
+							], "00" 
+						]
+					}
+				}
 			},
-			getsendmsg() {
-				var time = 500;
-				setInterval(() => {
-					console.log("请求一次");
+			  computed: {
+			    listData() {
+			      return this.$store.state.add;
+			    },
+				say_uiddata(){
+					return this.$store.state.say_uid;
+				}
+			  },
+			watch: {
+				sendmsg() {
+					if (this.sendmsg == "") {
+						this.disabled = true;
+					} else {
+						this.disabled = false;
+					}
+				},
+				say_uiddata(val) {
+					this.uid = this.$store.state.say_uid;
+					console.log(this.uid,"这是vuex的共享数据uid");
+				},
+				listData(val) {
+					this.summsg = this.$store.state.summsg;
+					console.log(this.summsg,"这是vuex的共享数据");
+				},
+				uid(){
+					this.init();
+			}},
+			methods: {
+				faqiliaotian(){
+					this.uid=this.touid;
+					this.touid="";
+				},
+				init() {
+					this.$store.commit("INIT_SUMMSG",this.uid);
+					console.log(this.$store.state.summsg,"fghjfghjghjhjhjhgh");
+					// if (this.summsg[this.uid] == undefined) {
+					// 	this.summsg[this.uid] = [
+					// 		[]
+					// 	];
+					// 	// console.log("@@@@@@@@@@@@@@@@@@@@@@@@@", item[0], item[1], item[2], item);
+					// 	this.summsg[this.uid][0] = [];
+					// 	// console.log("&&&&&&&&&&&&&&&&&&&&&", summessage[this.uid][0]);
+					// 	this.summsg[this.uid][1] = [];
+					// 	this.summsg[this.uid][2] = '';
+					// 	this.summsg[this.uid][0].push("111111");
+					// 	this.summsg[this.uid][1].push({
+					// 		"user": "me",
+					// 		"msg": "hello"
+					// 	});
+					// 	this.summsg[this.uid][2] = this.uid;
+					// }
+				},
+				//获取用户的头像和名字
+				GetUserData() {
+					var url = "/Search";
+					var uid = this.uid;
+					var params = {
+						uid,
+						type: "user"
+					};
+					if (uid) {
+						this.axios.get(url, {
+							params
+						}).then(result => {
+							console.log("########################################################请求聊天的头像和名字", result);
+							this.chatimage = result.data;
+						})
+					}
+				},
+				sendmsgs() {
 					var token = localStorage.getItem("token");
 					if (token) {
 						this.axios
 							.get("/Chat", {
 								params: {
+									ruid: this.uid,
 									token,
-									type: "get"
+									type: "add",
+									message: this.sendmsg
 								}
 							}).then(result => {
-								// console.log("收到的聊天消息", result);
-								var status = result.data.status;
-								if (status == 1) {
-									var msg = result.data.data;
-									this.$store.commit("SAVE_SUMMSH", msg);
-									// var summessage = {};
-									// if (msg) {
-									// 	summessage = msg.reduce(
-									// 		(prev, elem) => {
-									// 			console.log(JSON.parse(elem.message));
-									// 			var mymsg = JSON.parse(elem.message);
-									// 			if (prev[mymsg.suid] === undefined) {
-									// 				prev[mymsg.suid] = [
-									// 					[]
-									// 				];
-									// 				prev[mymsg.suid][0] = [];
-									// 				prev[mymsg.suid][1] = [];
-									// 				prev[mymsg.suid][2] = '';
-									// 				prev[mymsg.suid][0].unshift(mymsg.time);
-									// 				prev[mymsg.suid][1].unshift({
-									// 					"user": "you",
-									// 					"msg": mymsg.message
-									// 				})
-									// 				prev[mymsg.suid][2] = mymsg.suid;
-									// 				this.totime = prev[mymsg.suid][0][(prev[mymsg.suid][0]).length - 1].substr(11, 8);
-									// 				this.tomsg = prev[mymsg.suid][1][(prev[mymsg.suid][1]).length - 1][msg];
-									// 			} else {
-									// 				prev[mymsg.suid][0].unshift(mymsg.time);
-									// 				prev[mymsg.suid][1].unshift({
-									// 					"user": "you",
-									// 					"msg": mymsg.message
-									// 				})
-									// 				this.totime = prev[mymsg.suid][0][(prev[mymsg.suid][0]).length - 1].substr(11, 8);
-									// 				this.tomsg = prev[mymsg.suid][1][(prev[mymsg.suid][1]).length - 1].msg;
-									// 				console.log(this.tomsg);
-									// 			}
-									// 			return prev;
-									// 		}, {}
-									// 	);
-									// 	console.log("########################这是数据", summessage)
-									// 	for (var item in summessage) {
-									// 		if (this.summsg[item] == undefined) {
-									// 			this.summsg[item] = [
-									// 				[]
-									// 			];
-									// 			console.log("@@@@@@@@@@@@@@@@@@@@@@@@@", item[0], item[1], item[2], item);
-									// 			this.summsg[item][0] = [];
-									// 			console.log("&&&&&&&&&&&&&&&&&&&&&", summessage[item][0]);
-									// 			this.summsg[item][1] = [];
-									// 			this.summsg[item][2] = '';
-									// 			this.summsg[item][0] = [...summessage[item][0]]
-									// 			this.summsg[item][1] = [...summessage[item][1]]
-									// 			this.summsg[item][2] = summessage[item][2];
-									// 		} else {
-									// 			this.summsg[item][0] = [...this.summsg[item][0], ...summessage[item][0]]
-									// 			this.summsg[item][1] = [...this.summsg[item][1], ...summessage[item][1]]
-									// 			this.summsg[item][2] = summessage[item][2];
-									// 		}
-									// 	}
-									// 	console.log(this.summsg, "###################这是this.summsg############################");
+								console.log("发送的聊天消息", result);
+								if (result.data.status == 1) {
+									this.$store.commit("SEND_MSG", this.sendmsg,this.uid);
+									// if (this.summsg[this.uid] == undefined) {
+									// 	this.summsg[this.uid] = [
+									// 		[]
+									// 	];
+									// 	// console.log("@@@@@@@@@@@@@@@@@@@@@@@@@", item[0], item[1], item[2], item);
+									// 	this.summsg[this.uid][0] = [];
+									// 	// console.log("&&&&&&&&&&&&&&&&&&&&&", summessage[this.uid][0]);
+									// 	this.summsg[this.uid][1] = [];
+									// 	this.summsg[this.uid][2] = '';
+									// 	this.summsg[this.uid][0].push("111111");
+									// 	this.summsg[this.uid][1].push({
+									// 		"user": "me",
+									// 		"msg": this.sendmsg
+									// 	});
+									// 	this.summsg[this.uid][2] = this.uid;
+									// } else {
+									// 	this.summsg[this.uid][0].push("111111");
+									// 	this.summsg[this.uid][1].push({
+									// 		"user": "me",
+									// 		"msg": this.sendmsg
+									// 	});
+									// 	this.summsg[this.uid][2] = this.uid;
+									// 	console.log("发送一次")
 									// }
-									var count = result.data.count;
-									if (count == 0 && time >= 500) {
-										time += (time < 1000) ? 100 : 0;
-										if (time == 1000) {
-											time = 500;
-										}
-										console.log("##################11111", time)
-									} else {
-										time = 500;
-										console.log("##################", time)
-									}
+									this.sendmsg = "";
+								} else {
+									this.$message.error('系统错误，消息发送失败');
 								}
-
-
 							})
 					}
-				}, time)
+		
+				},
+				Tomsg(uid) {
+					this.msguser = uid;
+					this.uid = uid;
+					console.log(uid);
+				},
+				getsendmsg() {
+					var time = 500;
+					setInterval(() => {
+						// console.log("请求一次");
+						var token = localStorage.getItem("token");
+						if (token) {
+							this.axios
+								.get("/Chat", {
+									params: {
+										token,
+										type: "get"
+									}
+								}).then(result => {
+									var status = result.data.status;
+									if (status == 1) {
+										var msg = result.data.data;
+										// console.log("收到的聊天消息", msg);
+										this.$store.commit("SAVE_SUMMSH", msg);
+										
+										// var summessage = {};
+										// if (msg) {
+										// 	summessage = msg.reduce(
+										// 		(prev, elem) => {
+										// 			console.log(JSON.parse(elem.message));
+										// 			var mymsg = JSON.parse(elem.message);
+										// 			if (prev[mymsg.suid] === undefined) {
+										// 				prev[mymsg.suid] = [
+										// 					[]
+										// 				];
+										// 				prev[mymsg.suid][0] = [];
+										// 				prev[mymsg.suid][1] = [];
+										// 				prev[mymsg.suid][2] = '';
+										// 				prev[mymsg.suid][0].unshift(mymsg.time);
+										// 				prev[mymsg.suid][1].unshift({
+										// 					"user": "you",
+										// 					"msg": mymsg.message
+										// 				})
+										// 				prev[mymsg.suid][2] = mymsg.suid;
+										// 				this.totime = prev[mymsg.suid][0][(prev[mymsg.suid][0]).length - 1].substr(11, 8);
+										// 				this.tomsg = prev[mymsg.suid][1][(prev[mymsg.suid][1]).length - 1][msg];
+										// 			} else {
+										// 				prev[mymsg.suid][0].unshift(mymsg.time);
+										// 				prev[mymsg.suid][1].unshift({
+										// 					"user": "you",
+										// 					"msg": mymsg.message
+										// 				})
+										// 				this.totime = prev[mymsg.suid][0][(prev[mymsg.suid][0]).length - 1].substr(11, 8);
+										// 				this.tomsg = prev[mymsg.suid][1][(prev[mymsg.suid][1]).length - 1].msg;
+										// 				console.log(this.tomsg);
+										// 			}
+										// 			return prev;
+										// 		}, {}
+										// 	);
+										// 	console.log("########################这是数据", summessage)
+										// 	for (var item in summessage) {
+										// 		if (this.summsg[item] == undefined) {
+										// 			this.summsg[item] = [
+										// 				[]
+										// 			];
+										// 			console.log("@@@@@@@@@@@@@@@@@@@@@@@@@", item[0], item[1], item[2], item);
+										// 			this.summsg[item][0] = [];
+										// 			console.log("&&&&&&&&&&&&&&&&&&&&&", summessage[item][0]);
+										// 			this.summsg[item][1] = [];
+										// 			this.summsg[item][2] = '';
+										// 			this.summsg[item][0] = [...summessage[item][0]]
+										// 			this.summsg[item][1] = [...summessage[item][1]]
+										// 			this.summsg[item][2] = summessage[item][2];
+										// 		} else {
+										// 			this.summsg[item][0] = [...this.summsg[item][0], ...summessage[item][0]]
+										// 			this.summsg[item][1] = [...this.summsg[item][1], ...summessage[item][1]]
+										// 			this.summsg[item][2] = summessage[item][2];
+										// 		}
+										// 	}
+										// 	console.log(this.summsg, "###################这是this.summsg############################");
+										// }
+										// var count = result.data.count;
+										// if (count == 0 && time >= 500) {
+										// 	time += (time < 1000) ? 100 : 0;
+										// 	if (time == 1000) {
+										// 		time = 500;
+										// 	}
+										// 	console.log("##################11111", time)
+										// } else {
+										// 	time = 500;
+										// 	console.log("##################", time)
+										// }
+									}
+		
+		
+								})
+						}
+					}, time)
+				}
+			},
+			created() {
+				this.uid = this.$store.state.say_uid;
+				console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$", this.uid);
+				this.init();
+				this.getsendmsg();
+				this.GetUserData()
 			}
-		},
-		created() {
-			this.getsendmsg()
 		}
-	}
 </script>
 <style scoped>
 	.content-title {

@@ -727,6 +727,7 @@ button.zan {
 .card {
 	width: 100%;
 	height: 500px;
+	overflow: hidden;
 }
 
 .card-img-top {

@@ -12,13 +12,25 @@
 				<el-aside>
 					<!-- 姓名 -->
 					<div class="chat-a">
-						<p>丁小瑞</p>
+						<p>我的聊天列表</p>
 					</div>
 					<!-- 聊天列表 -->
 					<!-- <div class="chat-list-a">
 
 					</div> -->
 					<div class="chat-list">
+						<div class="msg-input row justify-content-between px-0">
+							<!-- <input class="m-input" v-model="sendmsg"  type="text"> -->
+							<div class="w-75 lanze-line-height">
+								<input placeholder="请输入对方的id" v-model="touid" clearable>
+								</input>
+							</div>
+							<div class="w-25 lanze-line-height">
+								<button  @click="faqiliaotian()">发起聊天</button>
+								<!-- <a href="javascript:;" class="btn btn-success" >发送</a> -->
+							</div>
+						
+						</div>
 						<!-- 聊天朋友列表 -->
 						<div @click="Tomsg(item[2])" v-for="(item,i) of summsg" :key="i">
 							<peoplelist :time="totime" :msg="tomsg" :uid="item[2]"></peoplelist>
@@ -28,7 +40,7 @@
 				<el-main>
 					<!-- 信息框 -->
 					<div class="chat-b">
-						<p>小螺号</p>
+						<p>{{chatimage.nickname}}</p>
 					</div>
 					<div class="chat-msg">
 						<component v-for="(item,index) in summsg[msguser][0]" :key="index" :is="summsg[msguser][1][index].user" :info="summsg[msguser][1][index].msg"
@@ -64,6 +76,7 @@
 		},
 		data() {
 			return {
+				touid:"",
 				sendmsg: "",
 				msguser: "00",
 				totime: "",
@@ -71,6 +84,7 @@
 				msg: "",
 				uid: "00",
 				disabled: true,
+				chatimage:{},
 				summsg: {
 					"00": [
 						["2019-05-45", "2019-05-45"],
@@ -82,15 +96,19 @@
 								"user": "you",
 								"msg": "616516311111111111111111111111111111111111111111111111111111111"
 							}
-						], "00" ["2019-05-45"],
-						[{
-							"user": "me",
-							"msg": "616516"
-						}], "00"
+						], "00" 
 					]
 				}
 			}
 		},
+		  computed: {
+		    listData() {
+		      return this.$store.state.add;
+		    },
+			say_uiddata(){
+				return this.$store.state.say_uid;
+			}
+		  },
 		watch: {
 			sendmsg() {
 				if (this.sendmsg == "") {
@@ -99,16 +117,22 @@
 					this.disabled = false;
 				}
 			},
-			'$store.state.say_uid'() {
+			say_uiddata(val) {
 				this.uid = this.$store.state.say_uid;
 				console.log(this.uid,"这是vuex的共享数据uid");
 			},
-			'this.$store.state.add'() {
+			listData(val) {
 				this.summsg = this.$store.state.summsg;
 				console.log(this.summsg,"这是vuex的共享数据");
-			}
-		},
+			},
+			uid(){
+				this.init();
+		}},
 		methods: {
+			faqiliaotian(){
+				this.uid=this.touid;
+				this.touid="";
+			},
 			init() {
 				this.$store.commit("INIT_SUMMSG",this.uid);
 				console.log(this.$store.state.summsg,"fghjfghjghjhjhjhgh");
@@ -141,8 +165,8 @@
 					this.axios.get(url, {
 						params
 					}).then(result => {
-						console.log("########################################################这是其他用户中心的第一次成功数据请求", result);
-						this.userdata = result.data;
+						console.log("########################################################请求聊天的头像和名字", result);
+						this.chatimage = result.data;
 					})
 				}
 			},
@@ -296,7 +320,8 @@
 			this.uid = this.$store.state.say_uid;
 			console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$", this.uid);
 			this.init();
-			this.getsendmsg()
+			this.getsendmsg();
+			this.GetUserData()
 		}
 	}
 </script>

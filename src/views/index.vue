@@ -11,7 +11,7 @@
 		<div class="pd text-center" first="1">
 			<img class="pd-left" src="../../public/images/左边装饰红.png" alt />
 			<div class="pd-a">
-				<a class="pd_a">频道广场</a>
+				<a class="pd_a" style="color: #E61717;">频道广场</a>
 				<div class="pd-p-div">
 					<p>Classification of commodities</p>
 				</div>
@@ -130,7 +130,7 @@
 				con: "+关注",
 				flag: false, //单位切换开关
 				lunbo: [{
-						lunbo_url: "https://simplett-img.oss-cn-beijing.aliyuncs.com/lunbo/banner.png"
+						lunbo_url: "http://lanzesucai.oss-cn-beijing.aliyuncs.com/fenleiye/8_7.png"
 					},
 					{
 						lunbo_url: "https://simplett-img.oss-cn-beijing.aliyuncs.com/lunbo/banner1.png"
@@ -139,7 +139,7 @@
 						lunbo_url: "https://simplett-img.oss-cn-beijing.aliyuncs.com/lunbo/banner2.png"
 					},
 					{
-						lunbo_url: "https://simplett-img.oss-cn-beijing.aliyuncs.com/lunbo/banner1(1).png"
+						lunbo_url: "http://lanzesucai.oss-cn-beijing.aliyuncs.com/fenleiye/9_7.png"
 					}
 				],
 				data: [],
