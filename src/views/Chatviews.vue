@@ -225,8 +225,7 @@
 			getsendmsg() {
 				var time = 500;
 				setInterval(() => {
-					// console.log("请求一次");
-					var token = localStorage.getItem("token");
+					// console.log("请求一次") 
 					if (token) {
 						this.axios
 							.get("/Chat", {

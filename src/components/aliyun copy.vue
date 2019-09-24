@@ -1,48 +1,127 @@
-<!-- <template>
-	<el-upload class="upload-demo" action="https://jsonplaceholder.typicode.com/posts/" :http-request="uploadFile"
-	 :on-change="handleChange" list-type="picture-card" :file-list="fileList3">
-		<el-button size="small" type="primary">点击上传</el-button>
-		<div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
-	</el-upload>
+<template>
+  <div>
+    <el-upload
+      :auto-upload="false"
+      :action="uploadUrl"
+      ref="upload"
+      :before-upload="fnBeforeUpload"
+      :on-success="fnUploadSuccess"
+      :on-exceed="fnUploadExceed"
+      :data="data_extra"
+      :headers="uploadHeaders"
+      :http-request="fnUploadRequest"
+      drag
+      :limit="files"
+      :disabled="disabled"
+      multiple>
+      <i class="el-icon-upload"></i>
+      <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
+      <div slot="tip" class="el-upload__tip">上传文件大小不能超过 1G</div>
+    </el-upload>
+  </div>
 </template>
 <script>
-	// 调用后台接口返回过来的授权参数AccessKeyId、AccessKeySecret、SecurityToken
-	let client = new OSS({
-	    accessKeyId: data.AccessKeyId,
-	    accessKeySecret: data.AccessKeySecret,
-	    stsToken: data.SecurityToken,
-	    region: 'oss-cn-shenzhen', // oss地区
-	    bucket: '<OSS保存文件的文件名>'
-	})
-	 
-	// 拿到上传的文件
-	const f = this.file.raw
-	 
-	// 定义上传文件的名字+后缀
-	const storeAs = 'product/' + Date.parse(new Date()) + suffix
-	 
-	// 调用上传接口
-	client.multipartUpload(storeAs, f).then(function (response) {
-	    if (response.res.status === 200) {
-	       console.log('上传了')
-	    }
-	  }).catch(function (err) {
-	       console.error('error: ', err)
-	  })
-	export default {
-		data() {
-			return {
-				fileList3: [{
-					name: 'food.jpeg',
-					url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'
-				}]
-			};
-		},
-		methods: {
-			handleChange(file, fileList) {
-				this.fileList3 = fileList.slice(-3);
-			}
-		}
-	}
+// import UploadFileApi from '@/api/system/UploadFileApi'
+import OSS from 'ali-oss'
+let oss = require('ali-oss');
+var client = oss({
+  accessKeyId: 'your access key',
+  accessKeySecret: 'your access secret',
+  bucket: 'your bucket name',
+  region: 'oss-cn-hangzhou'
+});
+let result = client.multipartUpload('object-key', 'local-file', {
+    progress: async function (p) {
+      console.log('Progress: ' + p);
+    }
+  });
+export default {
+  name: 'fileUpload',
+  props: {
+    data_extra: {
+      type: Object,
+      required: true
+    },
+    accept: {
+      type: Array,
+      required: true
+    }
+  },
+  data () {
+    return {
+      uploadUrl: '',
+      fileList: [],
+      files: 10,
+      uploadHeaders: {
+        authorization: ''
+      },
+      disabled: false
+    }
+  },
+  methods: {
+    /**
+     * @description [fnUploadRequest 覆盖默认的上传行为，实现自定义上传]
+     * @author   shanshuizinong
+     * @param    {object}   option [上传选项]
+     * @return   {null}   [没有返回]
+     */
+    async fnUploadRequest (option) {
+      try {
+        let vm = this
+        vm.disabled = true
+        // 获取OSS配置信息
+        let uploadFileApi = new UploadFileApi()
+        let ret = await uploadFileApi.fileOssParams()
+        if (!(ret.data && ret.data.code === '0' && ret.data.data)) {
+          throw new Error('获取OSS参数失败')
+        }
+        let ossData = JSON.parse(ret.data.data)
+        let relativePath = ossData.relativePath
+        let client = new OSS.Wrapper({
+          policy: ossData.policy,
+          accessKeyId: ossData.accessid,
+          accessKeySecret: ossData.accesssecret,
+          bucket: ossData.bucket,
+          signature: ossData.signature
+        })
+        let file = option.file
+        const point = file.name.lastIndexOf('.')
+        let suffix = file.name.substr(point)
+        let fileName = file.name.substr(0, point)
+        let date = vm.$moment().format('YYYYMMDDHHmm')
+        let fileNames = `${fileName}_${date}${suffix}`
+        // 分片上传文件
+        ret = await client.multipartUpload(relativePath + fileNames, file, {
+          progress: async function (p) {
+            let e = {}
+            e.percent = p * 100
+            option.onProgress(e)
+          }
+        })
+        console.log(ret)
+        if (ret.res.statusCode === 200) {
+          // option.onSuccess(ret)
+          return ret
+        } else {
+          vm.disabled = false
+          option.onError('上传失败')
+        }
+      } catch (error) {
+        console.error(error)
+        this.disabled = false
+        option.onError('上传失败')
+        this.$error(error.message)
+      }
+    },
+    /**
+     * @description [fnUploadSuccess 文件上传成功的函数]
+     * @author   shanshuizinong
+     * @return   {null}  [没有返回]
+     */
+    async fnUploadSuccess () {
+      // TODO
+    }
+  }
+}
 </script>
- -->
+
