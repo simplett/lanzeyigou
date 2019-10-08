@@ -136,11 +136,14 @@
 	.nav-top {
 		width: 100%;
 		min-width: 1250px;
-		background-color: #e5e5e5;
+		background-color: #f5f5f5;
 	}
 
 	.el-col {
-		background-color: #e5e5e5;
+		background-color: #f5f5f5;
+	}
+	.el-menu{
+		border: 0!important;
 	}
 
 	.el-menu-demo,
@@ -153,8 +156,12 @@
 		line-height: 30px;
 		text-align: center;
 		vertical-align: -webkit-baseline-middle;
+		background-color: #f5f5f5!important;
+		
 	}
-
+	.el-menu-item{
+		background-color: #f5f5f5!important;
+	}
 	.el-menu-demo {
 		float: left;
 	}

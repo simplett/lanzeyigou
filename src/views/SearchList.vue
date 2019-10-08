@@ -135,6 +135,10 @@
 		float: left;
 	}
 
+	.g-l-p:hover{
+		box-shadow: 2px 2px 10px #909090;
+	}
+
 	.tab-content {
 		margin: 0 auto;
 		width: 1230px;

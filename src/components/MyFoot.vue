@@ -14,35 +14,35 @@
 						<a href="#">
 							<i class="footer-icon-unsub"></i>
 							<h2>5天</h2>
-							<p>内无理由退订</p>
+							<p>无理由退订</p>
 						</a>
 					</li>
 					<li>
 						<a href="#">
 							<i class="footer-icon-record"></i>
-							<h2>0元</h2>
-							<p>免费备案</p>
+							<h2>无担忧</h2>
+							<p>安全购买</p>
 						</a>
 					</li>
 					<li>
 						<a href="#">
 							<i class="footer-icon-pay"></i>
 							<h2>赔偿</h2>
-							<p>100倍故障赔偿</p>
+							<p>意外赔偿</p>
 						</a>
 					</li>
 					<li>
 						<a href="#">
 							<i class="footer-icon-feedback"></i>
 							<h2>意见</h2>
-							<p>反馈与投诉建议</p>
+							<p>反馈建议</p>
 						</a>
 					</li>
 					<li>
 						<a href="#">
 							<i class="footer-icon-vip"></i>
 							<h2>VIP</h2>
-							<p>专享服务</p>
+							<p>优质服务</p>
 						</a>
 					</li>
 				</ul>
@@ -62,12 +62,6 @@
 								<a class="footer-link" href="#" rel="nofollow">解决方案</a>
 							</dd>
 							<dd>
-								<a class="footer-link" href="#" rel="nofollow">云市场</a>
-							</dd>
-							<dd>
-								<a class="footer-link" href="#" rel="nofollow">开发者中心</a>
-							</dd>
-							<dd>
 								<a class="footer-link" href="#" rel="nofollow">服务咨询</a>
 							</dd>
 							<dd>
@@ -79,9 +73,6 @@
 							<dd>
 								<a class="footer-link" href="#" rel="nofollow">联系我们</a>
 							</dd>
-							<dd>
-								<a class="footer-link" href="#" rel="nofollow">支持与服务计划</a>
-							</dd>
 						</dl>
 						<dl>
 							<dt>账号与支付</dt>
@@ -90,12 +81,6 @@
 							</dd>
 							<dd>
 								<a class="footer-link" href="#" rel="nofollow">合同申请</a>
-							</dd>
-							<dd>
-								<a class="footer-link" href="#" rel="nofollow">线下汇款/电汇</a>
-							</dd>
-							<dd>
-								<a class="footer-link" href="#" rel="nofollow">索取发票</a>
 							</dd>
 						</dl>
 						<dl>
@@ -107,40 +92,18 @@
 								<a class="footer-link" href="#" rel="nofollow">管理控制台</a>
 							</dd>
 							<dd>
-								<a class="footer-link" href="#" rel="nofollow">备案中心</a>
-							</dd>
-							<dd>
-								<a class="footer-link" href="#" rel="nofollow">费用中心</a>
-							</dd>
-							<dd>
 								<a class="footer-link" href="#" rel="nofollow">用户中心</a>
-							</dd>
-							<dd>
-								<a class="footer-link" href="#" rel="nofollow">云图标库</a>
-							</dd>
-							<dd>
-								<a class="footer-link" href="#">云Axure组件库</a>
 							</dd>
 						</dl>
 						<dl>
-							<dt>关于云</dt>
+							<dt>关于我们</dt>
 							<dd>
-								<a class="footer-link" href="#" rel="nofollow">了解云</a>
+								<a class="footer-link" href="#" rel="nofollow">了解网站</a>
 							</dd>
 							<dd>
-								<a class="footer-link" href="#" rel="nofollow">云简介</a>
+								<a class="footer-link" href="#" rel="nofollow">网站简介</a>
 							</dd>
-							<dd>
-								<a class="footer-link" href="#" rel="nofollow">客户案例</a>
-							</dd>
-							<dd class="split-line"></dd>
-							<dt>信任中心</dt>
-							<dd>
-								<a class="footer-link" href="#" rel="nofollow">云安全</a>
-							</dd>
-							<dd>
-								<a class="footer-link" href="#" rel="nofollow">安全合规</a>
-							</dd>
+							
 						</dl>
 
 						<div class="footer-nav-other-link">
@@ -158,7 +121,7 @@
 							<div class="footer-nav-contact">
 								<div class="footer-nav-contact-phone">
 									<h1>上云服务热线</h1>
-									<p>4000 xxx xxx</p>
+									<p>4000 234 121</p>
 									<ul>
 										<li>
 											<a href="#">售前咨询</a>
@@ -233,13 +196,13 @@
 					<div class="footer-copyright">
 						<span>版权所有 © 软件技术有限公司 2018</span>
 						<span>保留一切权利</span>
-						<a href="#" rel="nofollow">苏ICP备xxxxxx号-5</a>
-						<span>苏B2-xxxxxxxxxx号</span>
+						<a href="#" rel="nofollow">滇ICP备20190924号-5</a>
+						<span>滇B2-2019092403842001号</span>
 					</div>
 					<div class="footer-record">
 						<i class="footer-icon-record1"></i>
 						<i class="footer-icon-record2"><a href="#"></a></i>
-						<span>苏公网安备 xxxxxxxxxxxxxx号</span>
+						<span>滇公网安备 20190924394331号</span>
 					</div>
 				</div>
 			</div>

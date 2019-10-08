@@ -2,8 +2,8 @@
     <div class="publish-c">
         <div class="pub-success">
             <p class="pub-sucMsg"><b>宝贝发布成功！</b></p><br>
-            <button style="margin-right:60px;">查看发布</button>
-            <button>继续发布</button>
+            <button style="margin-right:60px;"  @click="gopublish">查看发布</button>
+            <button @click="goback">继续发布</button>
         </div>
     </div>
 </template>
@@ -12,6 +12,15 @@ export default {
     data(){
         return{
 
+        }
+    },
+    methods:{
+        goback(){
+            this.$router.push("/")
+        },
+        gopublish(){
+            // console.log("123456789..........................")
+             this.$router.push("/usercenter")
         }
     }
 }

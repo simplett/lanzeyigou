@@ -7,10 +7,10 @@
 				<button @click="getUserCenter"  class="chat btn btn-danger">登出</button>
 				<button @click="getUserCenter"  class="chat btn btn-danger">发布</button>
 				<button @click="getUserCenter"  class="chat btn btn-danger">个人中心</button> -->
-				<a class=" btn btn-danger" href="javascript:;" @click="ShowDiv('MyDiv','fade')" id="Button1">登录</a><br>
-				<a href="javascript:;" @click="removetoken" class="chat btn btn-danger">退出登录</a><br>
-				<a href="javascript:;" @click="getPublish" class="pb btn btn-danger">发布</a><br>
-				<a href="javascript:;" @click="getUserCenter" class="pc btn btn-danger">个人中心</a>
+				<a class=" btn" href="javascript:;" @click="ShowDiv('MyDiv','fade')" id="Button1">登录</a><br>
+				<a href="javascript:;" @click="removetoken" class="chat btn ">退出登录</a><br>
+				<a href="javascript:;" @click="getPublish" class="pb btn ">发布</a><br>
+				<a href="javascript:;" @click="getUserCenter" class="pc btn ">个人中心</a>
 			</div>
 			<button class="login" @click="showmybuttom()">...</button>
 		</div>
@@ -234,7 +234,7 @@
 				}
 
 				//2创建请求
-				xhr.open('get', 'http://10.1.180.146:10086/M?email=' + email, true);
+				xhr.open('get', 'http://120.79.19.253:10087/M?email=' + email, true);
 				//3发送请求
 				xhr.send(null);
 			} else {
@@ -813,16 +813,16 @@
 		font-size: 20px;
 		line-height: 40px;
 		left: 13px;
-		box-shadow: 0px 0px 12px #000000;
+		box-shadow: 0px 0px 12px #292929;
 	}
 
 	.login-div {
-		width: 120%;
+		width: 90%;
 		float: top;
 		/* border: 1px solid #000000; */
 		border-radius: 5px;
 		background: white;
-		box-shadow: 5px 5px 5px #666666;
+		/* box-shadow: 5px 5px 5px #666666; */
 		overflow: hidden;
 		transition: all 0.5s;
 	}
@@ -831,12 +831,13 @@
 	.chat,
 	.pb,
 	.pc {
+		border-bottom: 1px solid #e5e5e5;
 		font-size: 16px;
 		margin-bottom: 10px;
 		margin-top: 10px;
 	}
 
 	.btn-danger {
-		color: #ffffff;
+		color: #333;
 	}
 </style>

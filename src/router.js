@@ -22,6 +22,7 @@ import chat from "./views/Chatviews.vue"
 import chat1 from "./components/Chat.1.vue"
 import order from "./views/Order.vue"
 import card from "./components/card.vue"
+import pressage from "./views/pressage.vue"
 
 Vue.use(Router)
 
@@ -30,6 +31,11 @@ export default new Router({
 			path: '/',
 			name: 'index',
 			component: index
+		},
+		{
+			path:'/pressage',
+			name:'pressage',
+			component:pressage
 		},
 		{
 				path: '/card',

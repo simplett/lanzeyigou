@@ -6,7 +6,7 @@
 		<search />
 		<!-- 这是轮播 -->
 		<div class="IMG">
-			<img :src="codeid.imgurl[7]" alt="">
+			<img :src="codeid.imgurl[7]">
 		</div>
 		<!--  -->
 		<!-- 7个图片 -->
@@ -50,7 +50,7 @@
 						<tbody>
 							<tr>
 								<td class="td-top" colspan="2">
-									<a class="td-top-p-intro" href="javascript:;">{{item.intro}}</a>
+									<a class="td-top-p-intro" href="javascript:;">{{item.pname}}</a>
 								</td>
 							</tr>
 							<tr>
@@ -58,7 +58,7 @@
 									<p>￥{{item.price}}</p>
 								</td>
 								<td class="td-p-right">
-									<p><a>{{item.customer}}</a>人想要</p>
+									<p><a>{{item.watched}}</a>人想要</p>
 								</td>
 							</tr>
 						</tbody>
@@ -88,7 +88,6 @@
 			<button type="button" @click="tolist(listdata[4])" class="btn btn-default px-3 bg-light">{{codeid.name[4]}}</button>
 			<button type="button" @click="tolist(listdata[5])" class="btn btn-default px-3 bg-light">{{codeid.name[5]}}</button>		
 		</div>
-		<reg-login />
 		<my-foot></my-foot>
 	</div>
 </template>
@@ -148,7 +147,7 @@
 					.then(result => {
 						console.log(result.data.data);
 						this.datas.push(result.data.data);
-						console.log("这是商品列别的数据", this.datas);
+						console.log("这是商品列别的数据111111", this.datas);
 						var i = 0;
 						for (var items of this.datas) {
 							console.log("裁剪之后的数组", "pimages", items);
@@ -284,7 +283,7 @@
 	.title {
 		width: 1180px;
 		height: 68px;
-		border-bottom: 1px solid black;
+		border-bottom: 1px solid #2c3e50;
 		margin: 0 auto;
 		margin-top: 60px;
 		margin-bottom: 30px;
@@ -295,7 +294,7 @@
 		width: 250px;
 		height: 100%;
 		padding-bottom: 19px;
-		border-bottom: 5px solid black;
+		border-bottom: 5px solid #2c3e50;
 	}
 
 	.title-div>a {
@@ -325,6 +324,9 @@
 		margin-bottom: 10px;
 		/* float: left; */
 	}
+	.products:hover{
+		box-shadow: 2px 2px 10px #909090;
+	}
 
 	.products-img {
 		margin: 0 auto;
@@ -349,7 +351,7 @@
 	.td-top {
 		/* // border:1px solid green; */
 		height: 30px;
-		padding-bottom: 25px;
+		padding: 10px 0;
 	}
 
 	.td-left {
@@ -439,7 +441,7 @@
 		display: -webkit-box;
 		-webkit-box-orient: vertical;
 		padding: 0;
-		color: #999999;
+		color: #000;
 		font-size: 12px;
 	}
 
@@ -453,7 +455,7 @@
 
 	.IMG {
 		width: 1180px;
-		height:500px;
+		height:400px;
 		margin: 0 auto;
 	}
 

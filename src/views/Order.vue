@@ -59,15 +59,15 @@
 
 			</div>
 		</div>
-		<div class="quality">品质保障</div>
+		<!-- <div class="quality">品质保障</div>
 		<div class="q-s">
 			<div class="q-s-txt">
 				<div class="txt-btn">店铺热销</div>
-				<img src="../../public/images/logo.png">
-				<img src="../../public/images/logo.png">
+				<img src="">
+				<img src="">
 			</div>
-			<img src="../../public/images/banner1.png">
-		</div>
+			<img src="../../public/images/banner1.jpg">
+		</div> -->
 		<my-foot />
 		<el-dialog title="提示" :visible.sync="dialogVisible" width="30%" :before-close="handleClose">
 			<span>这是一段信息</span>
@@ -81,7 +81,6 @@
 				<el-button type="primary" @click="add_address()">确 定</el-button>
 			</span>
 		</el-dialog>
-		<reg-login />
 	</div>
 </template>
 <script>
@@ -100,26 +99,14 @@
 				dialogVisible: false,
 				checked: true,
 				addressdata: [{
-					name: "我是你爸爸",
+					name: "这是测试的数据",
 					address: "云南省昆明市盘龙区环城东路50号",
-					phone: "13114134005"
+					phone: "10000"
 				}, {
-					name: "我是你爸爸",
+					name: "这是测试的数据",
 					address: "云南省昆明市盘龙区环城东路50号",
-					phone: "13114134005"
-				}, {
-					name: "我是你爸爸",
-					address: "云南省昆明市盘龙区环城东路50号",
-					phone: "13114134005"
-				}, {
-					name: "我是你爸爸",
-					address: "云南省昆明市盘龙区环城东路50号",
-					phone: "13114134005"
-				}, {
-					name: "我是你爸爸",
-					address: "云南省昆明市盘龙区环城东路50号",
-					phone: "13114134005"
-				}, ]
+					phone: "10086"
+				}]
 			};
 		},
 		components: {

@@ -30,7 +30,7 @@
 						<div class="p-g-div-money">
 							<span>￥34.90(含运费￥0.00)</span>
 							<div>
-								<a href="javascript:;" class="btn btn-primary"></a>
+								<a href="javascript:;" class="btn btn-primary" @click="preDetails">详情</a>
 								<a href="javascript:;" class="btn btn-primary"></a>
 							</div>
 						</div>
@@ -51,12 +51,18 @@
 </div>
 </template>
 <script>
+import pressage from "../views/pressage.vue"
 export default {
   data() {
     return {}
   },
   methods: {
-    
+    preDetails(){
+		this.$router.push("/pressage")
+	}
+  },
+  components:{
+	  pressage
   }
 };
 </script>
@@ -144,7 +150,7 @@ div.el-step__title{
 }
 .b-g-b-p{
 	height:40px;
-	width:99%;
+	width:105%;
 	background:#f6f6f6;
 }
 .b-g-b-p>p{

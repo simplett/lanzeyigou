@@ -16,7 +16,9 @@
 					<div class="y-q-q">
 						<p class="text-left">个人签名:{{userdata.description}}</p>
 					</div>
+					<!-- <div id="qrcode" class="float-right h-100">gjfgjf</div> -->
 				</div>
+				<div class="qrcode" id="qrCode" ref="qrCodeDiv"></div>
 			</div>
 			<!-- 商品 -->
 			<div class="product-state">
@@ -31,9 +33,9 @@
 
 			</div>
 		</div>
-		<reg-login />
+		<!-- <reg-login />	 -->
 		<my-foot />
-		
+
 	</div>
 </template>
 
@@ -41,8 +43,10 @@
 	// import search from "../components/search.vue"
 	// import a1 from "../components/personother/sellgoods.vue"
 	import delproduct_usercenter from "../components/DelProduct_other.vue"
+	import QRCode from 'qrcodejs2'
 
 	export default {
+		components:{QRCode},
 		data() {
 			return {
 				user_pid: [],
@@ -51,7 +55,27 @@
 			}
 		},
 		methods: {
-
+			//生成二维码
+			qrcode() {
+				var data = this.uid;
+				var c = {
+					"type":"user",
+					"uid": data
+				};
+				c = JSON.stringify(c);
+				console.log(c)
+				document.getElementById("qrCode").innerHTML = "";
+				setTimeout(() => {
+				new QRCode(this.$refs.qrCodeDiv, {
+				text: c,
+				width: 150,
+				height: 150,
+				colorDark: "#ff0000", //二维码颜色
+				colorLight: "#ffffff", //二维码背景色
+				correctLevel: QRCode.CorrectLevel.H//容错率，L/M/H
+				})
+				}, 100)
+			},
 			open5() {
 				this.$notify.error({
 					title: '错误',
@@ -77,7 +101,7 @@
 						console.log("########################################################这是其他用户中心的第一次成功数据请求", result);
 						this.userdata = result.data;
 					})
-				} 
+				}
 			},
 			GetUserHot() {
 				this.axios
@@ -102,15 +126,19 @@
 			this.getRouterData(),
 				this.GetUserData(),
 				this.GetUserHot()
+		},
+		mounted() {
+			this.qrcode()
 		}
 
 	}
 </script>
 <style lang="stylus" scoped>
-	.myproduct{
+	.myproduct {
 		padding 10px 15px;
 		background #DAE0E5;
 	}
+
 	.y-intro {
 		width: 1180px;
 		height: 100%;
@@ -150,6 +178,17 @@
 		// border:1px solid purple;
 		float: left;
 		margin-left: 50px;
+	}
+	.qrcode{
+		float:left;
+		height:100%;
+		// border:1px solid red;
+		width:200px;
+		display:flex;
+		justify-content:center;
+		align-items:center;
+		
+		
 	}
 
 	.y-q-c p {
@@ -208,7 +247,7 @@
 		height: 400px;
 		// border:1px solid red;
 		// padding-left: 95px;
-		margin-right:10px;
-		margin-left:10px;
+		margin-right: 10px;
+		margin-left: 10px;
 	}
 </style>

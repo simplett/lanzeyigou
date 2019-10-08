@@ -39,23 +39,7 @@
 						}, 1000);
 					}
 				},
-				options: [{
-					value: 'fushi',
-					label: '服装服饰',
-					children: [{
-						value: 'yizhi',
-						label: '一致'
-					}, {
-						value: 'fankui',
-						label: '反馈'
-					}, {
-						value: 'xiaolv',
-						label: '效率'
-					}, {
-						value: 'kekong',
-						label: '可控'
-					}]
-				}]
+				
 			}
 		},
 		watch:{

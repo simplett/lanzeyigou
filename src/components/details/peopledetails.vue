@@ -23,6 +23,7 @@
 		</div>
 		<div class="conten">
 			<div>
+				<div>
 				<span>转卖0笔</span>
 				<span>1人评价</span>
 			</div>
@@ -35,6 +36,9 @@
 				<span>10分</span>
 			</div>
 			<a class="btn btn-danger" @click="userrouter(proper.uid)">查看详细</a>
+			</div>
+			<div class="qrcode" id="qrCode" ref="qrCodeDiv"></div>
+			
 		</div>
 		<div class="introduce">
 			<div class="visits">
@@ -54,8 +58,30 @@
 	</div>
 </template>
 <script>
+	import QRCode from 'qrcodejs2'
 	export default {
 		methods:{
+			//生成二维码
+			qrcode() {
+				var data =this.proper.pid;
+				var c = {
+					"type":"product",
+					"pid":data
+				};
+				c = JSON.stringify(c);
+				console.log(c,"我是二维码的数据")
+				document.getElementById("qrCode").innerHTML = "";
+				setTimeout(() => {
+				new QRCode(this.$refs.qrCodeDiv, {
+				text: c,
+				width: 100,
+				height: 100,
+				colorDark: "#ff0000", //二维码颜色
+				colorLight: "#ffffff", //二维码背景色
+				correctLevel: QRCode.CorrectLevel.H//容错率，L/M/H
+				})
+				}, 100)
+			},
 			userrouter(uid) {
 				console.log(uid);
 				this.$router.push({
@@ -71,7 +97,10 @@
 				default: "111"
 			}
 		},
-		name: "peopledetails"
+		name: "peopledetails",
+		mounted(){
+			this.qrcode();
+		}
 	};
 </script>
 <style scoped>
@@ -132,16 +161,29 @@
 		line-height: 16px;
 		margin-bottom: 10px !important;
 	}
-
+.qrcode{
+		float:left;
+		height:100%;
+		 /* border:1px solid red; */
+		width:200px;
+		display:flex;
+		justify-content:center;
+		align-items:center;
+		
+		
+	}
 	.conten {
 		width: 100%;
 		height: 148px;
 		border-bottom: 1px solid #e6e6e6;
 		text-align: left;
 		padding-left: 10px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 
-	.conten>div {
+	.conten>div>div {
 		text-align: left;
 		height: 20px;
 		line-height: 20px;
@@ -149,7 +191,7 @@
 		margin-top: 10px;
 	}
 
-	.conten>a {
+	.conten>div>a {
 		width: 100px !important;
 		color: #ffffff !important;
 		text-align: center;
