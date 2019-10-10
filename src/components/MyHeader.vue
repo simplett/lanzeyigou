@@ -53,7 +53,7 @@
 							<el-dropdown-item><a href="tel:18214594484">拨号</a></el-dropdown-item>
 						</el-dropdown-menu>
 					</el-dropdown>
-					<el-menu-item index="4" style="margin-left:100px;" @click="getUserCenter()">收藏夹</el-menu-item>
+					<el-menu-item index="4" style="margin-left:100px;"><a href="https://lanzesucai.oss-cn-beijing.aliyuncs.com/__UNI__010C860_1010000233.apk">下载app</a></el-menu-item>
 					<el-dropdown style="margin-right:100px">
 						<span class="el-dropdown-link">
 							蓝沢帮助<i class="el-icon-arrow-down el-icon--right"></i>

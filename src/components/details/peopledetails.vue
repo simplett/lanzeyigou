@@ -25,7 +25,7 @@
 			<div>
 				<div>
 				<span>转卖0笔</span>
-				<span>1人评价</span>
+				<!-- <span>1人评价</span> -->
 			</div>
 			<div>
 				<span>靠谱度</span>
@@ -60,10 +60,16 @@
 <script>
 	import QRCode from 'qrcodejs2'
 	export default {
+		data(){
+			return{
+				pid:1
+			}
+		},
 		methods:{
 			//生成二维码
 			qrcode() {
-				var data =this.proper.pid;
+				var data =this.pid;
+				console.log(this.pid,"商品的id")
 				var c = {
 					"type":"product",
 					"pid":data
@@ -98,7 +104,9 @@
 			}
 		},
 		name: "peopledetails",
-		mounted(){
+		updated(){
+			console.log(this.proper.pid,"*************************");
+			this.pid=this.proper.pid;
 			this.qrcode();
 		}
 	};
@@ -160,6 +168,7 @@
 		height: 16px;
 		line-height: 16px;
 		margin-bottom: 10px !important;
+		overflow: hidden;
 	}
 .qrcode{
 		float:left;

@@ -25,7 +25,7 @@
 			<br />
 			<div>
 				交易方式 :
-				<a>
+				<a class="lanzechat">
 					<img src="../../../public/images/details/pay.png" style="margin-left:10px;" />
 				</a>
 			</div>
@@ -74,8 +74,15 @@
 		name: "detailsCenter",
 		methods: {
 			tosay(uid){
-				this.$store.commit("SAVE_sayuid", uid);
-				this.$router.push("/chat");
+				// this.$store.commit("SAVE_sayuid", uid);
+				// this.$router.push("/otherperple");
+				console.log(uid);
+					this.$router.push({
+						name: "otherperson",
+						query: {
+							uid
+						}
+					});
 			},
 
 			// guarantee(){

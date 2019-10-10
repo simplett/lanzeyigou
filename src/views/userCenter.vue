@@ -23,13 +23,13 @@
 							<img src="../../public/images/usercenter/shoucang.png" alt="">关注</a>
 					</li>
 					<!-- 聊天 -->
-					<li>
+					<!-- <li>
 						<a @click="tabshow(3)">
 							<img src="../../public/images/usercenter/liaotian.png" alt="">聊天</a>
-					</li>
+					</li> -->
 					<!-- 评论 -->
 					<li>
-						<a @click="tabshow(4)">
+						<a @click="tabshow(3)">
 							<img src="../../public/images/usercenter/pinglun.png" alt="">评论</a>
 					</li>
 					<!-- 交易记录 -->
@@ -38,8 +38,8 @@
 							<img src="../../public/images/usercenter/zhanghao.png" alt="">交易记录</a>
 					</li>
 					<ul class="trad-re">
-						<li @click="tabshow(5)">已购商品</li>
-						<li @click="tabshow(6)">未完成交易</li>
+						<li @click="tabshow(4)">已购商品</li>
+						<li @click="tabshow(5)">未完成交易</li>
 					</ul>
 				</ul>
 			</div>
@@ -97,7 +97,7 @@
 	import c1 from "../components/personcenter.vue"
 	import c2 from "../components/collect.vue"
 	import c3 from "../components/focus.vue"
-	import c4 from "../components/Chat.vue"
+	// import c4 from "../components/Chat.vue"
 	import c5 from "../components/Comment.vue"
 	import c6 from "../components/boughtgoods.vue"
 	import c7 from "../components/publishgoods.vue"
@@ -111,7 +111,7 @@
 				uid: "",
 				activeName: '1',
 				input: '',
-				c: ["c1", "c2", "c3", "c4", "c5", "c6", "c7"],
+				c: ["c1", "c2", "c3", "c5", "c6", "c7"],
 				contentView: 'c1'
 			};
 		},
@@ -262,7 +262,7 @@
 			c1,
 			c2,
 			c3,
-			c4,
+			// c4,
 			c5,
 			c6,
 			c7
